@@ -2,24 +2,19 @@ import React from 'react'
 import {HashRouter, Route, Switch} from 'react-router-dom'
 // import { createHashHistory } from 'history';
 
-// 引入page
+// 引入公共组件
 import Foot from '../components/footer';
 import Header from '../components/header';
-import Main from '../components/main';
 
-import Page1 from '../pages/page1';
-import ReduxDemo from '../components/reduxDemo';
-
+import RouterMap from './routerMap'
 
 
  const routes= (
     <HashRouter>
         <div>
             <Header/>
-            <Route exact path='/page1' component={Page1}></Route>
-            <Route exact path='/' component={Main}></Route>
-            <Route exact path='/reduxdemo' component={ReduxDemo}></Route>
              {/* 公共组件写在这里 */}
+             <RouterMap/>
             <Foot name="duhonghui" />
         </div>
     </HashRouter>
