@@ -1,8 +1,20 @@
 import React from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
-// 引入页面
-import Main from '../components/main';
-import Page1 from '../pages/page1';
+import Loadable from 'react-loadable';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import RouterLoad from "./loading";
+
+// 动态引入组件
+const Main = Loadable({
+    loader: () => import('../pages/main'),
+    loading: RouterLoad
+})
+const Page1 = Loadable({
+    loader: () => import('../pages/page1'),
+    loading: RouterLoad
+})
+
+
+
 export default () => {
     return (
         <Switch>
