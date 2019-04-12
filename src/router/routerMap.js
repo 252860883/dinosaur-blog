@@ -1,26 +1,39 @@
 import React from 'react'
 import Loadable from 'react-loadable';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import RouterLoad from "./loading";
 
-// 动态引入组件
-const Main = Loadable({
-    loader: () => import('../pages/main'),
-    loading: RouterLoad
-})
-const Page1 = Loadable({
-    loader: () => import('../pages/page1'),
-    loading: RouterLoad
-})
 
+const RouterMenu = [
+    {
+        key: 'Main',
+        url: import('../pages/main'),
+        link: '/main'
+    },
+    {
+        key: 'Page1',
+        url: import('../pages/page1'),
+        link: '/page1'
+    }
+]
 
-
-export default () => {
+const RouterMap = () => {
     return (
         <Switch>
-            <Route exact path='/page1' component={Page1}></Route>
-            <Route exact path='/' component={Main}></Route>
+            {
+                RouterMenu.map(routeItem => (<Route exact key={routeItem.key} path={routeItem.link} component={
+                    Loadable({
+                        loader: () => routeItem.url,
+                        loading: RouterLoad
+                    })
+                }></Route>)
+                )
+            }
         </Switch>
-
     )
+}
+
+export {
+    RouterMenu,
+    RouterMap
 }

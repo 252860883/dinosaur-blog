@@ -1,11 +1,12 @@
 nav{
     width: 100%;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
 }
 
 nav a{
     display: block;
-    margin: 20px;
+    margin: 0 20px;
     font-style: normal;
+    font-weight: bold;
 }

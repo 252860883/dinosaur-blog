@@ -1,14 +1,14 @@
 import React from 'react'
-import {HashRouter, Route, Switch} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 // import { createHashHistory } from 'history';
 
 // 引入公共组件
 import Foot from '../components/footer';
-import Header from '../components/header';
+import Header from '../components/header/header';
 
-import RouterMap from './routerMap'
+import {RouterMap} from './routerMap'
 
-
+console.log(<RouterMap/>)
  const routes= (
     <HashRouter>
         <div>
