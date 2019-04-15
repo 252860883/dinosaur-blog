@@ -7,14 +7,16 @@ export default class Header extends React.Component {
         super(props);
         this.state={
         }
-
-        // console.log(this)
     }
+    clickNav(route){
+        // this.props.history.push(route.link);
+    }
+
     render() {
         return (
             <div className="header">
                 <nav>
-                    {RouterMenu.map(item=>(<a key={item.key} >{item.key}</a>))}
+                    {RouterMenu.map(item=>(<a key={item.key} onClick={this.clickNav(item)}>{item.key}</a>))}
                 </nav>
             </div>
         )
