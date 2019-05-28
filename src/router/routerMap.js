@@ -11,7 +11,12 @@ const RouterMenu = [
         link: '/main'
     },
     {
-        key: 'Page1',
+        key: '文章',
+        url: import('../pages/page1'),
+        link: '/page1'
+    },
+    {
+        key: '关于',
         url: import('../pages/page1'),
         link: '/page1'
     }

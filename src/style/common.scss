@@ -1,3 +1,14 @@
+// 公共颜色
+$o:#ec5128;
+$b:#0014b3;
+// 自定义字体
+
+@font-face {
+    font-family: Main;
+    src: url('../assets/main.ttf');
+}
+
+
 // 配置默认的css样式
 html,
 body,
@@ -138,17 +149,4 @@ a:active {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-}
-
-// 公共颜色
-$o : #ec5128;
-$b : #0014b3;
-
-.header{
-    width: 100%;
-    height: 50px;
-    // background: $o;
-    line-height: 50px;
-    color: #fff;
-    text-align: center;
 }
