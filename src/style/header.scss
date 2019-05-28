@@ -1,7 +1,11 @@
+@import url('./common.scss');
+// 公共颜色
+
+
 .header{
     width: 100%;
     height: 50px;
-    background: #222;
+    background: $o;
     line-height: 50px;
     color: #fff;
     text-align: center;

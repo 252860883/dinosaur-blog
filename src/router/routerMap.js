@@ -6,7 +6,7 @@ import RouterLoad from "./loading";
 
 const RouterMenu = [
     {
-        key: 'Main',
+        key: '首页',
         url: import('../pages/main'),
         link: '/main'
     },
