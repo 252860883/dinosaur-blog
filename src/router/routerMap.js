@@ -8,7 +8,7 @@ const RouterMenu = [
     {
         key: '首页',
         url: import('../pages/main'),
-        link: '/main'
+        link: '/'
     },
     {
         key: '文章',
@@ -17,8 +17,8 @@ const RouterMenu = [
     },
     {
         key: '关于',
-        url: import('../pages/page1'),
-        link: '/page1'
+        url: import('../pages/about'),
+        link: '/about'
     }
 ]
 

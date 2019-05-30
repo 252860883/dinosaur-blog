@@ -26,7 +26,7 @@ export default class Main extends React.Component {
     }
 
     clickNav() {
-        console.log("======")
+        // console.log("======")
         console.log(this.props)
         this.props.history.push("/reduxdemo");
     }
