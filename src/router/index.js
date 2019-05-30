@@ -4,7 +4,7 @@ import { HashRouter } from 'react-router-dom'
 
 // 引入公共组件
 import Foot from '../components/footer';
-import Header from '../components/header/header';
+import Header from '../components/header';
 
 import { RouterMap } from './routerMap'
 // import createHistory from 'history/createBrowserHistory';

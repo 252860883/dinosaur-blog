@@ -1,5 +1,4 @@
 @import './common.scss';
-// 公共颜色
 
 .header {
     width: 100%;
@@ -30,8 +29,13 @@
             position: relative;
             z-index: 2;
             cursor: pointer;
-        }
 
+            // transform-style: preserve-3d;
+            // transition: all 0.3s;
+            &:hover {
+                // transform: rotateX(10deg) rotateY(10deg);
+            }
+        }
 
         .nav-active::after,
         a:hover::after {
