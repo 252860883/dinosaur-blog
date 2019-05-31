@@ -5,12 +5,13 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    perspective: 25px;
+    perspective: 35px;
 
     #box {
         width: 900px;
         height: 600px;
         background: url('../assets/main-dinosaur.jpg') no-repeat;
+        // background: $o;
         background-size: 100% 100%;
         margin: 0 auto;
         transition: transform 0.5s;

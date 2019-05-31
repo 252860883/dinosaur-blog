@@ -15,21 +15,15 @@ export default class pic3D extends React.Component {
 
     componentDidMount() {
         let container = document.getElementById("container");
-        let box = document.getElementById("box")
-        container.onmouseenter = this.onMouseEnterHandler.bind(this);
+        let box = document.getElementById("box");
         container.onmouseleave = this.onMouseLeaveHandler.bind(this);
         container.onmousemove = this.onMouseMoveHandler.bind(this);
         this.setState({
-            _x: container.offsetLeft + Math.floor(container.offsetWidth / 2),
-            _y: container.offsetTop + Math.floor(container.offsetHeight / 2),
+            _x: container.getBoundingClientRect().left + Math.floor(container.offsetWidth / 2),
+            _y: container.getBoundingClientRect().top + Math.floor(container.offsetHeight / 2),
             container: container,
             box: box
         })
-    }
-
-    onMouseEnterHandler() {
-        // const e = this.state.container;
-        // console.log(e.offsetLeft, e.offsetWidth, e.offsetTop, e.offsetHeight)
     }
     onMouseLeaveHandler(e) {
         this.state.box.style.transform = this.state.box.style.webkitTransform = "";
@@ -39,9 +33,8 @@ export default class pic3D extends React.Component {
         const box = this.state.box;
         const container = this.state.container;
         requestAnimationFrame(() => {
-            const x = ((e.clientX - this.state._x) * -1/ container.offsetWidth / 2).toFixed(2);
-            const y = ((e.clientY - this.state._y)  / container.offsetHeight / 2).toFixed(2);
-            // console.log(e.clientY, this.state._y, container.offsetWidth, container.offsetHeight); 
+            const y = ((e.clientX - this.state._x) / container.offsetWidth / 2).toFixed(2);
+            const x = ((e.clientY - this.state._y)* -1  / container.offsetHeight / 2).toFixed(2);
             var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
             box.style.transform = box.style.webkitTransform = style;
         })
