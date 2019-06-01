@@ -24,9 +24,15 @@ export default class pic3D extends React.Component {
             container: container,
             box: box
         })
+        console.log(box.childNodes)
     }
     onMouseLeaveHandler(e) {
         this.state.box.style.transform = this.state.box.style.webkitTransform = "";
+        let boxChild = [...this.state.box.childNodes]
+        boxChild.map(item => {
+            console.log(item.className)
+            item.style.transform = item.style.webkitTransform = "";
+        })
     }
     onMouseMoveHandler(e) {
         var e = e || window.event;
@@ -34,9 +40,20 @@ export default class pic3D extends React.Component {
         const container = this.state.container;
         requestAnimationFrame(() => {
             const y = ((e.clientX - this.state._x) / container.offsetWidth / 2).toFixed(2);
-            const x = ((e.clientY - this.state._y)* -1  / container.offsetHeight / 2).toFixed(2);
-            var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+            const x = ((e.clientY - this.state._y) * -1 / container.offsetHeight / 2).toFixed(2);
+            var style = "rotateX(" + x + "deg) rotateY(" + y + "deg) matrix(1, 0, 0, 1,0,0) scale3d(1, 1, 1)";
             box.style.transform = box.style.webkitTransform = style;
+            let boxChild = [...box.childNodes]
+            let style2 =
+                boxChild.map(item => {
+                    let style;
+                    if (item.className.match(/reverse/)) {
+                        style = `matrix(1, 0, 0, 1, ${y * 20}, ${-x * 20})`
+                    } else {
+                        style = `matrix(1, 0, 0, 1, ${-y * 20}, ${x * 20})`
+                    }
+                    item.style.transform = item.style.webkitTransform = style;
+                })
         })
 
     }
@@ -44,7 +61,10 @@ export default class pic3D extends React.Component {
     render() {
         return (
             <div id="container">
-                <div id="box"></div>
+                <div id="box">
+                    <div className="word"></div>
+                    <div className="circle reverse"></div>
+                </div>
             </div>
         )
     }

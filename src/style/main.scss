@@ -1,22 +1,53 @@
 @import './common.scss';
 
 #container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    perspective: 35px;
+    position: relative;
+    width: 800px;
+    margin: 80px auto;
+    perspective: 50px;
 
     #box {
-        width: 900px;
-        height: 600px;
-        background: url('../assets/main-dinosaur.jpg') no-repeat;
-        // background: $o;
+        width: 800px;
+        height: 470px;
+        background: url('../assets/dinosaur.png') no-repeat;
         background-size: 100% 100%;
         margin: 0 auto;
         transition: transform 0.5s;
-        -webkit-transition: transform 0.5s;
-        -moz-transition: transform 0.5s;
-        -o-transition: transform 0.5s;
+        z-index: 1;
     }
+
+    .word {
+        position: absolute;
+        right: 0;
+        top: 200px;
+        width: 400px;
+        height: 150px;
+        background: url('../assets/word.png') no-repeat;
+        background-size: 100% 100%;
+        transition: all 0.5s;
+    }
+
+    .circle {
+        position: absolute;
+        left: 180px;
+        bottom: 10px;
+        width: 220px;
+        height: 220px;
+        background: url('../assets/circle.png') no-repeat;
+        background-size: 100% 100%;
+        transition: all 0.5s;
+    }
+}
+.black-button{
+    width: 80px;
+    text-align: center;
+    display: block;
+    background: #000;
+    color: #ffffff;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 50px;
+    margin: 100px auto;
+
 }
