@@ -12,7 +12,7 @@
         background: url('../assets/dinosaur.png') no-repeat;
         background-size: 100% 100%;
         margin: 0 auto;
-        transition: transform 0.5s;
+        transition: all 0.2s;
         z-index: 1;
     }
 
@@ -24,7 +24,7 @@
         height: 150px;
         background: url('../assets/word.png') no-repeat;
         background-size: 100% 100%;
-        transition: all 0.5s;
+        transition: all 0.2s;
     }
 
     .circle {
@@ -35,7 +35,7 @@
         height: 220px;
         background: url('../assets/circle.png') no-repeat;
         background-size: 100% 100%;
-        transition: all 0.5s;
+        transition: all 0.2s;
     }
 }
 .black-button{
