@@ -55,7 +55,7 @@ export default class pic3D extends React.Component {
         const x = ((mouseY - this.state._y) * -1 / container.offsetHeight / 2).toFixed(2);
         var style = "rotateX(" + x + "deg) rotateY(" + y + "deg) matrix(1, 0, 0, 1,0,0) scale3d(1, 1, 1)";
         box.style.transform = box.style.webkitTransform = style;
-        box.style.transition = auto ? 'all 4s' : 'all 0.2s'
+        box.style.transition = auto ? 'all 4s' : 'all 0.5s'
         let boxChild = [...box.childNodes]
         boxChild.map(item => {
             let style;
@@ -67,7 +67,7 @@ export default class pic3D extends React.Component {
                 style = `matrix(1, 0, 0, 1, ${y * 20}, ${x * 20})`
             }
             item.style.transform = item.style.webkitTransform = style;
-            item.style.transition = auto ? 'all 4s' : 'all 0.2s'
+            item.style.transition = auto ? 'all 4s' : 'all 0.5s'
         })
     }
     // 自动旋转
@@ -78,7 +78,7 @@ export default class pic3D extends React.Component {
         this.timeout = setInterval(() => {
             this.count = this.count == 3 ? 0 : ++this.count
             this.moveBox(coordinate[this.count][0], coordinate[this.count][1], true)
-        }, 3000)
+        }, 5000)
 
     }
 
