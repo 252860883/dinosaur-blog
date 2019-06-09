@@ -19,8 +19,8 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <nav>
-                    <div className="logo"></div>
-                    {RouterMenu.map(item => (<a key={item.key} className={this.state.path == item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</a>))}
+                    <img className="logo" alt="" src={require('../assets/logo.png')} />
+                    {RouterMenu.map(item => (<a key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</a>))}
                 </nav>
             </div>
         )

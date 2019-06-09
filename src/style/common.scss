@@ -8,6 +8,11 @@ $b:#0014b3;
     src: url('../assets/main.ttf');
 }
 
+@font-face {
+    font-family: Text;
+    src: url('../assets/main.otf');
+}
+
 
 // 配置默认的css样式
 html,
@@ -96,6 +101,7 @@ video {
     padding: 0;
     border: 0;
     vertical-align: baseline;
+    font-family: Text;
 }
 
 

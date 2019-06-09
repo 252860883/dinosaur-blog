@@ -36,19 +36,18 @@ export default class pic3D extends React.Component {
     onMouseLeaveHandler(e) {
         this.box.style.transform = this.box.style.webkitTransform = "";
         let boxChild = [...this.box.childNodes]
-        boxChild.map(item => {
+        boxChild.forEach(item => {
             item.style.transform = item.style.webkitTransform = "";
         })
         this.autoMouseMove()
     }
     onMouseMoveHandler(e) {
-        var e = e || window.event;
+        var e1 = e || window.event;
         requestAnimationFrame(() => {
-            this.moveBox(e.clientX, e.clientY);
+            this.moveBox(e1.clientX, e1.clientY);
         })
     }
     moveBox(mouseX, mouseY, auto) {
-        console.log(mouseX, mouseY)
         const box = this.box;
         const container = this.container;
         const y = ((mouseX - this.state._x) / container.offsetWidth / 2).toFixed(2);
@@ -57,7 +56,7 @@ export default class pic3D extends React.Component {
         box.style.transform = box.style.webkitTransform = style;
         box.style.transition = auto ? 'all 4s' : 'all 0.5s'
         let boxChild = [...box.childNodes]
-        boxChild.map(item => {
+        boxChild.forEach(item => {
             let style;
             if (item.className.match(/reverse/)) {
                 style = `matrix(1, 0, 0, 1, ${y * 20}, ${-x * 20})`
@@ -74,9 +73,8 @@ export default class pic3D extends React.Component {
     autoMouseMove() {
         const box = this.box.getBoundingClientRect()
         const coordinate = [[box.x, box.y], [box.right, box.y], [box.right, box.bottom], [box.x, box.bottom]]
-        console.log(coordinate)
         this.timeout = setInterval(() => {
-            this.count = this.count == 3 ? 0 : ++this.count
+            this.count = this.count === 3 ? 0 : ++this.count
             this.moveBox(coordinate[this.count][0], coordinate[this.count][1], true)
         }, 5000)
 

@@ -11,7 +11,7 @@ export default class Main extends React.Component {
         };
         // 必须谨慎对待 JSX 回调函数中的 this，类的方法默认是不会绑定 this 的
         // this.clickNav = this.clickNav.bind(this);
-        console.log(this);
+        // console.log(this);
     }
     // 生命周期函数
     // 输出DOM后会执行 componentDidMount

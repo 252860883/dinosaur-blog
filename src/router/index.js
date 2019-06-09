@@ -9,7 +9,6 @@ import Header from '../components/header';
 import { RouterMap } from './routerMap'
 // import createHistory from 'history/createBrowserHistory';
 
-console.log(<RouterMap />)
 const routes = (
     <HashRouter>
         <div>
