@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/common.scss'
-
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 // 引入路由
 import Root from './router/index';
 
@@ -17,10 +17,18 @@ let store = createStore(todoApp)
 
 //这里是出口文件 
 ReactDOM.render(
-    <Provider store={store}>
-        <Root />
-    </Provider>,
-    document.getElementById('root'));
+    <TransitionGroup>
+        <CSSTransition
+            appear={true}
+            classNames="fade"
+            timeout={500}
+        >
+            <Provider store={store}>
+                <Root />
+            </Provider>
+        </CSSTransition>
+    </TransitionGroup>
+    , document.getElementById('root'));
 registerServiceWorker();
 
 

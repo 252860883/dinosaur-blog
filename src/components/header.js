@@ -9,6 +9,12 @@ class Header extends React.Component {
             path: "/"
         }
     }
+    componentWillMount() {
+        if (!this.props.history.location.pathname) return;
+        this.setState({
+            path: this.props.history.location.pathname
+        })
+    }
     clickNav(route) {
         this.props.history.push(route.link);
         this.setState({
@@ -20,7 +26,13 @@ class Header extends React.Component {
             <div className="header">
                 <nav>
                     <img className="logo" alt="" src={require('../assets/logo.png')} />
-                    {RouterMenu.map(item => (<a key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</a>))}
+                    {RouterMenu.map(item => {
+                        if (item.article) return
+                        else return (
+                            <a key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</a>
+                        )
+                    })
+                    }
                 </nav>
             </div>
         )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Table } from 'antd'
-export default class Page1 extends React.Component {
+export default class Article extends React.Component {
     state = {
     }
     componentDidMount() {
@@ -13,7 +13,7 @@ export default class Page1 extends React.Component {
 
     render() {
         return (
-            <div className="page1">
+            <div className="article">
                 {/* <Table dataSource={this.state.dataSource} columns={this.state.columns}></Table> */}
                 {/* <Button type='ghost'>确定</Button> */}
             </div>
