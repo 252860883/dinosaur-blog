@@ -27,14 +27,13 @@ const routes = (
                             timeout={800}
                         >
                             <div>
-                                
                                 {/* 公共组件写在这里 */}
                                 <RouterMap />
-                                <Foot name="duhonghui" />
                             </div>
                         </CSSTransition>
                     </TransitionGroup>
                 )} />
+            <Foot name="duhonghui" />
         </div>
     </HashRouter>
 )

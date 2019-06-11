@@ -8,14 +8,19 @@ export default class Footer extends React.Component {
             content: '这是一个footer'
         }
     }
-
-    componentWillMount() {
+    componentDidMount() {
+        let footer = document.getElementById('foot');
+        console.log(footer)
+        footer.onresize = function(){
+            console.log('变化')
+        }
         // console.log(this.props)
     }
 
+
     render() {
         return (
-            <footer className="foot">
+            <footer id="foot" className="foot">
                 <span>@{this.props.name} </span>
                 <span>{this.state.content}</span>
             </footer>
