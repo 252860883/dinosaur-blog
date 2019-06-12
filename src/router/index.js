@@ -26,7 +26,7 @@ const routes = (
                             // 动画时间设置为800ms，和css中的需要一致。
                             timeout={800}
                         >
-                            <div>
+                            <div className='app'>
                                 {/* 公共组件写在这里 */}
                                 <RouterMap />
                             </div>
