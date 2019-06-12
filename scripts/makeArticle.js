@@ -1,7 +1,8 @@
 (function () {
     const path = require('path');
     const fs = require('fs');
-    const MD = require("markdown").markdown;
+    // const MD = require("markdown").markdown;
+    const MD = require("./md2html");
     const mdPath = path.resolve(__dirname, '../floder/'); // markdown 文件夹
     const outPath = path.resolve(__dirname, '../src/article/'); // markdown 文件夹
     const routerPath = path.resolve(__dirname, '../src/router/')
@@ -12,14 +13,17 @@
     fs.readdirSync(mdPath).forEach((val, index) => {
         if (path.extname(val) != '.md') return;
         const mdText = fs.readFileSync(mdPath + '/' + val, 'utf8');
-        let newAtricle = template.replace(/\<div[\s\S]*\/div\>/g, function () {
-            // 解决react不兼容 {} 的问题
-            let newDom = MD.toHTML(mdText);
-            newDom = newDom.replace(/{/g,"{'{'}")
-            return `<div className="article">\n${newDom}\n</div>`
-        });
         const newName = path.basename(val, '.md')
         const newPath = outPath + '/' + newName + '.js'
+        let newAtricle = template.replace(/\<div[\s\S]*\/div\>/g, function () {
+            
+            let newDom = MD.Markdown2HTML(mdText);
+            // newDom = newDom.replace(/{/g,"{'{'}")
+            newDom = newDom.replace('//g')
+            // 添加标题
+            newDom = `<div className="title">${newName}</div>\n${newDom}`
+            return `<div className="article">\n${newDom}\n</div>`
+        });
         // console.log(newPath)
         fs.writeFileSync(String(newPath), newAtricle, 'utf8')
         // 添加路由配置

@@ -9,29 +9,36 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<hr/>
+<div className="title">柯里化</div>
+<hr />
 
-<hr/>
+<p>title: '柯里化'<br></br>date: 2018-11-26 14:14:41<br></br>tags: javascript</p>
+
+<h2>top:</h2>
 
 <h3>实现通用curry函数</h3>
 
-<p>继续来深入，前面提到的高阶函数只能是我们针对每一个情况具体来编写代码，那我们能不能直接封装一个公共的函数来实现柯里化呢？
-扒到大神的三行解决方案：
-<code>
-const curry = (fn) =&gt; {'{'}
-    if (fn.length &lt;= 1) return fn;
-    const generator = (args, rest) =&gt; (!rest ? fn(...args) : arg =&gt; generator([...args, arg], rest - 1));
-    return generator([], fn.length);
-};
-</code>
-或者这样：
-<code>
-const curry = (fn, arr = []) =&gt; (...args) =&gt; (
-  arg =&gt; arg.length === fn.length
-    ? fn(...arg)
-    : curry(fn, arg)
-)([...arr, ...args])
-</code></p>
+<p>继续来深入，前面提到的高阶函数只能是我们针对每一个情况具体来编写代码，那我们能不能直接封装一个公共的函数来实现柯里化呢？<br></br>扒到大神的三行解决方案：</p>
+
+<pre><code><span></span>
+<span>const curry = (fn) =&gt; {'{'}</span>
+<span>    if (fn.length &lt;= 1) return fn;</span>
+<span>    const generator = (args, rest) =&gt; (!rest ? fn(...args) : arg =&gt; generator([...args, arg], rest - 1));</span>
+<span>    return generator([], fn.length);</span>
+<span>};</span>
+<span></span>
+</code></pre>
+
+<p>或者这样：</p>
+
+<pre><code><span></span>
+<span>const curry = (fn, arr = []) =&gt; (...args) =&gt; (</span>
+<span>  arg =&gt; arg.length === fn.length</span>
+<span>    ? fn(...arg)</span>
+<span>    : curry(fn, arg)</span>
+<span>)([...arr, ...args])</span>
+<span></span>
+</code></pre>
 </div>
         )
     }

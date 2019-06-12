@@ -7,7 +7,7 @@ top:
 >如果你是一个前端开发工程师的话，一定遇到过js语言上一些诡异的事情，比如某些运算的结果出现 1.999999999999 ，0.30000000000000004等等类似无限循环的小数，尽管和后端在接口字段上已经约束了保留以为小数。这个过程究竟发生了什么，导致出现如此丧心病狂的数字？下面来为你揭晓。
 
 ![image](http://p70gzm2sm.bkt.clouddn.com/WechatIMG421.png)
-<center style="color:#aaa;">瞧！这诡异的js运算<center>
+瞧！这诡异的js运算
 
 ## IEEE754标准
 
@@ -26,10 +26,10 @@ top:
 还记得怎么十进制转二进制吗？根据前面关于指数位和尾数位的存储方式，我们对于小数和整数位分别有不同的计算方法：
 
 ![image](http://pefosasdn.bkt.clouddn.com/erjinzhi.png)
-<center style="color:#aaa;">整数转二进制运算<center>
+整数转二进制运算
 
 ![image](http://p70gzm2sm.bkt.clouddn.com/abc.png)
-<center style="color:#aaa;">小数转二进制运算<center>
+小数转二进制运算
 
 所以动手来试试 0.1 转二进制是多少呢？
 

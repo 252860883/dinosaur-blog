@@ -9,31 +9,35 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<hr/>
+<div className="title">threejs-开启web的3D大门</div>
+<hr />
 
-<hr/>
+<p>title: threejs 开启web的3D大门<br></br>date: 2018-09-19 14:17:13<br></br>tags:</p>
+
+<h2>top:</h2>
 
 <h3>基础框架</h3>
 
-<p><code></code>`
-// 创建一个场景
-scene = new THREE.Scene();</p>
-
-<p>// 透视相机
-camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
-camera.position.z = 1;</p>
-
-<p>// 向场景里放物体
-geometry = new THREE.BoxGeometry(1, 0.05, 0.05);
-material = new THREE.MeshNormalMaterial();
-mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);</p>
-
-<p>// 渲染器
-renderer = new THREE.WebGLRenderer({'{'} antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-<code></code>`</p>
+<pre><code><span></span>
+<span>// 创建一个场景</span>
+<span>scene = new THREE.Scene();</span>
+<span></span>
+<span>// 透视相机</span>
+<span>camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);</span>
+<span>camera.position.z = 1;</span>
+<span></span>
+<span>// 向场景里放物体</span>
+<span>geometry = new THREE.BoxGeometry(1, 0.05, 0.05);</span>
+<span>material = new THREE.MeshNormalMaterial();</span>
+<span>mesh = new THREE.Mesh(geometry, material);</span>
+<span>scene.add(mesh);</span>
+<span></span>
+<span>// 渲染器</span>
+<span>renderer = new THREE.WebGLRenderer({'{'} antialias: true });</span>
+<span>renderer.setSize(window.innerWidth, window.innerHeight);</span>
+<span>document.body.appendChild(renderer.domElement);</span>
+<span></span>
+</code></pre>
 
 <p>上面的代码示例是一个构建3D视图的流程，那么我们了解一下这几个概念</p>
 
@@ -57,70 +61,74 @@ document.body.appendChild(renderer.domElement);
 
 <p>让物体动起来有两种方法，一种是改变相机<code>camera</code>的位置，一种是改变物体<code>mesh</code>的位置：</p>
 
-<p><code></code>`
-function animate() {'{'}
-    // renderer.clear();
-    var a = 0.01
-    // 改变相机的位置
-    // camera.position.y -= a
-    // camera.position.z -= a
-    // camera.position.x -= a</p>
-
-<pre><code>// 改变物体的位置
-// mesh.position.z -= 1;//位移
-mesh.rotation.x -= 0.01;//旋转
-mesh.rotation.z -= 0.01;//旋转
-
-renderer.render(scene, camera);
-requestAnimationFrame(animate)</code></pre>
-
-<p>}
-<code></code>`</p>
+<pre><code><span></span>
+<span>function animate() {'{'}</span>
+<span>    // renderer.clear();</span>
+<span>    var a = 0.01</span>
+<span>    // 改变相机的位置</span>
+<span>    // camera.position.y -= a</span>
+<span>    // camera.position.z -= a</span>
+<span>    // camera.position.x -= a</span>
+<span></span>
+<span>    // 改变物体的位置</span>
+<span>    // mesh.position.z -= 1;//位移</span>
+<span>    mesh.rotation.x -= 0.01;//旋转</span>
+<span>    mesh.rotation.z -= 0.01;//旋转</span>
+<span></span>
+<span>    renderer.render(scene, camera);</span>
+<span>    requestAnimationFrame(animate)</span>
+<span>}</span>
+<span></span>
+</code></pre>
 
 <h4>stats 性能监听</h4>
 
-<p>既然涉及到循环了，那肯定是一个耗性能的工作了，在这里我们引入 <code>stats.js</code> 来进行性能监测。
-首先引入 <code>stats.js</code> ,github地址：https://github.com/mrdoob/stats.js
-<code>
- &lt;script src=&quot;./stats.js&quot;&gt;&lt;/script&gt;
-</code>
-将 stats 相关代码加入我们之前的代码中：
-<code></code>`
-// 渲染器
-var renderer;
-// 监听器
-var stats;
-function initThree() {'{'}
-    console.log(window.innerHeight)
-    width = window.innerWidth
-    height = window.innerHeight
-    renderer = new THREE.WebGLRenderer({'{'}
-        antialias: true
-    });
-    renderer.setSize(width, height);
-    document.getElementsByTagName(&#39;body&#39;)[0].appendChild(renderer.domElement);
-    renderer.setClearColor(0xFFFFFF, 1.0);
-    // 新建一个 stats 实例
-    stats = new Stats();
-    stats.domElement.style.position = &#39;absolute&#39;;
-    stats.domElement.style.left = &#39;0px&#39;;
-    stats.domElement.style.top = &#39;0px&#39;;
-    document.getElementsByTagName(&#39;body&#39;)[0].appendChild(stats.domElement);
-}</p>
+<p>既然涉及到循环了，那肯定是一个耗性能的工作了，在这里我们引入 <code>stats.js</code> 来进行性能监测。<br></br>首先引入 <code>stats.js</code> ,github地址：https:undefinedithub.com/mrdoob/stats.js</p>
 
-<p>...</p>
+<pre><code><span></span>
+<span> &lt;script src="./stats.js"&gt;&lt;/script&gt;</span>
+<span></span>
+</code></pre>
 
-<p>// 动起来
-function animate() {'{'}
-    // 改变物体的位置
-    mesh.rotation.x -= 0.01;//旋转
-    mesh.rotation.z -= 0.01;//旋转
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
-    // 来统计时间和帧数
-    stats.update();
-}
-<code></code>`</p>
+<p>将 stats 相关代码加入我们之前的代码中：</p>
+
+<pre><code><span></span>
+<span>// 渲染器</span>
+<span>var renderer;</span>
+<span>// 监听器</span>
+<span>var stats;</span>
+<span>function initThree() {'{'}</span>
+<span>    console.log(window.innerHeight)</span>
+<span>    width = window.innerWidth</span>
+<span>    height = window.innerHeight</span>
+<span>    renderer = new THREE.WebGLRenderer({'{'}</span>
+<span>        antialias: true</span>
+<span>    });</span>
+<span>    renderer.setSize(width, height);</span>
+<span>    document.getElementsByTagName('body')[0].appendChild(renderer.domElement);</span>
+<span>    renderer.setClearColor(0xFFFFFF, 1.0);</span>
+<span>    // 新建一个 stats 实例</span>
+<span>    stats = new Stats();</span>
+<span>    stats.domElement.style.position = 'absolute';</span>
+<span>    stats.domElement.style.left = '0px';</span>
+<span>    stats.domElement.style.top = '0px';</span>
+<span>    document.getElementsByTagName('body')[0].appendChild(stats.domElement);</span>
+<span>}</span>
+<span></span>
+<span>...</span>
+<span></span>
+<span>// 动起来</span>
+<span>function animate() {'{'}</span>
+<span>    // 改变物体的位置</span>
+<span>    mesh.rotation.x -= 0.01;//旋转</span>
+<span>    mesh.rotation.z -= 0.01;//旋转</span>
+<span>    renderer.render(scene, camera);</span>
+<span>    requestAnimationFrame(animate);</span>
+<span>    // 来统计时间和帧数</span>
+<span>    stats.update();</span>
+<span>}</span>
+<span></span>
+</code></pre>
 
 <p>虽然这个办法可以让物体动起来，但是对于复杂的动画效果还是不适用，这里推荐一个动画引擎 <code>Tween.js</code>来实现不规则的动画。</p>
 </div>

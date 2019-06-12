@@ -24,13 +24,16 @@
             display: inline-block;
             transition: all 0.3s;
             transform-origin: 20px left;
-            .time{
+
+            .time {
                 margin-right: 10px;
             }
-            &:hover{
+
+            &:hover {
                 opacity: 0.8;
-                
+
             }
+
             // display: flex;
             // align-items: center;
 
@@ -50,23 +53,121 @@
     }
 }
 
+/*  文章版式 */
 
-.article{
-    width: 900px;
-    margin: 0 auto;
+.article {
+    width: 600px;
+    margin: 50px auto;
     font-size: 14px;
     line-height: 20px;
-    
-    p{
-        margin: 20px auto;
-    }
-    h1{
+    color: #222;
 
+    .title {
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+        margin: 50px auto;
     }
-    img{
+
+    p {
+        margin: 20px auto;
+        line-height: 30px;
+    }
+
+    h1 {}
+
+    h2 {}
+
+    h3 {
+        color: $o;
+        margin: 20px 0;
+    }
+
+    img {
         display: block;
         width: 80%;
         height: auto;
         margin: 20px auto;
     }
+
+    hr {
+        // display: none;
+        width: 70%;
+        opacity: 0.5;
+        margin: 50px auto;
+    }
+
+    a{
+        color: #222;
+        font-style: normal;
+    }
+
+    pre code {
+        display: block;
+        background: #222;
+        color: #ccc;
+        padding: 10px;
+        margin: 20px 0;
+        white-space: pre-line;
+        overflow: auto;
+
+        span {
+            display: block;
+            line-height: 30px;
+            white-space: pre;
+        }
+    }
+
+    code {
+        display: inline-block;
+        background: #eeeeee;
+        padding: 2px 4px;
+        border-radius: 3px;
+        word-wrap: break-word;
+        box-sizing: border-box;
+        margin-left:5px;
+        font-size: 13px;
+        line-height: 13px;
+
+    }
+
+    ol {
+        list-style-type: disc;
+
+        li {
+            list-style-position: inside;
+            margin: 5px auto;
+            font-weight: bold;
+        }
+    }
+
+    blockquote {
+        border-left: 8px solid $o;
+        padding-left: 20px;
+    }
+
+    table{
+        width: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+        box-sizing: border-box;
+        tr{
+            line-height: 40px;
+            th{
+                background: #222;
+                border: 1px solid #222;
+                color: #eee;
+            }
+            td{
+                text-align: center;
+                border-bottom: 1px solid #222;
+                border-right: 1px solid #222;
+                &:first-of-type{
+                    border-left: 1px solid #222; 
+                }
+            }
+            
+        }
+    }
+
 }
