@@ -10,12 +10,6 @@ export default class Main extends React.Component {
         return (
             <div className="article">
 <div className="title">聊聊ajax、fetch、axios</div>
-<hr />
-
-<p>title: 聊聊ajax、fetch、axios<br></br>date: 2019-03-16 19:40:09<br></br>tags: javascript</p>
-
-<h2>top:</h2>
-
 <blockquote>
   <p>关于接口请求方法，近几年来有些变化，从一开始原生JS <code>AJAX</code> 到 JQuery 的 <code>$.ajax()</code>,再到 <code>Fetch</code> 和 vue 推荐的 <code>Axios</code>，但是否真正了解到每一个方法的优劣与使用场景了吗？</p>
 </blockquote>
@@ -128,7 +122,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<p>更多关于 axios 的使用方法，直接访问 <a href="https:undefinedithub.com/axios/axios">github</a> 查阅吧。</p>
+<p>更多关于 axios 的使用方法，直接访问 <a href="https://github.com/axios/axios">github</a> 查阅吧。</p>
 
 <h3>Fetch</h3>
 

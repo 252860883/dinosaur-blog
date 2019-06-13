@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">JavaScript设计模式系列（一）开发者模式</div>
-<hr />
-
-<p>title: JavaScript设计模式（一）观察者模式<br></br>date: 2018-06-26 12:55:56</p>
-
-<h2>tags: javascript</h2>
-
+<div className="title">JavaScript设计模式（一）观察者模式</div>
 <blockquote>
   <p>观察者模式可谓是设计模式中非常经典的一个了，在众多的前端库中也能找到他的踪迹，比如JQ的on和trigger中封装的方法、VUE组件间实现通信的emit()和on()方法等等。自从某次面试被新浪dalao要求手写观察者模式代码被惨虐以后便决心好好研究一下这个东西！</p>
 </blockquote>

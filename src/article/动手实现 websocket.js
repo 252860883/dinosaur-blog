@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">动手实现 websocket</div>
-<hr />
-
-<p>title: 动手实现前后端 websocket 通信<br></br>date: 2019-04-09 15:24:20</p>
-
-<h2>tags: [html5,nodejs]</h2>
-
+<div className="title">动手实现前后端 websocket 通信</div>
 <p>毕设做的是一个校园约自习室网站，为了增强其互动性，我决定加入聊天系统来实现学生和管理员之间的联系。提到实时聊天，第一时间肯定联想到H5新加入的 WebSocket 了，WebSocket 作为一种通信协议，属于服务器推送技术的一种，其他的还有 短轮询、长轮询、Server-sent Events（SSE）等。</p>
 
 <h3>服务器推送技术</h3>

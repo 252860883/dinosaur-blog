@@ -81,6 +81,11 @@ else
             g_html_blocks = [];
             g_list_level = 0;
 
+            // 处理头部文章信息
+            var getArticle = _getArticleMessage(text)
+            text = getArticle.text;
+            var article = getArticle.article;
+
             text = pluginHooks.preConversion(text);
 
             // attacklab: Replace ~ with ~T
@@ -134,8 +139,31 @@ else
             // 解决 <!-- 的报错
             text = text.replace(/\<!/g, "{'<!'}");
 
-            return text;
+            return {
+                text,
+                article
+            };;
+
         };
+
+        function _getArticleMessage(text) {
+            var article = {}
+            text = text.replace(/^\-{3}(((?!\-{3})[\s\S])*)\-{3}/g, function (all, m1, m2, m3) {
+                // console.log(m1);
+                var propslists = m1.split('\n');
+                propslists.map(item => {
+                    var prop = item.split(': ')
+                    if (prop[0]) {
+                        article[prop[0]] = prop[1] || ''
+                    }
+                })
+                return ""
+            })
+            return {
+                text,
+                article
+            };
+        }
 
         function _StripLinkDefinitions(text) {
             text = text.replace(/^[ ]{0,3}\[(.+)\]:[ \t]*\n?[ \t]*<?(\S+?)>?(?=\s|$)[ \t]*\n?[ \t]*((\n*)["(](.+?)[")][ \t]*)?(?:\n+)/gm,
@@ -614,7 +642,7 @@ else
 
             var markerRe = /~K(\d+)K/;
 
-            var tableRe = /\n(\|\-\-)+\|\n/
+            var tableRe = /\n(\s*\|\s*\-\-\s*)+\|\n/
             //
             // Wrap <p> tags.
             //
@@ -629,7 +657,7 @@ else
                     var tableList = str.split('\n')
                     str = '<table>'
                     tableList.map((item, index) => {
-                        if(index === 1) return;
+                        if (index === 1) return;
                         str += '<tr>'
                         var thlist = item.split('|')
                         thlist.pop()
@@ -642,7 +670,6 @@ else
                     })
                     str += '</table>'
                     // grafsOut.push(str);
-                    console.log(str)
                 }
 
                 // if this is an HTML marker, copy it
@@ -808,8 +835,7 @@ else
             var charCodeToEscape = m1.charCodeAt(0);
             return "~E" + charCodeToEscape + "E";
         }
-
-    }; // end of the Markdown.Converter constructor
+    };
 
 })();
 
@@ -818,6 +844,8 @@ var converter = new Markdown.Converter;
 var Markdown2HTML = function (data) {
     return converter.makeHtml(data);
 };
+
+
 
 module.exports = {
     Markdown2HTML

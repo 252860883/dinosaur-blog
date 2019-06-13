@@ -122,7 +122,7 @@ Object.prototype.toString.call({}) ; // [object Object]
 
 | 方法 | 可判断类型 | 缺点 |
  |-- | -- | -- |
-| typeof | 基本数据类型（null除外）、Object | 不能判断 null、array、date、RegExp等类型
+| typeof | 基本数据类型（null除外）、Object | 不能判断 null、array、date、RegExp等类型 |
 | instanceof |  Array、Date、RegExp等类型 | 1.只要是在实例上的构造函数就会判断为真 2.基本数据类型必须通过实例创建方式才能被检测 3.不能检测 null 和 undefined |
 | === | Null 和 Undefined| 只能检测 null 和 undefined|
 | constructor| 基本数据类型、Array、Date、RegExp等| 1.不能判断 null 和 undefined 2.如果对类的原型进行重写时很有可能把 constructor给覆盖|

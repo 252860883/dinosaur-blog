@@ -10,12 +10,6 @@ export default class Main extends React.Component {
         return (
             <div className="article">
 <div className="title">JavaScript的类型检测</div>
-<hr />
-
-<p>title: JavaScript的类型检测<br></br>date: 2019-01-24 10:30:12<br></br>tags: javascript</p>
-
-<h2>top:</h2>
-
 <blockquote>
   <p>大家都知道 JavaScript 是一个弱类型语言，所以平时对类型的判断是一个很重要的事情。当然也有很多方法可以用来区分类型：typeof、instanceof、=== 等等，那我们需要在什么场景下该用哪个方法来区分呢？</p>
 </blockquote>
@@ -161,7 +155,7 @@ export default class Main extends React.Component {
 
 <h3>总结</h3>
 
-<p>| 方法 | 可判断类型 | 缺点 |<br></br> |-- | -- | -- |<br></br>| typeof | 基本数据类型（null除外）、Object | 不能判断 null、array、date、RegExp等类型<br></br>| instanceof |  Array、Date、RegExp等类型 | 1.只要是在实例上的构造函数就会判断为真 2.基本数据类型必须通过实例创建方式才能被检测 3.不能检测 null 和 undefined |<br></br>| === | Null 和 Undefined| 只能检测 null 和 undefined|<br></br>| constructor| 基本数据类型、Array、Date、RegExp等| 1.不能判断 null 和 undefined 2.如果对类的原型进行重写时很有可能把 constructor给覆盖|<br></br>|Object.prototype.toString.call()|全都可以|如果非要找缺点，那就是需要多打几个字母？|</p>
+<p><table><tr><th> 方法 </th><th> 可判断类型 </th><th> 缺点 </th></tr><tr><td> typeof </td><td> 基本数据类型（null除外）、Object </td><td> 不能判断 null、array、date、RegExp等类型 </td></tr><tr><td> instanceof </td><td>  Array、Date、RegExp等类型 </td><td> 1.只要是在实例上的构造函数就会判断为真 2.基本数据类型必须通过实例创建方式才能被检测 3.不能检测 null 和 undefined </td></tr><tr><td> === </td><td> Null 和 Undefined</td><td> 只能检测 null 和 undefined</td></tr><tr><td> constructor</td><td> 基本数据类型、Array、Date、RegExp等</td><td> 1.不能判断 null 和 undefined 2.如果对类的原型进行重写时很有可能把 constructor给覆盖</td></tr><tr><td>Object.prototype.toString.call()</td><td>全都可以</td><td>如果非要找缺点，那就是需要多打几个字母？</td></tr></table></p>
 </div>
         )
     }

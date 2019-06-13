@@ -10,12 +10,6 @@ export default class Main extends React.Component {
         return (
             <div className="article">
 <div className="title">剖析JavaScript的内存机制</div>
-<hr />
-
-<p>title: 剖析JavaScript的内存机制<br></br>date: 2018-06-12 00:12:17</p>
-
-<h2>tags: javascript</h2>
-
 <blockquote>
   <p>在学习JavaScript的过程中，内存空间这个概念对我来说很陌生，平时的业务问题也很少会涉及到它。但是由于对于内存空间的模糊认知，使得我在很多问题上都一知半解，比如深拷贝浅拷贝、基本数据类型引用等等问题。了解了JavaScript的内存机制有有助于开发人员能够清晰的认识到自己写的代码在执行的过程中发生过什么，也能够提高项目的代码质量。所以这篇博客就来探索一下JavaScript的内存问题。</p>
 </blockquote>

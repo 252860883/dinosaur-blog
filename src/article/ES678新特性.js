@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">ES678新特性</div>
-<hr />
-
-<p>title: ES6+ 新特性大汇总<br></br>date: 2018-06-29 12:22:07<br></br>tags: ['javascript','ES6']</p>
-
-<h2>top: true</h2>
-
+<div className="title">ES6+ 新特性大汇总</div>
 <blockquote>
   <p>平时写业务涉及到ES6/7/8常用的可能就常见的那几个，其他的不常用就忘记了，所以来专门记录一篇博客，以供经常翻阅之用。</p>
 </blockquote>

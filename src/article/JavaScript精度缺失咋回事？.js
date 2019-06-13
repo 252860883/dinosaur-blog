@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">JavaScript精度缺失咋回事？</div>
-<hr />
-
-<p>title: 聊聊JavaScript精度缺失这点事<br></br>date: 2018-09-13 11:51:37<br></br>tags: javascript</p>
-
-<h2>top:</h2>
-
+<div className="title">聊聊JavaScript精度缺失这点事</div>
 <blockquote>
   <p>如果你是一个前端开发工程师的话，一定遇到过js语言上一些诡异的事情，比如某些运算的结果出现 1.999999999999 ，0.30000000000000004等等类似无限循环的小数，尽管和后端在接口字段上已经约束了保留以为小数。这个过程究竟发生了什么，导致出现如此丧心病狂的数字？下面来为你揭晓。</p>
 </blockquote>

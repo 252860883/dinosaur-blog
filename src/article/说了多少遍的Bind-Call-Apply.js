@@ -9,16 +9,12 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">说了多少遍的Bind-Call-Apply</div>
-<hr />
-
-<p>title: 说了多少遍的Bind、Call、Apply<br></br>date: 2018-08-16 17:13:52<br></br>tags: javascript</p>
-
-<h2>top:</h2>
-
+<div className="title">说了多少遍的Bind、Call、Apply</div>
 <blockquote>
-  <p>正如标题所说，说了多少遍！多少遍！多少遍！唉，所以有了这边复习文，算是立下血志吧。<br></br><code>bind</code>,<code>call</code>,<code>apply</code>三个方法都是用来将一个指定的 this 来调用或者创建一个函数。</p>
+  <p>正如标题所说，说了多少遍！多少遍！多少遍！唉，所以有了这边复习文，算是立下血志吧。</p>
 </blockquote>
+
+<p><code>bind</code>,<code>call</code>,<code>apply</code>三个方法都是用来将一个指定的 this 来调用或者创建一个函数。</p>
 
 <h2>Bind方法</h2>
 

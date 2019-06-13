@@ -10,12 +10,6 @@ export default class Main extends React.Component {
         return (
             <div className="article">
 <div className="title">TypeScript笔记</div>
-<hr />
-
-<p>title: TypeScript笔记<br></br>date: 2018-12-03 14:52:46<br></br>tags: ['javascript','typescript']</p>
-
-<h2>top:</h2>
-
 <h2>了解 TypeScript</h2>
 
 <blockquote>

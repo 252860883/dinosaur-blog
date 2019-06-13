@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">关于array的几个API</div>
-<hr />
-
-<p>title: 关于array的常用的几个API<br></br>date: 2019-04-08 19:24:52<br></br>tags:</p>
-
-<h2>top:</h2>
-
+<div className="title">关于array的常用的几个API</div>
 <h3>Array.prototype.forEach</h3>
 
 <ol>

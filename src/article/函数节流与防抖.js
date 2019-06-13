@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">函数节流与防抖</div>
-<hr />
-
-<p>title: 事件节流（throttle）与防抖（debounce）<br></br>date: 2019-03-26 21:27:12<br></br>tags: Javascript</p>
-
-<h2>top:</h2>
-
+<div className="title">事件节流（throttle）与防抖（debounce）</div>
 <h3>节流函数（Throttle）</h3>
 
 <blockquote>

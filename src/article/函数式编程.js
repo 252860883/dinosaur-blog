@@ -10,12 +10,6 @@ export default class Main extends React.Component {
         return (
             <div className="article">
 <div className="title">函数式编程</div>
-<hr />
-
-<p>title: 函数式编程<br></br>date: 2019-05-6 18:58:39</p>
-
-<h2>tags: javascript</h2>
-
 <blockquote>
   <p>函数式编程又是一个平时在工作时经常听到但是从来没有接触过并且会被搞的一头雾水的东西。所以我打算一探究竟这个函数式编程究竟是何物？</p>
 </blockquote>

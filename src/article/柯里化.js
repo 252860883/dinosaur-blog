@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">柯里化</div>
-<hr />
-
-<p>title: '柯里化'<br></br>date: 2018-11-26 14:14:41<br></br>tags: javascript</p>
-
-<h2>top:</h2>
-
+<div className="title">'柯里化'</div>
 <h3>实现通用curry函数</h3>
 
 <p>继续来深入，前面提到的高阶函数只能是我们针对每一个情况具体来编写代码，那我们能不能直接封装一个公共的函数来实现柯里化呢？<br></br>扒到大神的三行解决方案：</p>

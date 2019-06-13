@@ -9,13 +9,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="article">
-<div className="title">threejs-开启web的3D大门</div>
-<hr />
-
-<p>title: threejs 开启web的3D大门<br></br>date: 2018-09-19 14:17:13<br></br>tags:</p>
-
-<h2>top:</h2>
-
+<div className="title">threejs 开启web的3D大门</div>
 <h3>基础框架</h3>
 
 <pre><code><span></span>
@@ -83,7 +77,7 @@ export default class Main extends React.Component {
 
 <h4>stats 性能监听</h4>
 
-<p>既然涉及到循环了，那肯定是一个耗性能的工作了，在这里我们引入 <code>stats.js</code> 来进行性能监测。<br></br>首先引入 <code>stats.js</code> ,github地址：https:undefinedithub.com/mrdoob/stats.js</p>
+<p>既然涉及到循环了，那肯定是一个耗性能的工作了，在这里我们引入 <code>stats.js</code> 来进行性能监测。<br></br>首先引入 <code>stats.js</code> ,github地址：https://github.com/mrdoob/stats.js</p>
 
 <pre><code><span></span>
 <span> &lt;script src="./stats.js"&gt;&lt;/script&gt;</span>
