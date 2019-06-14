@@ -1,0 +1,48 @@
+.pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    .pagination-btn{
+        width: 40px;
+        height: 40px;
+        background: #222;
+        margin: 20px;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 40px;
+        color: #ffffff;
+        transition:all 0.3s;
+        cursor: pointer;
+        position: relative;
+        user-select: none; 
+        &:hover{
+            transform: scale(0.9);
+            &::after{
+                position: absolute;
+                top: -15px;
+                left: -15px;
+                content: "";
+                display: block;
+                width: 70px;
+                height: 70px;
+                border: 2px solid #222222;
+                box-sizing: border-box;
+                border-radius: 35px;
+                animation: circleScale 0.3s;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@keyframes circleScale {
+    0%{
+        transform: scale(0);
+        opacity:1;
+    }
+    100%{
+        transform: scale(1);
+        opacity:0;
+    }
+}
