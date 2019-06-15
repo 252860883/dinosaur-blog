@@ -12,7 +12,8 @@
     fs.readdirSync(mdPath).forEach((val, index) => {
         if (path.extname(val) != '.md') return;
         const mdText = fs.readFileSync(mdPath + '/' + val, 'utf8');
-        const newName = path.basename(val, '.md')
+        const newName = path.basename(val, '.md');
+        // if (newName != 'test') return;
         const newPath = outPath + '/' + newName + '.js'
         let mdData = MD.Markdown2HTML(mdText);
         let newAtricle = template.replace(/\<div[\s\S]*\/div\>/g, function () {

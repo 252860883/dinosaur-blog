@@ -69,28 +69,24 @@ export default class Main extends React.Component {
 <span>  &lt;/div&gt;</span>
 <span>&lt;/template&gt;</span>
 <span></span>
-<span></span>
-<span></span>
-<span><script>
-export default {'{'}
-  name: "app",
-  data() {'{'}
-    return {'{'}
-      list: [{'{'} id: 1, num: 1 }, {'{'} id: 2, num: 2 }, {'{'} id: 3, num: 3 }]
-    };
-  },
-  methods: {'{'}
-    add: function() {'{'}
-      this.list.push("string");
-    },
-    remove: function(index) {'{'}
-      this.list.splice(index, 1);
-    }
-  }
-};
-</script></span>
-<span></span>
-<span></span>
+<span>&lt;script&gt;</span>
+<span>export default {'{'}</span>
+<span>  name: "app",</span>
+<span>  data() {'{'}</span>
+<span>    return {'{'}</span>
+<span>      list: [{'{'} id: 1, num: 1 }, {'{'} id: 2, num: 2 }, {'{'} id: 3, num: 3 }]</span>
+<span>    };</span>
+<span>  },</span>
+<span>  methods: {'{'}</span>
+<span>    add: function() {'{'}</span>
+<span>      this.list.push("string");</span>
+<span>    },</span>
+<span>    remove: function(index) {'{'}</span>
+<span>      this.list.splice(index, 1);</span>
+<span>    }</span>
+<span>  }</span>
+<span>};</span>
+<span>&lt;/script&gt;</span>
 <span></span>
 </code></pre>
 

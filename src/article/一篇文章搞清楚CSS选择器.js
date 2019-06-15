@@ -16,19 +16,15 @@ export default class Main extends React.Component {
 
 <pre><code><span></span>
 <span>// html</span>
-<span></span>
-<span></span>
-<span><div>
-  <span>1</span>
-  <span class='second'>2</span>
-  <span>
-      3
-      <span>3-1</span>
-  </span>
-  <span>4</span>
-</div></span>
-<span></span>
-<span></span>
+<span>&lt;div&gt;</span>
+<span>  &lt;span&gt;1&lt;/span&gt;</span>
+<span>  &lt;span class='second'&gt;2&lt;/span&gt;</span>
+<span>  &lt;span&gt;</span>
+<span>      3</span>
+<span>      &lt;span&gt;3-1&lt;/span&gt;</span>
+<span>  &lt;/span&gt;</span>
+<span>  &lt;span&gt;4&lt;/span&gt;</span>
+<span>&lt;/div&gt;</span>
 <span></span>
 </code></pre>
 

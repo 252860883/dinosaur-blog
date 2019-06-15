@@ -114,10 +114,8 @@ else
             // match consecutive blank lines with /\n+/ instead of something
             // contorted like /[ \t]*\n+/ .
             text = text.replace(/^[ \t]+$/mg, "");
-
             // Turn block-level HTML blocks into hash entries
-            text = _HashHTMLBlocks(text);
-
+            // text = _HashHTMLBlocks(text);
             // Strip link definitions, store in hashes.
             text = _StripLinkDefinitions(text);
 
@@ -149,7 +147,6 @@ else
         function _getArticleMessage(text) {
             var article = {}
             text = text.replace(/^\-{3}(((?!\-{3})[\s\S])*)\-{3}/g, function (all, m1, m2, m3) {
-                // console.log(m1);
                 var propslists = m1.split('\n');
                 propslists.map(item => {
                     var prop = item.split(': ')
@@ -226,6 +223,7 @@ else
             // These are all the transformations that form block-level
             // tags like paragraphs, headers, and list items.
             //
+            
             text = _DoCodeBlocks(text);
 
             text = _DoHeaders(text);
@@ -517,14 +515,8 @@ else
                     var codeblock = m2;
                     var nextChar = m3;
                     codeblock = _EncodeCode(codeblock);
-
-                    codeblock = "<span>" + codeblock.split('\n').join('</span>\n<span>') + "</span>";
-
+                    codeblock = "<span>" + codeblock.split('\n').join("</span>\n<span>") + "</span>";
                     codeblock = _Detab(codeblock);
-
-                    // codeblock = codeblock.replace(/^\n+/g, ""); // trim leading newlines
-                    // codeblock = codeblock.replace(/\n+$/g, ""); // trim trailing whitespace
-                    // codeblock = codeblock.replace(/\</g,"&lt");
 
                     codeblock = "<pre><code>" + codeblock + "\n</code></pre>";
 
@@ -651,9 +643,7 @@ else
                 var str = grafs[i];
 
                 // Judge Table 
-                // console.log(str)
                 if (tableRe.test(str)) {
-                    // console.log(str);
                     var tableList = str.split('\n')
                     str = '<table>'
                     tableList.map((item, index) => {

@@ -27,53 +27,49 @@ export default class Main extends React.Component {
 <span>    &lt;a href="#/b"&gt;切换b路由&lt;/a&gt;</span>
 <span>    &lt;a href="#/c"&gt;切换c路由&lt;/a&gt;</span>
 <span>&lt;/body&gt;</span>
+<span>&lt;script&gt;</span>
+<span>    // 创建构造函数</span>
+<span>    function Router() {'{'}</span>
+<span>        this.routes = {'{'}}</span>
+<span>    }</span>
+<span>    //注册路由</span>
+<span>    Router.prototype.init = function () {'{'}</span>
+<span>        // 监听路由变化</span>
+<span>        window.addEventListener('hashchange', this.update.bind(this));</span>
+<span>        // 监听页面加载</span>
+<span>        window.addEventListener('load', this.update.bind(this));</span>
+<span>    }</span>
+<span>    // 添加路由</span>
+<span>    Router.prototype.route = function (path, callback) {'{'}</span>
+<span>        this.routes[path] = callback || function () {'{'} };</span>
+<span>    }</span>
+<span>    // 更新路由</span>
+<span>    Router.prototype.update = function () {'{'}</span>
+<span>        let hashPath = location.hash.split('#')[1];</span>
+<span>        return this.routes[hashPath]()</span>
+<span>    }</span>
 <span></span>
+<span>    let updateRoute = function (path) {'{'}</span>
+<span>        document.getElementById('routerName').innerHTML = "当前路由是：" + path;</span>
+<span>    }</span>
 <span></span>
-<span><script>
-    // 创建构造函数
-    function Router() {'{'}
-        this.routes = {'{'}}
-    }
-    //注册路由
-    Router.prototype.init = function () {'{'}
-        // 监听路由变化
-        window.addEventListener('hashchange', this.update.bind(this));
-        // 监听页面加载
-        window.addEventListener('load', this.update.bind(this));
-    }
-    // 添加路由
-    Router.prototype.route = function (path, callback) {'{'}
-        this.routes[path] = callback || function () {'{'} };
-    }
-    // 更新路由
-    Router.prototype.update = function () {'{'}
-        let hashPath = location.hash.split('#')[1];
-        return this.routes[hashPath]()
-    }
-
-    let updateRoute = function (path) {'{'}
-        document.getElementById('routerName').innerHTML = "当前路由是：" + path;
-    }
-
-    /**
-     * 创建一个路由实例
-     **/
-    let Route = new Router();
-    // 添加路由
-    Route.route('/a', function () {'{'}
-        updateRoute('/a')
-    })
-    Route.route('/b', function () {'{'}
-        updateRoute('/b')
-    })
-    Route.route('/c', function () {'{'}
-        updateRoute('/c')
-    })
-    // 发布路由
-    Route.init()
-</script></span>
-<span></span>
-<span></span>
+<span>    /**</span>
+<span>     * 创建一个路由实例</span>
+<span>     **/</span>
+<span>    let Route = new Router();</span>
+<span>    // 添加路由</span>
+<span>    Route.route('/a', function () {'{'}</span>
+<span>        updateRoute('/a')</span>
+<span>    })</span>
+<span>    Route.route('/b', function () {'{'}</span>
+<span>        updateRoute('/b')</span>
+<span>    })</span>
+<span>    Route.route('/c', function () {'{'}</span>
+<span>        updateRoute('/c')</span>
+<span>    })</span>
+<span>    // 发布路由</span>
+<span>    Route.init()</span>
+<span>&lt;/script&gt;</span>
 <span></span>
 </code></pre>
 

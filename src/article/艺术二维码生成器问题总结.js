@@ -31,7 +31,8 @@ return image;
 <p>这是webkit内核的一个bug，需要在设置过渡的css下面再添加一句 </p>
 
 <pre><b>-webkit-backface-visibility:hidden;</b></pre>
-### 4.canvas绘制出来的图像不清晰
+<h3>4.canvas绘制出来的图像不清晰</h3>
+
 canvas在绘制的时候，在手机上等高清屏幕下观看都比较模糊，这里引入
 ![hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill.git)
 <pre>

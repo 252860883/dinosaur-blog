@@ -9,8 +9,8 @@ date: 2017-09-19 14:17:13
 ## 1.默认电话号码字段点击会触发系统拨号
 从网上查到可以通过添加meta头部标签来取消默认的识别电话号、邮箱等事件
 ```
-    &ltmeta name="format-detection" content="telephone=no" />  
-    &ltmeta http-equiv="x-rim-auto-match" content="none">
+    <meta name="format-detection" content="telephone=no" />  
+    <meta http-equiv="x-rim-auto-match" content="none">
 ```
 
 ## 2.safari浏览器移动端兼容问题

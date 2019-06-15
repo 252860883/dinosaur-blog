@@ -88,9 +88,7 @@ export default class Main extends React.Component {
 <span>    console.log(error);</span>
 <span>  })</span>
 <span></span>
-<span>{'<!'}-- 拦截器 在请求或响应被 then 或 catch 处理前拦截它们--></span>
-<span></span>
-<span></span>
+<span>&lt;!-- 拦截器 在请求或响应被 then 或 catch 处理前拦截它们--&gt;</span>
 <span></span>
 <span>// 添加请求拦截器</span>
 <span>axios.interceptors.request.use(function (config) {'{'}</span>
@@ -110,9 +108,7 @@ export default class Main extends React.Component {
 <span>    return Promise.reject(error);</span>
 <span>  });</span>
 <span></span>
-<span>{'<!'}-- 并发处理 --></span>
-<span></span>
-<span></span>
+<span>&lt;!-- 并发处理 --&gt;</span>
 <span></span>
 <span>axios.all([getRequest1(), getRequest2()])</span>
 <span>  .then(axios.spread(function (acct, perms) {'{'}</span>

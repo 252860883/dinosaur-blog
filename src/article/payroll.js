@@ -17,8 +17,8 @@ export default class Main extends React.Component {
 <p>从网上查到可以通过添加meta头部标签来取消默认的识别电话号、邮箱等事件</p>
 
 <pre><code><span></span>
-<span>    &amp;ltmeta name="format-detection" content="telephone=no" /&gt;  </span>
-<span>    &amp;ltmeta http-equiv="x-rim-auto-match" content="none"&gt;</span>
+<span>    &lt;meta name="format-detection" content="telephone=no" /&gt;  </span>
+<span>    &lt;meta http-equiv="x-rim-auto-match" content="none"&gt;</span>
 <span></span>
 </code></pre>
 
@@ -269,13 +269,9 @@ export default class Main extends React.Component {
 <p>给 input 外层添加一个 form标签 添加onkeydown事件，当摁下回车键时，返回 false；</p>
 
 <pre><code><span></span>
-<span></span>
-<span></span>
-<span><form name="myform" action="" onkeydown="if(event.keyCode==13){'{'}return false;}">
-  <input type='text' name='user' />
-</form></span>
-<span></span>
-<span></span>
+<span>&lt;form name="myform" action="" onkeydown="if(event.keyCode==13){'{'}return false;}"&gt;</span>
+<span>  &lt;input type='text' name='user' /&gt;</span>
+<span>&lt;/form&gt;</span>
 <span></span>
 </code></pre>
 </div>
