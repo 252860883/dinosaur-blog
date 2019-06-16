@@ -13,6 +13,11 @@ $b:#0014b3;
     src: url('../assets/main.ttc');
 }
 
+html,
+body {
+    font-size: calc(100vw/365*16);
+}
+
 
 // 配置默认的css样式
 html,

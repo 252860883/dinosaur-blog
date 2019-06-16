@@ -16,6 +16,7 @@
         display: flex;
         align-items: center;
         padding: 80px 0;
+
         .logo {
             margin: 10px 50px 10px 0;
             width: 200px;
@@ -34,7 +35,8 @@
             position: relative;
             z-index: 2;
             cursor: pointer;
-            text-shadow:1px 1px 0px #fff;
+            text-shadow: 1px 1px 0px #fff;
+
             &:hover {
                 // transform: rotateX(10deg) rotateY(10deg);
             }
@@ -52,6 +54,35 @@
             background: $o;
             z-index: -1;
         }
+    }
+}
 
+/* 手机版适配 */
+
+.header-mobile {
+    .header-top{
+        img{
+            width: 50%;
+        }
+    }
+    nav {
+        .logo {
+            display: none;
+        }
+        a {
+            font-size: 14px;
+            line-height: 20px;
+            display: block;
+            // margin: 0 20px;
+            padding-bottom: 5px;
+            font-style: normal;
+            font-family: Main;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            background: #222222;
+            color: #fff;
+            // text-shadow: 1px 1px 0px #fff;
+        }
     }
 }

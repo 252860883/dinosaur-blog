@@ -2,11 +2,13 @@ import React from 'react'
 import '../style/header.scss'
 import { RouterMenu } from '../router/routerMap'
 import { withRouter } from 'react-router-dom';
+import { IsPC } from "../utils/screen";
 class Header extends React.Component {
     constructor() {
         super()
         this.state = {
-            path: "/"
+            path: "/",
+            showNav: false
         }
     }
     componentWillMount() {
@@ -21,11 +23,19 @@ class Header extends React.Component {
             path: route.link
         });
     }
+    clickTop() {
+        this.setState({
+            showNav: !this.state.showNav
+        });
+    }
+
     render() {
-        return (
-            <div className="header">
+        let header = null;
+        let nav = null;
+
+        if (this.state.showNav) {
+            nav = (
                 <nav>
-                    <img className="logo" alt="" src={require('../assets/logo.png')} />
                     {RouterMenu.map(item => {
                         if (item.article) return
                         else return (
@@ -34,6 +44,25 @@ class Header extends React.Component {
                     })
                     }
                 </nav>
+            )
+        }
+
+        if (IsPC()) {
+            header = (<div className="header" >
+                {nav}
+            </div>)
+        } else {
+            header = (<div className="header-mobile" onClick={this.clickTop.bind(this)}>
+                <div className="header-top">
+                    <img className="logo" alt="" src={require('../assets/logo.png')} />
+                </div>
+                {nav}
+            </div>)
+        }
+
+        return (
+            <div>
+                {header}
             </div>
         )
     }
