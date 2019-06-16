@@ -89,11 +89,13 @@
         line-height: 30px;
     }
 
-    h1 {}
+    h1 {
+
+    }
 
     h2 {}
 
-    h3 {
+    h1,h2,h3 {
         color: $o;
         margin: 20px 0;
     }

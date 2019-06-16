@@ -7,9 +7,10 @@ export default class Article extends React.Component {
         console.log('ok');
     }
 
-    delete(name) {
-        console.log(`确定要删除${name}嘛？`)
-    }
+    // delete(name) {
+    //     console.log(`确定要删除${name}嘛？`)
+    // }
+    
 
     render() {
         return (
