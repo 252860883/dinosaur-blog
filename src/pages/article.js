@@ -69,11 +69,11 @@ export default class Article extends React.Component {
                     {
                         this.state.topArticleMenu.map(item => {
                             return (
-                                <div key={item.link} className="article-item article-item-top" >
-                                    <div className='article-item-content' onClick={this.clickToArticle.bind(this, item)}>
+                                <div key={item.link} className="article-item article-item-top" onClick={this.clickToArticle.bind(this, item)}>
+                                    {/* <div className='article-item-content' > */}
                                         <span className='time'>{item.date.split(' ')[0]} </span>
                                         <span className='title'>{item.title}</span>
-                                    </div>
+                                    {/* </div> */}
                                 </div>
                             )
                         })
@@ -81,11 +81,11 @@ export default class Article extends React.Component {
                     {
                         this.state.showArticleMenu.map(item => {
                             return (
-                                <div key={item.link} className="article-item" >
-                                    <div className='article-item-content' onClick={this.clickToArticle.bind(this, item)}>
+                                <div key={item.link} className="article-item" onClick={this.clickToArticle.bind(this, item)}>
+                                    {/* <div className='article-item-content' > */}
                                         <span className='time'>{item.date.split(' ')[0]} </span>
                                         <span className='title'>{item.title}</span>
-                                    </div>
+                                    {/* </div> */}
                                 </div>
                             )
                         })

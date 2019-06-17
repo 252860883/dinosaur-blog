@@ -129,14 +129,14 @@ export default class Main extends React.Component {
 <p>挖坑了好久，因为业务逻辑里面有一个302跳转，所以点击返回就会跳转回来，所以这里需要调取企业微信的接口写事件，逻辑写通以后，安卓端调通，ios无效。找了好久，兼容性研究许久无果。结果大佬来了一看是引入的文件错了。  <br></br>原引入文件：</p>
 
 <pre><code><span></span>
-<span>\&lt;script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"&gt;&lt;/script&gt;</span>
+<span>&lt;script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"&gt;&lt;/script&gt;</span>
 <span></span>
 </code></pre>
 
 <p> <br></br>大佬一说引入文件错了，恍然大悟，错就错在了这个 http协议啊。因为ios的安全拦截只支持https的安全链接，so... <br/><br></br>更正以后：</p>
 
 <pre><code><span></span>
-<span>\&lt;script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"&gt;&lt;/script&gt;</span>
+<span>&lt;script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"&gt;&lt;/script&gt;</span>
 <span></span>
 </code></pre>
 

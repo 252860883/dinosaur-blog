@@ -11,19 +11,18 @@
     display: flex;
     align-items: center;
 
+    .logo {
+        margin: 10px 50px 10px 0;
+        width: 200px;
+        height: 20px;
+        // background: $o;
+    }
+
     nav {
         width: 100%;
         display: flex;
         align-items: center;
         padding: 80px 0;
-
-        .logo {
-            margin: 10px 50px 10px 0;
-            width: 200px;
-            height: 20px;
-            // background: $o;
-        }
-
         a {
             font-size: 14px;
             line-height: 14px;
@@ -60,29 +59,68 @@
 /* 手机版适配 */
 
 .header-mobile {
-    .header-top{
-        img{
-            width: 50%;
-        }
-    }
-    nav {
-        .logo {
-            display: none;
-        }
-        a {
-            font-size: 14px;
-            line-height: 20px;
+    position: relative;
+    z-index: 3;
+    .header-top {
+        padding: 1rem 0;
+        background: #fff;
+        position: relative;
+        z-index: 5;
+        img {
             display: block;
-            // margin: 0 20px;
-            padding-bottom: 5px;
+            width: 10rem;
+            margin: 0 auto;
+        }
+
+    }
+    .header-top-select {
+        animation: invertALl .3s;
+        filter: invert(87.5%);
+    }
+
+    nav {
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        width: 100%;
+        a {
+            font-size: 1rem;
+            line-height: 1rem;
+            display: block;
+            text-align: center;
+            padding: 0.5rem 0;
             font-style: normal;
             font-family: Main;
-            position: relative;
-            z-index: 2;
-            cursor: pointer;
             background: #222222;
             color: #fff;
-            // text-shadow: 1px 1px 0px #fff;
         }
+    }
+}
+
+.slide-enter {
+    transform: translateY(-10rem);
+}
+
+.slide-exit {
+    transform: translateY(0);
+}
+
+.slide-enter-active {
+    transition: all 0.3s;
+    transform: translateY(0);
+}
+
+.slide-exit-active {
+    transform: translateY(-10rem);
+    transition: all 0.3s;
+}
+
+@keyframes invertALl {
+    0% {
+        filter: invert(0);
+    }
+
+    100% {
+        filter: invert(87.5%);
     }
 }

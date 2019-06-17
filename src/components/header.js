@@ -3,6 +3,7 @@ import '../style/header.scss'
 import { RouterMenu } from '../router/routerMap'
 import { withRouter } from 'react-router-dom';
 import { IsPC } from "../utils/screen";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 class Header extends React.Component {
     constructor() {
         super()
@@ -31,9 +32,9 @@ class Header extends React.Component {
 
     render() {
         let header = null;
-        let nav = null;
+        let nav = (<nav></nav>);
 
-        if (this.state.showNav) {
+        // if (this.state.showNav || IsPC()) {
             nav = (
                 <nav>
                     {RouterMenu.map(item => {
@@ -45,18 +46,29 @@ class Header extends React.Component {
                     }
                 </nav>
             )
-        }
+        // }
 
         if (IsPC()) {
             header = (<div className="header" >
+                <img className="logo" alt="" src={require('../assets/logo.png')} />
                 {nav}
             </div>)
         } else {
             header = (<div className="header-mobile" onClick={this.clickTop.bind(this)}>
-                <div className="header-top">
+                <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
                     <img className="logo" alt="" src={require('../assets/logo.png')} />
                 </div>
-                {nav}
+                {/* <TransitionGroup> */}
+                    <CSSTransition
+                        in={this.state.showNav}
+                        classNames="slide"
+                        unmountOnExit
+                        timeout={300}
+                    >
+                        {nav}
+                    </CSSTransition>
+                {/* </TransitionGroup> */}
+
             </div>)
         }
 

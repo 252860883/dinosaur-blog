@@ -15,14 +15,14 @@
             transition: all 0.3s;
             position: relative;
             margin: 10px;
-            // display: flex;
-            // align-items: center;
-
+            font-size: 13px;
+            padding: 0px 20px;
+            
             .article-item-content {
-                padding: 0px 20px;
+                
                 // background: #222;
                 // color: #fff;
-                font-size: 13px;
+
                 border-radius: 40px;
                 display: inline-block;
                 transition: all 0.3s;
@@ -89,13 +89,13 @@
         line-height: 30px;
     }
 
-    h1 {
-
-    }
+    h1 {}
 
     h2 {}
 
-    h1,h2,h3 {
+    h1,
+    h2,
+    h3 {
         color: $o;
         margin: 20px 0;
     }
