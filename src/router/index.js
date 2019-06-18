@@ -8,6 +8,7 @@ import Foot from '../components/footer';
 import Header from '../components/header';
 
 import { RouterMap } from './routerMap'
+import { IsPC } from "../utils/screen";
 // import createHistory from 'history/createBrowserHistory';
 
 const routes = (
@@ -39,6 +40,11 @@ const routes = (
 )
 
 export default class Root extends React.Component {
+    componentDidMount(){
+        if(IsPC()){
+            document.getElementsByTagName('html')[0].style.fontSize = '100px'
+        } 
+    }
     render() {
         return routes;
     }

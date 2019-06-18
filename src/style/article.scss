@@ -2,12 +2,8 @@
 
 .article-page {
     width: 700px;
-    // height: 1000px;
     margin: 0 auto;
-
     .article-lists {
-
-
         .article-item {
             height: 40px;
             line-height: 40px;
@@ -26,7 +22,6 @@
                 border-radius: 40px;
                 display: inline-block;
                 transition: all 0.3s;
-                transform-origin: 20px left;
 
                 .time {
                     margin-right: 10px;
@@ -43,10 +38,6 @@
             }
 
             &:hover {
-                // font-size: 18px;
-                // background: $o;
-                // color: #fff;
-                // padding-left: 50px;
 
                 &::after {
                     position: absolute;
@@ -66,27 +57,35 @@
     }
 }
 
+.article-page-mobile{
+    width: 100%;
+    padding: 0.1rem;
+    box-sizing: border-box;
+    .time{
+        display: none;
+    }
+}
+
 
 
 /*  文章版式 */
-
 .article {
-    width: 700px;
-    margin: 50px auto;
-    font-size: 14px;
-    line-height: 20px;
+    width: 7.00rem;
+    margin: 0.50rem auto;
+    font-size: 0.13rem;
+    line-height: 0.20rem;
     color: #222;
 
     .title {
-        font-size: 22px;
+        font-size: 0.22rem;
         text-align: center;
         font-weight: bold;
-        margin: 50px auto;
+        margin: 0.50rem auto;
     }
 
     p {
-        margin: 20px auto;
-        line-height: 30px;
+        margin: 0.20rem auto;
+        line-height: 0.30rem;
     }
 
     h1 {}
@@ -97,21 +96,21 @@
     h2,
     h3 {
         color: $o;
-        margin: 20px 0;
+        margin: 0.20rem 0;
     }
 
     img {
         display: block;
         width: 80%;
         height: auto;
-        margin: 20px auto;
+        margin: 0.20rem auto;
     }
 
     hr {
         // display: none;
         width: 70%;
         opacity: 0.5;
-        margin: 50px auto;
+        margin: 0.50rem auto;
     }
 
     a {
@@ -123,14 +122,14 @@
         display: block;
         background: #222;
         color: #ccc;
-        padding: 10px;
-        margin: 20px 0;
+        padding: 0.10rem;
+        margin: 0.20rem 0;
         white-space: pre-line;
         overflow: auto;
 
         span {
             display: block;
-            line-height: 30px;
+            line-height: 0.30rem;
             white-space: pre;
         }
     }
@@ -138,13 +137,13 @@
     code {
         display: inline-block;
         background: #eeeeee;
-        padding: 2px 4px;
-        border-radius: 3px;
+        padding: 0.02rem 0.04rem;
+        border-radius: 0.03rem;
         word-wrap: break-word;
         box-sizing: border-box;
-        margin-left: 5px;
-        font-size: 13px;
-        line-height: 13px;
+        margin-left: 0.05rem;
+        font-size: 0.13rem;
+        line-height: 0.13rem;
 
     }
 
@@ -153,19 +152,19 @@
 
         li {
             list-style-position: inside;
-            margin: 5px auto;
+            margin: 0.05rem auto;
             font-weight: bold;
         }
     }
 
     blockquote {
-        border-left: 8px solid $o;
-        padding-left: 20px;
+        border-left: 0.04rem solid $o;
+        padding-left: 0.10rem;
     }
 
     table {
         width: 100%;
-        border-radius: 3px;
+        border-radius: 0.03rem;
         overflow: hidden;
         box-sizing: border-box;
 
@@ -173,24 +172,31 @@
 
             th {
                 background: #222;
-                border: 1px solid #222;
+                border: 0.01rem solid #222;
                 color: #eee;
-                line-height: 40px;
+                line-height: 0.40rem;
             }
 
             td {
                 text-align: center;
                 vertical-align: middle;
-                border-bottom: 1px solid #222;
-                border-right: 1px solid #222;
-                line-height: 30px;
+                border-bottom: 0.01rem solid #222;
+                border-right: 0.01rem solid #222;
+                line-height: 0.30rem;
+                padding: 0 0.1rem; 
 
                 &:first-of-type {
-                    border-left: 1px solid #222;
+                    border-left: 0.01rem solid #222;
                 }
             }
 
         }
     }
 
+}
+/* mobile 兼容*/
+.article-mobile{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.2rem;
 }

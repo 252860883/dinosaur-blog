@@ -62,13 +62,13 @@
     position: relative;
     z-index: 3;
     .header-top {
-        padding: 1rem 0;
+        padding: 0.2rem 0;
         background: #fff;
         position: relative;
         z-index: 5;
         img {
             display: block;
-            width: 10rem;
+            width: 2.8em;
             margin: 0 auto;
         }
 
@@ -80,15 +80,15 @@
 
     nav {
         position: absolute;
-        top: 3rem;
+        top: 0.6rem;
         left: 0;
         width: 100%;
         a {
-            font-size: 1rem;
-            line-height: 1rem;
+            font-size: 0.16rem;
+            line-height: 0.16rem;
             display: block;
             text-align: center;
-            padding: 0.5rem 0;
+            padding: 0.2rem 0;
             font-style: normal;
             font-family: Main;
             background: #222222;
