@@ -68,7 +68,7 @@
         z-index: 5;
         img {
             display: block;
-            width: 2.8em;
+            width: 2.3em;
             margin: 0 auto;
         }
 
@@ -84,15 +84,18 @@
         left: 0;
         width: 100%;
         a {
-            font-size: 0.16rem;
-            line-height: 0.16rem;
+            font-size: 0.15rem;
+            line-height: 0.15rem;
             display: block;
             text-align: center;
-            padding: 0.2rem 0;
+            padding: 0.13rem 0;
             font-style: normal;
             font-family: Main;
             background: #222222;
             color: #fff;
+        }
+        .nav-active{
+            color: $o;
         }
     }
 }
@@ -111,8 +114,8 @@
 }
 
 .slide-exit-active {
-    transform: translateY(-10rem);
     transition: all 0.3s;
+    transform: translateY(-10rem);
 }
 
 @keyframes invertALl {

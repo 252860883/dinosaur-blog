@@ -63,7 +63,7 @@ class Header extends React.Component {
                         in={this.state.showNav}
                         classNames="slide"
                         unmountOnExit
-                        timeout={300}
+                        timeout={500}
                     >
                         {nav}
                     </CSSTransition>
