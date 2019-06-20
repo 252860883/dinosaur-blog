@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"实现通用curry函数"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">'柯里化'</div>
-<h3>实现通用curry函数</h3>
+<h3 id='实现通用curry函数'>实现通用curry函数</h3>
 
 <p>继续来深入，前面提到的高阶函数只能是我们针对每一个情况具体来编写代码，那我们能不能直接封装一个公共的函数来实现柯里化呢？<br></br>扒到大神的三行解决方案：</p>
 
@@ -40,6 +45,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

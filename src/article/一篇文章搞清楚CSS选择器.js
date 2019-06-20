@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"1.易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2. CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">一些常用但记不住的CSS知识点</div>
-<h3>1.易混淆的组合选择器</h3>
+<h3 id='1.易混淆的组合选择器'>1.易混淆的组合选择器</h3>
 
 <p>前提，我们先构建一个Html：</p>
 
@@ -34,7 +39,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>后代选择器： 空格符 与 ></h4>
+<h4 id='后代选择器： 空格符 与 >'>后代选择器： 空格符 与 ></h4>
 
 <p><strong>空格符</strong>我们再熟悉不过了。<code>A B</code> 表示元素 A 的任意一个子元素 B 以及所有任意后代节点。</p>
 
@@ -62,7 +67,7 @@ export default class Main extends React.Component {
 
 <p>效果如下：<br></br><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g0ezl496zvj209e02c0sn.jpg" alt="image" title="" /></p>
 
-<h4>兄弟选择器： + 与 ～</h4>
+<h4 id='兄弟选择器： + 与 ～'>兄弟选择器： + 与 ～</h4>
 
 <p><code>A + B</code> 表示元素A的下一个兄弟元素B。</p>
 
@@ -90,16 +95,16 @@ export default class Main extends React.Component {
 
 <p>效果如下：<br></br><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g0igw37vqhj214c09swfe.jpg" alt="image" title="" /></p>
 
-<h4>总结</h4>
+<h4 id='总结'>总结</h4>
 
 <ol>
 <li><code>空格</code>与<code>&gt;</code>符都作用于后代节点元素，区别是<code>空格</code>符作用于所有子元素，而<code>&gt;</code>符只作用于第一层子元素。</li>
 <li><code>+</code>与<code>～</code>符都作用于后面的兄弟节点元素，区别是<code>+</code>只作用于相邻第一个兄弟元素，而<code>～</code>作用于多个兄弟元素。</li>
 </ol>
 
-<h3>2. CSS函数</h3>
+<h3 id='2. CSS函数'>2. CSS函数</h3>
 
-<h4>attr()</h4>
+<h4 id='attr()'>attr()</h4>
 
 <blockquote>
   <p>attr()函数返回选择元素的属性值</p>
@@ -121,7 +126,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>calc()</h4>
+<h4 id='calc()'>calc()</h4>
 
 <blockquote>
   <p>calc() 函数用于动态计算长度值,支持四则运算</p>
@@ -138,7 +143,7 @@ export default class Main extends React.Component {
 
 <p>这样，根节点元素会根据屏幕宽度自动计算出应该的字体大小，这样我们就可以省去媒体查询的一大堆代码！当然这样只是对于适配要求不高的页面可以取巧，如果适配要求高的话还是要酌情选择。</p>
 
-<h4>自定义变量 var()</h4>
+<h4 id='自定义变量 var()'>自定义变量 var()</h4>
 
 <blockquote>
   <p><code>var( &lt;自定义属性名&gt; [, &lt;默认值 ]? )</code>,如果我们使用的变量没有定义，则使用后面的值作为元素的属性值。</p>
@@ -154,6 +159,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

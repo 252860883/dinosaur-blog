@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"Proxy"},{"level":"h3","title":"实现一个简单的 MVVM 框架"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">用Proxy实现MVVM双向绑定</div>
 <blockquote>
   <p>在之前我们了解到 VUE 的框架底层通过 <code>Object.defineProperty()</code> 来实现双向绑定的。那这次咱们就来玩点不一样的，用 ES6 的 Proxy 来实现 MVVM 的双向绑定。</p>
 </blockquote>
 
-<h3>Proxy</h3>
+<h3 id='Proxy'>Proxy</h3>
 
 <p>首先来了解一下 <code>Proxy</code> ，该对象用于定义基本操作的自定义行为（如属性查找，赋值，枚举，函数调用等）。看下面的基础示例：</p>
 
@@ -46,7 +51,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>实现一个简单的 MVVM 框架</h3>
+<h3 id='实现一个简单的 MVVM 框架'>实现一个简单的 MVVM 框架</h3>
 
 <p>好了，有了这个前提，我们就可以开始封装我们的“框架”了。</p>
 
@@ -137,6 +142,8 @@ export default class Main extends React.Component {
   <p>完整代码：https://github.com/MagicalDinosaur/demos/blob/master/proxy/mvvm.html</p>
 </blockquote>
 </div>
+            </div>
+
         )
     }
 }

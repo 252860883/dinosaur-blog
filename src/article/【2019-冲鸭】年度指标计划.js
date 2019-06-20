@@ -1,28 +1,33 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"<strong>看十本书（技术/非技术）</strong>"},{"level":"h3","title":"** 瘦到130斤 **"},{"level":"h3","title":"<strong>提升英语阅读水平</strong>"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">【2019 冲鸭】年度指标计划</div>
-<h3><strong>看十本书（技术/非技术）</strong></h3>
+<h3 id='<strong>看十本书（技术/非技术）</strong>'><strong>看十本书（技术/非技术）</strong></h3>
 
 <p>进度：<br></br><strong>1月31日</strong> 开始看《重学前端》<br></br>** ** 《JS语言精粹》</p>
 
 <hr />
 
-<h3>** 瘦到130斤 **</h3>
+<h3 id='** 瘦到130斤 **'>** 瘦到130斤 **</h3>
 
 <blockquote>
   <p>新的一年，不变的体重T-T</p>
@@ -32,12 +37,14 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3><strong>提升英语阅读水平</strong></h3>
+<h3 id='<strong>提升英语阅读水平</strong>'><strong>提升英语阅读水平</strong></h3>
 
 <p>这..</p>
 
 <hr />
 </div>
+            </div>
+
         )
     }
 }

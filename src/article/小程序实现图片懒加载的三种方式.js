@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"传统懒加载方案"},{"level":"h3","title":"方案一：image组件的lazy-load属性"},{"level":"h3","title":"方案二：利用WXML节点信息API实现"},{"level":"h3","title":"方案三：利用WXML节点布局相交状态实现"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">小程序实现图片懒加载的三种方式</div>
 <blockquote>
   <p>懒加载，emm大概是每个前端工程师在面试时被问到如何进行前端优化的第一个想到的方法吧哈哈。比如我们的图片瀑布流布局等等，一次性加载这么多的图片资源那速度肯定是相当的“辣眼睛”呀～，所以图片懒加载在前端优化中可以发挥到很大的作用，所以这一篇就来聊聊小程序该如何实现图片懒加载～</p>
 </blockquote>
 
-<h3>传统懒加载方案</h3>
+<h3 id='传统懒加载方案'>传统懒加载方案</h3>
 
 <p>熟悉H5开发的话可能已经很熟悉该如何进行图片懒加载，简单来说，其原理就是当图片DOM进入到窗口可视区的时候设置真实的图片路径。通过节流函数设置一定时间滑动内执行判断函数即可。主要思路如下：</p>
 
@@ -36,7 +41,7 @@ export default class Main extends React.Component {
 
 <p>但是，尴尬的事情发生了，小程序渲染层和逻辑层是分开的，一个在 webview 一个是 JSCore，没有 BOM、DOM 既不能设置节点，也获取不到窗口对象，这可咋整？<br></br>嘿，别着急，往下看。</p>
 
-<h3>方案一：image组件的lazy-load属性</h3>
+<h3 id='方案一：image组件的lazy-load属性'>方案一：image组件的lazy-load属性</h3>
 
 <p>小程序在设计的时候就想到了图片懒加载，所以在官方文档中也给出了 <code>lazy-load</code> 属性，加上之后就可以实现懒加载啦！是不是很方便！</p>
 
@@ -49,7 +54,7 @@ export default class Main extends React.Component {
 
 <p>优点：<br></br>-方便，简单<br></br>缺点：<br></br>-只针对page与scroll-view下的image有效，同时版本限制在 <code>1.5.0</code> 以上<br></br>-懒加载无回调函数，图片加载后不能进行其他操作<br></br>-加载之前不能设置默认显示图片</p>
 
-<h3>方案二：利用WXML节点信息API实现</h3>
+<h3 id='方案二：利用WXML节点信息API实现'>方案二：利用WXML节点信息API实现</h3>
 
 <p>第二个办法呢就是通过小程序获取节点信息的api <code>createSelectorQuery</code> 来完成。<br></br>首先，通过 <code>wx.getSystemInfo</code> 获取可视区的高度，并写入 data。</p>
 
@@ -127,7 +132,7 @@ export default class Main extends React.Component {
 
 <p>优点：<br></br>-无版本限制<br></br>-图片载入时可以自定义回调，配置一些自定义的操作<br></br>缺点：<br></br>-代码比较多，流程比较复杂</p>
 
-<h3>方案三：利用WXML节点布局相交状态实现</h3>
+<h3 id='方案三：利用WXML节点布局相交状态实现'>方案三：利用WXML节点布局相交状态实现</h3>
 
 <p>小程序开放了一组WXML节点布局相交状态实现的api，可以用于推断某些节点是否可以被用户看见、有多大比例可以被用户看见。示例如下,当目标元素在页面显示区域内相交或相离，且相交或相离程度达到目标节点布局区域的20%和50%时触发回调函数：</p>
 
@@ -184,6 +189,8 @@ export default class Main extends React.Component {
 
 <p>优点：<br></br>-方便配置，几行代码即可<br></br>-无版本限制<br></br>-图片载入时可以自定义回调，配置一些自定义的操作</p>
 </div>
+            </div>
+
         )
     }
 }

@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"image-webpack-loader 图片压缩"},{"level":"h3","title":"使用 url-loader 将文件转为 DataURL"},{"level":"h3","title":"分离代码文件"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">深入webpack4.0（三）优化</div>
 <blockquote>
   <p>这一环节我们来聊一聊如何通过配置webpack来使在生产环境构建时来优化我们的项目代码。</p>
 </blockquote>
 
-<h3>image-webpack-loader 图片压缩</h3>
+<h3 id='image-webpack-loader 图片压缩'>image-webpack-loader 图片压缩</h3>
 
 <blockquote>
   <p>之前使用 file-loader 来处理图片文件，在此基础上，再添加一个 image-webpack-loader 来压缩图片文件。配置如下：</p>
@@ -64,7 +69,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>使用 url-loader 将文件转为 DataURL</h3>
+<h3 id='使用 url-loader 将文件转为 DataURL'>使用 url-loader 将文件转为 DataURL</h3>
 
 <blockquote>
   <p>url-loader封装了 file-loader ,拥有其基本功能所以不需要依赖 file-loader，当图片大小小于limit值时，会直接将文件资源转为 base64 编码的 DataURL。</p>
@@ -109,7 +114,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>分离代码文件</h3>
+<h3 id='分离代码文件'>分离代码文件</h3>
 
 <blockquote>
   <p>假设我们原本页面的静态资源都打包成一个 JS 文件，加载页面时虽然只需要加载一个 JS 文件，但是我们的代码一旦改变了，用户访问新的页面时就需要重新加载一个新的 JS 文件。有些情况下，我们只是单独修改了样式，这样也要重新加载整个应用的 JS 文件，相当不划算。所以分离代码文件是为了更好的利用缓存，减少不必要的开支。</p>
@@ -147,6 +152,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

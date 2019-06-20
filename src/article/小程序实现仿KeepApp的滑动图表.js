@@ -1,32 +1,37 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"第一次尝试，利用echarts实现"},{"level":"h3","title":"第二次尝试，原生view标签实现"},{"level":"h3","title":"第三次尝试，小程序组件 scroll-view"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">小程序实现仿KeepApp的滑动图表</div>
 <p>最近写小程序令人很头大的一个问题就是画图表，甚至和同事抱怨一通“我很热爱前端开发（如果不画图表）”。小程序的图表echarts-for-weixin，是echarts对于微信小程序的一个兼容方案，由于开源不久，坑用手指头加脚趾头都数不过来的，也是很心累。<br></br>最近产品新增需求，又要加图表了，一听到图表众程序员心一提。这次新增的图表是类似KEEP软件的滑动柱状图，不仅展示还要动态的展示数据，不了解KEEP可以看看下面的截图。<br></br><img src="http://wx4.sinaimg.cn/mw690/a73bc6a1ly9frarqxwf8lj20bb0ii3zs.jpg" alt="image" title="" /><br></br>主要就是通过拖动图表来定位展示数据。拿到了原型图就开始来尝试实现了。</p>
 
-<h3>第一次尝试，利用echarts实现</h3>
+<h3 id='第一次尝试，利用echarts实现'>第一次尝试，利用echarts实现</h3>
 
 <p>首先利用echarts来实现滑动图表组件，官方配置项提供了dataZoom配置项可以设置x轴滑动展示。实现起来非常方便，官方也给出了例子来进行展示，但是，但是，不知道echarts官网怎么设计的这个坐标轴滚动的交互，这效果有点一言难尽（见下图）。不仅坐标轴会随着可是区域数轴的值变化，而且这过渡效果太bug了，完全不是产品get的效果呀。同时在小程序中还需要获取到当前可视区域中心的坐标值，这些也是非常难拿到的，echarts也没有对外开发类似的接口（可实现的方案是通过formatter遍历获取），所以，这个方案淘汰。<br></br><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1frauwp0f23g209005ygp4.gif" alt="image" title="" /></p>
 
-<h3>第二次尝试，原生view标签实现</h3>
+<h3 id='第二次尝试，原生view标签实现'>第二次尝试，原生view标签实现</h3>
 
 <p>既然echarts不行，那咱们试试原生view标签自己造吧，构建好结构，结合data也能正常显示图表。万事俱备，只欠滑动。这里需要涉及到三个事件监听 touchstart、touchmove、touchend。在touchstart时记录手指触碰的x坐标记作startX，在touchmove时期记录当前手指触碰的x坐标，和startX作差得出移动举例moveX，这是给图表区设置transform的translateX为moveX的单位，使得图表可以跟随手指实时滑动。当touchend时，清除startX等数据，滑动结束，再记录当前中心点的索引，进行对应请求显示。<br></br>在开发者工具中功能基本实现，且没有明显bug，开始上机测试。这一调试就出大问题了，由于move时不断进行修改css的操作，小程序变得非常卡，非常影响用户体验，虽然加了节流函数还是不流畅，所以，第二种方案做废。</p>
 
-<h3>第三次尝试，小程序组件 scroll-view</h3>
+<h3 id='第三次尝试，小程序组件 scroll-view'>第三次尝试，小程序组件 scroll-view</h3>
 
 <p>了解小程序的开发人员肯定用到过小程序组件 scroll-view。翻看文档scroll-view有一个 scroll-left 属性，设置横向滚动条的位置。这样通过滚动条的位置岂不是很方便的就能捕获到当前中心位置的索引值了？<br></br>如下代码片段：</p>
 
@@ -90,6 +95,8 @@ export default class Main extends React.Component {
 
 <p>代码地址：https://github.com/252860883/wechat-slideBarChart</p>
 </div>
+            </div>
+
         )
     }
 }

@@ -1,20 +1,25 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: []
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">爬一下flex布局在IE10和IE11下的坑</div>
 <p>
 接收项目的时候兼容性暂且到 IE11+ ，但是随着项目的迭代和用户数量的增长，需要兼容到 IE10+。所以在IE10下出现了一些错乱的样式。经过查找发现大部分都是 flex布局导致的。
@@ -43,6 +48,8 @@ export default class Main extends React.Component {
 </ol>
 </p>
 </div>
+            </div>
+
         )
     }
 }

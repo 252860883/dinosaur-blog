@@ -1,20 +1,25 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: []
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">小程序封装异步请求接口</div>
 <p>开发过小程序应该知道小程序的异步http请求都是通过小程序自己的api wx.request 实现的。</p>
 
@@ -52,6 +57,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

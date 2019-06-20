@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h2","title":"webpack-dev-server "},{"level":"h2","title":"webpack-dev-middleware"},{"level":"h2","title":"开发环境和生产环境的构建"},{"level":"h3","title":"webpack 3.x配置"},{"level":"h3","title":"webpack 4.0配置"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">深入webpack4.0（二）本地服务环境</div>
 <blockquote>
   <p>在第一个章节我们已经对webpack的整体架构做了一个介绍。这一章，我们对开发环境的本地服务来展开分析。我们平时在vue-cli还是其他的脚手架也好都会启动一个本地服务来进行实时的调试，那么这个功能 webpack 是怎么来实现的呢？</p>
 </blockquote>
 
-<h2>webpack-dev-server </h2>
+<h2 id='webpack-dev-server '>webpack-dev-server </h2>
 
 <p>在<code>package.json</code>文件中添加如下配置,然后运行 <code>npm run start</code>就可以启动本地服务了：</p>
 
@@ -33,7 +38,7 @@ export default class Main extends React.Component {
 
 <p>在 webpack 配置文件中，可以通过设置 devServer 字段来配置，比如 port 、 publicPath 等配置项。 </p>
 
-<h2>webpack-dev-middleware</h2>
+<h2 id='webpack-dev-middleware'>webpack-dev-middleware</h2>
 
 <p>其实我们在前面用到的 webpack-dev-server 用的 nodejs环境下的 express 框架来实现的。那我们是否可以自己利用 nodejs 来开发一个本地环境呢？这里就引入了我们在 nodejs 环境下的两个中间件 <code>webpack-dev-middleware</code>和 <code>webpack-hot-middleware</code>,前者是用来启动 webpack 本地服务的中间件，后者用来实现热加载。</p>
 
@@ -81,9 +86,9 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h2>开发环境和生产环境的构建</h2>
+<h2 id='开发环境和生产环境的构建'>开发环境和生产环境的构建</h2>
 
-<h3>webpack 3.x配置</h3>
+<h3 id='webpack 3.x配置'>webpack 3.x配置</h3>
 
 <p>在 webpack 3.x 中，我们通常通过 <code>process.env.NODE_ENV</code> 区分两种环境。在<code>package.json</code>文件中添加如下配置,</p>
 
@@ -107,7 +112,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>webpack 4.0配置</h3>
+<h3 id='webpack 4.0配置'>webpack 4.0配置</h3>
 
 <p>webpack 4.x 版本引入了 mode 的概念，在运行 webpack 时需要指定使用 production 或 development 两个 mode 其中一个。配置指令如下：</p>
 
@@ -134,6 +139,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

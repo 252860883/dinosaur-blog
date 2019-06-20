@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h4","title":"注意"},{"level":"h3","title":"mpvue暂不支持的问题"},{"level":"h2","title":"- 小程序不支持 wxss 中引入本地资源，所以 background-image 行不通的"},{"level":"h3","title":"疑问"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">mpvue刨坑指南</div>
-<h4>注意</h4>
+<h4 id='注意'>注意</h4>
 
 <ul>
 <li>调试时，请先将微信调试工具，详情按钮下面“ 不校验安全域名、web-view 域名、TLS 版本以及 HTTPS 证书 ” 勾选
@@ -35,7 +40,7 @@ export default class Main extends React.Component {
 <li>style中的 css属性不要写成驼峰式，比如 margin-top 不要写成 marginTop</li>
 </ul>
 
-<h3>mpvue暂不支持的问题</h3>
+<h3 id='mpvue暂不支持的问题'>mpvue暂不支持的问题</h3>
 
 <ul>
 <li>不支持能在选项属性或者回调上使用箭头函数，比如 created:()=>console.log(123);因为箭头函数和父级的上下文绑定在一起的，this并不是vue实例</li>
@@ -45,15 +50,17 @@ export default class Main extends React.Component {
 <li>bind 和 catch 事件同时绑定的时候，只会触发 bind 而不会触发 catch 上的事件</li>
 <li>不支持 vue-router，因为小程序无法动态插入和控制节点</li>
 <li>小程序不支持window 和 document 所以不能使用 zppto/jquery等一系列和dom有关的库（T-T）
-<h2>- 小程序不支持 wxss 中引入本地资源，所以 background-image 行不通的</h2></li>
+<h2 id='- 小程序不支持 wxss 中引入本地资源，所以 background-image 行不通的'>- 小程序不支持 wxss 中引入本地资源，所以 background-image 行不通的</h2></li>
 </ul>
 
-<h3>疑问</h3>
+<h3 id='疑问'>疑问</h3>
 
 <ul>
 <li>touchstart, touchmove, touchend, touchcancel, longpress 这几个事件绑定在 canvas 元素上不生效，click, tap 等是可以的，上述 canvas 不支持的事件其他元素是支持的</li>
 </ul>
 </div>
+            </div>
+
         )
     }
 }

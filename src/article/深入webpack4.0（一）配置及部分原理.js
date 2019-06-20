@@ -1,25 +1,30 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"1. 为什么用webpack？"},{"level":"h3","title":"2. 安装"},{"level":"h3","title":"3. 入口与输出"},{"level":"h3","title":"4. Loader"},{"level":"h3","title":"5. Plugin"},{"level":"h3","title":"6. Resolve"},{"level":"h3","title":"总结"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">深入webpack4.0（一）整体架构</div>
 <blockquote>
   <p>webpack 是一个 JS 代码模块化的打包工具，藉由它强大的扩展能力，随着社区的发展，逐渐成为一个功能完善的构建工具。但是平时开发业务的时候许多框架都提供了完善的脚手架，使得我们在开发业务的时候很省事，却对webpack越来越陌生，所以由此来对webpack来次深入的了解。</p>
   
-  <h3>1. 为什么用webpack？</h3>
+  <h3 id='1. 为什么用webpack？'>1. 为什么用webpack？</h3>
 </blockquote>
 
 <p>随着前端工程化的发展，涌现出了许多框架类库，但是这些源代码无法直接运行，需要经过工具转化才可以。除了webpack这个构建工具，还有我们了解的Grunt、Gulp等。</p>
@@ -30,11 +35,11 @@ export default class Main extends React.Component {
 
 <p><strong>Webpack</strong><br></br>webpack是一个打包模块化 JavaScript 的工具，在 Webpack 里一切文件皆模块，通过 Loader 转换文件，通过 Plugin 注入钩子，最后输出由多个模块组合成的文件。Webpack 专注于构建模块化项目。webpack具有很大的灵活性和拓展性，专注模块化开发，可以做到开箱即用，同时使用场景不仅限于Web开发，具有良好的开发体验。<br></br>现在社区里面基于webpack的脚手架大致有： react 的 create-react-app 、 vue 的 vue-cli 、 Angular 的 angular-cli等。</p>
 
-<h3>2. 安装</h3>
+<h3 id='2. 安装'>2. 安装</h3>
 
 <p>首先输入指令 <code>npm install webpack webpack-cli -g</code> 安装webback，指令 <code>npm init</code> 安装package.json文件。Webpack 在执行构建时默认会从项目根目录下的 webpack.config.js 文件读取配置，所以我们需要手动新建该文件。前期的准备工作结束，下面我们就开始进入神奇的webpack世界了！</p>
 
-<h3>3. 入口与输出</h3>
+<h3 id='3. 入口与输出'>3. 入口与输出</h3>
 
 <p>在多个代码模块中会有一个起始的 .js 文件，我们将此文件作为 webpack 构建的入口，同时webpack支持多个入口配置，如下代码配置：</p>
 
@@ -59,7 +64,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>4. Loader</h3>
+<h3 id='4. Loader'>4. Loader</h3>
 
 <p>Loader 可以看作是 webpack 的转换器或者“翻译员”，把代码转换成 webpack 可以打包的模块，在 module.rules 下配置。格式如下：</p>
 
@@ -89,7 +94,7 @@ export default class Main extends React.Component {
 
 <p><strong>noPrase</strong><br></br>不需要解析依赖的第三方类库可以配置在 noParse 中，但是需注意使用 noParse 进行忽略的模块文件中不能使用 import、require、define 等导入机制。</p>
 
-<h3>5. Plugin</h3>
+<h3 id='5. Plugin'>5. Plugin</h3>
 
 <p>Plugin 是用来扩展 Webpack 功能的，处理其他的构建任务，模块转换的工作给 loader 做，剩下的工作由 plugin 完成。，通过在构建流程里注入钩子实现，它给 Webpack 带来了很大的灵活性。plugin安装后需要手动引入。下面以配置sass示例,注意其中用到了插件<code>extract-text-webpack-plugin</code>在webpack 4.x中没有做支持，所以需要这样引入：<code>npm install extract-text-webpack-plugin@next -D</code></p>
 
@@ -121,7 +126,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>6. Resolve</h3>
+<h3 id='6. Resolve'>6. Resolve</h3>
 
 <p>Webpack 在启动后会从配置的入口模块出发找出所有依赖的模块，Resolve 配置 Webpack 如何寻找模块所对应的文件。 Webpack 内置 JavaScript 模块化语法解析功能，默认会采用模块化标准里约定好的规则去寻找，但你也可以根据自己的需要修改默认的规则。<br></br>比如 resolve.alias可以设置路径的映射,直接使用 components 代替 ./src/components/：</p>
 
@@ -134,7 +139,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>总结</h3>
+<h3 id='总结'>总结</h3>
 
 <ul>
 <li>想让源文件加入到构建流程中去被 Webpack 控制，配置 entry。</li>
@@ -144,6 +149,8 @@ export default class Main extends React.Component {
 <li>其它的大部分需求可能要通过 Plugin 去实现，配置 plugin。</li>
 </ul>
 </div>
+            </div>
+
         )
     }
 }

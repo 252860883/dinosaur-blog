@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"Action"},{"level":"h3","title":"Reducer"},{"level":"h3","title":"Store"},{"level":"h3","title":"数据流"},{"level":"h3","title":"React 中使用 Redux"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">React学习笔记 Redux</div>
 <blockquote>
   <p>Redux 是一个状态管理器。那什么是状态呢？简单来说，状态就是数据。Redux支持 React、Angular、Ember、jQuery 甚至纯 JavaScript，不是只在 React 中才可以使用，</p>
 </blockquote>
 
-<h3>Action</h3>
+<h3 id='Action'>Action</h3>
 
 <p>Action 是把数据从应用传到 store 的有效载荷。它是 store 数据的唯一来源。实际应用中一般通过 store.dispatch() 将 action 传到 store。举个例子：</p>
 
@@ -49,7 +54,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Reducer</h3>
+<h3 id='Reducer'>Reducer</h3>
 
 <p>Reducers 指定了应用状态的变化如何响应 actions 并发送到 store 的(根据action响应state)，记住 actions 只是描述了有事情发生了这一事实，并没有描述应用如何更新 state。reducer格式如下：</p>
 
@@ -73,7 +78,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Store</h3>
+<h3 id='Store'>Store</h3>
 
 <p>我们已经知道了 action 来描述“发生了什么”，reducer来根据 action 更新 state。那 Store 就是把它们联系到一起的对象。那 store 有什么职责呢？</p>
 
@@ -95,12 +100,14 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>数据流</h3>
+<h3 id='数据流'>数据流</h3>
 
 <p>严格的单向数据流是 Redux 的设计核心。一般情况下遵循四个步骤：<br></br>1. store.dispatch(action)<br></br>2. Store 把 state 和 acgion 两个参数传入 reducer<br></br>3. 根 reducer 把多个子 reducer 输出合并成一个单一的 state 树</p>
 
-<h3>React 中使用 Redux</h3>
+<h3 id='React 中使用 Redux'>React 中使用 Redux</h3>
 </div>
+            </div>
+
         )
     }
 }

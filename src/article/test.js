@@ -1,29 +1,32 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
-
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import { IsPC } from "../utils/screen";
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"abcddd"},{"level":"h3","title":"abcddd"}]
+        }
+    }
+    componentDidMount() {
+        if (!IsPC()) {
+            const dom = document.getElementsByClassName('article')[0]
+            dom.classList.add('article-mobile');
+        }
     }
     render() {
         return (
-            <div className="article">
-<div className="title">【2019 冲鸭】年度指标计划</div>
-<pre><code><span></span>
-<span>// html</span>
-<span>&lt;div&gt;</span>
-<span>  &lt;span&gt;1&lt;/span&gt;</span>
-<span>  &lt;span class='second'&gt;2&lt;/span&gt;</span>
-<span>  &lt;span&gt;</span>
-<span>      3</span>
-<span>      &lt;span&gt;3-1&lt;/span&gt;</span>
-<span>  &lt;/span&gt;</span>
-<span>  &lt;span&gt;4&lt;/span&gt;</span>
-<span>&lt;/div&gt;</span>
-<span></span>
-</code></pre>
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
+<div className="title">React 学习笔记 </div>
+<h3 id='abcddd'>abcddd</h3>
+
+<h3 id='abcddd'>abcddd</h3>
 </div>
+            </div>
+
         )
     }
 }

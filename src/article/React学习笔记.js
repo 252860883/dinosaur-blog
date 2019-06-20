@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"脚手架 create-react-app"},{"level":"h3","title":"JSX"},{"level":"h3","title":"渲染 DOM"},{"level":"h3","title":"组件"},{"level":"h3","title":"事件"},{"level":"h3","title":"总结"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">React 学习笔记</div>
-<h3>脚手架 create-react-app</h3>
+<h3 id='脚手架 create-react-app'>脚手架 create-react-app</h3>
 
 <p>create-react-app是github上面开源点星最多的react脚手架,也是官方比较推荐的，所以打算用这个架子上手了。后续可以再学习用webpack去自己搭一套。</p>
 
@@ -100,7 +105,7 @@ export default class Main extends React.Component {
 
 <p>bundle-loader 路由懒加载</p>
 
-<h3>JSX</h3>
+<h3 id='JSX'>JSX</h3>
 
 <p>JSX是react特有的一个语法扩展。在react中通常用JSX来描述界面，它是写在JavaScript里的。这也是react倡导的 “all in js”，它和vue的单文件组件是不一样的。</p>
 
@@ -113,7 +118,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>渲染 DOM</h3>
+<h3 id='渲染 DOM'>渲染 DOM</h3>
 
 <pre><code><span></span>
 <span>ReactDOM.render(</span>
@@ -123,7 +128,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>组件</h3>
+<h3 id='组件'>组件</h3>
 
 <pre><code><span></span>
 <span>class Welcome extends React.Component {'{'}</span>
@@ -165,7 +170,7 @@ componentDidMount()   组件插入到dom中的时候执行
 componentWillUnmount()    组件被移除的时候执行</li>
 </ul>
 
-<h3>事件</h3>
+<h3 id='事件'>事件</h3>
 
 <p>书写 驼峰式</p>
 
@@ -201,10 +206,12 @@ componentWillUnmount()    组件被移除的时候执行</li>
 <span></span>
 </code></pre>
 
-<h3>总结</h3>
+<h3 id='总结'>总结</h3>
 
 <p>作为目前最流行的MVVM框架React和vue有很多异同点，那就在这来总结一下吧，来更深刻的对两个框架理解，并有能力知道在何种场景适合使用vue或者react来进行快速开发。</p>
 </div>
+            </div>
+
         )
     }
 }

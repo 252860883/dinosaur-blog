@@ -1,42 +1,47 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"Array.prototype.forEach"},{"level":"h3","title":"Array.prototype.map"},{"level":"h3","title":"Array.prototype.Filter"},{"level":"h3","title":"Array.prototype.Sort"},{"level":"h3","title":"Array.prototype.Some"},{"level":"h3","title":"Array.prototype.Every"},{"level":"h3","title":"Array.prototype.FindIndex"},{"level":"h3","title":"Array.prototype.Find"},{"level":"h3","title":"Array.prototype.Reduce"},{"level":"h3","title":"Array.prototype.reduceRight"},{"level":"h3","title":"Array.prototype.includes(ES6新增)"},{"level":"h3","title":"Array.isArray(ES6新增)"},{"level":"h3","title":"Array.prototype.fill(ES6新增)"},{"level":"h3","title":"Array.prototype.entries/keys/values(ES6新增)"},{"level":"h3","title":"Array.of(ES6新增)"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">关于array的常用的几个API</div>
-<h3>Array.prototype.forEach</h3>
+<h3 id='Array.prototype.forEach'>Array.prototype.forEach</h3>
 
 <ol>
 <li>可以改变数组自身，没有返回值；</li>
 <li>中途不能用常规操作跳出循环，可以用抛出异常（try/catch）的方式，但不推荐这样做</li>
 </ol>
 
-<h3>Array.prototype.map</h3>
+<h3 id='Array.prototype.map'>Array.prototype.map</h3>
 
 <ol>
 <li>新建一个数组，需要有承载对象,原始数组在调用它后不会发生变化</li>
 <li>该数组中的每个元素都调用一个提供的函数后返回结果,否则返回 undefined]</li>
 </ol>
 
-<h3>Array.prototype.Filter</h3>
+<h3 id='Array.prototype.Filter'>Array.prototype.Filter</h3>
 
 <ol>
 <li>和 map 很像，也是创建一个新数组，新数组中的元素是筛选出来的符合条件的所有对象。</li>
 </ol>
 
-<h3>Array.prototype.Sort</h3>
+<h3 id='Array.prototype.Sort'>Array.prototype.Sort</h3>
 
 <ol>
 <li>与其他方法不同，他直接改变原始数组</li>
@@ -45,7 +50,7 @@ export default class Main extends React.Component {
 <li>如果想按照其他标准进行排序，就需提供比较函数compareFunction(a,b)</li>
 </ol>
 
-<h3>Array.prototype.Some</h3>
+<h3 id='Array.prototype.Some'>Array.prototype.Some</h3>
 
 <ol>
 <li>用于检查数组中是否有某些符合条件</li>
@@ -53,28 +58,28 @@ export default class Main extends React.Component {
 <li>只是返回一个布尔类型的值</li>
 </ol>
 
-<h3>Array.prototype.Every</h3>
+<h3 id='Array.prototype.Every'>Array.prototype.Every</h3>
 
 <ol>
 <li>和 some 类似，只返回布尔类型</li>
 <li>判断数组中所有的值是否都满足</li>
 </ol>
 
-<h3>Array.prototype.FindIndex</h3>
+<h3 id='Array.prototype.FindIndex'>Array.prototype.FindIndex</h3>
 
 <ol>
 <li>结构和map类似，获取到满足条件的索引值</li>
 <li>IE 11 及更早版本不支持findIndex() 方法，如果对浏览器兼容有要求，那就用Lodash的 _.findIndex()</li>
 </ol>
 
-<h3>Array.prototype.Find</h3>
+<h3 id='Array.prototype.Find'>Array.prototype.Find</h3>
 
 <ol>
 <li>和some类似，有一个满足的元素就会返回</li>
 <li>IE 11 及更早版本不支持</li>
 </ol>
 
-<h3>Array.prototype.Reduce</h3>
+<h3 id='Array.prototype.Reduce'>Array.prototype.Reduce</h3>
 
 <p>该方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。reducer函数对应四个传参，依次是：<code>accumulator 累计器</code>, <code>currentValue 当前值</code>, <code>currentIndex 当前索引</code>, <code>array 数组</code>.</p>
 
@@ -91,11 +96,11 @@ export default class Main extends React.Component {
 
 <p>⚠️需要注意，第一次循环时 accumulator 为数组第一个值，currentValue 为数组第二个值。</p>
 
-<h3>Array.prototype.reduceRight</h3>
+<h3 id='Array.prototype.reduceRight'>Array.prototype.reduceRight</h3>
 
 <p>和 reduce 作用一样，区别是从数组最右开始降序执行。</p>
 
-<h3>Array.prototype.includes(ES6新增)</h3>
+<h3 id='Array.prototype.includes(ES6新增)'>Array.prototype.includes(ES6新增)</h3>
 
 <p>用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false。<br></br>第二个参数表示从第几个索引值开始查找。</p>
 
@@ -111,7 +116,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Array.isArray(ES6新增)</h3>
+<h3 id='Array.isArray(ES6新增)'>Array.isArray(ES6新增)</h3>
 
 <p>用来检测值是否是一个Array，返回一个布尔类型的值。 相较于 <code>instanceof</code>, Array.isArray 可以检测 iframes。</p>
 
@@ -123,7 +128,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Array.prototype.fill(ES6新增)</h3>
+<h3 id='Array.prototype.fill(ES6新增)'>Array.prototype.fill(ES6新增)</h3>
 
 <p>用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。</p>
 
@@ -133,7 +138,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Array.prototype.entries/keys/values(ES6新增)</h3>
+<h3 id='Array.prototype.entries/keys/values(ES6新增)'>Array.prototype.entries/keys/values(ES6新增)</h3>
 
 <pre><code><span></span>
 <span>let arr=['a', 'b', 'c']</span>
@@ -149,7 +154,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Array.of(ES6新增)</h3>
+<h3 id='Array.of(ES6新增)'>Array.of(ES6新增)</h3>
 
 <p>创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。</p>
 
@@ -162,6 +167,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

@@ -24,6 +24,7 @@ let ArticleMenu = [
 	{"title":"爬一下flex布局在IE10和IE11下的坑","date":"2018-01-30 18:30:02","tags":"javascript","link":"/flex布局在IE10和IE11下的坑","article":true,url: import('../article/flex布局在IE10和IE11下的坑')},
 	{"title":"mpvue刨坑指南","date":"2018-03-20 15:24:20","tags":"[小程序,VUE]","link":"/mpvue刨坑指南","article":true,url: import('../article/mpvue刨坑指南')},
 	{"title":"【项目总结】大牛工资条","tags":"项目总结","date":"2017-09-19 14:17:13","link":"/payroll","article":true,url: import('../article/payroll')},
+	{"title":"React 学习笔记 ","date":"2018-02-24 23:45:58","tags":"React","link":"/test","article":true,url: import('../article/test')},
 	{"title":"threejs 开启web的3D大门","date":"2018-09-19 14:17:13","tags:":"","top:":"","link":"/threejs-开启web的3D大门","article":true,url: import('../article/threejs-开启web的3D大门')},
 	{"title":"vue的key属性加还是不加？","date":"2018-07-10 17:38:44","tags":"['vue','javascript']","link":"/vue的key属性加还是不加","article":true,url: import('../article/vue的key属性加还是不加')},
 	{"title":"对于cookie存取方法的封装","date":"2018-04-09 15:24:20","tags":"[javascript]","link":"/web前端对于cookie存取的方法封装","article":true,url: import('../article/web前端对于cookie存取的方法封装')},

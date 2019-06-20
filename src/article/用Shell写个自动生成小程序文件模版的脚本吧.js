@@ -1,28 +1,33 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h2","title":"前言"},{"level":"h2","title":"Shell脚本 实现"},{"level":"h2","title":"nodejs环境 实现"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">实现一个自动生成小程序文件模版的脚本</div>
-<h2>前言</h2>
+<h2 id='前言'>前言</h2>
 
 <p>搞过小程序开发的诸位程序员们一定面临一个问题，就是编辑器好难用啊！新建页面好难用！手抖不小心建错了还要打开文件夹删了文件再去编辑器重新创建。哎呀！麻烦死了！</p>
 
 <p>直到某天，同事：“咱们写个自动创建文件模版的脚本吧？”  “开搞！”</p>
 
-<h2>Shell脚本 实现</h2>
+<h2 id='Shell脚本 实现'>Shell脚本 实现</h2>
 
 <p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。我们下面的脚本也是通过 Shell语言来实现的。如果你还不了解什么是 Shell 语法的话，可以先熟悉一下语法，入门不难。<a href="http://www.runoob.com/linux/linux-shell.html">点击这里</a>。</p>
 
@@ -122,7 +127,7 @@ export default class Main extends React.Component {
 
 <p>下面，我们就可以来随意的创建啦！打开命令行，执行 <code>npm run set</code> 就可以来创建。</p>
 
-<h2>nodejs环境 实现</h2>
+<h2 id='nodejs环境 实现'>nodejs环境 实现</h2>
 
 <blockquote>
   <p>上面我们通过shell语法来实现了一个简单的文件克隆脚本，但是这个脚本还存在诸多不足，比如：选择某一种情况的时候必须手动输入对应值、多级分包等问题。下面我们就来试试用nodejs来实现这个脚本。</p>
@@ -320,6 +325,8 @@ export default class Main extends React.Component {
   <p>源码：<br></br><a href="https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js">https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js</a><br></br>https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.sh</p>
 </blockquote>
 </div>
+            </div>
+
         )
     }
 }

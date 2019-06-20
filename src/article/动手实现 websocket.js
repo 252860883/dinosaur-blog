@@ -1,24 +1,29 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"服务器推送技术"},{"level":"h3","title":"WebSocket 通信过程"},{"level":"h3","title":"socket.io"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">动手实现前后端 websocket 通信</div>
 <p>毕设做的是一个校园约自习室网站，为了增强其互动性，我决定加入聊天系统来实现学生和管理员之间的联系。提到实时聊天，第一时间肯定联想到H5新加入的 WebSocket 了，WebSocket 作为一种通信协议，属于服务器推送技术的一种，其他的还有 短轮询、长轮询、Server-sent Events（SSE）等。</p>
 
-<h3>服务器推送技术</h3>
+<h3 id='服务器推送技术'>服务器推送技术</h3>
 
 <ol>
 <li><strong>短轮询</strong> 就是隔段时间请求 ajax 请求，这样只能傻瓜式的循环不仅会占用较多的资源和请求，也不能做到实时推送，但是兼容性很好。</li>
@@ -31,7 +36,7 @@ export default class Main extends React.Component {
   <p>特点：<br></br>1.建立在TCP之上，服务器容易实现<br></br>2.良好兼容性，握手采用HTTP协议不容易被屏蔽，且能通过各种代理服务器<br></br>3.支持二进制数据格式，数据轻量，性能开销小，通信高效<br></br>4.没有同源限制，客户端可以与任意服务器连接通信<br></br>5.无需频繁创建/销毁 TCP 请求，减少网络带宽资源占用，节省服务器资源<br></br>6.WebSocket由事件驱动，一旦连接建立，通过监听事件可以处理到来的数据和改变的连接状态，数据都以帧序列的形式传输。服务端发送数据后，消息和事件会异步到达。<br></br>7.没有超时处理</p>
 </blockquote>
 
-<h3>WebSocket 通信过程</h3>
+<h3 id='WebSocket 通信过程'>WebSocket 通信过程</h3>
 
 <p>Websocket区别 Http 协议是一个持久化的新协议，但是为了兼容现有浏览器的握手规范而借用了HTTP的协议来完成一部分握手。WebSocket是纯事件驱动的，并遵循异步编程模型，只需要对WebSocket对象增加回调函数就可以监听事件，一旦连接建立可以通过监听事件增加回调函数来处理数据。</p>
 
@@ -77,10 +82,12 @@ export default class Main extends React.Component {
 <li>客户端收到服务端回复的数据包后，如果内容、格式都没问题，就表示此次连接成功，触发<code>onopen</code>事件，此时客户端就可以通过 <code>send()</code> 来向服务器发送数据了，如果过程出错可以通过 <code>onerror</code>获取报错信息。</li>
 </ol>
 
-<h3>socket.io</h3>
+<h3 id='socket.io'>socket.io</h3>
 
 <p>由于我的项目后端采用的是 nodjs 环境开发，所以这里引入 <code>socket.io</code>。<br></br>Socket.io将数据传输部分独立出来形成engine.io，engine.io对WebSocket和AJAX轮询进行了封装，形成了一套API，屏蔽了细节差异和兼容性问题，实现了跨浏览器/跨设备进行双向数据通信。Socket.io实际上是WebSocket的父集，Socket.io封装了WebSocket和轮询等方法，会根据情况选择方法来进行通讯。</p>
 </div>
+            </div>
+
         )
     }
 }

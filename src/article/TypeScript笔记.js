@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h2","title":"了解 TypeScript"},{"level":"h3","title":"对象类型"},{"level":"h4","title":"基础数据类型"},{"level":"h4","title":"任意类型"},{"level":"h4","title":"类型推论"},{"level":"h4","title":"联合类型"},{"level":"h4","title":"数组类型"},{"level":"h4","title":"函数类型"},{"level":"h4","title":"类型断言"},{"level":"h4","title":"泛型"},{"level":"h4","title":"内置对象"},{"level":"h3","title":"接口"},{"level":"h3","title":"类"},{"level":"h3","title":"类与接口的结合"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">TypeScript笔记</div>
-<h2>了解 TypeScript</h2>
+<h2 id='了解 TypeScript'>了解 TypeScript</h2>
 
 <blockquote>
   <p>TypeScript 是 JavaScript 的一个超集，主要提供了类型系统和对 ES6 的支持。TS 增强了代码的可读性和可维护性。</p>
@@ -31,9 +36,9 @@ export default class Main extends React.Component {
 
 <p>编译 TypeScript 也很简单 直接执行指令： <code>tsc 文件名</code> 。</p>
 
-<h3>对象类型</h3>
+<h3 id='对象类型'>对象类型</h3>
 
-<h4>基础数据类型</h4>
+<h4 id='基础数据类型'>基础数据类型</h4>
 
 <p>在 TypeScript 中有六种基础数据类型，其基本的定义格式为<code>let 变量名 : 数据类型 = 变量值</code>。这六种数据类型分别是：<code>boolean</code> <code>number</code> <code>string</code> <code>void</code> <code>undefined</code> <code>null</code>  需要注意，使用基础数据类型时一定要严格按照数据类型赋值，否则编译时会报错。同时还提供了枚举类型方便使用。</p>
 
@@ -84,7 +89,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>任意类型</h4>
+<h4 id='任意类型'>任意类型</h4>
 
 <p>和基础数据类型对立，可以赋任何类型的值。在任意值上访问任何属性都是允许的，也允许调用任何方法。通常情况下可以认为 void 与 any 相反。</p>
 
@@ -104,7 +109,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>类型推论</h4>
+<h4 id='类型推论'>类型推论</h4>
 
 <p>如果没有明确的指定类型，那么 TypeScript 会依照<code>类型推论</code>的规则推断出一个类型,但是编译阶段依然会进行报错。</p>
 
@@ -115,7 +120,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>联合类型</h4>
+<h4 id='联合类型'>联合类型</h4>
 
 <p>联合类型就是一个对象可以是规定内的多种类型。在 TypeScript 中用 <code>|</code> 符号来分割定义的基础类型。当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，只能访问此联合类型的所有类型里共有的属性或方法。变量在被赋值的时候，会根据类型推论的规则推断出一个类型。</p>
 
@@ -137,7 +142,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>数组类型</h4>
+<h4 id='数组类型'>数组类型</h4>
 
 <p>在 TypeScript 中有很多定义方法，分别是<code>类型+[]</code>,<code>数组泛型</code>,<code>接口表示</code>,泛型和接口我们会在后面进行讲解，这里做简单了解即可。</p>
 
@@ -173,7 +178,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>函数类型</h4>
+<h4 id='函数类型'>函数类型</h4>
 
 <p>函数定义的方式如下代码所示，需要注意传参以及函数输出都要对其进行类型定义，同时不能多输入或者少输入传参。</p>
 
@@ -207,7 +212,7 @@ export default class Main extends React.Component {
 
 <p>同时 函数同样可以使用 <code>|</code> 和 <code>any</code> 来定义不同的数据类型。</p>
 
-<h4>类型断言</h4>
+<h4 id='类型断言'>类型断言</h4>
 
 <p>类型断言（Type Assertion）可以用来手动指定一个值的类型。之前提到过，当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法。但是有时候我们需要在不确定类型的时候就使用其中的一个属性或者方法。所以这时候就需要使用<strong>类型断言</strong>了。但是需注意：类型断言不是类型转换，断言成一个联合类型中不存在的类型是不允许的。</p>
 
@@ -222,7 +227,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>泛型</h4>
+<h4 id='泛型'>泛型</h4>
 
 <p>有时候我们需要使返回值的类型与传入参数的类型是相同的，这里就引入了<strong>类型变量</strong>来表示：</p>
 
@@ -233,7 +238,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>内置对象</h4>
+<h4 id='内置对象'>内置对象</h4>
 
 <p>我们知道 JavaScript 中有很多的内置对象可供使用，那么在 TypeScript 中呢，可以直接当做定义好了的类型。</p>
 
@@ -256,7 +261,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>接口</h3>
+<h3 id='接口'>接口</h3>
 
 <p>在面向对象语言中，接口（Interfaces）是一个很重要的概念，它是对行为的抽象，而具体如何行动需要由类（classes）去实现（implements）。TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。同时在接口中可以设置 可选属性、任意属性、只读属性等。<br></br>举个🌰：</p>
 
@@ -299,7 +304,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>类</h3>
+<h3 id='类'>类</h3>
 
 <p>下面是一个类的简易Demo：</p>
 
@@ -376,7 +381,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>类与接口的结合</h3>
+<h3 id='类与接口的结合'>类与接口的结合</h3>
 
 <p>></p>
 
@@ -384,6 +389,8 @@ export default class Main extends React.Component {
   <p>学习整理自：<br></br><a href="https://ts.xcatliu.com/">https://ts.xcatliu.com/</a><br></br>https://www.tslang.cn/docs/home.html</p>
 </blockquote>
 </div>
+            </div>
+
         )
     }
 }

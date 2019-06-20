@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"基础框架"},{"level":"h4","title":"sence（场景）"},{"level":"h4","title":"camera（相机）"},{"level":"h4","title":"renderer（渲染器）"},{"level":"h4","title":"三者关系"},{"level":"h3","title":"让物体动起来"},{"level":"h4","title":"stats 性能监听"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">threejs 开启web的3D大门</div>
-<h3>基础框架</h3>
+<h3 id='基础框架'>基础框架</h3>
 
 <pre><code><span></span>
 <span>// 创建一个场景</span>
@@ -41,23 +46,23 @@ export default class Main extends React.Component {
 
 <p>上面的代码示例是一个构建3D视图的流程，那么我们了解一下这几个概念</p>
 
-<h4>sence（场景）</h4>
+<h4 id='sence（场景）'>sence（场景）</h4>
 
 <p>我们在绘制任何东西的前提都需要构建一个场景，很简单，直接 <code>var scene = new THREE.Scene();</code>即可创建一个场景。场景创建完成可以向场景中添加物体。</p>
 
-<h4>camera（相机）</h4>
+<h4 id='camera（相机）'>camera（相机）</h4>
 
 <p>相机决定了我们从哪个视角看到物体，视角不同看到的物体场景自然也不相同。通过设置不同的相机参数就可以让相机产生不一样的效果。同时Threejs中也配有多种相机，上面的代码用到的是透视相机（THREE.PerspectiveCamera）。</p>
 
-<h4>renderer（渲染器）</h4>
+<h4 id='renderer（渲染器）'>renderer（渲染器）</h4>
 
 <p>最后就将我们的绘制进行渲染器渲染，所有的渲染都是画在domElement上的，所以这里的appendChild表示将这个domElement挂接在body下面，这样渲染的结果就能够在页面中显示了。</p>
 
-<h4>三者关系</h4>
+<h4 id='三者关系'>三者关系</h4>
 
 <p>通俗来讲，我们可以理解为<code>sence</code>创建了一个场景，我们向场景里添加物体，然后通过<code>camera</code>拍摄，将拍摄的场景交给<code>renderer</code>进行渲染。</p>
 
-<h3>让物体动起来</h3>
+<h3 id='让物体动起来'>让物体动起来</h3>
 
 <p>让物体动起来有两种方法，一种是改变相机<code>camera</code>的位置，一种是改变物体<code>mesh</code>的位置：</p>
 
@@ -81,7 +86,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>stats 性能监听</h4>
+<h4 id='stats 性能监听'>stats 性能监听</h4>
 
 <p>既然涉及到循环了，那肯定是一个耗性能的工作了，在这里我们引入 <code>stats.js</code> 来进行性能监测。<br></br>首先引入 <code>stats.js</code> ,github地址：https://github.com/mrdoob/stats.js</p>
 
@@ -132,6 +137,8 @@ export default class Main extends React.Component {
 
 <p>虽然这个办法可以让物体动起来，但是对于复杂的动画效果还是不适用，这里推荐一个动画引擎 <code>Tween.js</code>来实现不规则的动画。</p>
 </div>
+            </div>
+
         )
     }
 }

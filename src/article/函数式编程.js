@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"什么是函数式编程"},{"level":"h3","title":"声明式与命令式"},{"level":"h3","title":"纯函数"},{"level":"h3","title":"柯里化 与 高阶函数"},{"level":"h3","title":"部分应用"},{"level":"h3","title":"组合函数"},{"level":"h3","title":"总结"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">函数式编程</div>
 <blockquote>
   <p>函数式编程又是一个平时在工作时经常听到但是从来没有接触过并且会被搞的一头雾水的东西。所以我打算一探究竟这个函数式编程究竟是何物？</p>
 </blockquote>
 
-<h3>什么是函数式编程</h3>
+<h3 id='什么是函数式编程'>什么是函数式编程</h3>
 
 <p>通常我们比较熟悉面向对象编程（Object-oriented programming,OOP），那么函数式编程（functional programming,FP）有何不同？</p>
 
@@ -28,7 +33,7 @@ export default class Main extends React.Component {
 
 <p><strong>函数式编程</strong>是一种编程范型，面向过程（动作）的编程，它将电脑运算视为数学上的函数计算，并且避免使用程序状态以及易变对象。简单说，函数式编程所有的数据都是不可变的，所以安全性和稳定性上更盛一筹。函数式编程广泛运用于科学研究中，因为在科研中对于代码的工程化要求比较低，写起来更加简单。但是由于数据不可变在运行中一直存在，所以内存资源占用很大。同时由于先天性的设计，性能也不乐观。</p>
 
-<h3>声明式与命令式</h3>
+<h3 id='声明式与命令式'>声明式与命令式</h3>
 
 <p>编程分为命令式编程和声明式编程，这里的函数式编程属于声明式编程范畴。<br></br><strong>命令式编程</strong>，命令如何去做，不管想要的是什么都会按照我们的代码命令去实现<br></br><strong>声明式编程</strong>，告诉需要获取什么，而不需要关注具体怎么去实现，直接由“机器”思考实现的过程</p>
 
@@ -49,7 +54,7 @@ export default class Main extends React.Component {
 
 <p>在这里我们推荐使用声明式的原因是：循环是一种重要的命令控制结构，但是很难复用，并且无法插入到其他的操作中，而函数式编程旨在尽可能的提高代码的无状态性和不变性。</p>
 
-<h3>纯函数</h3>
+<h3 id='纯函数'>纯函数</h3>
 
 <p>前面聊到了函数式编程是一个面向过程的编程，举个例子：a*3+5,通过函数式编程思想，a需要执行m和n操作，m和n首先合成l操作，然后a直接执行l操作，输出。那么m和n怎么能完成合成操作呢？任意的m和n都能合成吗？也许你已经开始产生疑问，那么这里就引入了纯函数的概念。</p>
 
@@ -98,7 +103,7 @@ export default class Main extends React.Component {
 
 <p>这样，无论func输入什么输出的都是确定不变的函数，并且也没有副作用，无关时序，所以现在该函数就是纯函数了。</p>
 
-<h3>柯里化 与 高阶函数</h3>
+<h3 id='柯里化 与 高阶函数'>柯里化 与 高阶函数</h3>
 
 <p>简单讲，<strong>柯里化</strong>是把一个多参函数转换成接受单参的一个函数，并且返回接受余下的参数而且返回结果的新函数的技术。</p>
 
@@ -179,7 +184,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>部分应用</h3>
+<h3 id='部分应用'>部分应用</h3>
 
 <p>部分应用是一种通过将函数的不可变参数子集，初始化为固定值来创建更小元数函数的操作.<br></br>简单实现一个部分应用的通用函数：</p>
 
@@ -190,7 +195,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>组合函数</h3>
+<h3 id='组合函数'>组合函数</h3>
 
 <p>函数组合就是一种将已被分解的简单任务组织成复杂的整体过程。柯里化是把函数“切”好多刀，直到中间每个函数都是单参的，部分应用则是把一个多参函数“切”一刀。<br></br>简单的来模拟一下组合函数：</p>
 
@@ -225,7 +230,7 @@ export default class Main extends React.Component {
 
 <p>比如我们现在的需求是将一个字符串转大写再拓展成数组。这样我们只需要再写一个拓展数组的函数</p>
 
-<h3>总结</h3>
+<h3 id='总结'>总结</h3>
 
 <ol>
 <li>函数式编程与面向对象的区别在于一个注重动作过程（比如把节流函数这个动作抽象出来），而另一个更侧重数据。</li>
@@ -236,6 +241,8 @@ export default class Main extends React.Component {
 <li>声明式就是使用这样的功能函数</li>
 </ol>
 </div>
+            </div>
+
         )
     }
 }

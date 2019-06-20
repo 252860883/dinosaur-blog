@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Maps 和 WeakMaps"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">ES6+ 新特性大汇总</div>
 <blockquote>
   <p>平时写业务涉及到ES6/7/8常用的可能就常见的那几个，其他的不常用就忘记了，所以来专门记录一篇博客，以供经常翻阅之用。</p>
 </blockquote>
 
-<h3>箭头函数</h3>
+<h3 id='箭头函数'>箭头函数</h3>
 
 <ol>
 <li>匿名函数，不能作为构造函数，不能 new</li>
@@ -73,7 +78,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>rest参数和拓展运算符</h3>
+<h3 id='rest参数和拓展运算符'>rest参数和拓展运算符</h3>
 
 <p>rest参数和拓展运算符虽然都是“...”的形态，但是两者的作用范围却截然不同</p>
 
@@ -108,7 +113,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>字符串拓展</h3>
+<h3 id='字符串拓展'>字符串拓展</h3>
 
 <p><strong>includes</strong><br></br>判断字符串是否有某值</p>
 
@@ -154,7 +159,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>数组拓展</h3>
+<h3 id='数组拓展'>数组拓展</h3>
 
 <p><strong>includes</strong><br></br>判断数组中是否有某值,功能和 indexOf() 类似。</p>
 
@@ -183,7 +188,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>正则拓展</h3>
+<h3 id='正则拓展'>正则拓展</h3>
 
 <p><strong>命名捕获</strong><br></br>ES2018允许命名捕获组使用符号<code>?&lt;name&gt;</code>，在打开捕获括号(后立即命名</p>
 
@@ -204,7 +209,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>解构赋值</h3>
+<h3 id='解构赋值'>解构赋值</h3>
 
 <pre><code><span></span>
 <span>let [b, c, d] = [1, 2, 3]</span>
@@ -228,7 +233,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>函数默认值</h3>
+<h3 id='函数默认值'>函数默认值</h3>
 
 <p>函数可以在定义的时候为参数设置默认值</p>
 
@@ -250,7 +255,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Maps 和 WeakMaps</h3>
+<h3 id='Maps 和 WeakMaps'>Maps 和 WeakMaps</h3>
 
 <p>Maps 在 JavaScript 中是一个非常必须的数据结构.在ES6之前通过object实现哈希表,但是Es6引入maps结构后有一些优点<br></br>1. map可以使用任何类型的值作为key值，允许对值进行 set、get 和 search<br></br>2. object有原型，原型链上的键名有可能和对象上的键名产生冲突，但是map不会出现这种问题<br></br>3. map可以直接通过 .size计算键值对个数</p>
 
@@ -271,7 +276,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>Promise函数</h3>
+<h3 id='Promise函数'>Promise函数</h3>
 
 <p><table><tr><th> 方法 </th><th>  结果</th></tr><tr><td> Promise.all </td><td>  返回一个promise对象，有一个reject就返回reject</td></tr><tr><td> Promise.race </td><td>  返回一个promise对象，回调最先解析出的结果</td></tr><tr><td> Promise.reject </td><td>  返回一个带有拒绝原因reason参数的Promise对象</td></tr><tr><td> Promise.resolve </td><td>  返回一个以给定值解析后的Promise对象</td></tr></table></p>
 
@@ -294,7 +299,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>Generators生成器</h3>
+<h3 id='Generators生成器'>Generators生成器</h3>
 
 <p>就像 Promises 可以帮我们避免回调地狱，Generators 可以帮助我们让代码风格更整洁－－用同步的代码风格来写异步代码，它本质上是一个可以暂停计算并且可以随后返回表达式的值的函数。</p>
 
@@ -333,7 +338,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>Iterator遍历器</h3>
+<h3 id='Iterator遍历器'>Iterator遍历器</h3>
 
 <blockquote>
   <p>iterator 为每一个对象定义了默认的迭代器。该迭代器可以被 <code>for...of</code> 循环使用。一些内置类型<code>Array String Map Set TypedArray</code>拥有默认的迭代器行为，其他类型则没有。</p>
@@ -368,7 +373,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Async Await</h3>
+<h3 id='Async Await'>Async Await</h3>
 
 <pre><code><span></span>
 <span>function getJSON(url) {'{'}</span>
@@ -399,7 +404,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>Class 类</h3>
+<h3 id='Class 类'>Class 类</h3>
 
 <p>JavaScript是没有类的概念的，ES6的类只不过是在原先的基础上坐了一层语法糖，看起来更像Java等语言的class</p>
 
@@ -424,7 +429,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>模块</h3>
+<h3 id='模块'>模块</h3>
 
 <p>经常谈起模块化主要几种：AMD、CMD、CommonJS以及ES6模块，AMD具体实现是require.js，CMD是sea.js,但是随着前端的工程化发展，这两款在业务开发上已经渐渐退去热度。CommonJS在nodejs服务器段开发下经常被用到，至于ES6模块化也在ES6的普及下渐渐有了起色。</p>
 
@@ -465,7 +470,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>Proxy</h3>
+<h3 id='Proxy'>Proxy</h3>
 
 <p>基本用法：</p>
 
@@ -504,7 +509,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>Reflect</h3>
+<h3 id='Reflect'>Reflect</h3>
 
 <p>Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。Reflect 没有构造函数，不能 new 使用。</p>
 
@@ -558,7 +563,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>对象属性简写</h3>
+<h3 id='对象属性简写'>对象属性简写</h3>
 
 <p>在ES6中允许我们在设置一个对象的属性的时候不指定属性名。</p>
 
@@ -583,7 +588,7 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>数学运算符</h3>
+<h3 id='数学运算符'>数学运算符</h3>
 
 <p><code>a ** b</code> <strong>指数运算符</strong>，它与 <code>Math.pow(a, b)</code> 相同。</p>
 
@@ -594,9 +599,9 @@ export default class Main extends React.Component {
 
 <hr />
 
-<h3>Object相关API</h3>
+<h3 id='Object相关API'>Object相关API</h3>
 
-<h4>Objec.values()</h4>
+<h4 id='Objec.values()'>Objec.values()</h4>
 
 <p><code>Object.values()</code>是一个与<code>Object.keys()</code>类似的新函数，返回的是Object自身属性的所有值而不是键值，不包括继承的值。</p>
 
@@ -607,7 +612,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>Objec.entries()</h4>
+<h4 id='Objec.entries()'>Objec.entries()</h4>
 
 <p><code>Object.entries()</code>函数返回一个给定对象自身可枚举属性的键值对的数组。</p>
 
@@ -617,7 +622,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h4>Objec.getOwnPropertyDescriptors()</h4>
+<h4 id='Objec.getOwnPropertyDescriptors()'>Objec.getOwnPropertyDescriptors()</h4>
 
 <p><code>Object.getOwnPropertyDescriptors()</code>函数用来获取一个对象的所有自身属性的描述符,如果没有任何自身属性，则返回空对象。</p>
 
@@ -646,6 +651,8 @@ export default class Main extends React.Component {
 
 <hr />
 </div>
+            </div>
+
         )
     }
 }

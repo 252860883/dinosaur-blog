@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"1.canvas如何转换为 img格式进行保存"},{"level":"h3","title":"2.所有素材图片需要加载完成再进行二维码绘制"},{"level":"h3","title":"3.在ios和chrome浏览器下设置 transition过渡会有闪烁bug"},{"level":"h3","title":"4.canvas绘制出来的图像不清晰"},{"level":"h3","title":"5.如何通过js下载canvas生成的图片到本地"},{"level":"h3","title":"6. IE下不兼容vue2.0以及vuex"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">【项目总结】艺术二维码生成器</div>
-<h3>1.canvas如何转换为 img格式进行保存</h3>
+<h3 id='1.canvas如何转换为 img格式进行保存'>1.canvas如何转换为 img格式进行保存</h3>
 
 <p>利用 canvas的 toDataURL 方法可以实现转换为制定格式的图片地址，代码如下：</p>
 
@@ -28,16 +33,16 @@ return image;
 
 <p>注意：绘制的图片不能跨域，否则会报错</p>
 
-<h3>2.所有素材图片需要加载完成再进行二维码绘制</h3>
+<h3 id='2.所有素材图片需要加载完成再进行二维码绘制'>2.所有素材图片需要加载完成再进行二维码绘制</h3>
 
 <p>canvas 使用 drawImg绘制图片，但是遇到一个问题就是 img的加载是异步的，所以有时图片还没有加载出来就进行绘制操作了，造成绘制出错。所以需要回掉异步执行绘制的操作。这里使用了promise.all() 来实现并列 promise对象完成时执行绘制。  <br></br>注意：all()里面的参数是包含所有promise的含有遍历器（比如数组）的对象。</p>
 
-<h3>3.在ios和chrome浏览器下设置 transition过渡会有闪烁bug</h3>
+<h3 id='3.在ios和chrome浏览器下设置 transition过渡会有闪烁bug'>3.在ios和chrome浏览器下设置 transition过渡会有闪烁bug</h3>
 
 <p>这是webkit内核的一个bug，需要在设置过渡的css下面再添加一句 </p>
 
 <pre><b>-webkit-backface-visibility:hidden;</b></pre>
-<h3>4.canvas绘制出来的图像不清晰</h3>
+<h3 id='4.canvas绘制出来的图像不清晰'>4.canvas绘制出来的图像不清晰</h3>
 
 canvas在绘制的时候，在手机上等高清屏幕下观看都比较模糊，这里引入
 ![hidpi-canvas-polyfill](https://github.com/jondavidjohn/hidpi-canvas-polyfill.git)
@@ -67,7 +72,7 @@ function init() {'{'}
 
 <p>另外一种办法，设置canvas的初始长宽为实际的二倍，在dom元素设置css样式时，再设置回原来的大小。</p>
 
-<h3>5.如何通过js下载canvas生成的图片到本地</h3>
+<h3 id='5.如何通过js下载canvas生成的图片到本地'>5.如何通过js下载canvas生成的图片到本地</h3>
 
 <p>项目中有一个下载到本地的一个功能。利用的是a标签的download属性，目前只有 Firefox 和 Chrome 支持 download 属性。 download属性是h5新增属性。代码如下：</p>
 
@@ -89,7 +94,7 @@ downloadImg: function() {'{'}
     }
 </pre>
 
-<h3>6. IE下不兼容vue2.0以及vuex</h3>
+<h3 id='6. IE下不兼容vue2.0以及vuex'>6. IE下不兼容vue2.0以及vuex</h3>
 
 <p>Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API ，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。并且vuex是依赖于Promise实现的。为了解决这个问题，我们使用一种叫做<b> Polyfill</b> （代码填充，也可译作兼容性补丁） 的技术。 <br></br>首先npm安装</p>
 
@@ -114,6 +119,8 @@ module.exports = {'{'}
 }
 </pre>
 </div>
+            </div>
+
         )
     }
 }

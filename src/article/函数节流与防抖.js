@@ -1,22 +1,27 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"节流函数（Throttle）"},{"level":"h3","title":"防抖函数（Debounce）"},{"level":"h3","title":"利用 Throttle 优化 Debounce"},{"level":"h3","title":"requestAnimationFrame"},{"level":"h3","title":"总结"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">事件节流（throttle）与防抖（debounce）</div>
-<h3>节流函数（Throttle）</h3>
+<h3 id='节流函数（Throttle）'>节流函数（Throttle）</h3>
 
 <blockquote>
   <p><strong>固定间隔时间内只执行一次</strong></p>
@@ -39,7 +44,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>防抖函数（Debounce）</h3>
+<h3 id='防抖函数（Debounce）'>防抖函数（Debounce）</h3>
 
 <blockquote>
   <p><strong>无论触发多少次，只作用于最后一次</strong></p>
@@ -69,7 +74,7 @@ export default class Main extends React.Component {
 
 <p><img src="http://wx3.sinaimg.cn/mw690/a73bc6a1ly1g1ppxcogwug20j00c01ky.gif" alt="iamge" title="" /></p>
 
-<h3>利用 Throttle 优化 Debounce</h3>
+<h3 id='利用 Throttle 优化 Debounce'>利用 Throttle 优化 Debounce</h3>
 
 <blockquote>
   <p><strong>不能让人家一直不执行啊！</strong></p>
@@ -99,7 +104,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>requestAnimationFrame</h3>
+<h3 id='requestAnimationFrame'>requestAnimationFrame</h3>
 
 <p>Html5 提供了 <code>requestAnimationFrame</code> 方法来解决频繁操作的性能问题，而这个方法的触发间隔由系统来决定，每次浏览器重绘之前执行回调函数。</p>
 
@@ -108,10 +113,12 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>总结</h3>
+<h3 id='总结'>总结</h3>
 
 <p>频繁触发事件时，函数防抖只会在最后一次触发事件只会才会执行回调内容，其他情况下会重新计算延迟事件，而函数节流便会很有规律的每隔一定时间执行一次回调函数。节流和防抖是我们业务场景下进行性能优化非常重要的技能了，具体使用哪种方法实现还是要结合实际业务场景来区分哦。</p>
 </div>
+            </div>
+
         )
     }
 }

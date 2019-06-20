@@ -1,26 +1,31 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h2","title":"运行机制"},{"level":"h2","title":"响应式绑定"},{"level":"h4","title":"Object.defineProperty"},{"level":"h3","title":"依赖收集"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">VUE核心原理解析（一）依赖收集与响应式绑定</div>
 <blockquote>
   <p>众所周知，VUE 是目前一款很流行专注于视图层、用于构建用户交互界面的响应式渐进框架。在使用 VUE 框架大力缩减了开发成本的同时，是否有想过VUE是如何实现双向绑定的？计算属性、监听器等方法又是如何实现的？带着一系列的疑问，就开始这篇解析吧。</p>
 </blockquote>
 
-<h2>运行机制</h2>
+<h2 id='运行机制'>运行机制</h2>
 
 <p><img src="http://p70gzm2sm.bkt.clouddn.com/1606e7eaa2a664e8.jpg" alt="image" title="" /></p>
 
@@ -33,11 +38,11 @@ export default class Main extends React.Component {
 <li><p>前面的 renderFunction 会转化为 VNode节点，在修改一个对象值的时候，会通过 setter -> Watcher -> update 的流程生成一个新的VNode。将新的 VNode 与旧的 VNode 一起传入 patch 进行比较，经过 diff 算法得出它们的「差异」。最后我们只需要将这些「差异」的对应 DOM 进行修改即可。</p></li>
 </ol>
 
-<h2>响应式绑定</h2>
+<h2 id='响应式绑定'>响应式绑定</h2>
 
 <p>我们都熟知 Vue.js 是一个 MVVM 的库，响应式系统可以说是它的一大特色了，下面就来了解vue是如何实现响应式的。</p>
 
-<h4>Object.defineProperty</h4>
+<h4 id='Object.defineProperty'>Object.defineProperty</h4>
 
 <p>vue之所以能实现响应式的绑定，主要靠的就是 <code>Object.defineProperty</code> 了。其实在之前的博文里，已经用到过很多次这个神奇的方法了，这里再了解一下：</p>
 
@@ -121,7 +126,7 @@ export default class Main extends React.Component {
 
 <p>Emmm，神奇～</p>
 
-<h3>依赖收集</h3>
+<h3 id='依赖收集'>依赖收集</h3>
 
 <p>上面我们已经实现了一个简单的响应式系统，那么接下来就就聊聊依赖收集。</p>
 
@@ -216,6 +221,8 @@ export default class Main extends React.Component {
 
 <p>只要依赖别的响应式的对象，就会生成一个 watcher，来统计这个 watcher 依赖了哪些响应式对象，在这个 watcher 求值前把当前 watcher 设置到全局 Dep.target，并在自己依赖的响应式对象发生改变的时候及时 update。</p>
 </div>
+            </div>
+
         )
     }
 }

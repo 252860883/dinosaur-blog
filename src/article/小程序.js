@@ -1,24 +1,29 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"小程序学习笔记"},{"level":"h4","title":"目录结构"},{"level":"h4","title":"逻辑层"},{"level":"h4","title":"视图层"},{"level":"h4","title":"自定义组件"},{"level":"h4","title":"分包按需加载"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">小程序学习笔记</div>
-<h3>小程序学习笔记</h3>
+<h3 id='小程序学习笔记'>小程序学习笔记</h3>
 
-<h4>目录结构</h4>
+<h4 id='目录结构'>目录结构</h4>
 
 <ul>
 <li>.js           逻辑</li>
@@ -28,7 +33,7 @@ export default class Main extends React.Component {
 <li>app.xx      小程序的公共设置</li>
 </ul>
 
-<h4>逻辑层</h4>
+<h4 id='逻辑层'>逻辑层</h4>
 
 <p>App()   用来注册一个小程序的，和new Vue() 异曲同工</p>
 
@@ -54,7 +59,7 @@ export default class Main extends React.Component {
 小程序目前不支持直接引入 node_modules , 开发者需要使用到 node_modules 时候建议拷贝出相关的代码到小程序的目录中。</li>
 </ul>
 
-<h4>视图层</h4>
+<h4 id='视图层'>视图层</h4>
 
 <ul>
 <li>数据绑定</li>
@@ -137,7 +142,7 @@ export default class Main extends React.Component {
 <p>通过  @import "common.wxss";  引入文件</p></li>
 </ul>
 
-<h4>自定义组件</h4>
+<h4 id='自定义组件'>自定义组件</h4>
 
 <p>具体配置可以参照 小程序官方文档</p>
 
@@ -191,7 +196,7 @@ export default class Main extends React.Component {
 
 <p>使用插件的自定义组件<br></br>使用插件提供的自定义组件，和使用普通自定义组件的方式相仿。在 json 文件定义需要引入的自定义组件时，使用 plugin:// 协议即可</p>
 
-<h4>分包按需加载</h4>
+<h4 id='分包按需加载'>分包按需加载</h4>
 
 <p>在app.json 中 subPackages 字段声明项目分包结构</p>
 
@@ -214,6 +219,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

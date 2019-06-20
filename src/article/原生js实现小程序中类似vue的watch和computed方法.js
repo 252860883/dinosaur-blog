@@ -1,32 +1,37 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"探底VUE"},{"level":"h3","title":"分析"},{"level":"h3","title":"watch实现"},{"level":"h3","title":"computed实现"},{"level":"h3","title":"后续问题"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">小程序实现vue的watch和computed方法</div>
 <p>博主现在的工作项目是以小程序为主，所以就开始涉猎小程序这一块坑了。个人感觉，小程序有点 miniVUE 的意思，同样是MVVM框架，小程序继承了vue很多的写法，入手还是很快的。同时小程序特有的一些api在微信生态里面用起来也是很爽歪歪～ 不过，用惯了vue就发现了小程序有很多功能是不支持的，这对于刚从vue转到小程序的我是何等的不习惯啊，所以这里面就打算首先来封装一下 watch 和 computed 两个方法。</p>
 
-<h3>探底VUE</h3>
+<h3 id='探底VUE'>探底VUE</h3>
 
 <p>vue作为一个典型的MVVM框架，双向绑定可以说是很溜了。在 new Vue() 的时候，首先对data中的属性进行遍历，然后用 Object.defineProperty将它们转为 getter/setter，实现数据变化监听功能；Vue 的指令编译器Compile 对元素节点的指令进行扫描和解析，初始化视图，并订阅Watcher来更新视图，此时Wather 会将自己添加到消息订阅器中(Dep),初始化完毕。</p>
 
-<h3>分析</h3>
+<h3 id='分析'>分析</h3>
 
 <p>在小程序底层已经对data属性做好了双向绑定，那我需要做的呢就是在 onLoad 生命周期时，添加 wacth函数和computed函数，对其中的对象属性进行对应操作的初始化绑定。</p>
 
-<h3>watch实现</h3>
+<h3 id='watch实现'>watch实现</h3>
 
 <p>watch监听的话，看过vue源码就应该知道这里要用到 Object.defineProperty 拦截判断了，具体原理就是在渲染时执行watch函数，那么watch函数的具体作用呢就是操作数据对象的对象描述符，使得我们在setData修改其值的时候，每次在set里都能获取到监听，上源码：</p>
 
@@ -78,7 +83,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>computed实现</h3>
+<h3 id='computed实现'>computed实现</h3>
 
 <p>computed的话，原理和watch操作类似，不同的是需要在对应属性数值变化的时候同时更新该属性依赖的其他属性，（备注：这里有一些优化缺陷，每次数据有修改的时候都会重复执行computed里的所有函数，有些冗余，后续计划设计key值或者采用发布订阅模式优化）上源码：</p>
 
@@ -150,7 +155,7 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>后续问题</h3>
+<h3 id='后续问题'>后续问题</h3>
 
 <p>如果单纯实现watch或者computed，之前的方案是可行的，可是在实际操作中发现，后执行的活覆盖掉前者的回调函数，造成的问题是只执行后者的方法。所以经过一番实验和改造，对watchFn和computedFn进行了写入ctx.data变量，同时对watch添加了字段校验。源码如下：</p>
 
@@ -230,6 +235,8 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 </div>
+            </div>
+
         )
     }
 }

@@ -119,7 +119,7 @@ else
             // Strip link definitions, store in hashes.
             text = _StripLinkDefinitions(text);
 
-            text = _RunBlockGamut(text);
+            text = _RunBlockGamut(text, null);
 
             text = _UnescapeSpecialChars(text);
 
@@ -223,7 +223,7 @@ else
             // These are all the transformations that form block-level
             // tags like paragraphs, headers, and list items.
             //
-            
+
             text = _DoCodeBlocks(text);
 
             text = _DoHeaders(text);
@@ -241,6 +241,7 @@ else
             text = _HashHTMLBlocks(text);
 
             text = _FormParagraphs(text, doNotUnhash);
+
             return text;
         }
 
@@ -412,20 +413,24 @@ else
             //  --------
             //
             text = text.replace(/^(.+)[ \t]*\n=+[ \t]*\n+/gm,
-                function (wholeMatch, m1) { return "<h1>" + _RunSpanGamut(m1) + "</h1>\n\n"; }
+                function (wholeMatch, m1) {
+                    return "<h1 id='" + _RunSpanGamut(m1) + "'>" + _RunSpanGamut(m1) + "</h1>\n\n";
+                }
             );
 
             text = text.replace(/^(.+)[ \t]*\n-+[ \t]*\n+/gm,
-                function (matchFound, m1) { return "<h2>" + _RunSpanGamut(m1) + "</h2>\n\n"; }
+                function (matchFound, m1) {
+                    return "<h2 id='" + _RunSpanGamut(m1) + "'>" + _RunSpanGamut(m1) + "</h2>\n\n";
+
+                }
             );
 
             text = text.replace(/^(\#{1,6})[ \t]*(.+?)[ \t]*\#*\n+/gm,
                 function (wholeMatch, m1, m2) {
                     var h_level = m1.length;
-                    return "<h" + h_level + ">" + _RunSpanGamut(m2) + "</h" + h_level + ">\n\n";
+                    return "<h" + h_level + " id='" + _RunSpanGamut(m2) + "'>" + _RunSpanGamut(m2) + "</h" + h_level + ">\n\n";
                 }
             );
-
             return text;
         }
 

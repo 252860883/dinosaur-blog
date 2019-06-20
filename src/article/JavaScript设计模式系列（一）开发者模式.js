@@ -1,30 +1,35 @@
 import React from 'react'
 import '../style/main.scss'
-import MainPic3D from '../components/pic3D'
 import { IsPC } from "../utils/screen";
-export default class Main extends React.Component {
-    constructor(props) {
-        super(props);
+import HeaderLink from "../components/headerLink"
+export default class Template extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            headerLink: [{"level":"h3","title":"概念"},{"level":"h3","title":"实现"},{"level":"h3","title":"发布订阅模式"},{"level":"h3","title":"优点"}]
+        }
     }
-    componentDidMount(){
-        if(!IsPC()){
+    componentDidMount() {
+        if (!IsPC()) {
             const dom = document.getElementsByClassName('article')[0]
             dom.classList.add('article-mobile');
         }
     }
     render() {
         return (
-            <div className="article">
+            <div>
+                <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
+                <div className="article">
 <div className="title">JavaScript设计模式（一）观察者模式</div>
 <blockquote>
   <p>观察者模式可谓是设计模式中非常经典的一个了，在众多的前端库中也能找到他的踪迹，比如JQ的on和trigger中封装的方法、VUE组件间实现通信的emit()和on()方法等等。自从某次面试被新浪dalao要求手写观察者模式代码被惨虐以后便决心好好研究一下这个东西！</p>
 </blockquote>
 
-<h3>概念</h3>
+<h3 id='概念'>概念</h3>
 
 <p>观察者模式是指一个对象（subject）维持一系列依赖于它的观察者对象（observer），将有关状态的变化同步通知给他们。</p>
 
-<h3>实现</h3>
+<h3 id='实现'>实现</h3>
 
 <p>那么具体实现开发者模式主要分三个步骤：<br></br> 1. 创建构造函数，函数内创建一个观察者缓存列表，用来存放所有的观察者对象<br></br> 2. 封装添加观察者方法，将观察者写入缓存列表<br></br> 3. 封装发布者方法，函数执行时，遍历缓存列表，执行对应观察者的操作<br></br> 4. new构造函数创建一个实例，执行后续操作</p>
 
@@ -75,7 +80,7 @@ export default class Main extends React.Component {
 
 <p>这样一个简单的观察者模式就可以实现了，但是同时发现了一个问题 subject 和 observer是混淆的，并不会分开对应，所以下面就做进一步的升级，也就是我们常常提到的发布订阅模式了。</p>
 
-<h3>发布订阅模式</h3>
+<h3 id='发布订阅模式'>发布订阅模式</h3>
 
 <p>发布订阅模式的不同之处是使用了一个主题/事件通道，这个通道是介于希望接收到通知的对象和激活事件对象之间，通俗讲可以通过传递一个特定的key指来实现。其目的是使发布者和订阅者之间产生依赖关系。<br></br>修改代码如下：</p>
 
@@ -114,13 +119,15 @@ export default class Main extends React.Component {
 <span></span>
 </code></pre>
 
-<h3>优点</h3>
+<h3 id='优点'>优点</h3>
 
 <ol>
 <li>异步编程</li>
 <li>利于代码的松散耦合</li>
 </ol>
 </div>
+            </div>
+
         )
     }
 }
