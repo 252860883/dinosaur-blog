@@ -3,6 +3,7 @@
 .article-page {
     width: 700px;
     margin: 0 auto;
+
     .article-lists {
         .article-item {
             height: 40px;
@@ -13,55 +14,40 @@
             margin: 10px;
             font-size: 13px;
             padding: 0px 20px;
-            
-            .article-item-content {
-                
-                // background: #222;
-                // color: #fff;
 
-                border-radius: 40px;
-                display: inline-block;
-                transition: all 0.3s;
+            .time {
+                margin-right: 10px;
+            }
 
-                .time {
-                    margin-right: 10px;
-                }
-
-                &:hover {
-                    opacity: 0.8;
-
-                }
-
-                // display: flex;
-                // align-items: center;
+            &:hover {
+                opacity: 0.5;
 
             }
 
             &:hover {
-
                 &::after {
                     position: absolute;
-
                 }
             }
         }
 
         .article-item-top {
             color: $o;
-            background: rgba(#aaa, 0.1);
+            background: #222;
 
             &:hover {
-                color: $b;
+                // color: $b;
             }
         }
     }
 }
 
-.article-page-mobile{
+.article-page-mobile {
     width: 100%;
     padding: 0.1rem;
     box-sizing: border-box;
-    .time{
+
+    .time {
         display: none;
     }
 }
@@ -70,17 +56,18 @@
 
 /*  文章版式 */
 .article {
-    width: 7.00rem;
-    margin: 0.50rem auto;
+    width: 6.5rem;
+    margin: 0.50rem auto 2rem auto;
     font-size: 0.13rem;
-    line-height: 0.20rem;
-    color: #222;
+    // line-height: 0.20rem;
+    color: #555;
+    line-height: 0.30rem;
+    // animation: slideLeft .5s ease-in-out;
 
     .title {
         font-size: 0.18rem;
         text-align: center;
-        // font-weight: bold;
-        margin: 0.50rem auto;
+        margin: 0.50rem auto 1rem auto;
     }
 
     p {
@@ -144,7 +131,6 @@
         margin-left: 0.05rem;
         font-size: 0.13rem;
         line-height: 0.13rem;
-
     }
 
     ol {
@@ -183,7 +169,7 @@
                 border-bottom: 0.01rem solid #222;
                 border-right: 0.01rem solid #222;
                 line-height: 0.30rem;
-                padding: 0 0.1rem; 
+                padding: 0 0.1rem;
 
                 &:first-of-type {
                     border-left: 0.01rem solid #222;
@@ -194,9 +180,22 @@
     }
 
 }
+
 /* mobile 兼容*/
-.article-mobile{
+.article-mobile {
     width: 100%;
     box-sizing: border-box;
     padding: 0 0.2rem;
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

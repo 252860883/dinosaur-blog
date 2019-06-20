@@ -1,0 +1,75 @@
+.headerLink {
+    position: fixed;
+    width: 6.5rem;
+    height: 100%;
+    left: 50%;
+    top: 1.6rem;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: flex-end;
+    animation: slideUp 1s;
+
+    .content {
+        width: 2.3rem;
+        transform: translateX(2.8rem);
+        overflow: hidden;
+
+        .real-content {
+            width: 2.5rem;
+            max-height: 70%;
+            overflow-y: scroll;
+            padding-left: 0.1rem;
+            border-left: 1px solid #ddd;
+        }
+
+        .tag {
+            font-size: 0.13rem;
+            margin-bottom: 0.12rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            max-width: 2.3rem;
+            font-size: 0.13rem;
+            line-height: 0.14rem;
+            text-decoration: none;
+            padding: 0.1rem 0;
+            cursor: pointer;
+            color: #666;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        .ah1 {
+            font-size: 0.15rem
+        }
+
+        .ah2 {
+            font-size: 0.14rem
+        }
+
+        .ah3 {
+            font-size: 0.13rem
+        }
+
+        .ah4 {
+            font-size: 0.12rem
+        }
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}

@@ -38,14 +38,13 @@ export default class Article extends React.Component {
         normalArticleMenu.sort((a, b) => {
             return new Date(b.date).getTime() - new Date(a.date).getTime()
         })
-
-        const total = normalArticleMenu.length / this.state.limit
+        const total = parseInt(normalArticleMenu.length / this.state.limit)
         this.setState({
             topArticleMenu,
             normalArticleMenu,
             total: normalArticleMenu.length % this.state.limit ? total + 1 : total
         })
-        console.log(normalArticleMenu.length,this.state.limit)
+        console.log(normalArticleMenu.length, this.state.limit)
         this.getShowArticleMenu(normalArticleMenu)
     }
 
@@ -71,10 +70,8 @@ export default class Article extends React.Component {
                         this.state.topArticleMenu.map(item => {
                             return (
                                 <div key={item.link} className="article-item article-item-top" onClick={this.clickToArticle.bind(this, item)}>
-                                    {/* <div className='article-item-content' > */}
-                                        <span className='time'>{item.date.split(' ')[0]} </span>
-                                        <span className='title'>{item.title}</span>
-                                    {/* </div> */}
+                                    <span className='time'>{item.date.split(' ')[0]} </span>
+                                    <span className='title'>{item.title}</span>
                                 </div>
                             )
                         })
@@ -83,10 +80,8 @@ export default class Article extends React.Component {
                         this.state.showArticleMenu.map(item => {
                             return (
                                 <div key={item.link} className="article-item" onClick={this.clickToArticle.bind(this, item)}>
-                                    {/* <div className='article-item-content' > */}
-                                        <span className='time'>{item.date.split(' ')[0]} </span>
-                                        <span className='title'>{item.title}</span>
-                                    {/* </div> */}
+                                    <span className='time'>{item.date.split(' ')[0]} </span>
+                                    <span className='title'>{item.title}</span>
                                 </div>
                             )
                         })
