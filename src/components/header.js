@@ -33,42 +33,37 @@ class Header extends React.Component {
     render() {
         let header = null;
         let nav = (<nav></nav>);
-
-        // if (this.state.showNav || IsPC()) {
-            nav = (
-                <nav>
-                    {RouterMenu.map(item => {
-                        if (item.article) return
-                        else return (
-                            <a key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</a>
-                        )
-                    })
-                    }
-                </nav>
-            )
-        // }
+        let headerSp = this.state.path === '/about'|| this.state.path === '/project';
+        nav = (
+            <nav>
+                {RouterMenu.map(item => {
+                    if (item.article) return
+                    else return (
+                        <a key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</a>
+                    )
+                })
+                }
+            </nav>
+        )
 
         if (IsPC()) {
-            header = (<div className="header" >
+            header = (<div className={headerSp ? 'header header-sp' : 'header'} >
                 <img className="logo" alt="" src={require('../assets/logo.png')} />
                 {nav}
             </div>)
         } else {
-            header = (<div className="header-mobile" onClick={this.clickTop.bind(this)}>
+            header = (<div className={headerSp ? 'header-mobile header-sp' : 'header-mobile'} onClick={this.clickTop.bind(this)}>
                 <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
                     <img className="logo" alt="" src={require('../assets/logo.png')} />
                 </div>
-                {/* <TransitionGroup> */}
-                    <CSSTransition
-                        in={this.state.showNav}
-                        classNames="slide"
-                        unmountOnExit
-                        timeout={500}
-                    >
-                        {nav}
-                    </CSSTransition>
-                {/* </TransitionGroup> */}
-
+                <CSSTransition
+                    in={this.state.showNav}
+                    classNames="slide"
+                    unmountOnExit
+                    timeout={500}
+                >
+                    {nav}
+                </CSSTransition>
             </div>)
         }
 

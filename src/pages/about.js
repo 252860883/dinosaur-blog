@@ -4,7 +4,7 @@ export default class Article extends React.Component {
     state = {
     }
     componentDidMount() {
-        console.log('ok');
+        // console.log('ok');
     }
 
     // delete(name) {

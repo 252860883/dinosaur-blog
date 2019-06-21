@@ -15,7 +15,7 @@ export default class Main extends React.Component {
 
     clickPosBtn(idName) {
         const dom = document.getElementById(idName);
-        console.log(dom.getBoundingClientRect().top);
+        // console.log(dom.getBoundingClientRect().top);
         window.scrollTo({
             top: dom.offsetTop - 10,
             left: 0,

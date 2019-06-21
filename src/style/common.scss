@@ -18,6 +18,7 @@ $b:#0014b3;
 html,
 body {
     font-size: calc(100vw/365*100);
+    transition: all .5s;
 }
 
 // 配置默认的css样式

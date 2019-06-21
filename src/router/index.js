@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter } from 'react-router-dom'
+import { HashRouter, withRouter } from 'react-router-dom'
 // import { createHashHistory } from 'history';
 import { Route } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -40,10 +40,11 @@ const routes = (
 )
 
 export default class Root extends React.Component {
-    componentDidMount(){
-        if(IsPC()){
+    componentDidMount() {
+        if (IsPC()) {
             document.getElementsByTagName('html')[0].style.fontSize = '100px'
-        } 
+        }
+        
     }
     render() {
         return routes;

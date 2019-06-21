@@ -5,16 +5,17 @@
     height: 100px;
     color: #222;
     text-align: center;
-    // padding: 0 200px;
     margin: 0 auto;
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    transition: all .3s;
 
     .logo {
         margin: 10px 50px 10px 0;
         width: 200px;
         height: 20px;
+        transition: all .3s;
         // background: $o;
     }
 
@@ -23,6 +24,8 @@
         display: flex;
         align-items: center;
         padding: 80px 0;
+        transition: all .4s;
+
         a {
             font-size: 14px;
             line-height: 14px;
@@ -56,16 +59,26 @@
     }
 }
 
+.header-sp { 
+    filter: invert(100%);
+    .nav-active::after,
+    a:hover::after {
+        filter: invert(100%);
+    }
+}
+
 /* 手机版适配 */
 
 .header-mobile {
     position: relative;
     z-index: 3;
+
     .header-top {
         padding: 0.2rem 0;
         background: #fff;
         position: relative;
         z-index: 5;
+
         img {
             display: block;
             width: 2.3em;
@@ -73,6 +86,7 @@
         }
 
     }
+
     .header-top-select {
         animation: invertALl .3s;
         filter: invert(87.5%);
@@ -83,6 +97,7 @@
         top: 0.6rem;
         left: 0;
         width: 100%;
+
         a {
             font-size: 0.15rem;
             line-height: 0.15rem;
@@ -94,7 +109,8 @@
             background: #222222;
             color: #fff;
         }
-        .nav-active{
+
+        .nav-active {
             color: $o;
         }
     }

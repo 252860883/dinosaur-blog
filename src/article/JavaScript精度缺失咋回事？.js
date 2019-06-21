@@ -65,7 +65,7 @@ export default class Template extends React.Component {
 <p>举个例子以单精度浮点数为例来看下 0.15625 如何进行存储：<br></br><img src="http://wx4.sinaimg.cn/mw690/a73bc6a1ly1g48n6zdyvnj212k06q75y.jpg" alt="image" title="" /></p>
 
 <blockquote>
-  <p>首先 0.15625 用二进制表示为 0.00101 ,科学计数法表示为 <code>1.01*2^(-3)</code><br></br>理所当然，符号为是 <code>0</code><br></br>指数位不能直接存储 -3 上面我们说过了 要加上偏移值（这里是 127），所以是 124 的二进制 <code>1111100</code><br></br>所以尾数为存储 <code>01</code>，因为科学计数法表示时二进制的小数点前面必然为1，所以不用计入</p>
+  <p>首先 0.15625 用二进制表示为 0.00101 ,科学计数法表示为 <code>1.01*2^(-3)</code><br></br>理所当然，符号位是 <code>0</code><br></br>指数位不能直接存储 -3 上面我们说过了 要加上偏移值（这里是 127），所以是 124 的二进制 <code>1111100</code><br></br>所以尾数为存储 <code>01</code>，因为科学计数法表示时二进制的小数点左面必然为1，所以不用计入</p>
 </blockquote>
 
 <h3 id='找到元凶'>找到元凶</h3>

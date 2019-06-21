@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
         this.footer = null
     }
     componentDidMount() {
-        console.log(IsPC())
+        // console.log(IsPC())
     }
 
     judgeHeight() {

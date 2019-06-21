@@ -34,10 +34,13 @@
         .article-item-top {
             color: $o;
             background: #222;
-
+            margin: 10px;
+            padding: 0 20px;
+            // border-bottom: 1px dashed #eee;
             &:hover {
-                // color: $b;
+                opacity: 1;
             }
+
         }
     }
 }
