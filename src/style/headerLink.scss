@@ -8,11 +8,13 @@
     display: flex;
     justify-content: flex-end;
     animation: slideUp 1s;
-
+    // z-index: -1;
+    pointer-events: none;
     .content {
         width: 2.3rem;
         transform: translateX(2.8rem);
         overflow: hidden;
+        pointer-events: visible;
 
         .real-content {
             width: 2.5rem;
@@ -57,7 +59,8 @@
         }
 
         .ah4 {
-            font-size: 0.12rem
+            font-size: 0.12rem;
+            margin-left:0.07rem;
         }
     }
 }
