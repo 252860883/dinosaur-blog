@@ -1,0 +1,45 @@
+@import './common.scss';
+
+.project-item {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 0.1rem;
+    padding: 0.2rem;
+    border: 0.01rem solid transparent;
+    transition: all 0.3s;
+    display: flex;
+    align-items: flex-start;
+    margin: 0.2rem auto;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid rgba(#ddd,0.5);
+        opacity: 0.8;
+    }
+
+    img {
+        width: 50%;
+        display: block;
+        background: #fff;
+        border-radius: 0.05rem;
+    }
+
+    .content {
+        margin-left: 20px;
+        padding: 0.1rem;
+        box-sizing: border-box;
+        .title {
+            font-size: 0.18rem;
+            color: $o;
+            margin-bottom: 0.2rem;
+        }
+        p {
+            font-size: 0.13rem;
+            line-height: 0.18rem;
+            color: #ddd;
+            overflow: hidden;
+        }
+    }
+
+
+}

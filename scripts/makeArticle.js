@@ -29,7 +29,7 @@
     })
 
     // 修改路由定向
-    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.js', 'utf8').replace(/ArticleMenu\s*\=\s*\[[\s\S]*\]/, "ArticleMenu = [\n" + routers + ']')
+    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.js', 'utf8').replace(/ArticleMenu\s*\=\s*\[[\s\S]*\]\/\/end/, "ArticleMenu = [\n" + routers + ']//end')
     fs.writeFileSync(routerPath + '/routerMap.js', newRouterConfig)
 
     //  处理标题等信息

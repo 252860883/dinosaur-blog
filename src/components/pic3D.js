@@ -66,7 +66,7 @@ export default class pic3D extends React.Component {
                 style = `matrix(1, 0, 0, 1, ${y * 20}, ${x * 20})`
             }
             item.style.transform = item.style.webkitTransform = style;
-            item.style.transition = auto ? 'all 4s' : 'all 0.5s'
+            item.style.transition = auto ? 'all 4s' : 'all 0.2s'
         })
     }
     // 自动旋转
@@ -76,7 +76,7 @@ export default class pic3D extends React.Component {
         this.timeout = setInterval(() => {
             this.count = this.count === 3 ? 0 : ++this.count
             this.moveBox(coordinate[this.count][0], coordinate[this.count][1], true)
-        }, 5000)
+        }, 2000)
 
     }
 

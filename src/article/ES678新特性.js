@@ -278,7 +278,7 @@ export default class Template extends React.Component {
 
 <h3 id='Promise函数'>Promise函数</h3>
 
-<p><table><tr><th> 方法 </th><th>  结果</th></tr><tr><td> Promise.all </td><td>  返回一个promise对象，有一个reject就返回reject</td></tr><tr><td> Promise.race </td><td>  返回一个promise对象，回调最先解析出的结果</td></tr><tr><td> Promise.reject </td><td>  返回一个带有拒绝原因reason参数的Promise对象</td></tr><tr><td> Promise.resolve </td><td>  返回一个以给定值解析后的Promise对象</td></tr></table></p>
+<p><table><tr><th> 方法 </th><th>  结果</th></tr><tr><td> Promise.all </td><td>  返回一个promise对象，有一个reject就返回reject</td></tr><tr><td> Promise.race </td><td>  返回一个promise对象，回调最先解析出的结果 </td></tr><tr><td> Promise.reject </td><td>  返回一个带有拒绝原因reason参数的Promise对象</td></tr><tr><td> Promise.resolve </td><td>  返回一个以给定值解析后的Promise对象</td></tr></table></p>
 
 <p><strong>finally</strong> <br></br>在某些情况，不管成功还是失败都要执行相同的代码，则可以把逻辑写进 <code>.finally()</code> 中。</p>
 
@@ -296,6 +296,10 @@ export default class Template extends React.Component {
 <span>}</span>
 <span></span>
 </code></pre>
+
+<blockquote>
+  <p><strong>Tips</strong><br></br>promise有三种状态: fulfilled(操作成功完成), rejected(操作失败), pending(初始状态)<br></br>Promise解决了层层回调函数的问题</p>
+</blockquote>
 
 <hr />
 
