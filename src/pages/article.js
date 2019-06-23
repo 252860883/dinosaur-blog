@@ -11,7 +11,7 @@ export default class Article extends React.Component {
             topArticleMenu: [],
             normalArticleMenu: [],
             showArticleMenu: [],
-            limit: 20,
+            limit: 14,
             page: 1,
             total: 0
         }
@@ -66,6 +66,7 @@ export default class Article extends React.Component {
         return (
             <div className={IsPC() ? 'article-page' : 'article-page article-page-mobile'}>
                 <div className="article-lists">
+                    <div className="article-title">· TOP ARTICLE ·</div>
                     {
                         this.state.topArticleMenu.map(item => {
                             return (
@@ -76,6 +77,7 @@ export default class Article extends React.Component {
                             )
                         })
                     }
+                    <div className="article-title article-title-normal">· NORMAL ARTICLE ·</div>
                     {
                         this.state.showArticleMenu.map(item => {
                             return (

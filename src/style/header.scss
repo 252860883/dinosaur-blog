@@ -31,38 +31,30 @@
             line-height: 14px;
             display: block;
             margin: 0 20px;
-            padding-bottom: 5px;
+            // padding-bottom: 5px;
             font-style: normal;
             font-family: Main;
             position: relative;
             z-index: 2;
             cursor: pointer;
-            text-shadow: 1px 1px 0px #fff;
+            // text-shadow: 1px 1px 0px #fff;
 
             &:hover {
                 // transform: rotateX(10deg) rotateY(10deg);
             }
         }
 
-        .nav-active::after,
-        a:hover::after {
-            content: "";
-            position: absolute;
-            bottom: 0px;
-            // margin-bottom: 5px;
-            left: 0;
-            width: 70%;
-            height: 10px;
-            background: $o;
-            z-index: -1;
+        .nav-active,
+        a:hover {
+            color: $o;
         }
     }
 }
 
-.header-sp { 
+.header-sp {
     filter: invert(100%);
-    .nav-active::after,
-    a:hover::after {
+    .nav-active,
+    a:hover {
         filter: invert(100%);
     }
 }

@@ -5,6 +5,31 @@
     margin: 0 auto;
 
     .article-lists {
+        .article-title {
+            font-size: 0.18rem;
+            color: $o;
+            text-align: center;
+            margin: 0.5rem auto;
+            font-family: Main;
+            font-weight: 100%;
+            animation: titleShow 1s;
+            opacity: 0;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+        }
+        .article-title-normal{
+            color: #222;
+        }
+
+        @for $i from 1 through 100 {
+            .article-item:nth-child(#{$i}) {
+                opacity: 0;
+                animation: itemSlideUp 1s;
+                animation-delay: #{$i * 0.05 +'s'};
+                animation-fill-mode: forwards;
+            }
+        }
+
         .article-item {
             height: 40px;
             line-height: 40px;
@@ -14,28 +39,23 @@
             margin: 10px;
             font-size: 13px;
             padding: 0px 20px;
+            // text-align: center;
 
             .time {
                 margin-right: 10px;
             }
 
             &:hover {
-                opacity: 0.5;
-
-            }
-
-            &:hover {
-                &::after {
-                    position: absolute;
-                }
+                color: #999;
             }
         }
 
         .article-item-top {
             color: $o;
-            background: #222;
+            // background: #222;
             margin: 10px;
             padding: 0 20px;
+
             // border-bottom: 1px dashed #eee;
             &:hover {
                 opacity: 1;
@@ -200,5 +220,17 @@
     100% {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes itemSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

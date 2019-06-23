@@ -25,7 +25,7 @@ export default class Main extends React.Component {
         return (
             <div className="main">
                 <MainPic3D />
-                <div className="black-button">阅读更多</div>
+                {/* <div className="black-button">more</div> */}
             </div>
         )
     }

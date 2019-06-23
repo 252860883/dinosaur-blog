@@ -33,7 +33,7 @@ class Header extends React.Component {
     render() {
         let header = null;
         let nav = (<nav></nav>);
-        let headerSp = this.state.path === '/about'|| this.state.path === '/project';
+        let headerSp = this.state.path === '/about';
         nav = (
             <nav>
                 {RouterMenu.map(item => {

@@ -1,43 +1,59 @@
 @import './common.scss';
 
 .project-item {
-    width: 100%;
+    width: 4rem;
     height: auto;
     box-sizing: border-box;
-    border-radius: 0.1rem;
     padding: 0.2rem;
     border: 0.01rem solid transparent;
     transition: all 0.3s;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     margin: 0.2rem auto;
-    cursor: pointer;
+    
+
     &:hover {
-        border: 1px solid rgba(#ddd,0.5);
-        opacity: 0.8;
+        opacity: 0.5;
+        border: 0.01rem solid rgba($color: #aaa, $alpha: 0.5);
     }
 
     img {
-        width: 50%;
+        width: 100%;
         display: block;
         background: #fff;
-        border-radius: 0.05rem;
     }
 
     .content {
-        margin-left: 20px;
-        padding: 0.1rem;
+        // display: none;
+        // margin-left: 20px;
+        // padding: 0.1rem;
         box-sizing: border-box;
+
         .title {
             font-size: 0.18rem;
             color: $o;
-            margin-bottom: 0.2rem;
+            display: none;
+            // text-align: center;
         }
+
         p {
-            font-size: 0.13rem;
+            font-size: 0.12rem;
             line-height: 0.18rem;
-            color: #ddd;
+            height: 0.54rem;
+            color: #666;
             overflow: hidden;
+            text-align: justify;
+            margin: 0.2rem 0;
+        }
+
+        .more {
+            display: block;
+            font-size: 0.12rem;
+            line-height: 0.18rem;
+            color: #222;
+            font-weight: bold;
+            cursor: pointer;
         }
     }
 

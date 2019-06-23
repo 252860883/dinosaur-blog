@@ -71,7 +71,7 @@ class RouterMap extends React.Component {
 
 	changeThemeColor(location) {
 		const _html = document.getElementsByTagName('html')[0];
-		const isSp = location.pathname == '/project' || location.pathname == '/about';
+		const isSp = location.pathname === '/about';
 		_html.style.backgroundColor = isSp ? '#000' : '#ffffff' ;
 	}
 

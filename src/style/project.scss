@@ -1,10 +1,63 @@
-.project{
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    // background: #fff;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+@import './common.scss';
 
+.project {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    .project-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .project-title-content {
+        position: relative;
+    }
+
+    .project-title {
+        font-size: 0.18rem;
+        color: #222;
+        text-align: center;
+        margin: 0.5rem auto;
+        font-family: Main;
+        font-weight: 100%;
+        animation: titleShow 1s;
+        opacity: 0;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    @for $i from 1 through 100 {
+        .project-item:nth-child(#{$i}) {
+            opacity: 0;
+            animation: itemSlideUp 1s;
+            animation-delay: #{$i * 0.1 +'s'};
+            animation-fill-mode: forwards;
+        }
+    }
+
+}
+
+@keyframes itemSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes titleShow {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
