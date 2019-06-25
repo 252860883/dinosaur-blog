@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 0.2rem auto;
-    
+
 
     &:hover {
         opacity: 0.5;
@@ -29,12 +29,12 @@
         // margin-left: 20px;
         // padding: 0.1rem;
         box-sizing: border-box;
+        margin: 0.2rem 0;
 
         .title {
-            font-size: 0.18rem;
+            font-size: 0.16rem;
+            padding-bottom: 0.1rem;
             color: $o;
-            display: none;
-            // text-align: center;
         }
 
         p {
@@ -44,7 +44,7 @@
             color: #666;
             overflow: hidden;
             text-align: justify;
-            margin: 0.2rem 0;
+
         }
 
         .more {
@@ -54,6 +54,7 @@
             color: #222;
             font-weight: bold;
             cursor: pointer;
+            margin-top: 0.05rem;
         }
     }
 

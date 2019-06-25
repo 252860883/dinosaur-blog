@@ -15,12 +15,7 @@ export default class Pagination extends React.Component {
         this.setState({
             current: operation == 'next' ? ++this.state.current : --this.state.current
         }, () => {
-            console.log(this.props.total, this.state.current)
-            this.props.onCurrentChange(this.state.current);
-            setTimeout(()=>{
-                this.windowToTop();
-            },500)
-            
+            this.props.onCurrentChange(this.state.current);            
         })
     }
 
