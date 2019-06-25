@@ -1,7 +1,7 @@
 import React from 'react'
 import '../style/main.scss'
 import MainPic3D from '../components/pic3D'
-
+import { IsPC } from "../utils/screen";
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className="main">
-                <MainPic3D />
+                <MainPic3D IsPC={IsPC()} />
                 {/* <div className="black-button">more</div> */}
             </div>
         )

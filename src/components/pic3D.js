@@ -60,9 +60,9 @@ export default class pic3D extends React.Component {
             let style;
             if (item.className.match(/reverse/)) {
                 style = `matrix(1, 0, 0, 1, ${y * 20}, ${-x * 20})`
-            } else if (item.className.match(/left/)){
+            } else if (item.className.match(/left/)) {
                 style = `matrix(1, 0, 0, 1, ${-y * 20}, ${x * 20})`
-            }else{
+            } else {
                 style = `matrix(1, 0, 0, 1, ${y * 20}, ${x * 20})`
             }
             item.style.transform = item.style.webkitTransform = style;
@@ -82,7 +82,7 @@ export default class pic3D extends React.Component {
 
     render() {
         return (
-            <div id="container">
+            <div id="container" className={this.props.IsPC ? 'container' : 'container mobile-container'}>
                 <div id="box">
                     <div className="word"></div>
                     <div className="circle left"></div>
