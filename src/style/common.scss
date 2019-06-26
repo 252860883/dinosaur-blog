@@ -19,6 +19,18 @@ html,
 body {
     font-size: calc(100vw/365*100);
     transition: all .5s;
+    height: 100%;
+}
+
+#root,
+#root>div {
+    height: 100%;
+}
+
+#root>div>div {
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 // 配置默认的css样式
