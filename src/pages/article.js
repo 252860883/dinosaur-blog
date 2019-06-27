@@ -72,15 +72,13 @@ export default class Article extends React.Component {
 
                     {
                         this.state.topArticleMenu.map(item => {
-                            if(this.state.page != 1) return;
+                            if (this.state.page != 1) return;
                             return (
                                 <div key={item.link} className="article-item article-item-top" onClick={this.clickToArticle.bind(this, item)}>
                                     <span className='time'>{item.date.split(' ')[0]} </span>
                                     <span className='title'>{item.title}</span>
                                 </div>
                             )
-
-
                         })
                     }
                     <div className="article-title article-title-normal">· NORMAL ARTICLE ·</div>

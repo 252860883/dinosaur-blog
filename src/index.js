@@ -17,17 +17,7 @@ let store = createStore(todoApp)
 
 //这里是出口文件 
 ReactDOM.render(
-    <TransitionGroup>
-        <CSSTransition
-            appear={true}
-            classNames="fade"
-            timeout={500}
-        >
-            <Provider store={store}>
-                <Root />
-            </Provider>
-        </CSSTransition>
-    </TransitionGroup>
+    <Root />
     , document.getElementById('root'));
 registerServiceWorker();
 
