@@ -1,6 +1,5 @@
 import React from 'react'
 import '../style/main.scss'
-import { IsPC } from "../utils/screen";
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
     constructor() {
@@ -10,10 +9,6 @@ export default class Template extends React.Component {
         }
     }
     componentDidMount() {
-        if (!IsPC()) {
-            const dom = document.getElementsByClassName('article')[0]
-            dom.classList.add('article-mobile');
-        }
     }
     render() {
         return (

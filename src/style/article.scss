@@ -17,7 +17,8 @@
             animation-delay: 1s;
             animation-fill-mode: forwards;
         }
-        .article-title-normal{
+
+        .article-title-normal {
             color: #222;
         }
 
@@ -65,15 +66,18 @@
     }
 }
 
-.article-page-mobile {
-    width: 100%;
-    padding: 0.1rem;
-    box-sizing: border-box;
+.mobile-app {
+    .article-page {
+        width: 100%;
+        padding: 0.1rem;
+        box-sizing: border-box;
 
-    .time {
-        display: none;
+        .time {
+            display: none;
+        }
     }
 }
+
 
 
 
@@ -205,11 +209,14 @@
 }
 
 /* mobile 兼容*/
-.article-mobile {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 0.2rem;
+.mobile-app {
+    .article {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 0.2rem;
+    }
 }
+
 
 @keyframes slideLeft {
     0% {

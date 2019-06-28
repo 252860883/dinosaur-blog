@@ -23,7 +23,7 @@ const routes = (
                             classNames="fade"
                             timeout={800}
                         >
-                            <div className='app'>
+                            <div className={IsPC() ? 'app' : 'app mobile-app'}>
                                 {/* 公共组件写在这里 */}
                                 <RouterMap />
                             </div>
@@ -40,7 +40,6 @@ export default class Root extends React.Component {
         if (IsPC()) {
             document.getElementsByTagName('html')[0].style.fontSize = '100px'
         }
-        
     }
     render() {
         return routes;

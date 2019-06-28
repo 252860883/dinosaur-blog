@@ -25,6 +25,11 @@ export default class Main extends React.Component {
         return (
             <div className="main">
                 <MainPic3D IsPC={IsPC()} />
+                <div className="mainBlock">
+                    <div className="item"></div>
+                    <div className="item"></div>
+                    <div className="item"></div>
+                </div>
                 {/* <div className="black-button">more</div> */}
             </div>
         )

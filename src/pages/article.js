@@ -1,7 +1,6 @@
 import React from 'react'
 import { ArticleMenu } from '../router/routerMap'
 import Pagination from '../components/pagination'
-import { IsPC } from "../utils/screen";
 import '../style/article.scss'
 export default class Article extends React.Component {
 
@@ -64,7 +63,7 @@ export default class Article extends React.Component {
 
     render() {
         return (
-            <div className={IsPC() ? 'article-page' : 'article-page article-page-mobile'}>
+            <div className='article-page'>
                 <div className="article-lists">
                     {
                         this.state.page == 1 && <div className="article-title">· TOP ARTICLE ·</div>
