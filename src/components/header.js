@@ -3,7 +3,7 @@ import '../style/header.scss'
 import { RouterMenu } from '../router/routerMap'
 import { withRouter } from 'react-router-dom';
 import { IsPC } from "../utils/screen";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 class Header extends React.Component {
     constructor() {
         super()
@@ -48,13 +48,13 @@ class Header extends React.Component {
 
         if (IsPC()) {
             header = (<div className={headerSp ? 'header header-sp' : 'header'} >
-                <img className="logo" alt="" src={require('../assets/logo.png')} />
+                <img className="logo" alt="" src={require('../assets/logo-2.png')} />
                 {nav}
             </div>)
         } else {
             header = (<div className={headerSp ? 'header-mobile header-sp' : 'header-mobile'} onClick={this.clickTop.bind(this)}>
                 <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
-                    <img className="logo" alt="" src={require('../assets/logo.png')} />
+                    <img className="logo" alt="" src={require('../assets/logo-2.png')} />
                 </div>
                 <CSSTransition
                     in={this.state.showNav}

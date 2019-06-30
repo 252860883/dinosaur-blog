@@ -13,10 +13,10 @@ import { IsPC } from "../utils/screen";
 
 const routes = (
     <HashRouter>
-        <div>
-            <Header />
-            <Route
-                render={({ location }) => (
+        <Route
+            render={({ location }) => (
+                <div>
+                    <Header key={location.pathname} />
                     <TransitionGroup>
                         <CSSTransition
                             key={location.pathname}
@@ -29,9 +29,9 @@ const routes = (
                             </div>
                         </CSSTransition>
                     </TransitionGroup>
-                )} />
-            <Foot name="duhonghui" />
-        </div>
+                    <Foot />
+                </div>
+            )} />
     </HashRouter>
 )
 

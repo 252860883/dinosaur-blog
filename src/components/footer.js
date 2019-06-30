@@ -25,8 +25,8 @@ export default class Footer extends React.Component {
             <footer id="foot" className='foot'>
                 {/* <span>@{this.props.name} </span> */}
                 <span>{this.state.content}</span>
-                <span>/</span>
-                <span>联系我</span>
+                {/* <span>/</span>
+                <span>联系我</span> */}
             </footer>
         )
     }
