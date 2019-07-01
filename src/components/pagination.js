@@ -29,8 +29,8 @@ export default class Pagination extends React.Component {
 
     render() {
         const current = this.state.current
-        const prevBtn = current === 1 ? '' : <div className="pagination-btn" onClick={this.clickButton.bind(this, 'prev')}>⬅</div>;
-        const nextBtn = current === this.props.total ? '' : <div className="pagination-btn" onClick={this.clickButton.bind(this, 'next')}>➡</div>;
+        const prevBtn = current === 1 ? '' : <div className="pagination-btn  pagination-btn--left" onClick={this.clickButton.bind(this, 'prev')}></div>;
+        const nextBtn = current === this.props.total ? '' : <div className="pagination-btn" onClick={this.clickButton.bind(this, 'next')}></div>;
         return (
             <div className="pagination">
                 {prevBtn}

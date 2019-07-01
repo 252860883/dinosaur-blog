@@ -54,7 +54,10 @@ class Main extends React.Component {
                         })
                     }
                 </div>
-                <div className="bottom-text">一切都在继续，更何不去努力</div>
+                <div className="bottom-text">
+                    <div>一切都在继续，更何不去努力</div>
+                    <div>Everything is going on, let alone work hard</div>
+                </div>
             </div>
         )
     }
