@@ -44,6 +44,7 @@ let ArticleMenu = [
 	{"title":"小程序实现仿KeepApp的滑动图表","date":"2018-05-10 15:11:28","tags":"小程序","link":"/小程序实现仿KeepApp的滑动图表","article":true,url: import('../article/小程序实现仿KeepApp的滑动图表')},
 	{"title":"小程序实现图片懒加载的三种方式","date":"2018-09-11 14:22:11","tags":"小程序","top":"","link":"/小程序实现图片懒加载的三种方式","article":true,url: import('../article/小程序实现图片懒加载的三种方式')},
 	{"title":"小程序封装异步请求接口","date":"2018-05-10 15:04:47","tags":"[小程序,VUE,javascript]","link":"/小程序封装异步请求接口","article":true,url: import('../article/小程序封装异步请求接口')},
+	{"title":"浏览器缓存机制","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器缓存机制","article":true,url: import('../article/浏览器缓存机制')},
 	{"title":"深入webpack4.0（一）整体架构","date":"2018-07-16 15:40:08","tags":"[\"webpack\",\"javascript\"]","link":"/深入webpack4.0（一）配置及部分原理","article":true,url: import('../article/深入webpack4.0（一）配置及部分原理')},
 	{"title":"深入webpack4.0（三）优化","date":"2018-08-01 14:44:59","tags":"[\"webpack\",\"javascript\"]","link":"/深入webpack4.0（三）原理","article":true,url: import('../article/深入webpack4.0（三）原理')},
 	{"title":"深入webpack4.0（二）本地服务环境","date":"2018-07-19 14:44:59","tags":"[\"webpack\",\"javascript\"]","link":"/深入webpack4.0（二）本地服务.1","article":true,url: import('../article/深入webpack4.0（二）本地服务.1')},
