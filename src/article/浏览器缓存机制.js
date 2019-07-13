@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h2","title":"缓存位置"},{"level":"h3","title":"Service Worker"},{"level":"h3","title":"Memory Cache"},{"level":"h3","title":"Disk Cache"},{"level":"h3","title":"Push Cache"},{"level":"h2","title":"缓存过程"},{"level":"h2","title":"缓存策略"}]
+            headerLink: [{"level":"h2","title":"缓存位置"},{"level":"h3","title":"Service Worker"},{"level":"h3","title":"Memory Cache"},{"level":"h3","title":"Disk Cache"},{"level":"h3","title":"Push Cache"},{"level":"h2","title":"缓存过程"},{"level":"h2","title":"缓存策略"},{"level":"h3","title":"强缓存"},{"level":"h4","title":"Cache-Control"},{"level":"h4","title":"Expires"}]
         }
     }
     componentDidMount() {
@@ -59,6 +59,33 @@ export default class Template extends React.Component {
 <h2 id='缓存策略'>缓存策略</h2>
 
 <p>浏览器缓存策略分为两类：强缓存和协商缓存，缓存策略通过 HTTP 头部 Header 来设置。</p>
+
+<h3 id='强缓存'>强缓存</h3>
+
+<p>不会向服务器发送请求，直接从缓存中读取资源，在chrome控制台的Network选项中可以看到该请求返回200的状态码，并且Size显示from disk cache或from memory cache。强缓存可以通过设置两种 HTTP Header 实现：Expires 和Cache-Control。</p>
+
+<h4 id='Cache-Control'>Cache-Control</h4>
+
+<blockquote>
+  <p>可以通过 Cache-Ccontrol 控制缓存的工作机制。</p>
+</blockquote>
+
+<p><table><tr><th>指令</th><th>说明</th></tr><tr><td>public</td><td>所有内容都将被缓存</td></tr><tr><td>private</td><td>所有内容只有客户端会被缓存，中间节点不允许缓存</td></tr><tr><td>no-cache</td><td>使用缓存则需要经过协商缓存来验证决定</td></tr></table></p>
+
+<h4 id='Expires'>Expires</h4>
+
+<blockquote>
+  <p>指定缓存资源的过期时间()，Expires是服务器响应实体首部字段。如果在Cache-Control响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 Expires 头会被忽略。同时注意，如果修改本地时间打过 Expires 的时间会造成缓存失效。</p>
+</blockquote>
+
+<p>示例：</p>
+
+<pre><code><span></span>
+<span>Expires: Wed, 21 Oct 2015 07:28:00 GMT</span>
+<span></span>
+</code></pre>
+
+<p>啦啦啦</p>
 
 <blockquote>
   <p>参考<br></br><a href="https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA">https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA</a></p>

@@ -65,5 +65,18 @@
         })
         return newAtricle.replace(/headerLink\:\s\[[^\[\]]*\]/gm, 'headerLink: ' + JSON.stringify(linkArr))
     }
+    fs.watch(mdPath, { recursive: true }, (eventType, filename) => {
+        console.log(eventType, filename);
+        if(eventType !== 'change') return;
+        const mdText = fs.readFileSync(mdPath + '/' + filename, 'utf8');
+        const newName = path.basename(filename, '.md');
+        const newPath = outPath + '/' + newName + '.js'
+        let mdData = MD.Markdown2HTML(mdText);
+        let newAtricle = template.replace(/\<div\sclassName\=\"article\"\>\<\/div\>/g, function () {
+            return _handleMDData(mdData);
+        });
+        newAtricle = _hadleHeaderLink(newAtricle, mdData);
+        fs.writeFileSync(String(newPath), newAtricle, 'utf8')
+    })
     console.log('new Article is done')
 })()
