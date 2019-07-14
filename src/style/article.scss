@@ -102,14 +102,19 @@
         line-height: 0.30rem;
     }
 
-    h1 {}
 
-    h2 {}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $o;
+    }
 
     h1,
     h2,
     h3 {
-        color: $o;
         margin: 0.40rem 0 0.2rem 0;
     }
 
@@ -166,7 +171,7 @@
         li {
             list-style-position: inside;
             margin: 0.05rem auto;
-            font-weight: bold;
+            // font-weight: bold;
         }
     }
 
