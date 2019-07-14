@@ -23,12 +23,14 @@ tags: [html5,nodejs]
 ### WebSocket 通信过程
 Websocket区别 Http 协议是一个持久化的新协议，但是为了兼容现有浏览器的握手规范而借用了HTTP的协议来完成一部分握手。WebSocket是纯事件驱动的，并遵循异步编程模型，只需要对WebSocket对象增加回调函数就可以监听事件，一旦连接建立可以通过监听事件增加回调函数来处理数据。
 
+为什么WebSocket连接可以实现全双工通信而HTTP连接不行呢？实际上HTTP协议是建立在TCP协议之上的，TCP协议本身就实现了全双工通信，但是HTTP协议的请求－应答机制限制了全双工通信。WebSocket连接建立以后，其实只是简单规定了一下：接下来，咱们通信就不使用HTTP协议了，直接互相发数据吧。
+
 当Web应用程序调用`new WebSocket(url)`接口时，客户端就开始了与地址为url的WebServer建立握手连接的过程。
 1. 客户端与服务器通过TCP三次握手建立连接，如果连接失败，客户端会收到报错信息。
 2. TCP建立连接后，客户端通过HTTP协议传送WebSocket支持的版本号、协议的字版本号、原始地址、主机地址等等一些列字段给服务器端。
 
     ```
-    GET /chat HTTP/1.1
+    GET ws://localhost:3000/ws/chat HTTP/1.1
     Host: server.example.com
     Upgrade: websocket
     Connection: Upgrade
@@ -38,6 +40,7 @@ Websocket区别 Http 协议是一个持久化的新协议，但是为了兼容�
     Origin: http://example.com
     ```
     >**请求报文**
+    `GET` 请求的地址不是类似`/path/`格式，而是以`ws:`开头的
     `Connection: Upgrade` 浏览器通知服务器，如果可以，就升级到webSocket协议
     `Origin` 用于验证浏览器域名是否在服务器许可的范围内
     `Sec-WebSocket-Key` 握手时所需要的密钥
@@ -54,17 +57,34 @@ Websocket区别 Http 协议是一个持久化的新协议，但是为了兼容�
     Sec-WebSocket-Origin: null
     Sec-WebSocket-Location: ws://example.com/
     ```
-    >**回复报文**
-    `Connection: Upgrade` 通知浏览器已经切换协议
-    `Sec-WebSocket-Accept` 经过服务器确认并且加密过后的密钥
-    `Sec-WebSocket-Location` 进行webscoket通信的网址
-    `Sec-WebSocket-Protocol` 使用的协议版本
+>**回复报文**
+该响应代码`101`表示本次连接的HTTP协议即将被更改，更改后的协议就是`Upgrade: websocket`指定的WebSocket协议。
+`Connection: Upgrade` 通知浏览器已经切换协议
+`Sec-WebSocket-Accept` 经过服务器确认并且加密过后的密钥
+`Sec-WebSocket-Location` 进行webscoket通信的网址
+`Sec-WebSocket-Protocol` 使用的协议版本
 
-4. 客户端收到服务端回复的数据包后，如果内容、格式都没问题，就表示此次连接成功，触发`onopen`事件，此时客户端就可以通过 `send()` 来向服务器发送数据了，如果过程出错可以通过 `onerror`获取报错信息。
+4. 客户端收到服务端回复的数据包后，如果内容、格式都没问题，就表示此次连接成功，触发`onopen`事件，此时客户端就可以通过 `send()` 来向服务器发送数据了，同时如果过程出错可以通过 `onerror`获取报错信息。
 
-### socket.io
-由于我的项目后端采用的是 nodjs 环境开发，所以这里引入 `socket.io`。
-Socket.io将数据传输部分独立出来形成engine.io，engine.io对WebSocket和AJAX轮询进行了封装，形成了一套API，屏蔽了细节差异和兼容性问题，实现了跨浏览器/跨设备进行双向数据通信。Socket.io实际上是WebSocket的父集，Socket.io封装了WebSocket和轮询等方法，会根据情况选择方法来进行通讯。
+客户端发起一个 WebSocket连接 示例：
+
+```
+// 创建一个 WebSocket 连接
+const socket = new WebSocket('ws://localhost:8080');
+
+// 连接建立回调事件
+socket.addEventListener('open', function (event) {
+    socket.send('Hello Server!');
+});
+
+// 接受服务器传回的数据
+socket.addEventListener('message', function (event) {
+    console.log('Message from server ', event.data);
+});
+```
+
+### 实践
+
 
 
 

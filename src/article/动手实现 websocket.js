@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"服务器推送技术"},{"level":"h3","title":"WebSocket 通信过程"},{"level":"h3","title":"socket.io"}]
+            headerLink: [{"level":"h3","title":"服务器推送技术"},{"level":"h3","title":"WebSocket 通信过程"},{"level":"h3","title":"实践"}]
         }
     }
     componentDidMount() {
@@ -35,10 +35,12 @@ export default class Template extends React.Component {
 
 <p>Websocket区别 Http 协议是一个持久化的新协议，但是为了兼容现有浏览器的握手规范而借用了HTTP的协议来完成一部分握手。WebSocket是纯事件驱动的，并遵循异步编程模型，只需要对WebSocket对象增加回调函数就可以监听事件，一旦连接建立可以通过监听事件增加回调函数来处理数据。</p>
 
+<p>为什么WebSocket连接可以实现全双工通信而HTTP连接不行呢？实际上HTTP协议是建立在TCP协议之上的，TCP协议本身就实现了全双工通信，但是HTTP协议的请求－应答机制限制了全双工通信。WebSocket连接建立以后，其实只是简单规定了一下：接下来，咱们通信就不使用HTTP协议了，直接互相发数据吧。</p>
+
 <p>当Web应用程序调用<code>new WebSocket(url)</code>接口时，客户端就开始了与地址为url的WebServer建立握手连接的过程。<br></br>1. 客户端与服务器通过TCP三次握手建立连接，如果连接失败，客户端会收到报错信息。<br></br>2. TCP建立连接后，客户端通过HTTP协议传送WebSocket支持的版本号、协议的字版本号、原始地址、主机地址等等一些列字段给服务器端。</p>
 
 <pre><code><span></span>
-<span>    GET /chat HTTP/1.1</span>
+<span>    GET ws://localhost:3000/ws/chat HTTP/1.1</span>
 <span>    Host: server.example.com</span>
 <span>    Upgrade: websocket</span>
 <span>    Connection: Upgrade</span>
@@ -50,7 +52,7 @@ export default class Template extends React.Component {
 </code></pre>
 
 <blockquote>
-  <p><strong>请求报文</strong><br></br>    <code>Connection: Upgrade</code> 浏览器通知服务器，如果可以，就升级到webSocket协议<br></br>    <code>Origin</code> 用于验证浏览器域名是否在服务器许可的范围内<br></br>    <code>Sec-WebSocket-Key</code> 握手时所需要的密钥<br></br>    <code>Sec-WebSocket-Protocol</code> 是一个用户定义的字符串，用来区分同URL下，不同的服务所需要的协议。<br></br>    <code>Sec-WebSocket-Version</code> 协议版本</p>
+  <p><strong>请求报文</strong><br></br>    <code>GET</code> 请求的地址不是类似<code>/path/</code>格式，而是以<code>ws:</code>开头的<br></br>    <code>Connection: Upgrade</code> 浏览器通知服务器，如果可以，就升级到webSocket协议<br></br>    <code>Origin</code> 用于验证浏览器域名是否在服务器许可的范围内<br></br>    <code>Sec-WebSocket-Key</code> 握手时所需要的密钥<br></br>    <code>Sec-WebSocket-Protocol</code> 是一个用户定义的字符串，用来区分同URL下，不同的服务所需要的协议。<br></br>    <code>Sec-WebSocket-Version</code> 协议版本</p>
 </blockquote>
 
 <ol>
@@ -70,16 +72,32 @@ export default class Template extends React.Component {
 </code></pre>
 
 <blockquote>
-  <p><strong>回复报文</strong><br></br>    <code>Connection: Upgrade</code> 通知浏览器已经切换协议<br></br>    <code>Sec-WebSocket-Accept</code> 经过服务器确认并且加密过后的密钥<br></br>    <code>Sec-WebSocket-Location</code> 进行webscoket通信的网址<br></br>    <code>Sec-WebSocket-Protocol</code> 使用的协议版本</p>
+  <p><strong>回复报文</strong><br></br>该响应代码<code>101</code>表示本次连接的HTTP协议即将被更改，更改后的协议就是<code>Upgrade: websocket</code>指定的WebSocket协议。<br></br><code>Connection: Upgrade</code> 通知浏览器已经切换协议<br></br><code>Sec-WebSocket-Accept</code> 经过服务器确认并且加密过后的密钥<br></br><code>Sec-WebSocket-Location</code> 进行webscoket通信的网址<br></br><code>Sec-WebSocket-Protocol</code> 使用的协议版本</p>
 </blockquote>
 
 <ol>
-<li>客户端收到服务端回复的数据包后，如果内容、格式都没问题，就表示此次连接成功，触发<code>onopen</code>事件，此时客户端就可以通过 <code>send()</code> 来向服务器发送数据了，如果过程出错可以通过 <code>onerror</code>获取报错信息。</li>
+<li>客户端收到服务端回复的数据包后，如果内容、格式都没问题，就表示此次连接成功，触发<code>onopen</code>事件，此时客户端就可以通过 <code>send()</code> 来向服务器发送数据了，同时如果过程出错可以通过 <code>onerror</code>获取报错信息。</li>
 </ol>
 
-<h3 id='socket.io'>socket.io</h3>
+<p>客户端发起一个 WebSocket连接 示例：</p>
 
-<p>由于我的项目后端采用的是 nodjs 环境开发，所以这里引入 <code>socket.io</code>。<br></br>Socket.io将数据传输部分独立出来形成engine.io，engine.io对WebSocket和AJAX轮询进行了封装，形成了一套API，屏蔽了细节差异和兼容性问题，实现了跨浏览器/跨设备进行双向数据通信。Socket.io实际上是WebSocket的父集，Socket.io封装了WebSocket和轮询等方法，会根据情况选择方法来进行通讯。</p>
+<pre><code><span></span>
+<span>// 创建一个 WebSocket 连接</span>
+<span>const socket = new WebSocket('ws://localhost:8080');</span>
+<span></span>
+<span>// 连接建立回调事件</span>
+<span>socket.addEventListener('open', function (event) {'{'}</span>
+<span>    socket.send('Hello Server!');</span>
+<span>});</span>
+<span></span>
+<span>// 接受服务器传回的数据</span>
+<span>socket.addEventListener('message', function (event) {'{'}</span>
+<span>    console.log('Message from server ', event.data);</span>
+<span>});</span>
+<span></span>
+</code></pre>
+
+<h3 id='实践'>实践</h3>
 </div>
             </div>
 

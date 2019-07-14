@@ -44,7 +44,7 @@ let ArticleMenu = [
 	{"title":"小程序实现仿KeepApp的滑动图表","date":"2018-05-10 15:11:28","tags":"小程序","link":"/小程序实现仿KeepApp的滑动图表","article":true,url: import('../article/小程序实现仿KeepApp的滑动图表')},
 	{"title":"小程序实现图片懒加载的三种方式","date":"2018-09-11 14:22:11","tags":"小程序","top":"","link":"/小程序实现图片懒加载的三种方式","article":true,url: import('../article/小程序实现图片懒加载的三种方式')},
 	{"title":"小程序封装异步请求接口","date":"2018-05-10 15:04:47","tags":"[小程序,VUE,javascript]","link":"/小程序封装异步请求接口","article":true,url: import('../article/小程序封装异步请求接口')},
-	{"title":"浏览器缓存机制","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器渲染原理","article":true,url: import('../article/浏览器渲染原理')},
+	{"title":"浏览器渲染原理","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器渲染原理","article":true,url: import('../article/浏览器渲染原理')},
 	{"title":"浏览器缓存机制","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器缓存机制","article":true,url: import('../article/浏览器缓存机制')},
 	{"title":"深入webpack4.0（一）整体架构","date":"2018-07-16 15:40:08","tags":"[\"webpack\",\"javascript\"]","link":"/深入webpack4.0（一）配置及部分原理","article":true,url: import('../article/深入webpack4.0（一）配置及部分原理')},
 	{"title":"深入webpack4.0（三）优化","date":"2018-08-01 14:44:59","tags":"[\"webpack\",\"javascript\"]","link":"/深入webpack4.0（三）原理","article":true,url: import('../article/深入webpack4.0（三）原理')},
@@ -56,6 +56,7 @@ let ArticleMenu = [
 	{"title":"【项目总结】艺术二维码生成器","date":"2018-02-09 18:13:35","tags":"项目总结","link":"/艺术二维码生成器问题总结","article":true,url: import('../article/艺术二维码生成器问题总结')},
 	{"title":"说了多少遍的Bind、Call、Apply","date":"2018-08-16 17:13:52","tags":"javascript","top:":"","link":"/说了多少遍的Bind-Call-Apply","article":true,url: import('../article/说了多少遍的Bind-Call-Apply')},
 	{"title":"迟到的2018年计划","date":"2018-04-10 12:18:07","tags":"随笔","top":"","link":"/迟到的2018年计划","article":true,url: import('../article/迟到的2018年计划')},
+	{"title":"http的长连接与短连接","date":"2019-07-14 12:18:07","tags":"['http']","top":"","link":"/长连接与短连接","article":true,url: import('../article/长连接与短连接')},
 ]//end
 
 RouterMenu = ArticleMenu.concat(RouterOrigin)
