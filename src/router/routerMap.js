@@ -22,6 +22,7 @@ let ArticleMenu = [
 	{"title":"TypeScript笔记","date":"2018-12-03 14:52:46","tags":"['javascript','typescript']","top:":"","link":"/TypeScript笔记","article":true,url: import('../article/TypeScript笔记')},
 	{"title":"刨下VUE中keep-alive的一些坑","date":"2018-02-08 20:17:19","tags":"[javascript,VUE]","link":"/VUE开启-keep-alive时的一些坑坑坑","article":true,url: import('../article/VUE开启-keep-alive时的一些坑坑坑')},
 	{"title":"VUE核心原理解析（一）依赖收集与响应式绑定","date":"2018-09-22 16:50:05","tags":"[vue,javascript]","top:":"","link":"/VUE核心原理解析","article":true,url: import('../article/VUE核心原理解析')},
+	{"title":"WebWorker实践","date":"2019-07-15 17:38:44","tags":"['vue','javascript']","link":"/WebWorker实践","article":true,url: import('../article/WebWorker实践')},
 	{"title":"爬一下flex布局在IE10和IE11下的坑","date":"2018-01-30 18:30:02","tags":"javascript","link":"/flex布局在IE10和IE11下的坑","article":true,url: import('../article/flex布局在IE10和IE11下的坑')},
 	{"title":"mpvue刨坑指南","date":"2018-03-20 15:24:20","tags":"[小程序,VUE]","link":"/mpvue刨坑指南","article":true,url: import('../article/mpvue刨坑指南')},
 	{"title":"【项目总结】大牛工资条","tags":"项目总结","date":"2017-09-19 14:17:13","link":"/payroll","article":true,url: import('../article/payroll')},
