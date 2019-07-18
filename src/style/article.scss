@@ -110,12 +110,30 @@
     h5,
     h6 {
         color: $o;
+        position: relative;
+        display: flex;
+        align-items: center;
     }
 
     h1,
     h2,
     h3 {
         margin: 0.40rem 0 0.2rem 0;
+        font-weight: bolder;
+        padding-left: 0.2rem;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0.02rem;
+            left: 0rem;
+            z-index: -1;
+            width: 0.35rem;
+            height: 0.35rem;
+            border-radius: 50%;
+            // background: #222;
+            border: 0.01rem solid #222;
+            // opacity: 0;
+        }
     }
 
     img {
@@ -177,7 +195,8 @@
 
     blockquote {
         border-left: 0.04rem solid $o;
-        padding-left: 0.10rem;
+        padding: 0 0.10rem;
+        background: #eee;
     }
 
     table {

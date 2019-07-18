@@ -127,7 +127,6 @@ output: {
 
 
 
-### 后记
->参考
-https://juejin.im/post/5acf348151882579ef4f5a77
-https://mp.weixin.qq.com/s/i1xBLUtVRPhWnl_1EuJVkA
+### 参考
+>[怎么在 ES6+Webpack 下使用 Web Worker](https://juejin.im/post/5acf348151882579ef4f5a77)
+[前端 Web Workers 到底是什么？](https://mp.weixin.qq.com/s/i1xBLUtVRPhWnl_1EuJVkA)
