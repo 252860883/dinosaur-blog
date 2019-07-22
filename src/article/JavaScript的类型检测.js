@@ -75,6 +75,25 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
+<p>模拟实现一个 <code>instanceof</code> 方法：</p>
+
+<pre><code><span></span>
+<span>function instanceOf(A, B) {'{'}</span>
+<span>    while (true) {'{'}</span>
+<span>        // 原型链到头仍未找到返回false</span>
+<span>        if(A === null){'{'}</span>
+<span>            return false</span>
+<span>        }</span>
+<span>        if (A === B.prototype) {'{'}</span>
+<span>            console.log(A,B)</span>
+<span>            return true</span>
+<span>        }</span>
+<span>        A = A.__proto__</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
 <p>但是需要注意，对于基本数据类型来说，我们需要通过<strong>创建实例</strong>方法才能被 instanceof 检测出来。原因是：通过字面量方式创建的基本数据类型不是一个严谨的实例，只有通过实例创建出的对象才是标准的对象数据类型值。而由于 JS 的松散性，可以按照正常基本类型对象处理。</p>
 
 <pre><code><span></span>

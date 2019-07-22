@@ -84,7 +84,39 @@ socket.addEventListener('message', function (event) {
 ```
 
 ### 实践
+首先我们在服务器创建 WebSocket，nodejs本身是不支持WebSocket协议的，所以这里我们通过 `npm install ws` 指令引入 `ws模块`来实现：
 
+```
+// 导入WebSocket模块:
+const WebSocketServer = require('ws').Server;
+// 实例化:
+const wss = new WebSocketServer({ port: 3000 });
+// connection 连接建立后执行回调
+wss.on('connection', function (ws) {
+    console.log(`[SERVER] connection()`);
+    // message 接受客户端发送的消息
+    ws.on('message', function (message) {
+        console.log(`[SERVER] Received: ${message}`);
+        // ws.send 向客户端发送消息
+        ws.send(`ECHO: ${message}`, (err) => {
+            if (err) {
+                console.log(`[SERVER] error: ${err}`);
+            }
+        });
+    })
+});
+```
+
+客户端配置 WebSocket 如下：
+
+```
+// 打开一个WebSocket:
+var ws = new WebSocket('ws://localhost:3000/test');
+// 响应onmessage事件:
+ws.onmessage = function(msg) { console.log(msg); };
+// 给服务器发送一个字符串:
+ws.send('Hello!');
+```
 
 
 

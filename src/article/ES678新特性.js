@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Maps 和 WeakMaps"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
+            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Maps 和 WeakMaps"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
         }
     }
     componentDidMount() {
@@ -340,7 +340,7 @@ export default class Template extends React.Component {
 <h3 id='Iterator遍历器'>Iterator遍历器</h3>
 
 <blockquote>
-  <p>iterator 为每一个对象定义了默认的迭代器。该迭代器可以被 <code>for...of</code> 循环使用。一些内置类型<code>Array String Map Set TypedArray</code>拥有默认的迭代器行为，其他类型则没有。</p>
+  <p>iterator 为每一个对象定义了默认的迭代器。该迭代器可以被 for...of 循环使用。一些内置类型 Array、String、 Map、 Set 、 TypedArray 拥有默认的迭代器行为，其他类型则没有。</p>
 </blockquote>
 
 <p>凡是部署了Symbol.iterator属性的数据结构，就称为部署了遍历器接口。调用这个接口，就会返回一个遍历器对象。</p>
@@ -369,6 +369,16 @@ export default class Template extends React.Component {
 <span>};</span>
 <span>[...myIterable] // [1, 2, 3]</span>
 <span></span>
+<span></span>
+</code></pre>
+
+<h3 id='for...in 与 for...of'>for...in 与 for...of</h3>
+
+<p>无论是 <code>for...in</code> 还是 <code>for...of</code> 语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式:<br></br>1. <code>for...in</code> 语句以原始插入顺序迭代对象的可枚举属性，注意它也会遍历原型链的可枚举属性，如果只想遍历对象本身需要配合 <code>hasOwnProperty</code> 使用<br></br>2. <code>for...of</code> 遍历可迭代对象定义要迭代的数据</p>
+
+<p>看例子：</p>
+
+<pre><code><span></span>
 <span></span>
 </code></pre>
 

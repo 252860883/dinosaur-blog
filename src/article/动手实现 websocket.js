@@ -98,6 +98,42 @@ export default class Template extends React.Component {
 </code></pre>
 
 <h3 id='实践'>实践</h3>
+
+<p>首先我们在服务器创建 WebSocket，nodejs本身是不支持WebSocket协议的，所以这里我们通过 <code>npm install ws</code> 指令引入 <code>ws模块</code>来实现：</p>
+
+<pre><code><span></span>
+<span>// 导入WebSocket模块:</span>
+<span>const WebSocketServer = require('ws').Server;</span>
+<span>// 实例化:</span>
+<span>const wss = new WebSocketServer({'{'} port: 3000 });</span>
+<span>// connection 连接建立后执行回调</span>
+<span>wss.on('connection', function (ws) {'{'}</span>
+<span>    console.log(`[SERVER] connection()`);</span>
+<span>    // message 接受客户端发送的消息</span>
+<span>    ws.on('message', function (message) {'{'}</span>
+<span>        console.log(`[SERVER] Received: ${'{'}message}`);</span>
+<span>        // ws.send 向客户端发送消息</span>
+<span>        ws.send(`ECHO: ${'{'}message}`, (err) =&gt; {'{'}</span>
+<span>            if (err) {'{'}</span>
+<span>                console.log(`[SERVER] error: ${'{'}err}`);</span>
+<span>            }</span>
+<span>        });</span>
+<span>    })</span>
+<span>});</span>
+<span></span>
+</code></pre>
+
+<p>客户端配置 WebSocket 如下：</p>
+
+<pre><code><span></span>
+<span>// 打开一个WebSocket:</span>
+<span>var ws = new WebSocket('ws://localhost:3000/test');</span>
+<span>// 响应onmessage事件:</span>
+<span>ws.onmessage = function(msg) {'{'} console.log(msg); };</span>
+<span>// 给服务器发送一个字符串:</span>
+<span>ws.send('Hello!');</span>
+<span></span>
+</code></pre>
 </div>
             </div>
 

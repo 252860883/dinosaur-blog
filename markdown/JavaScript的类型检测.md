@@ -50,6 +50,24 @@ new RegExp() instanceof RegExp//true
 [1,2,3] instanceof Object; // true
 ```
 
+模拟实现一个 `instanceof` 方法：
+
+```
+function instanceOf(A, B) {
+    while (true) {
+        // 原型链到头仍未找到返回false
+        if(A === null){
+            return false
+        }
+        if (A === B.prototype) {
+            console.log(A,B)
+            return true
+        }
+        A = A.__proto__
+    }
+}
+```
+
 但是需要注意，对于基本数据类型来说，我们需要通过**创建实例**方法才能被 instanceof 检测出来。原因是：通过字面量方式创建的基本数据类型不是一个严谨的实例，只有通过实例创建出的对象才是标准的对象数据类型值。而由于 JS 的松散性，可以按照正常基本类型对象处理。
 ```
 1 instanceof Number; // false
@@ -66,6 +84,8 @@ new String('abc') instanceof String; // true
 null instanceof Null; // Null is not defined
 undefined instanceof Undefined; // Undefined is not defined
 ```
+
+
 
 综上看来 instanceof 慎用啊！！
 
