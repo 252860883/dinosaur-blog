@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"类型"},{"level":"h3","title":"typeof"},{"level":"h3","title":"instanceof"},{"level":"h3","title":"==="},{"level":"h3","title":"constructor"},{"level":"h3","title":"Object.prototype.toString.call()"},{"level":"h3","title":"总结"}]
+            headerLink: [{"level":"h3","title":"类型"},{"level":"h3","title":"typeof"},{"level":"h3","title":"instanceof"},{"level":"h3","title":"isPrototypeOf()"},{"level":"h3","title":"==="},{"level":"h3","title":"constructor"},{"level":"h3","title":"Object.prototype.toString.call()"},{"level":"h3","title":"总结"}]
         }
     }
     componentDidMount() {
@@ -114,7 +114,18 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<p>综上看来 instanceof 慎用啊！！</p>
+<h3 id='isPrototypeOf()'>isPrototypeOf()</h3>
+
+<blockquote>
+  <p>方法用于测试一个对象是否存在于另一个对象的原型链上,它和 instanceof 有着异曲同工的作用：</p>
+</blockquote>
+
+<pre><code><span></span>
+<span>RegExp.prototype.isPrototypeOf(/\n/)    // true</span>
+<span>String.prototype.isPrototypeOf(new String('1234'))  // true</span>
+<span>String.prototype.isPrototypeOf('1234')  // true</span>
+<span></span>
+</code></pre>
 
 <h3 id='==='>===</h3>
 

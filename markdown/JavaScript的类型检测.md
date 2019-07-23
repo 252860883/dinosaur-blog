@@ -84,10 +84,15 @@ new String('abc') instanceof String; // true
 null instanceof Null; // Null is not defined
 undefined instanceof Undefined; // Undefined is not defined
 ```
+### isPrototypeOf()
+>方法用于测试一个对象是否存在于另一个对象的原型链上,它和 instanceof 有着异曲同工的作用：
 
+```
+RegExp.prototype.isPrototypeOf(/\n/)    // true
+String.prototype.isPrototypeOf(new String('1234'))  // true
+String.prototype.isPrototypeOf('1234')  // true
+```
 
-
-综上看来 instanceof 慎用啊！！
 
 ### ===
 > 严格等于就好说啦，他只能用来判断 null 和 undefined 类型，因为这两个类型的值都是唯一的。

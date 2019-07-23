@@ -12,6 +12,7 @@ let RouterOrigin = [
 let RouterMenu = []
 let ArticleMenu = [
 	{"title":"ES6+ 新特性大汇总","date":"2018-06-29 12:22:07","tags":"['javascript','ES6']","top":"true","link":"/ES678新特性","article":true,url: import('../article/ES678新特性')},
+	{"title":"JavaScript 继承","date":"2019-07-23 10:30:12","tags":"javascript","top:":"","link":"/JavaScript 继承","article":true,url: import('../article/JavaScript 继承')},
 	{"title":"JavaScript的类型检测","date":"2019-01-24 10:30:12","tags":"javascript","top:":"","link":"/JavaScript的类型检测","article":true,url: import('../article/JavaScript的类型检测')},
 	{"title":"聊聊JavaScript精度缺失这点事","date":"2018-09-13 11:51:37","tags":"javascript","top:":"","link":"/JavaScript精度缺失咋回事？","article":true,url: import('../article/JavaScript精度缺失咋回事？')},
 	{"title":"JavaScript设计模式（一）观察者模式","date":"2018-06-26 12:55:56","tags":"javascript","link":"/JavaScript设计模式系列（一）开发者模式","article":true,url: import('../article/JavaScript设计模式系列（一）开发者模式')},
