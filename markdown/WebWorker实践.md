@@ -47,7 +47,7 @@ worker.terminate();
 
 1. **worker.postMessage：**主线程给worker线程发送消息
 2. **worker.onmessage：**接受worker线程的消息
-3. **worker.onerror：** worker线程报错时的回调
+3. **worker.onerror：**worker线程报错时的回调
 4. **worker.terminate：**从主线程关闭worker线程
 
 
@@ -71,7 +71,7 @@ self.close()
 1. **self.postMessage：**给主线程发送消息
 2. **self.onmessage：**接受主线程的消息
 3. **self.onerror：**worker线程报错时的回调
-4. **self.close**从主线程关闭worker线程
+4. **self.close：**从主线程关闭worker线程
 
 ### webpack环境下使用
 上面的例子是用原生js来搞的，那我们实际生产环境呢大部分都已经用 Vue、React等等框架来写业务了，由于模块化+webpack环境，直接像原生这样用可就不行了。

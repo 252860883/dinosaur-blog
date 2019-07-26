@@ -66,7 +66,7 @@ export default class Template extends React.Component {
 <ol>
 <li><strong>worker.postMessage：</strong>主线程给worker线程发送消息</li>
 <li><strong>worker.onmessage：</strong>接受worker线程的消息</li>
-<li><strong>worker.onerror：</strong> worker线程报错时的回调</li>
+<li><strong>worker.onerror：</strong>worker线程报错时的回调</li>
 <li><strong>worker.terminate：</strong>从主线程关闭worker线程</li>
 </ol>
 
@@ -93,8 +93,8 @@ export default class Template extends React.Component {
 <ol>
 <li><strong>self.postMessage：</strong>给主线程发送消息</li>
 <li><strong>self.onmessage：</strong>接受主线程的消息</li>
-<li>*<em>self.onerror：</em>*worker线程报错时的回调</li>
-<li><strong>self.close</strong>从主线程关闭worker线程</li>
+<li><strong>self.onerror：</strong>worker线程报错时的回调</li>
+<li><strong>self.close：</strong>从主线程关闭worker线程</li>
 </ol>
 
 <h3 id='webpack环境下使用'>webpack环境下使用</h3>

@@ -191,6 +191,30 @@ console.log(stu1.say == stu2.say)   // true
 ```
 
 ### ES6 Class extends
+ES6继承的结果和寄生组合继承相似，本质上，ES6继承是一种语法糖。但是，寄生组合继承是先创建子类实例this对象，然后再对其增强；而ES6先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this。
+
+```
+class B extends A {
+  constructor() {
+    super();
+  }
+}
+
+// 原理如下：
+
+Object.setPrototypeOf = function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj;
+}
+
+// B 的原型对象继承 A 的对象
+Object.setPrototypeOf(B.prototype, A.prototype);
+
+// B 继承 A 的静态属性
+Object.setPrototypeOf(B, A);
+```
+
+
 
 
 ### 参考

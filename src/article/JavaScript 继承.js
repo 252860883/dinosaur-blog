@@ -224,6 +224,30 @@ export default class Template extends React.Component {
 
 <h3 id='ES6 Class extends'>ES6 Class extends</h3>
 
+<p>ES6继承的结果和寄生组合继承相似，本质上，ES6继承是一种语法糖。但是，寄生组合继承是先创建子类实例this对象，然后再对其增强；而ES6先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this。</p>
+
+<pre><code><span></span>
+<span>class B extends A {'{'}</span>
+<span>  constructor() {'{'}</span>
+<span>    super();</span>
+<span>  }</span>
+<span>}</span>
+<span></span>
+<span>// 原理如下：</span>
+<span></span>
+<span>Object.setPrototypeOf = function (obj, proto) {'{'}</span>
+<span>  obj.__proto__ = proto;</span>
+<span>  return obj;</span>
+<span>}</span>
+<span></span>
+<span>// B 的原型对象继承 A 的对象</span>
+<span>Object.setPrototypeOf(B.prototype, A.prototype);</span>
+<span></span>
+<span>// B 继承 A 的静态属性</span>
+<span>Object.setPrototypeOf(B, A);</span>
+<span></span>
+</code></pre>
+
 <h3 id='参考'>参考</h3>
 
 <blockquote>
