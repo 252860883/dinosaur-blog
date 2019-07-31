@@ -54,6 +54,7 @@ let ArticleMenu = [
 	{"title":"深入浅出小程序原理","date":"2018-04-13 17:47:12","tags":"小程序","link":"/深入浅出小程序","article":true,url: import('../article/深入浅出小程序')},
 	{"title":"用Proxy实现MVVM双向绑定","date":"2018-10-18 11:23:03","tags":"['javascript']","top:":"","link":"/用Proxy实现MVVM双向绑定","article":true,url: import('../article/用Proxy实现MVVM双向绑定')},
 	{"title":"实现一个自动生成小程序文件模版的脚本","date":"2018-12-24 16:41:33","tags:":"","top:":"","link":"/用Shell写个自动生成小程序文件模版的脚本吧","article":true,url: import('../article/用Shell写个自动生成小程序文件模版的脚本吧')},
+	{"title":"聊聊CSS设计模式","date":"2019-07-30 15:04:47","tags":"javascript","link":"/聊聊CSS设计模式","article":true,url: import('../article/聊聊CSS设计模式')},
 	{"title":"聊聊ajax、fetch、axios","date":"2019-03-16 19:40:09","tags":"javascript","top:":"","link":"/聊聊ajax、fetch、axios","article":true,url: import('../article/聊聊ajax、fetch、axios')},
 	{"title":"【项目总结】艺术二维码生成器","date":"2018-02-09 18:13:35","tags":"项目总结","link":"/艺术二维码生成器问题总结","article":true,url: import('../article/艺术二维码生成器问题总结')},
 	{"title":"说了多少遍的Bind、Call、Apply","date":"2018-08-16 17:13:52","tags":"javascript","top:":"","link":"/说了多少遍的Bind-Call-Apply","article":true,url: import('../article/说了多少遍的Bind-Call-Apply')},
