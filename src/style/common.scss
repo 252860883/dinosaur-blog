@@ -25,16 +25,19 @@ body {
 }
 
 #root {
-    height: 100%;
-}
-
-#root>div {
     min-height: 100%;
     position: relative;
     overflow: hidden;
     padding-bottom: 0.5rem;
-    box-sizing: border-box;
 }
+
+// #root>div {
+//     // min-height: 100%;
+//     position: relative;
+//     overflow: hidden;
+//     
+//     box-sizing: border-box;
+// }
 
 @mixin flexNormal {
     display: flex;

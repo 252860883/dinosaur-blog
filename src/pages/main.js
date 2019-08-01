@@ -46,7 +46,7 @@ class Main extends React.Component {
                     {
                         this.state.blockLists.map(item => {
                             return (
-                                <div className="item" onClick={this.clickBlockItem.bind(this, item.link)}>
+                                <div className="item" key={item.link} onClick={this.clickBlockItem.bind(this, item.link)}>
                                     <img className="item-icon" src={item.icon}></img>
                                     <div className="item-name">{item.title}</div>
                                 </div>

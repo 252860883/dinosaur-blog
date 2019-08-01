@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/header.scss'
 import { RouterMenu } from '../router/routerMap'
 import { withRouter } from 'react-router-dom';
@@ -68,9 +68,9 @@ class Header extends React.Component {
         }
 
         return (
-            <div>
+            <Fragment>
                 {header}
-            </div>
+            </Fragment>
         )
     }
 }

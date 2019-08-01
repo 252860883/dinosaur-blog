@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { HashRouter, withRouter } from 'react-router-dom'
 // import { createHashHistory } from 'history';
 import { Route } from 'react-router-dom';
@@ -15,7 +15,7 @@ const routes = (
     <HashRouter>
         <Route
             render={({ location }) => (
-                <div>
+                <Fragment>
                     <Header key={location.pathname} />
                     <TransitionGroup>
                         <CSSTransition
@@ -23,14 +23,14 @@ const routes = (
                             classNames="fade"
                             timeout={800}
                         >
-                            <div className={IsPC() ? 'app' : 'app mobile-app'}>
-                                {/* 公共组件写在这里 */}
-                                <RouterMap />
-                            </div>
+                                <div className={IsPC() ? 'app' : 'app mobile-app'}>
+                                    {/* 公共组件写在这里 */}
+                                    <RouterMap />
+                                </div>
                         </CSSTransition>
                     </TransitionGroup>
                     <Foot />
-                </div>
+                </Fragment>
             )} />
     </HashRouter>
 )
