@@ -9,7 +9,7 @@ export default class pic3D extends React.Component {
             _x: 0,
             _y: 0,
             x: 350,
-            y: 50,
+            y: 50
 
         }
         this.container = null
@@ -29,6 +29,7 @@ export default class pic3D extends React.Component {
             _y: this.container.getBoundingClientRect().top + Math.floor(this.container.offsetHeight / 2),
         })
         this.autoMouseMove();
+
     }
     onMouseEnterHandler() {
         clearInterval(this.timeout)
@@ -78,6 +79,10 @@ export default class pic3D extends React.Component {
             this.moveBox(coordinate[this.count][0], coordinate[this.count][1], true)
         }, 2000)
 
+    }
+    // 加载图片
+    loadAllIMG(){
+        
     }
 
     render() {

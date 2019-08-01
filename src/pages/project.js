@@ -44,7 +44,7 @@ export default class Project extends React.Component {
                 <div className="project-content">
                     {
                         this.state.projectArr.map((item, index) => {
-                            return <ProjectItem item={item} ></ProjectItem>
+                            return <ProjectItem item={item}  key={index}></ProjectItem>
                         })
                     }
                 </div>
