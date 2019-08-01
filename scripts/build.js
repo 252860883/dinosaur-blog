@@ -198,7 +198,7 @@ function copyPublicFolder() {
 function moveDistFolder(buildFolder) {
   const folderMap = ['static','manifest.json','asset-manifest.json','precache-manifest','service-worker.js','index.html']
   fs.readdirSync('../').forEach(floder=>{
-    console.log(floder)
+    // console.log(floder)
     folderMap.forEach(item=>{
       if(floder.includes(item)){
         deleteFloder(path.resolve('../'+floder))
@@ -214,7 +214,7 @@ function moveDistFolder(buildFolder) {
 
 function deleteFloder(curPath){
   if(!fs.existsSync(curPath)) return;
-  
+
   if(fs.statSync(curPath).isDirectory()){
     fs.readdirSync(curPath).forEach(floder=>{
       deleteFloder(path.resolve(curPath,floder));

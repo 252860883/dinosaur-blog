@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"OOCSS"},{"level":"h3","title":"SMACSS"},{"level":"h4","title":"Base"},{"level":"h4","title":"Layout"},{"level":"h4","title":"Module"},{"level":"h4","title":"State"},{"level":"h3","title":"Theme"},{"level":"h3","title":"BEM命名法"},{"level":"h3","title":"总结"},{"level":"h3","title":"参考"}]
+            headerLink: [{"level":"h3","title":"OOCSS"},{"level":"h3","title":"SMACSS"},{"level":"h4","title":"Base"},{"level":"h4","title":"Layout"},{"level":"h4","title":"Module"},{"level":"h4","title":"State"},{"level":"h4","title":"Theme"},{"level":"h3","title":"BEM命名法"},{"level":"h3","title":"总结"},{"level":"h3","title":"参考"}]
         }
     }
     componentDidMount() {
@@ -159,7 +159,7 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<h3 id='Theme'>Theme</h3>
+<h4 id='Theme'>Theme</h4>
 
 <blockquote>
   <p>Theme 是页面主视觉的定义。</p>
