@@ -124,7 +124,7 @@ a:hover {
 }
 ```
 
-### Theme
+#### Theme
 > Theme 是页面主视觉的定义。
 
 ```

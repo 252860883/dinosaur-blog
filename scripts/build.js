@@ -50,6 +50,9 @@ const writeStatsJson = argv.indexOf('--stats') !== -1;
 
 // Generate configuration
 const config = configFactory('production');
+// const buildFolder = path.relative(process.cwd(), paths.appBuild);
+// moveDistFolder(buildFolder)
+// return;
 
 // We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
@@ -76,13 +79,13 @@ checkBrowsers(paths.appPath, isInteractive)
         console.log(warnings.join('\n\n'));
         console.log(
           '\nSearch for the ' +
-            chalk.underline(chalk.yellow('keywords')) +
-            ' to learn more about each warning.'
+          chalk.underline(chalk.yellow('keywords')) +
+          ' to learn more about each warning.'
         );
         console.log(
           'To ignore, add ' +
-            chalk.cyan('// eslint-disable-next-line') +
-            ' to the line before.\n'
+          chalk.cyan('// eslint-disable-next-line') +
+          ' to the line before.\n'
         );
       } else {
         console.log(chalk.green('Compiled successfully.\n'));
@@ -96,7 +99,6 @@ checkBrowsers(paths.appPath, isInteractive)
         WARN_AFTER_BUNDLE_GZIP_SIZE,
         WARN_AFTER_CHUNK_GZIP_SIZE
       );
-      console.log();
 
       const appPackage = require(paths.appPackageJson);
       const publicUrl = paths.publicUrl;
@@ -109,6 +111,8 @@ checkBrowsers(paths.appPath, isInteractive)
         buildFolder,
         useYarn
       );
+      // 移动到外层目录
+      moveDistFolder(buildFolder)
     },
     err => {
       console.log(chalk.red('Failed to compile.\n'));
@@ -161,7 +165,7 @@ function build(previousFileSizes) {
         console.log(
           chalk.yellow(
             '\nTreating warnings as errors because process.env.CI = true.\n' +
-              'Most CI servers set it automatically.\n'
+            'Most CI servers set it automatically.\n'
           )
         );
         return reject(new Error(messages.warnings.join('\n\n')));
@@ -189,4 +193,34 @@ function copyPublicFolder() {
     dereference: true,
     filter: file => file !== paths.appHtml,
   });
+}
+
+function moveDistFolder(buildFolder) {
+  const folderMap = ['static','manifest.json','asset-manifest.json','precache-manifest','service-worker.js','index.html']
+  fs.readdirSync('../').forEach(floder=>{
+    console.log(floder)
+    folderMap.forEach(item=>{
+      if(floder.includes(item)){
+        deleteFloder(path.resolve('../'+floder))
+        return;
+      }
+    })
+  })
+
+  fs.readdirSync('./build').forEach(val => {
+    fs.rename(path.resolve('./build',val),path.resolve('../'+val));
+  })
+}
+
+function deleteFloder(curPath){
+  if(!fs.existsSync(curPath)) return;
+  
+  if(fs.statSync(curPath).isDirectory()){
+    fs.readdirSync(curPath).forEach(floder=>{
+      deleteFloder(path.resolve(curPath,floder));
+    })
+    fs.rmdirSync(curPath);
+  }else {
+    fs.unlinkSync(curPath);
+  }
 }
