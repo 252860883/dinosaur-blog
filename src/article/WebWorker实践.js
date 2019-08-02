@@ -26,7 +26,7 @@ export default class Template extends React.Component {
 
 <h4 id='兼容性'>兼容性</h4>
 
-<p><table><tr><th>IE</th><th>Edge</th><th>FireFox</th><th>Chrome</th><th>Safari</th></tr><tr><td>10+</td><td>12+</td><td>3.5+</td><td>4+</td><td>4+</td></tr></table></p>
+<p><table></tbody><tr><th>IE</th><th>Edge</th><th>FireFox</th><th>Chrome</th><th>Safari</th></tr><tr><td>10+</td><td>12+</td><td>3.5+</td><td>4+</td><td>4+</td></tr></tbody></table></p>
 
 <h4 id='限制'>限制</h4>
 

@@ -48,7 +48,7 @@
         info.title = info.title;
         info.link = '/' + newName;
         info.article = true;
-        return JSON.stringify(info).replace(/}$/g, '') + `,url: import('../article/${newName}')},\n`
+        return JSON.stringify(info).replace(/}$/g, '') + `},\n`
     }
 
     // 处理header信息

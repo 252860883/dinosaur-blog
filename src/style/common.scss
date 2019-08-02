@@ -45,6 +45,27 @@ body {
     align-items: center;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 
 // 配置默认的css样式
 html,

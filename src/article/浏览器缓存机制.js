@@ -70,7 +70,7 @@ export default class Template extends React.Component {
   <p>可以通过 <code>Cache-Ccontrol</code> 控制缓存的工作机制。</p>
 </blockquote>
 
-<p><table><tr><th>  --指令-- </th><th>说明</th></tr><tr><td>public</td><td>所有内容都将被缓存</td></tr><tr><td>private</td><td>所有内容只有客户端会被缓存，中间节点不允许缓存</td></tr><tr><td>no-cache</td><td>客户端缓存内容，使用缓存则需要经过协商缓存来验证决定</td></tr><tr><td>no-store</td><td>所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</td></tr><tr><td>max-age</td><td>max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效</td></tr><tr><td>s-maxage</td><td>同max-age作用一样，只在代理服务器中生效（比如CDN缓存），如果存在s-maxage，则会覆盖掉max-age和Expires header</td></tr><tr><td>max-stale</td><td>能容忍的最大过期时间，如果没有指定，那么说明浏览器愿意接收任何age的响应</td></tr><tr><td>min-fresh</td><td>能够容忍的最小新鲜度，min-fresh标示了客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。</td></tr></table></p>
+<p><table></tbody><tr><th>  --指令-- </th><th>说明</th></tr><tr><td>public</td><td>所有内容都将被缓存</td></tr><tr><td>private</td><td>所有内容只有客户端会被缓存，中间节点不允许缓存</td></tr><tr><td>no-cache</td><td>客户端缓存内容，使用缓存则需要经过协商缓存来验证决定</td></tr><tr><td>no-store</td><td>所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</td></tr><tr><td>max-age</td><td>max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效</td></tr><tr><td>s-maxage</td><td>同max-age作用一样，只在代理服务器中生效（比如CDN缓存），如果存在s-maxage，则会覆盖掉max-age和Expires header</td></tr><tr><td>max-stale</td><td>能容忍的最大过期时间，如果没有指定，那么说明浏览器愿意接收任何age的响应</td></tr><tr><td>min-fresh</td><td>能够容忍的最小新鲜度，min-fresh标示了客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。</td></tr></tbody></table></p>
 
 <p>可以结合多个指令，实现不同的缓存功能：<br></br><img src="http://wx1.sinaimg.cn/large/a73bc6a1ly1g4zao7elnxj216x0u0dk2.jpg" alt="image" title="" /></p>
 

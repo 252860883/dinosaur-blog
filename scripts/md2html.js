@@ -650,7 +650,7 @@ else
                 // Judge Table 
                 if (tableRe.test(str)) {
                     var tableList = str.split('\n')
-                    str = '<table>'
+                    str = '<table></tbody>'
                     tableList.map((item, index) => {
                         if (index === 1) return;
                         str += '<tr>'
@@ -663,7 +663,7 @@ else
                         })
                         str += '</tr>'
                     })
-                    str += '</table>'
+                    str += '</tbody></table>'
                     // grafsOut.push(str);
                 }
 

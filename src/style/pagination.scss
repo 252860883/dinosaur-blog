@@ -2,16 +2,16 @@
     width: 100%;
     display: flex;
     margin: 20px auto 50px 10px;
-    justify-content: center;
+    // justify-content: center;
     font-size: 14px;
     margin-left: 10px; 
 
     .pagination-btn {
         width: 30px;
         height: 30px;
-        background: #222;
-        margin: 20px;
-        border-radius: 10px;
+        margin: 20px 10px;
+        position: relative;
+        background: #222222;
         text-align: center;
         line-height: 40px;
         color: #ffffff;
@@ -20,17 +20,18 @@
         position: relative;
         user-select: none;
         background-image: url('../assets/right.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 70% 70%;
+        background-size: 50% 60%;
         padding: 10px;
         box-sizing: border-box;
         transition: all .3s;
+        animation: fadeIn 2s ease-in;
         &:hover {
             transform: scale(0.9);
         }
+        &:active{
+            animation: circleScale infinite 2s ;
+        }
     }
-
     .pagination-btn--left {
         background-image: url('../assets/left.png');
     }
@@ -38,12 +39,12 @@
 
 @keyframes circleScale {
     0% {
-        transform: scale(0);
-        opacity: 1;
+        transform: scale(1);
+        opacity: 0.5;
     }
 
     100% {
-        transform: scale(1);
+        transform: scale(2);
         opacity: 0;
     }
 }

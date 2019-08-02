@@ -80,7 +80,9 @@ export default class Article extends React.Component {
                             )
                         })
                     }
-                    <div className="article-title article-title-normal">· NORMAL ARTICLE ·</div>
+                    {
+                        this.state.page == 1 && <div className="article-title article-title-normal">· NORMAL ARTICLE ·</div>
+                    }
                     {
                         this.state.showArticleMenu.map(item => {
                             return (

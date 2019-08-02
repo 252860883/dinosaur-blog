@@ -446,7 +446,7 @@ export default class Template extends React.Component {
 
 <p>使用transform/opacity实现动画效果，会跳过渲染流程的布局和绘制环节，只做渲染层的合并。</p>
 
-<p><table><tr><th> Type </th><th> Func </th></tr><tr><td> Position</td><td>     transform: translate(-px,-px) </td></tr><tr><td> Scale</td><td>    transform: scale(-) </td></tr><tr><td> Rotation</td><td>     transform: rotate(-deg) </td></tr><tr><td> Skew</td><td>     transform: skew(X/Y)(-deg) </td></tr><tr><td> Matrix</td><td>   transform: matrix(3d)(..) </td></tr><tr><td> Opacity   </td><td> opacity: 0-1 </td></tr></table></p>
+<p><table></tbody><tr><th> Type </th><th> Func </th></tr><tr><td> Position</td><td>     transform: translate(-px,-px) </td></tr><tr><td> Scale</td><td>    transform: scale(-) </td></tr><tr><td> Rotation</td><td>     transform: rotate(-deg) </td></tr><tr><td> Skew</td><td>     transform: skew(X/Y)(-deg) </td></tr><tr><td> Matrix</td><td>   transform: matrix(3d)(..) </td></tr><tr><td> Opacity   </td><td> opacity: 0-1 </td></tr></tbody></table></p>
 
 <p>使用transform/opacity的元素必须独占一个渲染层，所以必须提升该元素到单独的渲染层。</p>
 

@@ -2,7 +2,8 @@ import React from 'react'
 import '../style/pagination.scss'
 export default class Pagination extends React.Component {
     state = {
-        current: 1
+        current: 1,
+        show: true
     }
 
     componentWillMount() {
@@ -13,9 +14,15 @@ export default class Pagination extends React.Component {
 
     clickButton(operation) {
         this.setState({
-            current: operation == 'next' ? ++this.state.current : --this.state.current
+            current: operation == 'next' ? ++this.state.current : --this.state.current,
+            show: false
         }, () => {
-            this.props.onCurrentChange(this.state.current);            
+            this.props.onCurrentChange(this.state.current);
+        })
+        setTimeout(() => {
+            this.setState({
+                show: true
+            })
         })
     }
 
@@ -29,8 +36,8 @@ export default class Pagination extends React.Component {
 
     render() {
         const current = this.state.current
-        const prevBtn = current === 1 ? '' : <div className="pagination-btn  pagination-btn--left" onClick={this.clickButton.bind(this, 'prev')}></div>;
-        const nextBtn = current === this.props.total ? '' : <div className="pagination-btn" onClick={this.clickButton.bind(this, 'next')}></div>;
+        const prevBtn = (current === 1 || !this.state.show) ? '' : <div className="pagination-btn  pagination-btn--left" onClick={this.clickButton.bind(this, 'prev')}></div>;
+        const nextBtn = (current === this.props.total || !this.state.show) ? '' : <div className="pagination-btn" onClick={this.clickButton.bind(this, 'next')}></div>;
         return (
             <div className="pagination">
                 {prevBtn}

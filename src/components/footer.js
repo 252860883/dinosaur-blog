@@ -6,7 +6,7 @@ export default class Footer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            content: '冀ICP备17032286号-1'
+            content: 'Copyright © 2019 冀ICP备17032286号-1'
         }
         this.footer = null
     }

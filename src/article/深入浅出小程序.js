@@ -36,13 +36,13 @@ export default class Template extends React.Component {
 
 <h3 id='小程序运行环境'>小程序运行环境</h3>
 
-<p><table><tr><th>运行环境</th><th> 逻辑层 </th></tr><tr><td> iOS </td><td> JavaScriptCore </td></tr><tr><td> Android</td><td> X5 JSCore </td></tr><tr><td> 小程序开发工具</td><td> NWJS </td></tr></table></p>
+<p><table></tbody><tr><th>运行环境</th><th> 逻辑层 </th></tr><tr><td> iOS </td><td> JavaScriptCore </td></tr><tr><td> Android</td><td> X5 JSCore </td></tr><tr><td> 小程序开发工具</td><td> NWJS </td></tr></tbody></table></p>
 
 <h3 id='小程序的JavaScript'>小程序的JavaScript</h3>
 
 <p>小程序的javascript和传统浏览器javascript以及nodejs是不同的。具体区分可以见下表，因为小程序没有 DOM、BOM所以不能直接获取显示元素，也不能使用JQ等库。同时小程序也不支持npm，所以小程序不支持通过npm引入其他第三方的库。</p>
 
-<p><table><tr><th>小程序</th><th> 浏览器 </th><th> nodejs </th></tr><tr><td> ECMAScript </td><td> ECMAScript </td><td> ECMAScript </td></tr><tr><td> 小程序框架 </td><td> DOM </td><td> NPM </td></tr><tr><td> 小程序API </td><td> BOM </td><td> Native </td></tr></table></p>
+<p><table></tbody><tr><th>小程序</th><th> 浏览器 </th><th> nodejs </th></tr><tr><td> ECMAScript </td><td> ECMAScript </td><td> ECMAScript </td></tr><tr><td> 小程序框架 </td><td> DOM </td><td> NPM </td></tr><tr><td> 小程序API </td><td> BOM </td><td> Native </td></tr></tbody></table></p>
 
 <h3 id='宿主环境'>宿主环境</h3>
 
