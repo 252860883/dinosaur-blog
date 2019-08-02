@@ -650,7 +650,7 @@ else
                 // Judge Table 
                 if (tableRe.test(str)) {
                     var tableList = str.split('\n')
-                    str = '<table></tbody>'
+                    str = '<table><tbody>'
                     tableList.map((item, index) => {
                         if (index === 1) return;
                         str += '<tr>'
@@ -664,14 +664,11 @@ else
                         str += '</tr>'
                     })
                     str += '</tbody></table>'
-                    // grafsOut.push(str);
-                }
-
-                // if this is an HTML marker, copy it
-                if (markerRe.test(str)) {
+                    str = str.replace(/^([ \t]*)/g, "");
                     grafsOut.push(str);
-                }
-                else if (/\S/.test(str)) {
+                }else if (markerRe.test(str)) {
+                    grafsOut.push(str);
+                }else if (/\S/.test(str)) {
                     str = _RunSpanGamut(str);
                     str = str.replace(/^([ \t]*)/g, "<p>");
                     str = str.replace(/\n/g, "<br></br>");
