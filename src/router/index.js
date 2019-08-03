@@ -12,7 +12,7 @@ import { RouterMap } from './routerMap'
 import { IsPC } from "../utils/screen";
 // import createHistory from 'history/createBrowserHistory';
 
-import Loading from '../components/UI/loading'
+// import Loading from '../components/UI/loading'
 
 const routes = (
     <HashRouter>
@@ -57,6 +57,7 @@ export default class Root extends React.Component {
         }
     }
     render() {
-        return this.state.loading ? <Loading></Loading> : routes;
+        // return this.state.loading ? <Loading></Loading> : routes;
+        return routes;
     }
 }
