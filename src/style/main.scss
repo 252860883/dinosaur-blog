@@ -54,42 +54,28 @@
 
 .mainBlock {
     // width: 9rem;
-    margin: 0 auto;
+    margin: 0.5rem auto;
     @include flexNormal;
 
     .item {
-        width: 1.5rem;
-        height: 1.5rem;
-        // background: #222;
-        border: 0.02rem solid #222;
-        margin: 0.3rem 0.2rem;
-        border-radius: 0.05rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        margin: 0.3rem 0.15rem;
         @include flexNormal;
         flex-direction: column;
         cursor: pointer;
         transition: all .3s;
-        background: #ffffff;
         box-sizing: border-box;
+        filter: grayscale(90%);
 
         &:hover {
-            filter: invert(100%);
-            border: none;
-
-            .item-name {
-                filter: invert(100%);
-            }
+            filter: grayscale(0%);
+            transform:scale(1.01);
         }
 
         .item-icon {
-            width: 0.4rem;
-            height: 0.4rem;
-        }
-
-        .item-name {
-            color: $o;
-            font-size: 0.16rem;
-            font-family: Main;
-            margin-top: 0.15rem;
+            width: 100%;
+            height: 100%;
         }
     }
 }
@@ -132,11 +118,13 @@
             height: 1.1rem;
         }
     }
-    .mainBlock-title{
+
+    .mainBlock-title {
         margin: 0.5rem auto 0.1rem auto;
     }
-    .mainBlock{
-        .item{
+
+    .mainBlock {
+        .item {
             width: 1rem;
             height: 1rem;
             margin: 0.1rem;

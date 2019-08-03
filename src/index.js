@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/common.scss'
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 // 引入路由
 import Root from './router/index';
 

@@ -1,28 +1,11 @@
 @import './common.scss';
 
 .article-page {
-    width: 500px;
+    width: 600px;
     margin: 0 auto;
 
     .article-lists {
         // text-align: center;
-        .article-title {
-            // display: inline-block;
-            width: 3rem;
-            font-size: 0.18rem;
-            color: $o;
-            text-align: center;
-            margin: 0.5rem 0;
-            padding: 0.2rem 0;
-            font-family: Main;
-            font-weight: 100%;
-            animation: titleShow 1s;
-            opacity: 0;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
-            position: relative;
-            background: #222;
-        }
 
         .article-title-normal {
             // color: #222;
@@ -32,21 +15,22 @@
             .article-item:nth-child(#{$i}) {
                 opacity: 0;
                 animation: itemSlideUp 1s;
-                animation-delay: #{$i * 0.05 +'s'};
+                animation-delay: #{$i * 0.03 +'s'};
                 animation-fill-mode: forwards;
             }
         }
 
-        .article-item {
-            // height: 40px;
-            line-height: 40px;
+        .article-item,
+        .article-title,
+        .article-item-top {
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
             margin: 10px;
             font-size: 15px;
-            // padding: 0px 20px;
-            // text-align: center;
+            line-height: 20px;
+            background: rgba($light, .5);
+            padding: 15px 20px;
 
             .time {
                 margin-right: 10px;
@@ -54,16 +38,31 @@
 
             &:hover {
                 color: #999;
+                background: transparent;
+            }
+        }
+
+        .article-title {
+            font-size: 0.18rem;
+            color: $o;
+            text-align: center;
+            font-family: Main;
+            font-weight: 100%;
+            animation: titleShow 1s;
+            opacity: 0;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            position: relative;
+            background: #222;
+
+            &:hover {
+                background: #222;
             }
         }
 
         .article-item-top {
             color: $o;
-            // background: #222;
-            margin: 10px;
-            padding: 0 20px;
 
-            // border-bottom: 1px dashed #eee;
             &:hover {
                 opacity: 1;
             }
@@ -77,6 +76,7 @@
         width: 100%;
         padding: 0.1rem;
         box-sizing: border-box;
+
         .time {
             display: none;
         }
@@ -126,6 +126,7 @@
         font-weight: bolder;
         transform-origin: left bottom;
         transform: scale(1.1);
+
         &::before {
             content: "#";
             color: #222;

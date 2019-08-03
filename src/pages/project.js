@@ -1,6 +1,9 @@
 import React from 'react'
 import ProjectItem from '../components/project-item'
 import "../style/project.scss"
+
+
+
 export default class Project extends React.Component {
     state = {
         projectArr: [{
@@ -23,16 +26,10 @@ export default class Project extends React.Component {
             img: require('../assets/project-studyRoom.jpg'),
             link: "https://github.com/252860883/StudyRoom-System",
             content: "自习帮致力于提高校园自习室利用率，学生用户可以在此平台创建、预约、申请、查询自习室，同时还有个人中心、提醒、排行榜、聊天等功能。"
-        },
-        ]
+        }],
     }
-    componentDidMount() {
-        // console.log('ok');
+    componentWillMount() {
     }
-
-    // delete(name) {
-    //     console.log(`确定要删除${name}嘛？`)
-    // }
 
     render() {
         return (
@@ -44,7 +41,7 @@ export default class Project extends React.Component {
                 <div className="project-content">
                     {
                         this.state.projectArr.map((item, index) => {
-                            return <ProjectItem item={item}  key={index}></ProjectItem>
+                            return <ProjectItem item={item} key={index}></ProjectItem>
                         })
                     }
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import "../style/headerLink.scss"
+import "../style/components/headerLink.scss"
 import { IsPC } from "../utils/screen";
 export default class Main extends React.Component {
     constructor(props) {

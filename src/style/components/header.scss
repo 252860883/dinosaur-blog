@@ -1,0 +1,137 @@
+@import './../common.scss';
+
+.header {
+    width: 700px;
+    height: 100px;
+    color: #222;
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+
+    .logo {
+        margin: 10px 10px 10px 0;
+        width: 30px;
+        height: 30px;
+        transition: all .3s;
+        // background: $o;
+    }
+
+    nav {
+        // width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 80px 0;
+        transition: all .4s;
+
+        a {
+            font-size: 14px;
+            line-height: 14px;
+            display: block;
+            margin: 0 20px;
+            // padding-bottom: 5px;
+            font-style: normal;
+            font-family: Main;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            // text-shadow: 1px 1px 0px #fff;
+
+            &:hover {
+                // transform: rotateX(10deg) rotateY(10deg);
+            }
+        }
+
+        .nav-active,
+        a:hover {
+            color: $o;
+        }
+    }
+}
+
+.header-sp {
+    filter: invert(100%);
+    .nav-active,
+    a:hover {
+        filter: invert(100%);
+    }
+}
+
+/* 手机版适配 */
+
+.header-mobile {
+    position: relative;
+    z-index: 3;
+
+    .header-top {
+        padding: 0.2rem 0;
+        background: #fff;
+        position: relative;
+        z-index: 5;
+
+        img {
+            display: block;
+            width: .3em;
+            margin: 0 auto;
+        }
+    }
+
+    .header-top-select {
+        animation: invertALl .3s;
+        filter: invert(87.5%);
+    }
+
+    nav {
+        position: absolute;
+        top: 0.6rem;
+        left: 0;
+        width: 100%;
+
+        a {
+            font-size: 0.15rem;
+            line-height: 0.15rem;
+            display: block;
+            text-align: center;
+            padding: 0.13rem 0;
+            font-style: normal;
+            font-family: Main;
+            background: #222222;
+            color: #fff;
+        }
+
+        .nav-active {
+            color: $o;
+        }
+    }
+}
+
+.slide-enter {
+    transform: translateY(-10rem);
+}
+
+.slide-exit {
+    transform: translateY(0);
+}
+
+.slide-enter-active {
+    transition: all 0.3s;
+    transform: translateY(0);
+}
+
+.slide-exit-active {
+    transition: all 0.3s;
+    transform: translateY(-10rem);
+}
+
+@keyframes invertALl {
+    0% {
+        filter: invert(0);
+    }
+
+    100% {
+        filter: invert(87.5%);
+    }
+}

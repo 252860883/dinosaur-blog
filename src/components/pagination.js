@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/pagination.scss'
+import '../style/components/pagination.scss'
 export default class Pagination extends React.Component {
     state = {
         current: 1,

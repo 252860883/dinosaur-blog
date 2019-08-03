@@ -1,6 +1,6 @@
 import React from 'react';
 import { IsPC } from "../utils/screen";
-import '../style/footer.scss'
+import '../style/components/footer.scss';
 
 export default class Footer extends React.Component {
     constructor(props) {

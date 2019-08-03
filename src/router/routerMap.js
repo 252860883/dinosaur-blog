@@ -8,7 +8,7 @@ let RouterOrigin = [
 	{ key: 'ARTICLE', url: import('../pages/article'), link: '/article' },
 	{ key: 'PROJECT', url: import('../pages/project'), link: '/project' },
 	{ key: 'ABOUT', url: import('../pages/about'), link: '/about' },
-	// { key: 'Loading', url: import('./loading'), link: '/loading' },
+	// { key: 'Loading', url: import('../components/UI/loading'), link: '/loading' },
 ]
 let RouterMenu = []
 let ArticleMenu = [

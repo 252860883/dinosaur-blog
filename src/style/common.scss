@@ -9,13 +9,8 @@ $light:#f8f8f8;
 
 @font-face {
     font-family: Main;
-    src: url('../assets/Futura.ttc');
+    // src: url('../assets/Futura.ttc');
 }
-
-// @font-face {
-//     // font-family: Text;
-//     // src: url('../assets/main.ttc');
-// }
 
 html,
 body {
@@ -29,15 +24,8 @@ body {
     position: relative;
     overflow: hidden;
     padding-bottom: 0.5rem;
+    box-sizing: border-box;
 }
-
-// #root>div {
-//     // min-height: 100%;
-//     position: relative;
-//     overflow: hidden;
-//     
-//     box-sizing: border-box;
-// }
 
 @mixin flexNormal {
     display: flex;

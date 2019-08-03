@@ -1,0 +1,2 @@
+let picArr;
+export default picArr = ['circle.png','dinosaur.png','icon-article.png','icon-dinosaur.png','icon-project.png','left.png','logo.png','main-item1.png','main-item2.png','main-item3.png','project-qrcode.jpg','project-studyRoom.jpg','project-toone.jpg','right.png','scroll-chart.gif','word.png',]

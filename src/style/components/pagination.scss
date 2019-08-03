@@ -1,0 +1,65 @@
+.pagination {
+    width: 100%;
+    display: flex;
+    margin: 30px auto 50px 10px;
+    justify-content: center;
+    font-size: 14px;
+    margin-left: 10px;
+    box-sizing: border-box;
+
+    .pagination-btn {
+        width: 30px;
+        height: 30px;
+        margin: 20px 10px;
+        position: relative;
+        background: #222222;
+        text-align: center;
+        line-height: 40px;
+        color: #ffffff;
+        transition: all 0.3s;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+        background-image: url('../../assets/right.png');
+        background-size: 50% 60%;
+        padding: 10px;
+        box-sizing: border-box;
+        transition: all .3s;
+        animation: btnMoveOn 2s ease-in;
+        &:hover {
+            transform: scale(0.9);
+        }
+
+        &:active {
+            animation: circleScale infinite 1s;
+        }
+    }
+
+    .pagination-btn--left {
+        background-image: url('../../assets/left.png');
+    }
+}
+
+@keyframes circleScale {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(2) translateY(0px);
+        opacity: 0;
+    }
+}
+
+@keyframes btnMoveOn {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
