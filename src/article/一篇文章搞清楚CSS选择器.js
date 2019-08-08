@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"1.易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2. CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"}]
+            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现两层双描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"参考"}]
         }
     }
     componentDidMount() {
@@ -15,8 +15,8 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">一些常用但记不住的CSS知识点</div>
-<h3 id='1.易混淆的组合选择器'>1.易混淆的组合选择器</h3>
+<div className="title">每天一点CSS小技巧（不定期更新中...）</div>
+<h3 id='1.💎易混淆的组合选择器'>1.💎易混淆的组合选择器</h3>
 
 <p>前提，我们先构建一个Html：</p>
 
@@ -97,7 +97,7 @@ export default class Template extends React.Component {
 <li><code>+</code>与<code>～</code>符都作用于后面的兄弟节点元素，区别是<code>+</code>只作用于相邻第一个兄弟元素，而<code>～</code>作用于多个兄弟元素。</li>
 </ol>
 
-<h3 id='2. CSS函数'>2. CSS函数</h3>
+<h3 id='2.💎CSS函数'>2.💎CSS函数</h3>
 
 <h4 id='attr()'>attr()</h4>
 
@@ -153,6 +153,71 @@ export default class Template extends React.Component {
 <span>}</span>
 <span></span>
 </code></pre>
+
+<h3 id='3.💎实现条纹效果'>3.💎实现条纹效果</h3>
+
+<p><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn94qb9ej20re0gkq3s.jpg" alt="image" title="" /></p>
+
+<pre><code><span></span>
+<span>&lt;!-- 方法1 --&gt;</span>
+<span>.stripe{'{'}</span>
+<span>    width: 100%;</span>
+<span>    height: 20px;</span>
+<span>    background: linear-gradient(90deg,red,red 50%,black 50%,black);</span>
+<span>    background-size: 5%;</span>
+<span>}</span>
+<span>&lt;!-- 方法2 --&gt;</span>
+<span>.stripe2{'{'}</span>
+<span>    width: 100%;</span>
+<span>    height: 20px;</span>
+<span>    background: repeating-linear-gradient(90deg,red,red 5%,black 5%,black 10%);</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<h3 id='4.💎配合 outline 实现两层双描边'>4.💎配合 outline 实现两层双描边</h3>
+
+<p><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn9456o6j20v60heaas.jpg" alt="image" title="" /></p>
+
+<pre><code><span></span>
+<span>.box{'{'}</span>
+<span>    width: 100px;</span>
+<span>    height: 100px;</span>
+<span>    border: 10px solid red;</span>
+<span>    outline: 10px solid green;</span>
+<span>}</span>
+<span>.box2{'{'}</span>
+<span>    width: 100px;</span>
+<span>    height: 100px;</span>
+<span>    border: 10px solid red;</span>
+<span>    outline: 10px dashed green;</span>
+<span>    /* 设置 outline-offset 属性 设置位移*/</span>
+<span>    outline-offset: -10px; </span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<h3 id='5.💎单行文本与多行文本超出部分省略'>5.💎单行文本与多行文本超出部分省略</h3>
+
+<h3 id='6.💎object-fit 设置图片何种比例显示'>6.💎object-fit 设置图片何种比例显示</h3>
+
+<p><img src="http://wx1.sinaimg.cn/mw690/a73bc6a1ly1g5sn9537j7j20u00i6afr.jpg" alt="image" title="" /></p>
+
+<pre><code><span></span>
+<span>img {'{'}width: 200px;height: 100px;}</span>
+<span>.img-1 {'{'}height: auto;}</span>
+<span>.img-2 {'{'}object-fit: fill;}</span>
+<span>.img-3 {'{'}object-fit: unset;}</span>
+<span>.img-4 {'{'}object-fit: contain;}</span>
+<span>.img-5 {'{'}object-fit: scale-down;}</span>
+<span>.img-6 {'{'}object-fit: cover;}</span>
+<span>.img-7 {'{'}object-fit: none;}</span>
+<span></span>
+</code></pre>
+
+<h3 id='参考'>参考</h3>
+
+<p><a href="https://mp.weixin.qq.com/s/iD8rinWJ_PEI3UZu4-PcMg">你未必知道的49个CSS知识点</a></p>
 </div>
             </div>
 

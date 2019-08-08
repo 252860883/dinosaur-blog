@@ -1,11 +1,11 @@
 ---
-title: 一些常用但记不住的CSS知识点
+title: 每天一点CSS小技巧（不定期更新中...）
 date: 2019-02-21 16:10:30
 tags: CSS
 top: true
 ---
 
-### 1.易混淆的组合选择器
+### 1.💎易混淆的组合选择器
 
 前提，我们先构建一个Html：
 
@@ -80,7 +80,7 @@ div > span {
 2. `+`与`～`符都作用于后面的兄弟节点元素，区别是`+`只作用于相邻第一个兄弟元素，而`～`作用于多个兄弟元素。
 
 
-### 2. CSS函数
+### 2.💎CSS函数
 
 #### attr()
 > attr()函数返回选择元素的属性值
@@ -121,3 +121,71 @@ body {
   background-color: var(--bg, #cd0000);
 }
 ```
+
+
+### 3.💎实现条纹效果
+
+![image](http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn94qb9ej20re0gkq3s.jpg)
+
+```
+<!-- 方法1 -->
+.stripe{
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg,red,red 50%,black 50%,black);
+    background-size: 5%;
+}
+<!-- 方法2 -->
+.stripe2{
+    width: 100%;
+    height: 20px;
+    background: repeating-linear-gradient(90deg,red,red 5%,black 5%,black 10%);
+}
+```
+
+### 4.💎配合 outline 实现两层双描边
+
+![image](http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn9456o6j20v60heaas.jpg)
+
+```
+.box{
+    width: 100px;
+    height: 100px;
+    border: 10px solid red;
+    outline: 10px solid green;
+}
+.box2{
+    width: 100px;
+    height: 100px;
+    border: 10px solid red;
+    outline: 10px dashed green;
+    /* 设置 outline-offset 属性 设置位移*/
+    outline-offset: -10px; 
+}
+```
+
+
+### 5.💎单行文本与多行文本超出部分省略
+
+
+### 6.💎object-fit 设置图片何种比例显示
+![image](http://wx1.sinaimg.cn/mw690/a73bc6a1ly1g5sn9537j7j20u00i6afr.jpg)
+
+
+```
+img {width: 200px;height: 100px;}
+.img-1 {height: auto;}
+.img-2 {object-fit: fill;}
+.img-3 {object-fit: unset;}
+.img-4 {object-fit: contain;}
+.img-5 {object-fit: scale-down;}
+.img-6 {object-fit: cover;}
+.img-7 {object-fit: none;}
+```
+
+
+### 参考
+[你未必知道的49个CSS知识点](https://mp.weixin.qq.com/s/iD8rinWJ_PEI3UZu4-PcMg)
+
+
+

@@ -32,7 +32,7 @@ let ArticleMenu = [
 	{"title":"vue的key属性加还是不加？","date":"2018-07-10 17:38:44","tags":"['vue','javascript']","link":"/vue的key属性加还是不加","article":true},
 	{"title":"对于cookie存取方法的封装","date":"2018-04-09 15:24:20","tags":"[javascript]","link":"/web前端对于cookie存取的方法封装","article":true},
 	{"title":"【2019 冲鸭】年度指标计划","date":"2019-01-25 16:35:43","tags:":"","top":"","link":"/【2019-冲鸭】年度指标计划","article":true},
-	{"title":"一些常用但记不住的CSS知识点","date":"2019-02-21 16:10:30","tags":"CSS","top":"true","link":"/一篇文章搞清楚CSS选择器","article":true},
+	{"title":"每天一点CSS小技巧（不定期更新中...）","date":"2019-02-21 16:10:30","tags":"CSS","top":"true","link":"/一篇文章搞清楚CSS选择器","article":true},
 	{"title":"关于array的常用的几个API","date":"2019-04-08 19:24:52","tags:":"","top:":"","link":"/关于array的几个API","article":true},
 	{"title":"函数式编程","date":"2019-05-06 18:58:39","tags":"javascript","link":"/函数式编程","article":true},
 	{"title":"事件节流（throttle）与防抖（debounce）","date":"2019-03-26 21:27:12","tags":"Javascript","top:":"","link":"/函数节流与防抖","article":true},
