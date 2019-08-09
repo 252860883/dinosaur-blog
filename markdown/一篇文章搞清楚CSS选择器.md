@@ -125,7 +125,7 @@ body {
 
 ### 3.💎实现条纹效果
 
-![image](http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn94qb9ej20re0gkq3s.jpg)
+![image](http://wx4.sinaimg.cn/mw690/a73bc6a1ly1g5t725g9vcj20l40eoaao.jpg)
 
 ```
 <!-- 方法1 -->
@@ -143,9 +143,9 @@ body {
 }
 ```
 
-### 4.💎配合 outline 实现两层双描边
+### 4.💎配合 outline 实现双层描边
 
-![image](http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn9456o6j20v60heaas.jpg)
+![image](http://wx1.sinaimg.cn/mw690/a73bc6a1ly1g5t724z3hjj20kv0ejgm4.jpg)
 
 ```
 .box{
@@ -167,9 +167,36 @@ body {
 
 ### 5.💎单行文本与多行文本超出部分省略
 
+![image](http://wx2.sinaimg.cn/large/a73bc6a1ly1g5t8h6p9cnj20nb0fewg5.jpg)
+
+```
+.overTextHidden {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*文字隐藏后添加省略号*/
+    white-space: nowrap;
+    /*强制不换行*/
+}
+
+.overRowsTextHidden {
+    width: 200px;
+    display: -webkit-box;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    word-break: break-all;
+    line-height: 20px;
+}
+```
+
+注意：多行文本超出省略的方案存在兼容性问题，只适用于 webkit 内核浏览器。
+
 
 ### 6.💎object-fit 设置图片何种比例显示
-![image](http://wx1.sinaimg.cn/mw690/a73bc6a1ly1g5sn9537j7j20u00i6afr.jpg)
+![image](http://wx3.sinaimg.cn/mw690/a73bc6a1ly1g5t724garjj20p20gudlc.jpg)
 
 
 ```

@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现两层双描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"参考"}]
+            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"参考"}]
         }
     }
     componentDidMount() {
@@ -156,7 +156,7 @@ export default class Template extends React.Component {
 
 <h3 id='3.💎实现条纹效果'>3.💎实现条纹效果</h3>
 
-<p><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn94qb9ej20re0gkq3s.jpg" alt="image" title="" /></p>
+<p><img src="http://wx4.sinaimg.cn/mw690/a73bc6a1ly1g5t725g9vcj20l40eoaao.jpg" alt="image" title="" /></p>
 
 <pre><code><span></span>
 <span>&lt;!-- 方法1 --&gt;</span>
@@ -175,9 +175,9 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<h3 id='4.💎配合 outline 实现两层双描边'>4.💎配合 outline 实现两层双描边</h3>
+<h3 id='4.💎配合 outline 实现双层描边'>4.💎配合 outline 实现双层描边</h3>
 
-<p><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g5sn9456o6j20v60heaas.jpg" alt="image" title="" /></p>
+<p><img src="http://wx1.sinaimg.cn/mw690/a73bc6a1ly1g5t724z3hjj20kv0ejgm4.jpg" alt="image" title="" /></p>
 
 <pre><code><span></span>
 <span>.box{'{'}</span>
@@ -199,9 +199,37 @@ export default class Template extends React.Component {
 
 <h3 id='5.💎单行文本与多行文本超出部分省略'>5.💎单行文本与多行文本超出部分省略</h3>
 
+<p><img src="http://wx2.sinaimg.cn/large/a73bc6a1ly1g5t8h6p9cnj20nb0fewg5.jpg" alt="image" title="" /></p>
+
+<pre><code><span></span>
+<span>.overTextHidden {'{'}</span>
+<span>    width: 200px;</span>
+<span>    overflow: hidden;</span>
+<span>    text-overflow: ellipsis;</span>
+<span>    /*文字隐藏后添加省略号*/</span>
+<span>    white-space: nowrap;</span>
+<span>    /*强制不换行*/</span>
+<span>}</span>
+<span></span>
+<span>.overRowsTextHidden {'{'}</span>
+<span>    width: 200px;</span>
+<span>    display: -webkit-box;</span>
+<span>    /* autoprefixer: off */</span>
+<span>    -webkit-box-orient: vertical;</span>
+<span>    /* autoprefixer: on */</span>
+<span>    -webkit-line-clamp: 3;</span>
+<span>    overflow: hidden;</span>
+<span>    word-break: break-all;</span>
+<span>    line-height: 20px;</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<p>注意：多行文本超出省略的方案存在兼容性问题，只适用于 webkit 内核浏览器。</p>
+
 <h3 id='6.💎object-fit 设置图片何种比例显示'>6.💎object-fit 设置图片何种比例显示</h3>
 
-<p><img src="http://wx1.sinaimg.cn/mw690/a73bc6a1ly1g5sn9537j7j20u00i6afr.jpg" alt="image" title="" /></p>
+<p><img src="http://wx3.sinaimg.cn/mw690/a73bc6a1ly1g5t724garjj20p20gudlc.jpg" alt="image" title="" /></p>
 
 <pre><code><span></span>
 <span>img {'{'}width: 200px;height: 100px;}</span>
