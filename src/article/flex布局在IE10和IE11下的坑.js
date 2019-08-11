@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">爬一下flex布局在IE10和IE11下的坑</div>
+<div className="title-content"> <h1 className="title">爬一下flex布局在IE10和IE11下的坑</h1></div>
 <p>
 接收项目的时候兼容性暂且到 IE11+ ，但是随着项目的迭代和用户数量的增长，需要兼容到 IE10+。所以在IE10下出现了一些错乱的样式。经过查找发现大部分都是 flex布局导致的。
 

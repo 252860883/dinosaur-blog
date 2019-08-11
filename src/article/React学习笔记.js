@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">React 学习笔记</div>
+<div className="title-content"> <h1 className="title">React 学习笔记</h1></div>
 <h3 id='脚手架 create-react-app'>脚手架 create-react-app</h3>
 
 <p>create-react-app是github上面开源点星最多的react脚手架,也是官方比较推荐的，所以打算用这个架子上手了。后续可以再学习用webpack去自己搭一套。</p>

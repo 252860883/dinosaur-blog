@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">【学习整理】你不知道的Chrome调试工具技巧</div>
+<div className="title-content"> <h1 className="title">【学习整理】你不知道的Chrome调试工具技巧</h1></div>
 <blockquote>
   <p>你不知道的Chrome调试工具技巧系列文章由作者<a href="https://twitter.com/sulco">Tomek Sułkowski</a>发布在 medium 上的一个系列。由<a href="https://juejin.im/user/585a2f52128fe10069ba1b95/activities">dendoink</a>授权作中文翻译，这篇博客整理一些不是很了解但非常有用的 Chrome调试技巧。</p>
 </blockquote>

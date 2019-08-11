@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">聊聊CSS设计模式</div>
+<div className="title-content"> <h1 className="title">聊聊CSS设计模式</h1></div>
 <blockquote>
   <p>日常开发业务的时候很令人头疼的一件事就是给CSS命名，瞎起名乱起名，等到版本迭代修改样式的时候可就痛苦了，无从下手。所以能写出一套可被维护的CSS也至关重要呀。</p>
 </blockquote>

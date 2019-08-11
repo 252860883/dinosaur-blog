@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">浏览器缓存机制</div>
+<div className="title-content"> <h1 className="title">浏览器缓存机制</h1></div>
 <h2 id='缓存位置'>缓存位置</h2>
 
 <blockquote>

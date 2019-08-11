@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Maps 和 WeakMaps"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
+            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Set 和 WeakSet"},{"level":"h3","title":"Map 和 WeakMap"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
         }
     }
     componentDidMount() {
@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">ES6+ 新特性大汇总</div>
+<div className="title-content"> <h1 className="title">ES6+ 新特性大汇总</h1></div>
 <blockquote>
   <p>平时写业务涉及到ES6/7/8常用的可能就常见的那几个，其他的不常用就忘记了，所以来专门记录一篇博客，以供经常翻阅之用。</p>
 </blockquote>
@@ -250,9 +250,28 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<h3 id='Maps 和 WeakMaps'>Maps 和 WeakMaps</h3>
+<h3 id='Set 和 WeakSet'>Set 和 WeakSet</h3>
 
-<p>Maps 在 JavaScript 中是一个非常必须的数据结构.在ES6之前通过object实现哈希表,但是Es6引入maps结构后有一些优点<br></br>1. map可以使用任何类型的值作为key值，允许对值进行 set、get 和 search<br></br>2. object有原型，原型链上的键名有可能和对象上的键名产生冲突，但是map不会出现这种问题<br></br>3. map可以直接通过 .size计算键值对个数</p>
+<p>Set(集合) ES6 新增的一种新的数据结构，类似于数组，但成员是唯一且无序的，没有重复的值。Set 本身是一种构造函数，用来生成 Set 数据结构。<br></br>举个例子，用 Set 来实现数组去重：</p>
+
+<pre><code><span></span>
+<span>// 去重数组的重复对象</span>
+<span>let arr = [1, 2, 3, 2, 1, 1]</span>
+<span>[... new Set(arr)]  // [1, 2, 3]</span>
+<span></span>
+</code></pre>
+
+<p>Set 对象允许你储存任何类型的唯一值，无论是原始值或者是对象引用,但是 WeakSet 对象允许你将弱引用对象储存在一个集合中。WeakSet 对象中储存的对象值都是被弱引用的，即垃圾回收机制不考虑 WeakSet 对该对象的应用，如果没有其他的变量或属性引用这个对象值，则这个对象将会被垃圾回收掉</p>
+
+<h3 id='Map 和 WeakMap'>Map 和 WeakMap</h3>
+
+<p>Map(字典) 在 JavaScript 中是一个非常必须的数据结构。和set结构的区别是：集合 是以 [value, value]的形式储存元素，字典 是以 [key, value] 的形式储存。<br></br>在ES6之前通过object实现哈希表,但是ES6引入map结构后有一些优点</p>
+
+<ol>
+<li>map可以使用任何类型的值作为key值，允许对值进行 set、get 和 search</li>
+<li>object有原型，原型链上的键名有可能和对象上的键名产生冲突，但是map不会出现这种问题</li>
+<li>map可以直接通过 .size计算键值对个数</li>
+</ol>
 
 <pre><code><span></span>
 <span>let map2=new Map([['name','danny'],[true,false]])</span>

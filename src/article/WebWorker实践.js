@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">WebWorkers 实践</div>
+<div className="title-content"> <h1 className="title">WebWorkers 实践</h1></div>
 <blockquote>
   <p>在讨论到前端该如何优化时，我们都知道可以将复杂的、耗时的任务放到 webWorker 里来处理，这样就不会去阻塞JS其余的任务处理了。那这篇文章就来进行实践一下 webWorker。</p>
 </blockquote>

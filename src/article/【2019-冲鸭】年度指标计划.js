@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">【2019 冲鸭】年度指标计划</div>
+<div className="title-content"> <h1 className="title">【2019 冲鸭】年度指标计划</h1></div>
 <h3 id='<strong>看十本书（技术/非技术）</strong>'><strong>看十本书（技术/非技术）</strong></h3>
 
 <p>进度：<br></br><strong>1月31日</strong> 开始看《重学前端》<br></br>** ** 《JS语言精粹》</p>

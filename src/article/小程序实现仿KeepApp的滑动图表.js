@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">小程序实现仿KeepApp的滑动图表</div>
+<div className="title-content"> <h1 className="title">小程序实现仿KeepApp的滑动图表</h1></div>
 <p>最近写小程序令人很头大的一个问题就是画图表，甚至和同事抱怨一通“我很热爱前端开发（如果不画图表）”。小程序的图表echarts-for-weixin，是echarts对于微信小程序的一个兼容方案，由于开源不久，坑用手指头加脚趾头都数不过来的，也是很心累。<br></br>最近产品新增需求，又要加图表了，一听到图表众程序员心一提。这次新增的图表是类似KEEP软件的滑动柱状图，不仅展示还要动态的展示数据，不了解KEEP可以看看下面的截图。<br></br><img src="http://wx4.sinaimg.cn/mw690/a73bc6a1ly9frarqxwf8lj20bb0ii3zs.jpg" alt="image" title="" /><br></br>主要就是通过拖动图表来定位展示数据。拿到了原型图就开始来尝试实现了。</p>
 
 <h3 id='第一次尝试，利用echarts实现'>第一次尝试，利用echarts实现</h3>

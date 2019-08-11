@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">JavaScript的类型检测</div>
+<div className="title-content"> <h1 className="title">JavaScript的类型检测</h1></div>
 <blockquote>
   <p>大家都知道 JavaScript 是一个弱类型语言，所以平时对类型的判断是一个很重要的事情。当然也有很多方法可以用来区分类型：typeof、instanceof、=== 等等，那我们需要在什么场景下该用哪个方法来区分呢？</p>
 </blockquote>

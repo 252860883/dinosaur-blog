@@ -37,7 +37,7 @@
         let text = mdData.text
         let info = mdData.article
         // 添加标题
-        let newDom = `<div className="title">${info.title}</div>\n${text}`
+        let newDom = `<div className="title-content"><h1 className="title">${info.title}</h1></div>\n${text}`
 
         return `<div className="article">\n${newDom}\n</div>`
     }

@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">小程序学习笔记</div>
+<div className="title-content"> <h1 className="title">小程序学习笔记</h1></div>
 <h3 id='小程序学习笔记'>小程序学习笔记</h3>
 
 <h4 id='目录结构'>目录结构</h4>

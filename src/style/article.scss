@@ -5,12 +5,6 @@
     margin: 0 auto;
 
     .article-lists {
-        // text-align: center;
-
-        .article-title-normal {
-            // color: #222;
-        }
-
         @for $i from 1 through 100 {
             .article-item:nth-child(#{$i}) {
                 opacity: 0;
@@ -21,12 +15,11 @@
         }
 
         .article-item,
-        .article-title,
         .article-item-top {
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
-            margin: 10px;
+            margin: 10px 0;
             font-size: 15px;
             line-height: 20px;
             background: rgba($light, .5);
@@ -43,21 +36,14 @@
         }
 
         .article-title {
-            font-size: 0.18rem;
-            color: $o;
-            text-align: center;
-            font-family: Main;
-            font-weight: 100%;
-            animation: titleShow 1s;
-            opacity: 0;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
+            width: 100%;
+            display: block;
             position: relative;
-            background: #222;
-
-            &:hover {
-                background: #222;
-            }
+            box-sizing: border-box;
+            animation: fadeIn 1s;
+            animation-delay: .8s;
+            animation-fill-mode: forwards;
+            opacity: 0;
         }
 
         .article-item-top {
@@ -94,13 +80,37 @@
     // line-height: 0.20rem;
     color: #555;
     line-height: 0.27rem;
-    // animation: slideLeft .5s ease-in-out;
 
-    .title {
-        font-size: 0.18rem;
+    // animation: slideLeft .5s ease-in-out;
+    .title-content {
+        width: 100%;
+        // height: 0.6rem;
+        background: url('../assets/article-bg.png') no-repeat;
+        background-size: auto;
+        padding: 0.5rem 0.2rem;
+        margin: 0 auto 1rem auto;
+        box-sizing: border-box;
         text-align: center;
-        margin: 0.50rem auto 1rem auto;
+        display: flex;
+        justify-content: center;
+        .title {
+            min-width: 50%;
+            max-width: 90%;
+            border: 1px solid $o;
+            padding: 0.1rem;
+            font-size: 0.18rem;
+            line-height: 0.3rem;
+            background: rgba(#fff,.5);
+            margin: 0 ;
+            display: inline-block;
+            box-sizing: border-box;
+            &::before{
+                content: "";
+                display: none;
+            }
+        }
     }
+
 
     p {
         margin: 0.20rem auto;

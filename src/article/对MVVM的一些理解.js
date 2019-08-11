@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">对MVVM的一些理解</div>
+<div className="title-content"> <h1 className="title">对MVVM的一些理解</h1></div>
 <h2 id='为什么会出现MVVM'>为什么会出现MVVM</h2>
 
 <p>不管是在过去学习的java还是现在的nodejs，大部分的后端开发中都用到了所谓的MVC模式，至于MVC是什么就不再赘述。那么MVVM之所以出现是因为过去的MVC模式不能满足现在的前端开发需求。</p>

@@ -1,11 +1,10 @@
 .pagination {
     width: 100%;
     display: flex;
-    margin: 30px auto 50px 10px;
     justify-content: center;
     font-size: 14px;
-    margin-left: 10px;
     box-sizing: border-box;
+    margin-bottom: 50px;
 
     .pagination-btn {
         width: 30px;
@@ -25,7 +24,7 @@
         padding: 10px;
         box-sizing: border-box;
         transition: all .3s;
-        animation: btnMoveOn 2s ease-in;
+        animation: btnMoveOn 1s ease-in;
         &:hover {
             transform: scale(0.9);
         }

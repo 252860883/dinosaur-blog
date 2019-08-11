@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">关于array的常用的几个API</div>
+<div className="title-content"> <h1 className="title">关于array的常用的几个API</h1></div>
 <h3 id='Array.prototype.forEach'>Array.prototype.forEach</h3>
 
 <ol>

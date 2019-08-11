@@ -66,7 +66,7 @@ export default class Article extends React.Component {
             <div className='article-page'>
                 <div className="article-lists">
                     {
-                        this.state.page == 1 && <div className="article-title">· TOP ARTICLE ·</div>
+                        this.state.page == 1 && <img className="article-title" src={require('../assets/sticky-title.jpg')} />
                     }
 
                     {
@@ -81,7 +81,7 @@ export default class Article extends React.Component {
                         })
                     }
                     {
-                        this.state.page == 1 && <div className="article-title article-title-normal">· NORMAL ARTICLE ·</div>
+                     <img className="article-title" src={require('../assets/normal-title.jpg')} />
                     }
                     {
                         this.state.showArticleMenu.map(item => {

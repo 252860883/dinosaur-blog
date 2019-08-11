@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">http的长连接与短连接</div>
+<div className="title-content"> <h1 className="title">http的长连接与短连接</h1></div>
 <h3 id='长连接与短连接'>长连接与短连接</h3>
 
 <blockquote>

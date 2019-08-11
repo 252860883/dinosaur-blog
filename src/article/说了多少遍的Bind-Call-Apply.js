@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title">说了多少遍的Bind、Call、Apply</div>
+<div className="title-content"> <h1 className="title">说了多少遍的Bind、Call、Apply</h1></div>
 <blockquote>
   <p>正如标题所说，说了多少遍！多少遍！多少遍！唉，所以有了这边复习文，算是立下血志吧。</p>
 </blockquote>
