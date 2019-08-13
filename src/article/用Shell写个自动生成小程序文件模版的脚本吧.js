@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">实现一个自动生成小程序文件模版的脚本</h1></div>
+<div className="title-content"><h1 className="title">实现一个自动生成小程序文件模版的脚本</h1></div>
 <h2 id='前言'>前言</h2>
 
 <p>搞过小程序开发的诸位程序员们一定面临一个问题，就是编辑器好难用啊！新建页面好难用！手抖不小心建错了还要打开文件夹删了文件再去编辑器重新创建。哎呀！麻烦死了！</p>

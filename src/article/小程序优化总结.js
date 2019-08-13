@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">小程序优化总结</h1></div>
+<div className="title-content"><h1 className="title">小程序优化总结</h1></div>
 <blockquote>
   <p>小程序的优化主要分两个方向优化，一个是对启动时的加载时间进行优化，另一个是在对页面进行渲染时的优化。</p>
 </blockquote>

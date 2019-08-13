@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">用Proxy实现MVVM双向绑定</h1></div>
+<div className="title-content"><h1 className="title">用Proxy实现MVVM双向绑定</h1></div>
 <blockquote>
   <p>在之前我们了解到 VUE 的框架底层通过 <code>Object.defineProperty()</code> 来实现双向绑定的。那这次咱们就来玩点不一样的，用 ES6 的 Proxy 来实现 MVVM 的双向绑定。</p>
 </blockquote>

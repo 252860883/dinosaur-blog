@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">浏览器渲染原理</h1></div>
+<div className="title-content"><h1 className="title">浏览器渲染原理</h1></div>
 <p>大多数设备的刷新频率是60Hz，也就说是浏览器对每一帧画面的渲染工作要在16ms内完成,超出这个时间，页面的渲染就会出现卡顿现象，影响用户体验。前端的用户体验给了前端直观的印象，因此对B/S架构的开发人员来说，熟悉浏览器的内部执行原理显得尤为重要。</p>
 
 <h2 id='1.浏览器主要组成与浏览器线程'>1.浏览器主要组成与浏览器线程</h2>

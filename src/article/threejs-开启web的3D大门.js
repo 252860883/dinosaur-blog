@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">threejs 开启web的3D大门</h1></div>
+<div className="title-content"><h1 className="title">threejs 开启web的3D大门</h1></div>
 <h3 id='基础框架'>基础框架</h3>
 
 <pre><code><span></span>

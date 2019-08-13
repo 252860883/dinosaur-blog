@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">React学习笔记 Redux</h1></div>
+<div className="title-content"><h1 className="title">React学习笔记 Redux</h1></div>
 <blockquote>
   <p>Redux 是一个状态管理器。那什么是状态呢？简单来说，状态就是数据。Redux支持 React、Angular、Ember、jQuery 甚至纯 JavaScript，不是只在 React 中才可以使用，</p>
 </blockquote>

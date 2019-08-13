@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">小程序实现图片懒加载的三种方式</h1></div>
+<div className="title-content"><h1 className="title">小程序实现图片懒加载的三种方式</h1></div>
 <blockquote>
   <p>懒加载，emm大概是每个前端工程师在面试时被问到如何进行前端优化的第一个想到的方法吧哈哈。比如我们的图片瀑布流布局等等，一次性加载这么多的图片资源那速度肯定是相当的“辣眼睛”呀～，所以图片懒加载在前端优化中可以发挥到很大的作用，所以这一篇就来聊聊小程序该如何实现图片懒加载～</p>
 </blockquote>

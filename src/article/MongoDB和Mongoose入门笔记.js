@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">MongoDB 和 MongooseODM 入门</h1></div>
+<div className="title-content"><h1 className="title">MongoDB 和 MongooseODM 入门</h1></div>
 <h4 id='什么是 MongoDB ？有何特点？'>什么是 MongoDB ？有何特点？</h4>
 
 <p>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。<br></br>在高负载的情况下，添加更多的节点，可以保证服务器性能。<br></br>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。<br></br>MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>

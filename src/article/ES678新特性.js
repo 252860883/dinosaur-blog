@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">ES6+ 新特性大汇总</h1></div>
+<div className="title-content"><h1 className="title">ES6+ 新特性大汇总</h1></div>
 <blockquote>
   <p>平时写业务涉及到ES6/7/8常用的可能就常见的那几个，其他的不常用就忘记了，所以来专门记录一篇博客，以供经常翻阅之用。</p>
 </blockquote>

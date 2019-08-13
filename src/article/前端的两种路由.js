@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">前端两种路由的实现原理</h1></div>
+<div className="title-content"><h1 className="title">前端两种路由的实现原理</h1></div>
 <blockquote>
   <p>过去,路由都是由后端实现，直接根据url来重载页面，但随着前端的工程越来越复杂，服务器压力变大。后来我们可以通过记录 url 来记录 ajax 的变化。再到后来的SPA的出现，为了实现单页应用从而出现了前端路由。在这里主要讲解前端路由的两种实现方式：history模式和hash模式。</p>
 </blockquote>

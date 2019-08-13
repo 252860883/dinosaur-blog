@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">函数式编程</h1></div>
+<div className="title-content"><h1 className="title">函数式编程</h1></div>
 <blockquote>
   <p>函数式编程又是一个平时在工作时经常听到但是从来没有接触过并且会被搞的一头雾水的东西。所以我打算一探究竟这个函数式编程究竟是何物？</p>
 </blockquote>

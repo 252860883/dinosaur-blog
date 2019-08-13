@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">JavaScript运行机制 EventLoop</h1></div>
+<div className="title-content"><h1 className="title">JavaScript运行机制 EventLoop</h1></div>
 <h3 id='单线程'>单线程</h3>
 
 <p>相信了解 JavaScript 语言的人都知道，由于 JavaScript 脚本语言的特殊性，决定了它需要单线程运行。后来H5规范推出了 Web Worker 允许 JavaScript 可以创建多个线程，但是子线程仍然是完全受主线程的控制，所以本质上还是单线程的。</p>

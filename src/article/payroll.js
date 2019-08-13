@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">【项目总结】大牛工资条</h1></div>
+<div className="title-content"><h1 className="title">【项目总结】大牛工资条</h1></div>
 <h2 id='v1.0上线版 2017/10/13-2017/11/2'>v1.0上线版 2017/10/13-2017/11/2</h2>
 
 <h2 id='1.默认电话号码字段点击会触发系统拨号'>1.默认电话号码字段点击会触发系统拨号</h2>

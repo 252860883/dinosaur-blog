@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">聊聊ajax、fetch、axios</h1></div>
+<div className="title-content"><h1 className="title">聊聊ajax、fetch、axios</h1></div>
 <blockquote>
   <p>关于接口请求方法，近几年来有些变化，从一开始原生JS <code>AJAX</code> 到 JQuery 的 <code>$.ajax()</code>,再到 <code>Fetch</code> 和 vue 推荐的 <code>Axios</code>，但是否真正了解到每一个方法的优劣与使用场景了吗？</p>
 </blockquote>

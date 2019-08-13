@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">深入浅出小程序原理</h1></div>
+<div className="title-content"><h1 className="title">深入浅出小程序原理</h1></div>
 <blockquote>
   <p>最近入职新公司负责小程序开发线的部分，有过vue的经历，其实微信的生态还是好上手的。就是得一点点的刨坑填坑，好在微信小程序的社区还算勤快，明显严重的bug官方会很快更新。之前已经写过一篇小程序的基础使用，那么这里就打算记录微信小程序的坑和底层原理东西啦～</p>
 </blockquote>

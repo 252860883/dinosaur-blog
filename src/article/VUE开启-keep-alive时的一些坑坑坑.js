@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">刨下VUE中keep-alive的一些坑</h1></div>
+<div className="title-content"><h1 className="title">刨下VUE中keep-alive的一些坑</h1></div>
 <p>在做大牛工资条的时候遇到一个需求是需要固定页面不进行渲染的，这时就用到了 keep-alive了。  </p>
 
 <h3 id='keep-alive简单介绍'>keep-alive简单介绍</h3>

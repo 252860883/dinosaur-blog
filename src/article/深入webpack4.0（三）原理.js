@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">深入webpack4.0（三）优化</h1></div>
+<div className="title-content"><h1 className="title">深入webpack4.0（三）优化</h1></div>
 <blockquote>
   <p>这一环节我们来聊一聊如何通过配置webpack来使在生产环境构建时来优化我们的项目代码。</p>
 </blockquote>

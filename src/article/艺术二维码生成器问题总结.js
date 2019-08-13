@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">【项目总结】艺术二维码生成器</h1></div>
+<div className="title-content"><h1 className="title">【项目总结】艺术二维码生成器</h1></div>
 <h3 id='1.canvas如何转换为 img格式进行保存'>1.canvas如何转换为 img格式进行保存</h3>
 
 <p>利用 canvas的 toDataURL 方法可以实现转换为制定格式的图片地址，代码如下：</p>

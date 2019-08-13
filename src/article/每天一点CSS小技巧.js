@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">每天一点CSS小技巧（不定期更新中...）</h1></div>
+<div className="title-content"><h1 className="title">每天一点CSS小技巧（不定期更新中...）</h1></div>
 <h3 id='1.💎易混淆的组合选择器'>1.💎易混淆的组合选择器</h3>
 
 <p>前提，我们先构建一个Html：</p>

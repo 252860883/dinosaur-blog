@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">小程序封装异步请求接口</h1></div>
+<div className="title-content"><h1 className="title">小程序封装异步请求接口</h1></div>
 <p>开发过小程序应该知道小程序的异步http请求都是通过小程序自己的api wx.request 实现的。</p>
 
 <pre><code><span></span>

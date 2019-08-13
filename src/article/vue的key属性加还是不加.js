@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">vue的key属性加还是不加？</h1></div>
+<div className="title-content"><h1 className="title">vue的key属性加还是不加？</h1></div>
 <p>做过vue开发的程序猿大大们一定经常遇到的问题就是忘加key！忘加key！忘加key！不过好在vscode后来的vue校验对不加key的代码做出了红色波浪线警示，但是感觉很是不舒服呀，所以这个key到底有什么用途呢？官方文档中解释到：</p>
 
 <blockquote>

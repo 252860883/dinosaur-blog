@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">事件节流（throttle）与防抖（debounce）</h1></div>
+<div className="title-content"><h1 className="title">事件节流（throttle）与防抖（debounce）</h1></div>
 <h3 id='节流函数（Throttle）'>节流函数（Throttle）</h3>
 
 <blockquote>

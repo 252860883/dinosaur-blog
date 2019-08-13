@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">迟到的2018年计划</h1></div>
+<div className="title-content"><h1 className="title">迟到的2018年计划</h1></div>
 <h3 id='<strong>看至少一场livehouse/音乐节</strong>'><strong>看至少一场livehouse/音乐节</strong></h3>
 
 <p>进度：<br></br><strong>9月9日</strong> 华晨宇 火星演唱会<br></br><strong>12月16日</strong> 苏运莹 《幻》新专首唱会<br></br><strong>12月23日</strong> 后海大鲨鱼 年轻朋友音乐会</p>

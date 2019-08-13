@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"> <h1 className="title">JavaScript 继承</h1></div>
+<div className="title-content"><h1 className="title">JavaScript 继承</h1></div>
 <h3 id='原型链继承'>原型链继承</h3>
 
 <p>原型链继承的核心就是将子类的原型对象指向父类实例，<code>Student.prototype = new Person()</code> 。</p>
