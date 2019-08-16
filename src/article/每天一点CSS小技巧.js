@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"7.💎隐藏元素三种方法比较"},{"level":"h3","title":"8.💎1px问题"},{"level":"h3","title":"9.💎使用 Mixin 归类"},{"level":"h3","title":"参考"}]
+            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"7.💎隐藏元素三种方法比较"},{"level":"h3","title":"8.💎1px问题"},{"level":"h3","title":"9.💎单侧投影"},{"level":"h3","title":"参考"}]
         }
     }
     componentDidMount() {
@@ -297,7 +297,25 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<h3 id='9.💎使用 Mixin 归类'>9.💎使用 Mixin 归类</h3>
+<h3 id='9.💎单侧投影'>9.💎单侧投影</h3>
+
+<p><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g61ln4z61oj20n00evdgf.jpg" alt="image" title="" /></p>
+
+<blockquote>
+  <p>box-shadow : x轴偏移值 y轴偏移值 模糊半径 扩张半径</p>
+</blockquote>
+
+<p>这里我们通过将扩张半径的值设置为负值即可实现单侧投影：</p>
+
+<pre><code><span></span>
+<span>.box3{'{'}</span>
+<span>  width: 200px;</span>
+<span>  height: 200px;</span>
+<span>  border: 2px solid #aaa;</span>
+<span>  box-shadow: 0px 17px 15px -5px #aaa;</span>
+<span>}</span>
+<span></span>
+</code></pre>
 
 <h3 id='参考'>参考</h3>
 

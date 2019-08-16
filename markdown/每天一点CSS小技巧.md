@@ -259,7 +259,23 @@ displaynone : 修改元素会造成文档回流,读屏器不会读取display: no
 }
 ```
 
-### 9.💎使用 Mixin 归类
+### 9.💎单侧投影
+
+![image](http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g61ln4z61oj20n00evdgf.jpg)
+
+> box-shadow : x轴偏移值 y轴偏移值 模糊半径 扩张半径
+
+这里我们通过将扩张半径的值设置为负值即可实现单侧投影：
+
+```
+.box3{
+  width: 200px;
+  height: 200px;
+  border: 2px solid #aaa;
+  box-shadow: 0px 17px 15px -5px #aaa;
+}
+```
+
 
 
 ### 参考

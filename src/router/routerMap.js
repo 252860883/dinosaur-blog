@@ -39,7 +39,7 @@ let ArticleMenu = [
 	{"title":"剖析JavaScript的内存机制","date":"2018-06-12 00:12:17","tags":"javascript","link":"/剖析JavaScript的内存机制","article":true},
 	{"title":"动手实现前后端 websocket 通信","date":"2019-04-09 15:24:20","tags":"[html5,nodejs]","link":"/动手实现 websocket","article":true},
 	{"title":"小程序实现vue的watch和computed方法","date":"2018-04-10 12:39:33","tags":"[小程序,VUE]","link":"/原生js实现小程序中类似vue的watch和computed方法","article":true},
-	{"title":"【学习整理】你不知道的Chrome调试工具技巧","date":"2019-03-07 11:16:44","tags:":"","top:":"","link":"/合理利用chrome调试工具","article":true},
+	{"title":"你不知道的Chrome调试工具技巧","date":"2019-03-07 11:16:44","tags:":"","top:":"","link":"/合理利用chrome调试工具","article":true},
 	{"title":"对MVVM的一些理解","date":"2018-05-24 12:23:14","tags":"javascript","link":"/对MVVM的一些理解","article":true},
 	{"title":"小程序学习笔记","date":"2018-03-19 21:24:20","tags":"小程序","link":"/小程序","article":true},
 	{"title":"小程序优化总结","date":"2018-08-10 11:47:57","tags":"[小程序,VUE,javascript]","top":"","link":"/小程序优化总结","article":true},
