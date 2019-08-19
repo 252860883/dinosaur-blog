@@ -1,5 +1,5 @@
 ---
-title: JavaScript 继承
+title: JavaScript 继承的几种方式
 date: 2019-07-23 10:30:12
 tags: javascript
 top:

@@ -12,8 +12,9 @@ let RouterOrigin = [
 ]
 let RouterMenu = []
 let ArticleMenu = [
+	{"title":"AST抽象语法树","date":"2019-08-19 16:35:43","tags:":"","top":"","link":"/AST抽象语法树","article":true},
 	{"title":"ES6+ 新特性大汇总","date":"2018-06-29 12:22:07","tags":"['javascript','ES6']","top":"true","link":"/ES678新特性","article":true},
-	{"title":"JavaScript 继承","date":"2019-07-23 10:30:12","tags":"javascript","top:":"","link":"/JavaScript 继承","article":true},
+	{"title":"JavaScript 继承的几种方式","date":"2019-07-23 10:30:12","tags":"javascript","top:":"","link":"/JavaScript 继承","article":true},
 	{"title":"JavaScript的类型检测","date":"2019-01-24 10:30:12","tags":"javascript","top:":"","link":"/JavaScript的类型检测","article":true},
 	{"title":"聊聊JavaScript精度缺失这点事","date":"2018-09-13 11:51:37","tags":"javascript","top:":"","link":"/JavaScript精度缺失咋回事？","article":true},
 	{"title":"JavaScript设计模式（一）观察者模式","date":"2018-06-26 12:55:56","tags":"javascript","link":"/JavaScript设计模式系列（一）开发者模式","article":true},
@@ -46,6 +47,7 @@ let ArticleMenu = [
 	{"title":"小程序实现仿KeepApp的滑动图表","date":"2018-05-10 15:11:28","tags":"小程序","link":"/小程序实现仿KeepApp的滑动图表","article":true},
 	{"title":"小程序实现图片懒加载的三种方式","date":"2018-09-11 14:22:11","tags":"小程序","top":"","link":"/小程序实现图片懒加载的三种方式","article":true},
 	{"title":"小程序封装异步请求接口","date":"2018-05-10 15:04:47","tags":"[小程序,VUE,javascript]","link":"/小程序封装异步请求接口","article":true},
+	{"title":"Async/Await 如何通过同步的方式实现异步","date":"2019-07-23 10:30:12","tags":"javascript","top:":"","link":"/手动封装asyncawait","article":true},
 	{"title":"每天一点CSS小技巧（不定期更新中...）","date":"2019-02-21 16:10:30","tags":"CSS","top":"true","link":"/每天一点CSS小技巧","article":true},
 	{"title":"浏览器渲染原理","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器渲染原理","article":true},
 	{"title":"浏览器缓存机制","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器缓存机制","article":true},

@@ -200,10 +200,9 @@ export default class Template extends React.Component {
 
 <h3 id='参考'>参考</h3>
 
-<ol>
-<li><a href="https://segmentfault.com/a/1190000000389838">CSS设计模式：OOCSS 和 SMACSS</a></li>
-<li><a href="https://segmentfault.com/a/1190000000388784">编写可维护的CSS</a></li>
-</ol>
+<blockquote>
+  <p><a href="https://segmentfault.com/a/1190000000389838">CSS设计模式：OOCSS 和 SMACSS</a><br></br><a href="https://segmentfault.com/a/1190000000388784">编写可维护的CSS</a></p>
+</blockquote>
 </div>
             </div>
 
