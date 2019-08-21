@@ -127,9 +127,22 @@ export default class Template extends React.Component {
 
 <h3 id='两种模式比较'>两种模式比较</h3>
 
+<p><strong>Hash模式：</strong> </p>
+
 <ol>
-<li><strong>Hash模式：</strong> 实现方式较为简单，兼容性较好，大部分浏览器支持，但是“#”不太美观，并且服务器不能识别hash，对SEO不友好</li>
-<li><strong>History模式：</strong> 没有“#”看起来像正常的URL，由于用到了H5的API需考虑浏览器兼容性，并且需要后端配置配合，否则刷新页面会出现404</li>
+<li>实现方式较为简单，可以通过<code>&lt;a&gt;</code>标签或者<code>location.hash=xxx</code>改变地址的hash值</li>
+<li>直接通过<code>hashchange</code>监听hash值的变化，兼容性较好</li>
+<li>hash值的改变，都会在浏览器的访问历史中增加一个记录，能通过浏览器的回退、前进按钮控制hash的切换</li>
+<li>URL中的hash值只是客户端的状态，当向服务器端发出请求时hash部分不会被发送，不利于SEO</li>
+</ol>
+
+<p><strong>History模式：</strong> </p>
+
+<ol>
+<li>需要用到<code>pushState</code>和<code>repalceState</code>两个API来操作实现URL的变化，存在兼容性问题</li>
+<li>通过<code>popstate</code>事件来监听URL的变化，，存在兼容性问题</li>
+<li>没有“丑陋”的“#”看起来像正常的URL</li>
+<li>需要后端配置配合，否则刷新页面会出现404，因为服务器会认为路由部分是文件路径</li>
 </ol>
 </div>
             </div>

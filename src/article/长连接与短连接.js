@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"长连接与短连接"},{"level":"h4","title":"短连接"},{"level":"h4","title":"长连接"},{"level":"h3","title":"TCP连接"},{"level":"h3","title":"优缺点比较"},{"level":"h3","title":"适用场景"}]
+            headerLink: [{"level":"h3","title":"长连接与短连接"},{"level":"h4","title":"短连接"},{"level":"h4","title":"长连接"},{"level":"h3","title":"TCP连接"},{"level":"h3","title":"优缺点比较"},{"level":"h3","title":"适用场景"},{"level":"h3","title":"HTTP2.0 多路复用"}]
         }
     }
     componentDidMount() {
@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"><h1 className="title">http的长连接与短连接</h1></div>
+<div className="title-content"><h1 className="title">HTTP的长连接与短连接</h1></div>
 <h3 id='长连接与短连接'>长连接与短连接</h3>
 
 <blockquote>
@@ -66,6 +66,12 @@ export default class Template extends React.Component {
 <li>长连接多用于操作频繁，点对点的通讯，而且连接数不能太多情况，比如：数据库的连接。</li>
 <li>而像WEB网站的http服务一般都用短链接，因为长连接对于服务端来说会耗费一定的资源。并发量大，但每个用户无需频繁操作情况下需用短连好。</li>
 </ol>
+
+<h3 id='HTTP2.0 多路复用'>HTTP2.0 多路复用</h3>
+
+<p>当我们使用长连接以后，在TCP连接和断开的开销上有所改善，但是仍然不可避免一些效率上的问题：<br></br><strong>串行的文件传输</strong>，当请求a文件时，b文件只能等待，等待a连接到服务器、服务器处理文件、服务器返回文件，这三个步骤。所有如果我们有很多文件要处理，只能一个个的排队，这称为"队头堵塞"（Head-of-line blocking）。<br></br><strong>连接过多</strong>，我们假设Apache设置了最大并发数为300，因为浏览器限制，浏览器发起的最大请求数为6，也就是服务器能承载的最高并发为50，当第51个人访问的时候只能等待前者请求处理结束。</p>
+
+<p>HTTP2.0的<strong>多路复用</strong>就是解决了以上的问题。在 HTTP2.0 中，有两个非常重要的概念，分别是帧（frame）和流（stream）。 帧代表着最小的数据单位，每个帧会标识出该帧属于哪个流，流也就是多个帧组成的数据流。 多路复用，就是在一个 TCP 连接中可以存在多条流。 简单的说就是，在一个连接里，客户端和浏览器都可以同时发送多个请求或回应（通过帧中的标识知道属于哪个请求），而且不用按照顺序一一对应。</p>
 </div>
             </div>
 

@@ -18,23 +18,19 @@ export default class Template extends React.Component {
 <div className="title-content"><h1 className="title">由 Async/Await 引发出来的一系列问题</h1></div>
 <h3 id='Async/Await 的出现'>Async/Await 的出现</h3>
 
-<p>在 ES6 出现之前，我们都是通过回调函数的方式来操作异步代码，如果出现大量的回调函数嵌套，代码那真的是辣眼睛，这也是我们常说的<strong>回调地狱</strong>。ES6+以后出现了<code>Promise</code>,大大的优化了异步编程的问题，但是我们在实际开发中仍然会遇到多层嵌套的问题：</p>
+<p>在 ES6 出现之前，我们都是通过回调函数的方式来操作异步代码，如果出现大量的回调函数嵌套，代码那真的是辣眼睛，这也是我们常说的<strong>回调地狱</strong>。ES6+以后出现了<code>Promise</code>,大大的优化了异步编程的问题，也避免了回调地狱的问题，但是我们在实际开发中仍然会遇到一大堆then链的问题：</p>
 
 <pre><code><span></span>
-<span>new Promise(resolve =&gt; {'{'}</span>
-<span>  resolve(1)</span>
-<span>}).then(res =&gt; {'{'}</span>
-<span>  new Promise(resolve =&gt; {'{'}</span>
-<span>    resolve(2)</span>
+<span>ajax('XXX1')</span>
+<span>  .then(res =&gt; {'{'}</span>
+<span>      // 操作逻辑</span>
+<span>      return ajax('XXX2')</span>
 <span>  }).then(res =&gt; {'{'}</span>
-<span>    new Promise(resolve =&gt; {'{'}</span>
-<span>      resolve(3)</span>
-<span>    }).then(res =&gt; {'{'}</span>
-<span>      // ...</span>
-<span>    })</span>
+<span>      // 操作逻辑</span>
+<span>      return ajax('XXX3')</span>
+<span>  }).then(res =&gt; {'{'}</span>
+<span>      // 操作逻辑</span>
 <span>  })</span>
-<span>})</span>
-<span></span>
 <span></span>
 </code></pre>
 
@@ -194,7 +190,52 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<p>可以非常直观的感受到，<code>Async/Await</code>就是一种语法糖，基于Generator 函数和自动执行器实现。</p>
+<p>可以非常直观的感受到，<code>Async/Await</code>就是一种语法糖，基于Generator 函数和自动执行器实现。不过实际上自动执行器要不我们上面的实现复杂些,下面给出spawn函数的实现，基本就是自动执行器的翻版：</p>
+
+<pre><code><span></span>
+<span>function spawn(genF) {'{'}</span>
+<span>  return new Promise(function(resolve, reject) {'{'}</span>
+<span>    const gen = genF();</span>
+<span>    function step(nextF) {'{'}</span>
+<span>      let next;</span>
+<span>      try {'{'}</span>
+<span>        next = nextF();</span>
+<span>      } catch(e) {'{'}</span>
+<span>        return reject(e);</span>
+<span>      }</span>
+<span>      if(next.done) {'{'}</span>
+<span>        return resolve(next.value);</span>
+<span>      }</span>
+<span>      Promise.resolve(next.value).then(function(v) {'{'}</span>
+<span>        step(function() {'{'} return gen.next(v); });</span>
+<span>      }, function(e) {'{'}</span>
+<span>        step(function() {'{'} return gen.throw(e); });</span>
+<span>      });</span>
+<span>    }</span>
+<span>    step(function() {'{'} return gen.next(undefined); });</span>
+<span>  });</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<p>根据上面可知，await 操作之后的代码都相当于一个microtask微任务：</p>
+
+<pre><code><span></span>
+<span>async function async1() {'{'}</span>
+<span>    console.log('async1 start');</span>
+<span>    await async2();</span>
+<span>    console.log('async1 end');</span>
+<span>}</span>
+<span>// 等同于</span>
+<span>async function async1() {'{'}</span>
+<span>    console.log('async1 start');</span>
+<span>    Promise.resolve(async2()).then(() =&gt; {'{'}</span>
+<span>            // microtask</span>
+<span>            console.log('async1 end');</span>
+<span>        })</span>
+<span>}</span>
+<span></span>
+</code></pre>
 
 <h3 id='参考'>参考</h3>
 

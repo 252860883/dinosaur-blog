@@ -6,23 +6,19 @@ top:
 ---
 
 ### Async/Await 的出现
-在 ES6 出现之前，我们都是通过回调函数的方式来操作异步代码，如果出现大量的回调函数嵌套，代码那真的是辣眼睛，这也是我们常说的**回调地狱**。ES6+以后出现了`Promise`,大大的优化了异步编程的问题，但是我们在实际开发中仍然会遇到多层嵌套的问题：
+在 ES6 出现之前，我们都是通过回调函数的方式来操作异步代码，如果出现大量的回调函数嵌套，代码那真的是辣眼睛，这也是我们常说的**回调地狱**。ES6+以后出现了`Promise`,大大的优化了异步编程的问题，也避免了回调地狱的问题，但是我们在实际开发中仍然会遇到一大堆then链的问题：
 
 ```
-new Promise(resolve => {
-  resolve(1)
-}).then(res => {
-  new Promise(resolve => {
-    resolve(2)
+ajax('XXX1')
+  .then(res => {
+      // 操作逻辑
+      return ajax('XXX2')
   }).then(res => {
-    new Promise(resolve => {
-      resolve(3)
-    }).then(res => {
-      // ...
-    })
+      // 操作逻辑
+      return ajax('XXX3')
+  }).then(res => {
+      // 操作逻辑
   })
-})
-
 ```
 
 这个时候，就由`Async/Await`登场了，使用 async 函数以后，使得异步操作变得更加方便：
@@ -166,7 +162,50 @@ async function func() {
 }
 ```
 
-可以非常直观的感受到，`Async/Await`就是一种语法糖，基于Generator 函数和自动执行器实现。
+可以非常直观的感受到，`Async/Await`就是一种语法糖，基于Generator 函数和自动执行器实现。不过实际上自动执行器要不我们上面的实现复杂些,下面给出spawn函数的实现，基本就是自动执行器的翻版：
+
+```
+function spawn(genF) {
+  return new Promise(function(resolve, reject) {
+    const gen = genF();
+    function step(nextF) {
+      let next;
+      try {
+        next = nextF();
+      } catch(e) {
+        return reject(e);
+      }
+      if(next.done) {
+        return resolve(next.value);
+      }
+      Promise.resolve(next.value).then(function(v) {
+        step(function() { return gen.next(v); });
+      }, function(e) {
+        step(function() { return gen.throw(e); });
+      });
+    }
+    step(function() { return gen.next(undefined); });
+  });
+}
+```
+
+根据上面可知，await 操作之后的代码都相当于一个microtask微任务：
+
+```
+async function async1() {
+	console.log('async1 start');
+	await async2();
+	console.log('async1 end');
+}
+// 等同于
+async function async1() {
+	console.log('async1 start');
+	Promise.resolve(async2()).then(() => {
+            // microtask
+            console.log('async1 end');
+        })
+}
+```
 
 
 ### 参考
