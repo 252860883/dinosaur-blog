@@ -62,7 +62,7 @@ let ArticleMenu = [
 	{"title":"【项目总结】艺术二维码生成器","date":"2018-02-09 18:13:35","tags":"项目总结","link":"/艺术二维码生成器问题总结","article":true},
 	{"title":"说了多少遍的Bind、Call、Apply","date":"2018-08-16 17:13:52","tags":"javascript","top:":"","link":"/说了多少遍的Bind-Call-Apply","article":true},
 	{"title":"迟到的2018年计划","date":"2018-04-10 12:18:07","tags":"随笔","top":"","link":"/迟到的2018年计划","article":true},
-	{"title":"http的长连接与短连接","date":"2019-07-14 12:18:07","tags":"['http']","top":"","link":"/长连接与短连接","article":true},
+	{"title":"HTTP的长连接与短连接","date":"2019-07-14 12:18:07","tags":"['http']","top":"","link":"/长连接与短连接","article":true},
 ]//end
 
 RouterMenu = ArticleMenu.concat(RouterOrigin)
