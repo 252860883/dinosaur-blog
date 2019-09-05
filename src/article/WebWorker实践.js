@@ -157,7 +157,7 @@ export default class Template extends React.Component {
 <h3 id='参考'>参考</h3>
 
 <blockquote>
-  <p><a href="https://juejin.im/post/5acf348151882579ef4f5a77">怎么在 ES6+Webpack 下使用 Web Worker</a><br></br><a href="https://mp.weixin.qq.com/s/i1xBLUtVRPhWnl_1EuJVkA">前端 Web Workers 到底是什么？</a></p>
+  <p><a target="_blank" href="https://juejin.im/post/5acf348151882579ef4f5a77">怎么在 ES6+Webpack 下使用 Web Worker</a><br></br><a target="_blank" href="https://mp.weixin.qq.com/s/i1xBLUtVRPhWnl_1EuJVkA">前端 Web Workers 到底是什么？</a></p>
 </blockquote>
 </div>
             </div>

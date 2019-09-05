@@ -251,7 +251,7 @@ export default class Template extends React.Component {
 <h3 id='参考'>参考</h3>
 
 <blockquote>
-  <p><a href="https://segmentfault.com/a/1190000015727237">一篇文章理解JS继承</a><br></br><a href="https://segmentfault.com/a/1190000014476341">JS中的继承(上)</a></p>
+  <p><a target="_blank" href="https://segmentfault.com/a/1190000015727237">一篇文章理解JS继承</a><br></br><a target="_blank" href="https://segmentfault.com/a/1190000014476341">JS中的继承(上)</a></p>
 </blockquote>
 </div>
             </div>

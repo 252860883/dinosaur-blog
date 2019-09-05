@@ -62,7 +62,7 @@ export default class Template extends React.Component {
 
 <h4 id='axios的配置'>axios的配置</h4>
 
-<p><a href="http://blog.csdn.net/sinat_17775997/article/details/69367204">http://blog.csdn.net/sinat_17775997/article/details/69367204</a></p>
+<p><a target="_blank" href="http://blog.csdn.net/sinat_17775997/article/details/69367204">http://blog.csdn.net/sinat_17775997/article/details/69367204</a></p>
 
 <pre><code><span></span>
 <span>import axios from 'axios'</span>

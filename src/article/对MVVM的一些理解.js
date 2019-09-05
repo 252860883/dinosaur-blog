@@ -104,7 +104,7 @@ export default class Template extends React.Component {
 <h3 id='参考'>参考</h3>
 
 <blockquote>
-  <p><a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1108898947791072">MVVM</a><br></br><a href="https://www.amazon.cn/dp/B00K745SMO/ref=sr_1_3?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&amp;keywords=js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&amp;qid=1566472810&amp;s=gateway&amp;sr=8-3">JavaScript设计模式</a><br></br><a href="https://juejin.im/post/5d59f2a451882549be53b170#heading-20">30 道 Vue 面试题</a></p>
+  <p><a target="_blank" href="https://www.liaoxuefeng.com/wiki/1022910821149312/1108898947791072">MVVM</a><br></br><a target="_blank" href="https://www.amazon.cn/dp/B00K745SMO/ref=sr_1_3?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&amp;keywords=js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&amp;qid=1566472810&amp;s=gateway&amp;sr=8-3">JavaScript设计模式</a><br></br><a target="_blank" href="https://juejin.im/post/5d59f2a451882549be53b170#heading-20">30 道 Vue 面试题</a></p>
 </blockquote>
 </div>
             </div>

@@ -506,7 +506,7 @@ export default class Template extends React.Component {
 <h3 id='说明'>说明</h3>
 
 <blockquote>
-  <p>转载自 <a href="https://mp.weixin.qq.com/s/njwpsI-5T2mewPYjNef0jA">https://mp.weixin.qq.com/s/njwpsI-5T2mewPYjNef0jA</a></p>
+  <p>转载自 <a target="_blank" href="https://mp.weixin.qq.com/s/njwpsI-5T2mewPYjNef0jA">https://mp.weixin.qq.com/s/njwpsI-5T2mewPYjNef0jA</a></p>
 </blockquote>
 </div>
             </div>

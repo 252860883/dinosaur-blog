@@ -233,7 +233,6 @@ else
             text = text.replace(/^[ ]{0,2}([ ]?\*[ ]?){3,}[ \t]*$/gm, replacement);
             text = text.replace(/^[ ]{0,2}([ ]?-[ ]?){3,}[ \t]*$/gm, replacement);
             text = text.replace(/^[ ]{0,2}([ ]?_[ ]?){3,}[ \t]*$/gm, replacement);
-
             text = _DoLists(text);
 
             text = _DoBlockQuotes(text);
@@ -332,7 +331,7 @@ else
             }
             url = encodeProblemUrlChars(url);
             url = escapeCharacters(url, "*_");
-            var result = "<a href=\"" + url + "\"";
+            var result = "<a target=\"_blank\" href=\"" + url + "\"";
 
             if (title != "") {
                 title = attributeEncode(title);
@@ -437,12 +436,10 @@ else
         function _DoLists(text) {
             text += "~0";
             var whole_list = /^(([ ]{0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(~0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm;
-
             if (g_list_level) {
                 text = text.replace(whole_list, function (wholeMatch, m1, m2) {
                     var list = m1;
                     var list_type = (m2.search(/[*+-]/g) > -1) ? "ul" : "ol";
-
                     var result = _ProcessListItems(list, list_type);
                     result = result.replace(/\s+$/, "");
                     result = "<" + list_type + ">" + result + "</" + list_type + ">\n";
@@ -728,7 +725,7 @@ else
 
             //  autolink anything like <http://example.com>
 
-            var replacer = function (wholematch, m1) { return "<a href=\"" + m1 + "\">" + pluginHooks.plainLinkText(m1) + "</a>"; }
+            var replacer = function (wholematch, m1) { return "<a target=\"_blank\" href=\"" + m1 + "\">" + pluginHooks.plainLinkText(m1) + "</a>"; }
             text = text.replace(/<((https?|ftp):[^'">\s]+)>/gi, replacer);
 
             return text;

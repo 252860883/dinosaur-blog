@@ -22,7 +22,7 @@ export default class Template extends React.Component {
 
 <h3 id='类型'>类型</h3>
 
-<p>复习一下 JavaScript 的数据类型，基本数据类型：<code>Number</code>、<code>String</code>、<code>Null</code>、<code>Undefined</code>、<code>Boolean</code>、<code>Symbol</code>。引用数据类型：<code>Object</code>、<code>Array</code>、<code>Function</code>、<code>Date</code>等。关于两者的区别这里不再做介绍，可以翻看我之前的另一篇文章：<a href="https://252860883.github.io/2018/06/12/%E5%89%96%E6%9E%90JavaScript%E7%9A%84%E5%86%85%E5%AD%98%E6%9C%BA%E5%88%B6/">剖析JavaScript的内存机制</a></p>
+<p>复习一下 JavaScript 的数据类型，基本数据类型：<code>Number</code>、<code>String</code>、<code>Null</code>、<code>Undefined</code>、<code>Boolean</code>、<code>Symbol</code>。引用数据类型：<code>Object</code>、<code>Array</code>、<code>Function</code>、<code>Date</code>等。关于两者的区别这里不再做介绍，可以翻看我之前的另一篇文章：<a target="_blank" href="https://252860883.github.io/2018/06/12/%E5%89%96%E6%9E%90JavaScript%E7%9A%84%E5%86%85%E5%AD%98%E6%9C%BA%E5%88%B6/">剖析JavaScript的内存机制</a></p>
 
 <h3 id='typeof'>typeof</h3>
 

@@ -52,7 +52,13 @@ export default class Template extends React.Component {
 
 <p>建立一个连接需要三次握手，而终止一个连接要经过四次握手，由于TCP连接是全双工的，因此每个方向都必须单独进行关闭。这原则是当一方完成它的数据发送任务后就能发送一个FIN来终止这个方向的连接。收到一个 FIN只意味着这一方向上没有数据流动，一个TCP连接在收到一个FIN后仍能发送数据。</p>
 
-<p><img src="http://wx1.sinaimg.cn/large/a73bc6a1ly1g4zorn86aij20gq0dm402.jpg" alt="image" title="" /><br></br>上面一个特殊的状态 <code>time-wait</code> 它是主动关闭的一方在回复完对方的挥手后进入的一个长期状态,这个状态持续4分钟，它的作用是重传最后一个 ack 报文，确保对方可以收到。因为如果对方没有收到 ack 的话，会重传 fin 报文，处于 time_wait 状态的套接字会立即向对方重发 ack 报文。</p>
+<p><img src="http://wx1.sinaimg.cn/large/a73bc6a1ly1g4zorn86aij20gq0dm402.jpg" alt="image" title="" /><br></br>上面一个特殊的状态 <code>time-wait</code> 它是主动关闭的一方在回复完对方的挥手后进入的一个长期状态,这个状态持续 <strong>2MSL</strong>。</p>
+
+<blockquote>
+  <p>Maximum Segment Lifetime，译为“报文最大生存时间”。RFC 793中规定MSL为2分钟，实际应用中常用的是30秒，1分钟和2分钟等</p>
+</blockquote>
+
+<p>为什么时间是 2MSL 呢？ 等待2MSL时间主要目的是怕最后一个ACK包对方没收到，那么对方在超时后将重发第三次握手的FIN包，主动关闭端接到重发的FIN包后可以再发一个ACK应答包。在TIME_WAIT状态时两端的端口不能使用，要等到2MSL时间结束才可继续使用。</p>
 
 <h3 id='优缺点比较'>优缺点比较</h3>
 

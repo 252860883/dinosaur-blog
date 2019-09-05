@@ -276,6 +276,34 @@ displaynone : 修改元素会造成文档回流,读屏器不会读取display: no
 }
 ```
 
+### 10.💎清除input默认样式
+
+```
+input{
+	outline:none
+};
+input::-webkit-input-placeholder {
+  /* placeholder颜色  */
+  color: #aab2bd;
+  /* placeholder字体大小  */
+  font-size: 12px;
+  /* placeholder位置  */
+  text-align: right;
+}
+
+      input
+          border 0
+          background none
+          outline none
+	  -webkit-appearance none
+          &:focus
+            outline none
+            background-color transparent
+          &::-webkit-input-placeholder
+            color #B0B8C7
+            font-weight bold
+            
+```
 
 
 ### 参考

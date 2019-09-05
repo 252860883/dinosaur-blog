@@ -148,7 +148,7 @@ export default class Template extends React.Component {
 </ol>
 
 <blockquote>
-  <p>参考<br></br><a href="https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA">https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA</a></p>
+  <p>参考<br></br><a target="_blank" href="https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA">https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA</a></p>
 </blockquote>
 </div>
             </div>

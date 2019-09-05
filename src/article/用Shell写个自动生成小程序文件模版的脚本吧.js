@@ -24,7 +24,7 @@ export default class Template extends React.Component {
 
 <h2 id='Shell脚本 实现'>Shell脚本 实现</h2>
 
-<p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。我们下面的脚本也是通过 Shell语言来实现的。如果你还不了解什么是 Shell 语法的话，可以先熟悉一下语法，入门不难。<a href="http://www.runoob.com/linux/linux-shell.html">点击这里</a>。</p>
+<p>Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。我们下面的脚本也是通过 Shell语言来实现的。如果你还不了解什么是 Shell 语法的话，可以先熟悉一下语法，入门不难。<a target="_blank" href="http://www.runoob.com/linux/linux-shell.html">点击这里</a>。</p>
 
 <p>首先我们执行 <code>npm init</code> 指令，创建 <code>package.json</code> 文件。然后在该文件下添加如下代码：</p>
 
@@ -141,7 +141,7 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<p>与shell脚本不同的是我们还需要 <code>npm install</code> 安装依赖。这里需要用到以下几个依赖：<br></br><code>fs</code>是nodejs里面很重要的文件模块，我们对于文件的增删改查、粘贴、赋值都与此相关；<br></br><code>path</code>模块用于处理文件与目录的路径，我们都知道现在的前端项目大部分都是模块化开发，所以从中涉及到的路径问题由它来解决；<br></br><code>chalk</code>就是一个终端样式修饰器，我们可以做出好看的终端界面。重点来了；<br></br><code>inquirer</code>试图为NodeJs做一个可嵌入式的美观的命令行界面，我们这里也是使用这个依赖可以很便捷的进行终端输出的改造，比如上下选择，单选、多选等多种形态，具体可以移步<a href="https://www.npmjs.com/package/inquirer">这里查看更多</a>。</p>
+<p>与shell脚本不同的是我们还需要 <code>npm install</code> 安装依赖。这里需要用到以下几个依赖：<br></br><code>fs</code>是nodejs里面很重要的文件模块，我们对于文件的增删改查、粘贴、赋值都与此相关；<br></br><code>path</code>模块用于处理文件与目录的路径，我们都知道现在的前端项目大部分都是模块化开发，所以从中涉及到的路径问题由它来解决；<br></br><code>chalk</code>就是一个终端样式修饰器，我们可以做出好看的终端界面。重点来了；<br></br><code>inquirer</code>试图为NodeJs做一个可嵌入式的美观的命令行界面，我们这里也是使用这个依赖可以很便捷的进行终端输出的改造，比如上下选择，单选、多选等多种形态，具体可以移步<a target="_blank" href="https://www.npmjs.com/package/inquirer">这里查看更多</a>。</p>
 
 <p><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1fyzfn6lq00j20ho04ugnk.jpg" alt="image" title="" /></p>
 
@@ -317,7 +317,7 @@ export default class Template extends React.Component {
 <p>最后，大功告成！我们就可以执行 <code>npm run create</code> 指令来体验一下了。</p>
 
 <blockquote>
-  <p>源码：<br></br><a href="https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js">https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js</a><br></br>https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.sh</p>
+  <p>源码：<br></br><a target="_blank" href="https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js">https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js</a><br></br>https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.sh</p>
 </blockquote>
 </div>
             </div>

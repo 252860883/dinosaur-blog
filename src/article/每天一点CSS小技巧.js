@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"7.💎隐藏元素三种方法比较"},{"level":"h3","title":"8.💎1px问题"},{"level":"h3","title":"9.💎单侧投影"},{"level":"h3","title":"参考"}]
+            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"7.💎隐藏元素三种方法比较"},{"level":"h3","title":"8.💎1px问题"},{"level":"h3","title":"9.💎单侧投影"},{"level":"h3","title":"10.💎清除input默认样式"},{"level":"h3","title":"参考"}]
         }
     }
     componentDidMount() {
@@ -317,9 +317,39 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
+<h3 id='10.💎清除input默认样式'>10.💎清除input默认样式</h3>
+
+<pre><code><span></span>
+<span>input{'{'}</span>
+<span>    outline:none</span>
+<span>};</span>
+<span>input::-webkit-input-placeholder {'{'}</span>
+<span>  /* placeholder颜色  */</span>
+<span>  color: #aab2bd;</span>
+<span>  /* placeholder字体大小  */</span>
+<span>  font-size: 12px;</span>
+<span>  /* placeholder位置  */</span>
+<span>  text-align: right;</span>
+<span>}</span>
+<span></span>
+<span>      input</span>
+<span>          border 0</span>
+<span>          background none</span>
+<span>          outline none</span>
+<span>      -webkit-appearance none</span>
+<span>          &amp;:focus</span>
+<span>            outline none</span>
+<span>            background-color transparent</span>
+<span>          &amp;::-webkit-input-placeholder</span>
+<span>            color #B0B8C7</span>
+<span>            font-weight bold</span>
+<span></span>
+<span></span>
+</code></pre>
+
 <h3 id='参考'>参考</h3>
 
-<p><a href="https://mp.weixin.qq.com/s/iD8rinWJ_PEI3UZu4-PcMg">你未必知道的49个CSS知识点</a></p>
+<p><a target="_blank" href="https://mp.weixin.qq.com/s/iD8rinWJ_PEI3UZu4-PcMg">你未必知道的49个CSS知识点</a></p>
 </div>
             </div>
 

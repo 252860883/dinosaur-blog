@@ -124,7 +124,7 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<p>更多关于 axios 的使用方法，直接访问 <a href="https://github.com/axios/axios">github</a> 查阅吧。</p>
+<p>更多关于 axios 的使用方法，直接访问 <a target="_blank" href="https://github.com/axios/axios">github</a> 查阅吧。</p>
 
 <h3 id='Fetch'>Fetch</h3>
 
@@ -175,7 +175,7 @@ export default class Template extends React.Component {
 </ol>
 
 <blockquote>
-  <p>参考:<br></br><a href="https://www.jianshu.com/p/8bc48f8fde75">ajax和axios、fetch的区别</a><br></br><a href="https://mp.weixin.qq.com/s/qM_tvb2-A__hdjjgnS1y6w">认识 Fetch API</a></p>
+  <p>参考:<br></br><a target="_blank" href="https://www.jianshu.com/p/8bc48f8fde75">ajax和axios、fetch的区别</a><br></br><a target="_blank" href="https://mp.weixin.qq.com/s/qM_tvb2-A__hdjjgnS1y6w">认识 Fetch API</a></p>
 </blockquote>
 </div>
             </div>

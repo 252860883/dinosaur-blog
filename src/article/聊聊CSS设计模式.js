@@ -75,7 +75,7 @@ export default class Template extends React.Component {
 
 <h3 id='SMACSS'>SMACSS</h3>
 
-<p><strong>SMACSS(Scalable and Modular Architecture for CSS)</strong>,具体更详细的规范定义可以<a href="http://smacss.com/">戳这里</a>。SMACSS将css分为5类：Base(基础样式)、Layout(布局样式)、Module(模块样式)、State(状态样式)、Theme(主题样式)。</p>
+<p><strong>SMACSS(Scalable and Modular Architecture for CSS)</strong>,具体更详细的规范定义可以<a target="_blank" href="http://smacss.com/">戳这里</a>。SMACSS将css分为5类：Base(基础样式)、Layout(布局样式)、Module(模块样式)、State(状态样式)、Theme(主题样式)。</p>
 
 <h4 id='Base'>Base</h4>
 
@@ -201,7 +201,7 @@ export default class Template extends React.Component {
 <h3 id='参考'>参考</h3>
 
 <blockquote>
-  <p><a href="https://segmentfault.com/a/1190000000389838">CSS设计模式：OOCSS 和 SMACSS</a><br></br><a href="https://segmentfault.com/a/1190000000388784">编写可维护的CSS</a></p>
+  <p><a target="_blank" href="https://segmentfault.com/a/1190000000389838">CSS设计模式：OOCSS 和 SMACSS</a><br></br><a target="_blank" href="https://segmentfault.com/a/1190000000388784">编写可维护的CSS</a></p>
 </blockquote>
 </div>
             </div>

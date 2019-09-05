@@ -240,7 +240,7 @@ export default class Template extends React.Component {
 <h3 id='参考'>参考</h3>
 
 <blockquote>
-  <p><a href="https://muyiy.vip/question/async/9.html">Async/Await 如何通过同步的方式实现异步</a></p>
+  <p><a target="_blank" href="https://muyiy.vip/question/async/9.html">Async/Await 如何通过同步的方式实现异步</a></p>
 </blockquote>
 </div>
             </div>

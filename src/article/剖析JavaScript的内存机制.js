@@ -55,7 +55,7 @@ export default class Template extends React.Component {
 
 <h3 id='深拷贝与浅拷贝'>深拷贝与浅拷贝</h3>
 
-<p>通过上面的堆栈分析，就引申到了对象深浅拷贝的问题。<br></br> - <strong>浅拷贝</strong><br></br>浅拷贝只能复制一层对象的属性，深层的属性只能被引用，当被引用的深层属性值改变时，复制者也会随着改变。通俗来讲，浅拷贝就是拷贝第一层的基本类型值，以及第一层的引用类型地址。一张图看原理：<br></br><img src="http://wx4.sinaimg.cn/mw690/a73bc6a1ly1fq8t5rivvmj20gf075weq.jpg" alt="image" title="" /></p>
+<p>通过上面的堆栈分析，就引申到了对象深浅拷贝的问题。<br></br>- <strong>浅拷贝</strong><br></br>浅拷贝只能复制一层对象的属性，深层的属性只能被引用，当被引用的深层属性值改变时，复制者也会随着改变。通俗来讲，浅拷贝就是拷贝第一层的基本类型值，以及第一层的引用类型地址。一张图看原理：<br></br><img src="http://wx4.sinaimg.cn/mw690/a73bc6a1ly1fq8t5rivvmj20gf075weq.jpg" alt="image" title="" /></p>
 
 <p>同时需要注意浅拷贝和赋值操作是不一样的：赋值操作只是把栈中的地址传给新的对象，所以两个对象哪一个进行修改都会被改变。而浅拷贝会创建一个新的对象，和赋值不一样的地方是如果对应的相关属性值是基本类型，互相不干涉。</p>
 
@@ -63,52 +63,75 @@ export default class Template extends React.Component {
 
 <ul>
 <li><p><strong>深拷贝</strong><br></br>深拷贝相反，会完完整整的深层遍历复制一个对象，而不是深层引用。如图：<br></br><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1fq8t5rz7uuj20g906wmxe.jpg" alt="image" title="" /></p></li>
-<li><p><strong>实现深拷贝</strong></p>
-
-<ol><li>利用JSON API
-</li></ol></li>
+<li><p><strong>实现深拷贝</strong></p></li>
+<li><p>利用JSON API</p></li>
 </ul>
 
 <pre><code><span></span>
-<span>        let newobj=JSON.parse(JSON.stringify(obj));</span>
-<span>        </span>
+<span>let newobj=JSON.parse(JSON.stringify(obj));</span>
+<span></span>
+<span></span>
 </code></pre>
 
-<p>注意：由于 JSON.stringify() 不接受函数，所以该方法不能拷贝函数<br></br>     2. 递归遍历<br></br>        </p>
+<p>注意：由于 JSON.stringify() 不接受函数，所以该方法不能拷贝函数</p>
+
+<ul>
+<li>递归遍历</li>
+</ul>
 
 <pre><code><span></span>
-<span>        //定义检测数据类型的功能函数</span>
-<span>        function checkedType(target) {'{'}</span>
-<span>            return Object.prototype.toString.call(target).slice(8, -1)</span>
+<span>/**</span>
+<span> * 深拷贝函数</span>
+<span> */</span>
+<span>function deepClone(obj) {'{'}</span>
+<span>    // 首先判断 Date 和 RegExp 类型</span>
+<span>    if (obj instanceof RegExp) return new RegExp(obj);</span>
+<span>    if (obj instanceof Date) return new Date(obj);</span>
+<span>    // 基础数据类型直接返回</span>
+<span>    if (obj === null || (typeof obj != 'object')) return obj;</span>
+<span>    // obj如果是数组 obj.constructor 返回 [function:Array],obj如果是对象返回 [function:Object]</span>
+<span>    let t = new obj.constructor();</span>
+<span>    // 复杂类型进行递归</span>
+<span>    for (let key in obj) {'{'}</span>
+<span>        if (obj.hasOwnProperty(key)) {'{'}</span>
+<span>            t[key] = deepClone(obj[key]);</span>
 <span>        }</span>
-<span>        //实现深度克隆---对象/数组</span>
-<span>        function clone(target) {'{'}</span>
-<span>            //判断拷贝的数据类型</span>
-<span>            //初始化变量result 成为最终克隆的数据</span>
-<span>            let result, targetType = checkedType(target)</span>
-<span>            if (targetType === 'Object') {'{'}</span>
-<span>                result = {'{'}}</span>
-<span>            } else if (targetType === 'Array') {'{'}</span>
-<span>                result = []</span>
-<span>            } else {'{'}</span>
-<span>                return target</span>
-<span>            }</span>
-<span>            //遍历目标数据</span>
-<span>            for (let i in target) {'{'}</span>
-<span>                //获取遍历数据结构的每一项值。</span>
-<span>                let value = target[i]</span>
-<span>                //判断目标结构里的每一值是否存在对象/数组</span>
-<span>                if (checkedType(value) === 'Object' ||</span>
-<span>                checkedType(value) === 'Array') {'{'} //对象/数组里嵌套了对象/数组</span>
-<span>                //继续遍历获取到value值</span>
-<span>                result[i] = clone(value)</span>
-<span>                } else {'{'} //获取到value值是基本的数据类型或者是函数。</span>
-<span>                result[i] = value;</span>
-<span>                }</span>
-<span>            }</span>
-<span>            return result</span>
+<span>    }</span>
+<span>    return t;</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<ul>
+<li>递归遍历解决环问题</li>
+</ul>
+
+<p>上面的递归深拷贝看似没什么问题了，但是我们得思考一下如果我们要深拷贝的对象出现了<strong>循环引用</strong>，即类似于<code>obj.loop = obj</code>的情况时，我们再执行deepClone函数就会陷入死循环，为了解决这个问题，我们需要引入WeakMap来存储拷贝过的对象，每次执行deepClone时候都先查询是否拷贝过，如果拷贝过直接返回该对象的引用，否则执行后续步骤：</p>
+
+<pre><code><span></span>
+<span>function deepClone(obj,hash = new WeakMap()) {'{'}</span>
+<span>    // 判断是否已经拷贝过该对象</span>
+<span>    if(hash.has(obj)){'{'}</span>
+<span>        return hash.get(obj)</span>
+<span>    }</span>
+<span>    // 首先判断 Date 和 RegExp 类型</span>
+<span>    if (obj instanceof RegExp) return new RegExp(obj);</span>
+<span>    if (obj instanceof Date) return new Date(obj);</span>
+<span>    // 基础数据类型直接返回</span>
+<span>    if (obj === null || (typeof obj != 'object')) return obj;</span>
+<span>    // obj如果是数组 obj.constructor 返回 [function:Array],obj如果是对象返回 [function:Object]</span>
+<span>    let t = new obj.constructor();</span>
+<span>    // 将 obj 作为 key 写入 weakmap</span>
+<span>    hash.set(obj,t);</span>
+<span>    // 复杂类型进行递归</span>
+<span>    for (let key in obj) {'{'}</span>
+<span>        if (obj.hasOwnProperty(key)) {'{'}</span>
+<span>            t[key] = deepClone(obj[key],hash);</span>
 <span>        }</span>
-<span>        </span>
+<span>    }</span>
+<span>    return t;</span>
+<span>}</span>
+<span></span>
 </code></pre>
 
 <h3 id='内存的生命周期'>内存的生命周期</h3>
