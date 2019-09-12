@@ -10,7 +10,7 @@ export default class Article extends React.Component {
             topArticleMenu: [],
             normalArticleMenu: [],
             showArticleMenu: [],
-            limit: 14,
+            limit: 140,
             page: 1,
             total: 0
         }

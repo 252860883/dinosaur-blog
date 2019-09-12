@@ -305,6 +305,30 @@ input::-webkit-input-placeholder {
             
 ```
 
+### 11.💎CSS计数器
+![image](http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g6upy64ft9j20jg0awaas.jpg)
+
+```
+<style>
+body { 
+  counter-reset: index; /* 初始化一个计数器,默认值为1 */ 
+}
+.item{ 
+  counter-increment: index; /* 递增该值 */ 
+}
+.item::before{
+  content: " -" counter(index) "- "; /* 将计数器的值添加到元素 */
+  color: brown;
+}
+</style>
+
+<div>
+    <div class="item">这是一个item</div>
+    <div class="item">这是一个item</div>
+    <div class="item">这是一个item</div>
+    <div class="item">这是一个item</div>
+</div>
+```
 
 ### 参考
 [你未必知道的49个CSS知识点](https://mp.weixin.qq.com/s/iD8rinWJ_PEI3UZu4-PcMg)

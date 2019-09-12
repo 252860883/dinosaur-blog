@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"7.💎隐藏元素三种方法比较"},{"level":"h3","title":"8.💎1px问题"},{"level":"h3","title":"9.💎单侧投影"},{"level":"h3","title":"10.💎清除input默认样式"},{"level":"h3","title":"参考"}]
+            headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"7.💎隐藏元素三种方法比较"},{"level":"h3","title":"8.💎1px问题"},{"level":"h3","title":"9.💎单侧投影"},{"level":"h3","title":"10.💎清除input默认样式"},{"level":"h3","title":"11.💎CSS计数器"},{"level":"h3","title":"参考"}]
         }
     }
     componentDidMount() {
@@ -344,6 +344,33 @@ export default class Template extends React.Component {
 <span>            color #B0B8C7</span>
 <span>            font-weight bold</span>
 <span></span>
+<span></span>
+</code></pre>
+
+<h3 id='11.💎CSS计数器'>11.💎CSS计数器</h3>
+
+<p><img src="http://wx2.sinaimg.cn/mw690/a73bc6a1ly1g6upy64ft9j20jg0awaas.jpg" alt="image" title="" /></p>
+
+<pre><code><span></span>
+<span>&lt;style&gt;</span>
+<span>body {'{'} </span>
+<span>  counter-reset: index; /* 初始化一个计数器,默认值为1 */ </span>
+<span>}</span>
+<span>.item{'{'} </span>
+<span>  counter-increment: index; /* 递增该值 */ </span>
+<span>}</span>
+<span>.item::before{'{'}</span>
+<span>  content: " -" counter(index) "- "; /* 将计数器的值添加到元素 */</span>
+<span>  color: brown;</span>
+<span>}</span>
+<span>&lt;/style&gt;</span>
+<span></span>
+<span>&lt;div&gt;</span>
+<span>    &lt;div class="item"&gt;这是一个item&lt;/div&gt;</span>
+<span>    &lt;div class="item"&gt;这是一个item&lt;/div&gt;</span>
+<span>    &lt;div class="item"&gt;这是一个item&lt;/div&gt;</span>
+<span>    &lt;div class="item"&gt;这是一个item&lt;/div&gt;</span>
+<span>&lt;/div&gt;</span>
 <span></span>
 </code></pre>
 
