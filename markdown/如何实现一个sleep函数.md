@@ -57,7 +57,7 @@ sleep(5000).then(() => {
 所以不用纠结如何实现 sleep() 函数，选择合适的编码方式最重要了 ：）
 
 ### 参考
->[js中实现sleep函数](https://www.cnblogs.com/mfryf/p/3142681.html)
+[js中实现sleep函数](https://www.cnblogs.com/mfryf/p/3142681.html)
 [简短优雅地利用js实现 sleep 函数](https://juejin.im/post/5cc7ddaf6fb9a032106bda07)
 
 

@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"Array.prototype.forEach"},{"level":"h3","title":"Array.prototype.map"},{"level":"h3","title":"Array.prototype.Filter"},{"level":"h3","title":"Array.prototype.Sort"},{"level":"h3","title":"Array.prototype.Some"},{"level":"h3","title":"Array.prototype.Every"},{"level":"h3","title":"Array.prototype.FindIndex"},{"level":"h3","title":"Array.prototype.Find"},{"level":"h3","title":"Array.prototype.Reduce"},{"level":"h3","title":"Array.prototype.reduceRight"},{"level":"h3","title":"Array.prototype.includes(ES6新增)"},{"level":"h3","title":"Array.isArray(ES6新增)"},{"level":"h3","title":"Array.prototype.fill(ES6新增)"},{"level":"h3","title":"Array.prototype.entries/keys/values(ES6新增)"},{"level":"h3","title":"Array.of(ES6新增)"}]
+            headerLink: [{"level":"h3","title":"Array.prototype.forEach"},{"level":"h3","title":"Array.prototype.map"},{"level":"h3","title":"Array.prototype.Filter"},{"level":"h3","title":"Array.prototype.Sort"},{"level":"h3","title":"Array.prototype.Some"},{"level":"h3","title":"Array.prototype.Every"},{"level":"h3","title":"Array.prototype.FindIndex"},{"level":"h3","title":"Array.prototype.Find"},{"level":"h3","title":"Array.prototype.Reduce"},{"level":"h3","title":"Array.prototype.reduceRight"},{"level":"h3","title":"Array.prototype.includes(ES6新增)"},{"level":"h3","title":"Array.isArray(ES6新增)"},{"level":"h3","title":"Array.prototype.fill(ES6新增)"},{"level":"h3","title":"Array.prototype.entries/keys/values(ES6新增)"},{"level":"h3","title":"Array.of(ES6新增)"},{"level":"h3","title":"Array.from"}]
         }
     }
     componentDidMount() {
@@ -131,6 +131,9 @@ export default class Template extends React.Component {
 <span>[0,1,2,3,4,5,6].fill('*',1,5)</span>
 <span>// [0, "*", "*", "*", "*", 5, 6]</span>
 <span></span>
+<span>[0,1,2,3,4,5,6].fill('*')</span>
+<span>// [0, "*", "*", "*", "*","*","*"]</span>
+<span></span>
 </code></pre>
 
 <h3 id='Array.prototype.entries/keys/values(ES6新增)'>Array.prototype.entries/keys/values(ES6新增)</h3>
@@ -159,6 +162,23 @@ export default class Template extends React.Component {
 <span></span>
 <span>Array(7);          // [ , , , , , , ]</span>
 <span>Array(1, 2, 3);    // [1, 2, 3]</span>
+<span></span>
+</code></pre>
+
+<h3 id='Array.from'>Array.from</h3>
+
+<p>从一个类似数组或可迭代对象中创建一个新的，浅拷贝的数组实例</p>
+
+<pre><code><span></span>
+<span>Array.from('foo')</span>
+<span>// output: Array ["f", "o", "o"]</span>
+<span></span>
+<span>Array.from([1, 2, 3], x =&gt; x + x)</span>
+<span>// output: Array [2, 4, 6]</span>
+<span></span>
+<span>Array.from({'{'}length: 10}, (_, i) =&gt; i)</span>
+<span>// output: Array [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span></span>
 <span></span>
 </code></pre>
 </div>

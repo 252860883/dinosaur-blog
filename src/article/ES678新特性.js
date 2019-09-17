@@ -265,13 +265,18 @@ export default class Template extends React.Component {
 
 <h3 id='Map 和 WeakMap'>Map 和 WeakMap</h3>
 
-<p>Map(字典) 在 JavaScript 中是一个非常必须的数据结构。和set结构的区别是：集合 是以 [value, value]的形式储存元素，字典 是以 [key, value] 的形式储存。<br></br>在ES6之前通过object实现哈希表,但是ES6引入map结构后有一些优点</p>
+<p>Map(字典) 在 JavaScript 中是一个非常必须的数据结构。和set结构的区别是：集合 是以 [value, value]的形式储存元素，字典 是以 [key, value] 的形式储存。</p>
 
-<ol>
-<li>map可以使用任何类型的值作为key值，允许对值进行 set、get 和 search</li>
-<li>object有原型，原型链上的键名有可能和对象上的键名产生冲突，但是map不会出现这种问题</li>
-<li>map可以直接通过 .size计算键值对个数</li>
-</ol>
+<p>Objects 和 Maps 类似的是，它们都允许你按键存取一个值、删除键、检测一个键是否绑定了值。因此（并且也没有其他内建的替代方式了）过去我们一直都把对象当成 Maps 使用。不过 Maps 和 Objects 有一些重要的区别，在下列情况里使用 Map 会是更好的选择：</p>
+
+<ul>
+<li>一个Object的键只能是字符串或者 Symbols，但一个 Map 的键可以是任意值，包括函数、对象、基本类型。</li>
+<li>Map 中的键值是有序的，而添加到对象中的键则不是。因此，当对它进行遍历时，Map 对象是按插入的顺序返回键值。</li>
+<li>你可以通过 size 属性直接获取一个 Map 的键值对个数，而 Object 的键值对个数只能手动计算。</li>
+<li>Map 可直接进行迭代，而 Object 的迭代需要先获取它的键数组，然后再进行迭代。</li>
+<li>Object 都有自己的原型，原型链上的键名有可能和你自己在对象上的设置的键名产生冲突。</li>
+<li>Map 在涉及频繁增删键值对的场景下会有些性能优势。</li>
+</ul>
 
 <pre><code><span></span>
 <span>let map2=new Map([['name','danny'],[true,false]])</span>

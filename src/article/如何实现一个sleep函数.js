@@ -78,9 +78,7 @@ export default class Template extends React.Component {
 
 <h3 id='参考'>参考</h3>
 
-<blockquote>
-  <p><a target="_blank" href="https://www.cnblogs.com/mfryf/p/3142681.html">js中实现sleep函数</a><br></br><a target="_blank" href="https://juejin.im/post/5cc7ddaf6fb9a032106bda07">简短优雅地利用js实现 sleep 函数</a></p>
-</blockquote>
+<p><a target="_blank" href="https://www.cnblogs.com/mfryf/p/3142681.html">js中实现sleep函数</a><br></br><a target="_blank" href="https://juejin.im/post/5cc7ddaf6fb9a032106bda07">简短优雅地利用js实现 sleep 函数</a></p>
 </div>
             </div>
 

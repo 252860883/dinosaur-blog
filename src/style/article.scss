@@ -23,7 +23,7 @@
             font-size: 16px;
             line-height: 20px;
             background: rgba($light, .5);
-            padding:20px;
+            padding: 20px;
 
             .time {
                 margin-right: 10px;
@@ -76,11 +76,11 @@
 /*  文章版式 */
 .article {
     width: 6.5rem;
-    margin: 0.50rem auto 2rem auto;
-    font-size: 0.15rem;
-    // line-height: 0.20rem;
+    margin: 0.50rem auto;
+    font-size: 0.16rem;
+    font-family: PingFang SC, Microsoft Yehei, Hiragino Sans GB;
     color: #555;
-    line-height: 0.27rem;
+    line-height: 1.8;
 
     // animation: slideLeft .5s ease-in-out;
     .title-content {
@@ -89,11 +89,12 @@
         background: url('../assets/article-bg.png') no-repeat;
         background-size: auto;
         padding: 0.5rem 0.2rem;
-        margin: 0 auto 1rem auto;
+        margin: 0 auto 0.6rem auto;
         box-sizing: border-box;
         text-align: center;
         display: flex;
         justify-content: center;
+
         .title {
             min-width: 50%;
             max-width: 90%;
@@ -101,28 +102,17 @@
             padding: 0.1rem;
             font-size: 0.18rem;
             line-height: 0.3rem;
-            background: rgba(#fff,.5);
-            margin: 0 ;
+            background: rgba(#fff, .5);
+            margin: 0;
             display: inline-block;
             box-sizing: border-box;
-            &::before{
+
+            &::before {
                 content: "";
                 display: none;
             }
         }
     }
-
-
-    p {
-        margin: 0.20rem auto;
-        text-align: justify;
-        line-height: 2.5;
-    }
-
-    strong{
-        color: #223333;
-    }
-
 
     h1,
     h2,
@@ -139,7 +129,7 @@
     h1,
     h2,
     h3 {
-        margin: 0.80rem 0 0.3rem 0;
+        margin: 0.50rem 0 0.2rem 0;
         font-weight: bolder;
         transform-origin: left bottom;
         transform: scale(1.1);
@@ -160,6 +150,16 @@
         margin-top: 0.5rem;
     }
 
+    p,
+    ul {
+        margin: 0.2rem auto;
+        text-align: justify;
+        line-height: 1.8;
+    }
+
+    strong {
+        color: #223333;
+    }
 
     img {
         display: block;
@@ -182,35 +182,39 @@
         // text-decoration: none;
     }
 
-    pre code {
-        display: block;
-        padding: 0.10rem;
-        margin: 0.20rem 0;
-        white-space: pre-line;
-        overflow: auto;
-        border-radius: 0;
-        color: #888;
-        span {
-            display: block;
-            line-height: 0.25rem;
-            white-space: pre;
-        }
-    }
-
     code {
         display: inline-block;
         background: $light;
         color: $o;
-        padding: 0.02rem 0.04rem;
+        padding: 0 0.04rem;
         border-radius: 0.03rem;
         word-wrap: break-word;
         box-sizing: border-box;
         margin: 0 0.02rem;
-        font-size: 0.13rem;
-        line-height: 0.15rem;
+        font-size: 0.14rem;
+        font-family: Menlo, Monaco, Consolas, Courier New, monospace;
     }
 
-    ol,ul {
+    pre code {
+        display: block;
+        padding: 0.1rem 0.15rem;
+        margin: 0.10rem 0;
+        white-space: pre-line;
+        overflow: auto;
+        border-radius: 0;
+        color: #cdd;
+        background: #333;
+        border-radius: 0.04rem;
+
+        span {
+            display: block;
+            line-height: 0.28rem;
+            white-space: pre;
+        }
+    }
+
+    ol,
+    ul {
         list-style-type: disc;
 
         li {
@@ -220,14 +224,18 @@
     }
 
     blockquote {
-        border-left: 0.04rem solid $o;
+        border-left: 0.06rem solid $o;
         padding: 0.10rem;
         background: $light;
-        color: #777;
+        opacity: 0.7;
+        margin: 0.1rem 0;
 
         p {
             margin: 0 auto;
             line-height: 2;
+        }
+        code{
+            padding: 0;
         }
     }
 
@@ -236,26 +244,21 @@
         border-radius: 0.03rem;
         overflow: hidden;
         box-sizing: border-box;
+        background: $light;
 
         tr {
-
             th {
-                background: #222;
-                border: 0.01rem solid #222;
-                color: #eee;
-                line-height: 0.40rem;
+                border: 0.01rem solid #ccc;
+                padding: 0.1rem;
             }
-
             td {
                 text-align: center;
                 vertical-align: middle;
-                border-bottom: 0.01rem solid #222;
-                border-right: 0.01rem solid #222;
-                line-height: 0.30rem;
-                padding: 0 0.1rem;
-
+                border-bottom: 0.01rem solid #ccc;
+                border-right: 0.01rem solid #ccc;
+                padding: 0.1rem;
                 &:first-of-type {
-                    border-left: 0.01rem solid #222;
+                    border-left: 0.01rem solid #ccc;
                 }
             }
 

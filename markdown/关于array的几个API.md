@@ -91,6 +91,9 @@ Array.isArray({foo: 123});
 ```
 [0,1,2,3,4,5,6].fill('*',1,5)
 // [0, "*", "*", "*", "*", 5, 6]
+
+[0,1,2,3,4,5,6].fill('*')
+// [0, "*", "*", "*", "*","*","*"]
 ```
 
 ### Array.prototype.entries/keys/values(ES6新增)
@@ -115,5 +118,19 @@ Array.of(1, 2, 3); // [1, 2, 3]
 
 Array(7);          // [ , , , , , , ]
 Array(1, 2, 3);    // [1, 2, 3]
+```
+
+### Array.from
+从一个类似数组或可迭代对象中创建一个新的，浅拷贝的数组实例
+```
+Array.from('foo')
+// output: Array ["f", "o", "o"]
+
+Array.from([1, 2, 3], x => x + x)
+// output: Array [2, 4, 6]
+
+Array.from({length: 10}, (_, i) => i)
+// output: Array [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 ```
 
