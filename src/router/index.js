@@ -52,9 +52,9 @@ export default class Root extends React.Component {
     }
 
     componentDidMount() {
-        if (IsPC()) {
-            document.getElementsByTagName('html')[0].style.fontSize = '100px'
-        }
+        // if (IsPC()) {
+        //     document.getElementsByTagName('html')[0].style.fontSize = '100px'
+        // }
     }
     render() {
         // return this.state.loading ? <Loading></Loading> : routes;

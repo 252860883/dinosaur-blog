@@ -6,76 +6,80 @@
 
 .container {
     position: relative;
-    width: 800px;
-    margin: 80px auto 0 auto;
-    perspective: 50px;
+    width: 3.75rem;
+    margin: 0.2rem auto 0 auto;
+    overflow: hidden;
 
-    #box {
-        width: 800px;
-        height: 470px;
-        background: url('../assets/dinosaur.png') no-repeat center;
-        background-size: 100% 100%;
-        margin: 0 auto;
-        transition: all 0.2s;
-        z-index: 1;
+    .dinosaur {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
-    .word {
-        position: absolute;
-        right: 0;
-        top: 200px;
-        width: 400px;
-        height: 150px;
-        background: url('../assets/word.png') no-repeat;
-        background-size: 100% auto;
-        transition: all 0.2s;
-    }
+    // .word-1 {
+    //     position: absolute;
+    //     right: 10%;
+    //     top: 30%;
+    //     width: 4rem;
+    //     height: 1.5rem;
+    //     background: url('../assets/word-1.png') no-repeat;
+    //     background-size: 100% auto;
+    //     z-index: 2;
+    // }
+
+    // .word-2 {
+    //     position: absolute;
+    //     right: 10%;
+    //     top: 40%;
+    //     width: 3rem;
+    //     height: 1.5rem;
+    //     background: url('../assets/word-2.png') no-repeat;
+    //     background-size: 100% auto;
+    //     z-index: 2;
+    // }
 
     .circle {
         position: absolute;
-        left: 180px;
-        bottom: 10px;
-        width: 220px;
-        height: 220px;
-        background: url('../assets/circle.png') no-repeat;
-        background-size: 100% 100%;
-        transition: all 0.2s;
+        left: 0.8rem;
+        bottom: 0.1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: linear-gradient(rgba(blue, 0.7), transparent);
+        border-radius: 50%;
     }
 }
 
-.mainBlock-title {
-    font-size: 0.18rem;
-    color: $o;
-    text-align: center;
-    margin: 1rem auto 0.1rem auto;
-    font-family: Main;
-    font-weight: 100%;
-}
-
 .mainBlock {
-    // width: 9rem;
+    width: 100%;
     margin: 0.5rem auto;
     @include flexNormal;
 
     .item {
-        width: 1.8rem;
-        height: 1.8rem;
-        margin: 0.3rem 0.15rem;
-        @include flexNormal;
-        flex-direction: column;
+        width: auto;
+        margin: 0 0.15rem;
         cursor: pointer;
         transition: all .3s;
         box-sizing: border-box;
         filter: grayscale(90%);
+        background: #666;
 
         &:hover {
             filter: grayscale(0%);
-            transform:scale(1.01);
+            transform: scale(1.01);
+        }
+
+        &:last-of-type {
+            margin-left: 0;
+        }
+
+        &:first-of-type {
+            margin-right: 0;
         }
 
         .item-icon {
             width: 100%;
             height: 100%;
+            display: block;
         }
     }
 }
@@ -87,63 +91,4 @@
     text-align: center;
     color: #666;
     box-sizing: border-box;
-}
-
-// 移动端
-.mobile-app {
-    .container {
-        width: 100%;
-        margin: 0.3rem auto 0 auto;
-        perspective: 0.5rem;
-
-        #box {
-            width: 100%;
-            height: 2.3rem;
-        }
-
-        .word {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            width: 2rem;
-            height: 0.75rem;
-            margin-top: -0.3rem;
-        }
-
-        .circle {
-            position: absolute;
-            left: 0.90rem;
-            bottom: 0.05rem;
-            width: 1.1rem;
-            height: 1.1rem;
-        }
-    }
-
-    .mainBlock-title {
-        margin: 0.5rem auto 0.1rem auto;
-    }
-
-    .mainBlock {
-        .item {
-            width: 1rem;
-            height: 1rem;
-            margin: 0.1rem;
-            border-radius: 0;
-        }
-    }
-}
-
-
-.black-button {
-    width: 80px;
-    text-align: center;
-    display: block;
-    background: #000;
-    color: #ffffff;
-    border: none;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 15px 50px;
-    margin: 100px auto;
-
 }

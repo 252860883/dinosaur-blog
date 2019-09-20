@@ -7,16 +7,15 @@ $light:#f8f8f8;
 
 // 自定义字体
 
-@font-face {
-    font-family: Main;
-    // src: url('../assets/Futura.ttc');
+html{
+    font-size: calc(100vw/375*100);
+    height: 100%;
 }
 
-html,
-body {
-    font-size: calc(100vw/365*100);
-    transition: all .5s;
-    height: 100%;
+@media screen and (min-width:600px) {
+    html {
+        font-size: 160px;
+    }
 }
 
 #root {
