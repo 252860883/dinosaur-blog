@@ -63,11 +63,11 @@ class Article extends React.Component {
         return (
             <div className="article-lists">
                 {
-                    this.state.page == 1 && !this.props.hideNormal && <img className="article-title" src={require('../assets/sticky-title.jpg')} />
+                    this.state.page === 1 && !this.props.hideNormal && <img alt="" className="article-title" src={require('../assets/sticky-title.jpg')} ></img>
                 }
                 {
                     this.state.topArticleMenu.map(item => {
-                        if (this.state.page != 1) return;
+                        if (this.state.page !== 1) return "";
                         return (
                             <div key={item.link} className="article-item article-item-top" onClick={this.clickToArticle.bind(this, item)}>
                                 <span className='time'>{item.date.split(' ')[0]} </span>
@@ -78,7 +78,7 @@ class Article extends React.Component {
                 }
                 {
                     
-                    !this.props.hideNormal && <img className="article-title" src={require('../assets/normal-title.jpg')} />
+                    !this.props.hideNormal && <img alt="" className="article-title" src={require('../assets/normal-title.jpg')} />
                 }
                 {
                     !this.props.hideNormal && this.state.showArticleMenu.map(item => {

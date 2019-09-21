@@ -31,7 +31,7 @@ export default class Main extends React.Component {
                         <div className='tag'>Reading Assistance ·</div>
                         {
                             this.props.headerLink.map((item, index) => {
-                                return <a className={'a' + item.level} key={index} onClick={this.clickPosBtn.bind(this, item.title)}>{item.title}</a>
+                                return <span href="" className={'a' + item.level} key={index} onClick={this.clickPosBtn.bind(this, item.title)}>{item.title}</span>
                             })
                         }
                     </div>

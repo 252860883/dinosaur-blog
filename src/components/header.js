@@ -37,9 +37,9 @@ class Header extends React.Component {
         nav = (
             <nav>
                 {RouterMenu.map(item => {
-                    if (item.article) return
+                    if (item.article) return ""
                     else return (
-                        <a key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</a>
+                        <span key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</span>
                     )
                 })
                 }

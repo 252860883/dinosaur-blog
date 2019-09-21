@@ -51,7 +51,7 @@ let ArticleMenu = [
 	{"title":"小程序实现仿KeepApp的滑动图表","date":"2018-05-10 15:11:28","tags":"小程序","link":"/小程序实现仿KeepApp的滑动图表","article":true},
 	{"title":"小程序实现图片懒加载的三种方式","date":"2018-09-11 14:22:11","tags":"小程序","top":"","link":"/小程序实现图片懒加载的三种方式","article":true},
 	{"title":"小程序封装异步请求接口","date":"2018-05-10 15:04:47","tags":"[小程序,VUE,javascript]","link":"/小程序封装异步请求接口","article":true},
-	{"title":"每天一点CSS小技巧（不定期更新中...）","date":"2019-02-21 16:10:30","tags":"CSS","top":"true","link":"/每天一点CSS小技巧","article":true},
+	{"title":"每天一点CSS小技巧","date":"2019-02-21 16:10:30","tags":"CSS","top":"true","link":"/每天一点CSS小技巧","article":true},
 	{"title":"浏览器渲染原理","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器渲染原理","article":true},
 	{"title":"浏览器缓存机制","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/浏览器缓存机制","article":true},
 	{"title":"深入webpack4.0（一）整体架构","date":"2018-07-16 15:40:08","tags":"[\"webpack\",\"javascript\"]","link":"/深入webpack4.0（一）配置及部分原理","article":true},
@@ -70,9 +70,6 @@ let ArticleMenu = [
 RouterMenu = ArticleMenu.concat(RouterOrigin)
 
 class RouterMap extends React.Component {
-	constructor() {
-		super()
-	}
 	componentWillMount() {
 		this.changeThemeColor(this.props.location);
 		this.props.history.listen((location) => {

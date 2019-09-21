@@ -26,7 +26,7 @@ export default class pic3D extends React.Component {
                 <div className="word-1"></div>
                 <div className="word-2"></div>
                 <div className="circle"></div>
-                <img className="dinosaur" src={require('../assets/dinosaur.png')}></img>
+                <img className="dinosaur" alt="" src={require('../assets/dinosaur.png')}></img>
             </div>
         )
     }
