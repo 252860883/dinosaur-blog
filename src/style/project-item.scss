@@ -1,7 +1,7 @@
 @import './common.scss';
 
 .project-item {
-    width: 4rem;
+    width: 3.75rem;
     height: auto;
     box-sizing: border-box;
     padding: 0.2rem;
@@ -12,12 +12,6 @@
     align-items: flex-start;
     // margin: 0.2rem auto;
 
-
-    &:hover {
-        opacity: 0.5;
-        border: 0.01rem solid rgba($color: #aaa, $alpha: 0.5);
-    }
-
     img {
         width: 100%;
         display: block;
@@ -25,22 +19,19 @@
     }
 
     .content {
-        // display: none;
-        // margin-left: 20px;
-        // padding: 0.1rem;
         box-sizing: border-box;
-        margin: 0.2rem 0;
+        margin-top: 0.2rem;
 
         .title {
-            font-size: 0.16rem;
+            font-size: 18px;
             padding-bottom: 0.1rem;
             color: $o;
+            font-weight: bold;
         }
 
         p {
-            font-size: 0.12rem;
-            line-height: 0.18rem;
-            height: 0.54rem;
+            font-size: 14px;
+            line-height: 1.5;
             color: #666;
             overflow: hidden;
             text-align: justify;
@@ -49,8 +40,8 @@
 
         .more {
             display: block;
-            font-size: 0.12rem;
-            line-height: 0.18rem;
+            font-size: 14px;
+            line-height: 18px;
             color: #222;
             font-weight: bold;
             cursor: pointer;

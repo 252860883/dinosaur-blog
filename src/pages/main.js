@@ -1,6 +1,7 @@
 import React from 'react'
 import '../style/main.scss'
 import MainPic3D from '../components/pic3D'
+import ArticleList from '../components/article'
 import { IsPC } from "../utils/screen";
 import { withRouter } from 'react-router-dom'
 
@@ -26,7 +27,7 @@ class Main extends React.Component {
         };
     }
 
-    componentWillMount() {}
+    componentWillMount() { }
 
     clickBlockItem(link) {
         this.props.history.push(link);
@@ -49,10 +50,9 @@ class Main extends React.Component {
                     }
 
                 </div>
-                {/* <div className="bottom-text">
-                    <div>一切都在继续，更何不去努力</div>
-                    <div>Everything is going on, let alone work hard</div>
-                </div> */}
+                <div className="article-page">
+                    <ArticleList hideNormal={true}></ArticleList>
+                </div>
             </div>
         )
     }

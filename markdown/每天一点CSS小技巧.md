@@ -1,5 +1,5 @@
 ---
-title: 每天一点CSS小技巧（不定期更新中...）
+title: 每天一点CSS小技巧
 date: 2019-02-21 16:10:30
 tags: CSS
 top: true

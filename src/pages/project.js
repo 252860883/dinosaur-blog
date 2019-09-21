@@ -34,9 +34,9 @@ export default class Project extends React.Component {
     render() {
         return (
             <div className="project">
-                <div className="project-title-content">
+                {/* <div className="project-title-content">
                     <div className="project-title">· DINOSAUR PROJECT ·</div>
-                </div>
+                </div> */}
 
                 <div className="project-content">
                     {
