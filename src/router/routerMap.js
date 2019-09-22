@@ -1,14 +1,12 @@
 import React from 'react'
 import Loadable from 'react-loadable';
 import { Route, Switch, withRouter } from 'react-router-dom';
-// import RouterLoad from "./loading";
 import '../style/common.scss'
 let RouterOrigin = [
 	{ key: 'HOME', url: import('../pages/main'), link: '/' },
 	{ key: 'ARTICLE', url: import('../pages/article'), link: '/article' },
 	{ key: 'PROJECT', url: import('../pages/project'), link: '/project' },
 	{ key: 'ABOUT', url: import('../pages/about'), link: '/about' },
-	// { key: 'Loading', url: import('../components/UI/loading'), link: '/loading' },
 ]
 let RouterMenu = []
 let ArticleMenu = [

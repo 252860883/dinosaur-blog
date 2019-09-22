@@ -112,8 +112,7 @@ checkBrowsers(paths.appPath, isInteractive)
         useYarn
       );
       // 移动到外层目录
-      console.log(process)
-      // moveDistFolder(buildFolder)
+      moveDistFolder(buildFolder)
     },
     err => {
       console.log(chalk.red('Failed to compile.\n'));

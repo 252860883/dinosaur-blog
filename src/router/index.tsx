@@ -4,15 +4,18 @@ import { downloadAllIMG } from '../utils/util'
 import { Route } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import picArr from '../assets/assets'
+
 // 引入公共组件
 import Foot from '../components/footer';
 import Header from '../components/header';
 
 import { RouterMap } from './routerMap'
 import { IsPC } from "../utils/screen";
-// import createHistory from 'history/createBrowserHistory';
 
-// import Loading from '../components/UI/loading'
+interface ISProps { }
+interface IState {
+    loading: string
+}
 
 const routes = (
     <HashRouter>
@@ -34,30 +37,24 @@ const routes = (
                     </TransitionGroup>
                     <Foot />
                 </Fragment>
-            )} />
+            )}
+        />
     </HashRouter>
 )
 
-export default class Root extends React.Component {
+export default class Root extends React.Component<ISProps, IState> {
     state = {
         loading: true
     }
     componentWillMount() {
         let ImgFolder = picArr.map(item => require('../assets/' + item))
-        downloadAllIMG(ImgFolder).then(res => {
+        downloadAllIMG(ImgFolder).then(() => {
             this.setState({
                 loading: false
             })
         })
     }
-
-    componentDidMount() {
-        // if (IsPC()) {
-        //     document.getElementsByTagName('html')[0].style.fontSize = '100px'
-        // }
-    }
     render() {
-        // return this.state.loading ? <Loading></Loading> : routes;
         return routes;
     }
 }
