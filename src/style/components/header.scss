@@ -17,7 +17,7 @@
         width: 30px;
         height: 30px;
         transition: all .3s;
-        // background: $o;
+        display: block;
     }
 
     nav {
@@ -54,59 +54,64 @@
 
 .header-sp {
     filter: invert(100%);
+
     .nav-active,
     a:hover {
         filter: invert(100%);
     }
 }
 
+@media screen and (min-width:600px) {}
+
+@media screen and (min-width:750px) {}
+
 /* 手机版适配 */
 
-.header-mobile {
-    position: relative;
-    z-index: 3;
+// .header-mobile {
+//     position: relative;
+//     z-index: 3;
 
-    .header-top {
-        padding: 0.2rem 0;
-        background: #fff;
-        position: relative;
-        z-index: 5;
+//     .header-top {
+//         padding: 0.2rem 0;
+//         background: #fff;
+//         position: relative;
+//         z-index: 5;
 
-        img {
-            display: block;
-            width: .3em;
-            margin: 0 auto;
-        }
-    }
+//         img {
+//             display: block;
+//             width: .3em;
+//             margin: 0 auto;
+//         }
+//     }
 
-    .header-top-select {
-        animation: invertALl .3s;
-        filter: invert(87.5%);
-    }
+//     .header-top-select {
+//         animation: invertALl .3s;
+//         filter: invert(87.5%);
+//     }
 
-    nav {
-        position: absolute;
-        top: 0.6rem;
-        left: 0;
-        width: 100%;
+//     nav {
+//         position: absolute;
+//         top: 0.6rem;
+//         left: 0;
+//         width: 100%;
 
-        a {
-            font-size: 0.15rem;
-            line-height: 0.15rem;
-            display: block;
-            text-align: center;
-            padding: 0.13rem 0;
-            font-style: normal;
-            font-family: Main;
-            background: #222222;
-            color: #fff;
-        }
+//         a {
+//             font-size: 0.15rem;
+//             line-height: 0.15rem;
+//             display: block;
+//             text-align: center;
+//             padding: 0.13rem 0;
+//             font-style: normal;
+//             font-family: Main;
+//             background: #222222;
+//             color: #fff;
+//         }
 
-        .nav-active {
-            color: $o;
-        }
-    }
-}
+//         .nav-active {
+//             color: $o;
+//         }
+//     }
+// }
 
 .slide-enter {
     transform: translateY(-10rem);

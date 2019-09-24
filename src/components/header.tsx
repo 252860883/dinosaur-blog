@@ -2,27 +2,33 @@ import React, { Fragment } from 'react'
 import '../style/components/header.scss'
 import { RouterMenu } from '../router/routerMap'
 import { withRouter } from 'react-router-dom';
-import { IsPC } from "../utils/screen";
+// import { IsPC } from "../utils/screen";
 import { CSSTransition } from "react-transition-group";
 
 interface IsState {
     path: string,
-    showNav: boolean
+    showNav: boolean,
+    isMobile: boolean
 }
 
 class Header extends React.Component<any, IsState> {
-    // constructor() {
-    // super()
+
     state = {
         path: "/",
-        showNav: false
+        showNav: false,
+        isMobile: false
     }
-    // }
+
     componentWillMount() {
         if (!this.props.history.location.pathname) return;
         this.setState({
             path: this.props.history.location.pathname
         })
+    }
+    componentDidMount() {
+        window.onresize = (e: any) => {
+            console.log(e)
+        }
     }
     clickNav(route: any) {
         this.props.history.push(route.link);
@@ -52,32 +58,32 @@ class Header extends React.Component<any, IsState> {
             </nav>
         )
 
-        if (IsPC()) {
-            header = (<div className={headerSp ? 'header header-sp' : 'header'} >
-                <img className="logo" alt="" src={require('../assets/logo.png')} />
-                {nav}
-            </div>)
+        if (this.state.isMobile) {
+            header = (
+                <header className={headerSp ? 'header header-sp' : 'header'} onClick={this.clickTop.bind(this)}>
+                    <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
+                        <img className="logo" alt="" src={require('../assets/logo.png')} />
+                    </div>
+                    <CSSTransition
+                        in={this.state.showNav}
+                        classNames="slide"
+                        unmountOnExit
+                        timeout={500}
+                    >
+                        {nav}
+                    </CSSTransition>
+                </header>
+            )
         } else {
-            header = (<div className={headerSp ? 'header-mobile header-sp' : 'header-mobile'} onClick={this.clickTop.bind(this)}>
-                <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
+            header = (
+                <header className={headerSp ? 'header header-sp' : 'header'} >
                     <img className="logo" alt="" src={require('../assets/logo.png')} />
-                </div>
-                <CSSTransition
-                    in={this.state.showNav}
-                    classNames="slide"
-                    unmountOnExit
-                    timeout={500}
-                >
                     {nav}
-                </CSSTransition>
-            </div>)
+                </header>
+            )
         }
 
-        return (
-            <Fragment>
-                {header}
-            </Fragment>
-        )
+        return (<Fragment>{header}</Fragment>)
     }
 }
 export default withRouter(Header);

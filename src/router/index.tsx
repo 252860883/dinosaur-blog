@@ -46,7 +46,7 @@ export default class Root extends React.Component<any, IState> {
         loading: true
     }
     componentWillMount() {
-        let ImgFolder = picArr.map(item => require('../assets/' + item))
+        let ImgFolder: Array<any> = picArr.map(item => require('../assets/' + item))
         downloadAllIMG(ImgFolder).then(() => {
             this.setState({
                 loading: false
