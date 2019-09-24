@@ -28,8 +28,7 @@ export default class Project extends React.Component {
             content: "自习帮致力于提高校园自习室利用率，学生用户可以在此平台创建、预约、申请、查询自习室，同时还有个人中心、提醒、排行榜、聊天等功能。"
         }],
     }
-    componentWillMount() {
-    }
+    componentWillMount() {}
 
     render() {
         return (

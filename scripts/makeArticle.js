@@ -29,8 +29,8 @@
     })
 
     // 修改路由定向
-    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.js', 'utf8').replace(/ArticleMenu\s*\=\s*\[[\s\S]*\]\/\/end/, "ArticleMenu = [\n" + routers + ']//end')
-    fs.writeFileSync(routerPath + '/routerMap.js', newRouterConfig)
+    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.tsx', 'utf8').replace(/ArticleMenu\s*\=\s*\[[\s\S]*\]\/\/end/, "ArticleMenu = [\n" + routers + ']//end')
+    fs.writeFileSync(routerPath + '/routerMap.tsx', newRouterConfig)
 
     //  处理标题等信息
     function _handleMDData(mdData) {

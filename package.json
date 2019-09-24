@@ -132,6 +132,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-loadable": "^5.5.1",
     "antd": "^3.13.0",
     "axios": "^0.19.0",
     "markdown": "^0.5.0",

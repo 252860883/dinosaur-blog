@@ -1,25 +1,8 @@
 import React from 'react'
 
-export default class pic3D extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            container: null,
-            box: null,
-            _x: 0,
-            _y: 0,
-            x: 350,
-            y: 50
-
-        }
-        this.container = null
-        this.box = null
-        this.count = 0
-        this.timeout = null
-    }
-
-    componentDidMount() { }
-
+export default class pic3D extends React.Component<any, any> {
+    state = {}
+    componentDidMount() {}
     render() {
         return (
             <div id="container" className={this.props.IsPC ? 'container' : 'container mobile-container'}>

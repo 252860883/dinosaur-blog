@@ -5,31 +5,33 @@ import ArticleList from '../components/article'
 import { IsPC } from "../utils/screen";
 import { withRouter } from 'react-router-dom'
 
-class Main extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            date: new Date(),
-            name: 'duhonghui',
-            blockLists: [{
-                title: "ARTICLE",
-                icon: require('../assets/main-item1.png'),
-                link: "/article"
-            }, {
-                icon: require('../assets/main-item2.png'),
-                title: "PROJECT",
-                link: "/project"
-            }, {
-                title: "ABOUT",
-                icon: require('../assets/main-item3.png'),
-                link: "/about"
-            },]
-        };
-    }
+interface IState {
+    date: object,
+    name: string,
+    blockLists: Array<any>
+}
 
-    componentWillMount() { }
 
-    clickBlockItem(link) {
+class Main extends React.Component<any, IState> {
+    state = {
+        date: new Date(),
+        name: 'duhonghui',
+        blockLists: [{
+            title: "ARTICLE",
+            icon: require('../assets/main-item1.png'),
+            link: "/article"
+        }, {
+            icon: require('../assets/main-item2.png'),
+            title: "PROJECT",
+            link: "/project"
+        }, {
+            title: "ABOUT",
+            icon: require('../assets/main-item3.png'),
+            link: "/about"
+        },]
+    };
+
+    clickBlockItem(link: string) {
         this.props.history.push(link);
     }
 
@@ -37,7 +39,6 @@ class Main extends React.Component {
         return (
             <div className="main">
                 <MainPic3D IsPC={IsPC()} />
-                {/* <div className="mainBlock-title">· SHOW MORE ·</div> */}
                 <div className="mainBlock">
                     {
                         this.state.blockLists.map(item => {

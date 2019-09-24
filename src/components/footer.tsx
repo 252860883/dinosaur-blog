@@ -1,13 +1,11 @@
 import React from 'react';
 // import { IsPC } from "../utils/screen";
 import '../style/components/footer.scss';
-
-interface ISProps { }
 interface IState {
     content: string
 }
 
-export default class Footer extends React.Component<ISProps, IState> {
+export default class Footer extends React.Component<any, IState> {
 
     state = {
         content: 'Copyright © 2019 冀ICP备17032286号-1'

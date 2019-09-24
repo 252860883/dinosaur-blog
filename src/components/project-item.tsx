@@ -1,16 +1,7 @@
 import React from 'react'
 import '../style/project-item.scss'
-export default class Pagination extends React.Component {
-    state = {
-        current: 1
-    }
-
-    componentWillMount() {
-        // this.setState({
-        //     current: this.props.current || 1
-        // })
-    }
-
+export default class Pagination extends React.Component<any,any> {
+    componentWillMount() {}
     render() {
         return (
             <div className="project-item">

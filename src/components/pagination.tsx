@@ -1,6 +1,11 @@
 import React from 'react'
 import '../style/components/pagination.scss'
-export default class Pagination extends React.Component {
+
+interface IState {
+    current: number,
+    show: boolean
+}
+export default class Pagination extends React.Component<any, IState> {
     state = {
         current: 1,
         show: true
@@ -12,7 +17,7 @@ export default class Pagination extends React.Component {
         })
     }
 
-    clickButton(operation) {
+    clickButton(operation: any) {
         const current = operation === 'next' ? this.state.current + 1 : this.state.current - 1
         this.setState({
             current,

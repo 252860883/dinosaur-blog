@@ -4,21 +4,27 @@ import { RouterMenu } from '../router/routerMap'
 import { withRouter } from 'react-router-dom';
 import { IsPC } from "../utils/screen";
 import { CSSTransition } from "react-transition-group";
-class Header extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            path: "/",
-            showNav: false
-        }
+
+interface IsState {
+    path: string,
+    showNav: boolean
+}
+
+class Header extends React.Component<any, IsState> {
+    // constructor() {
+    // super()
+    state = {
+        path: "/",
+        showNav: false
     }
+    // }
     componentWillMount() {
         if (!this.props.history.location.pathname) return;
         this.setState({
             path: this.props.history.location.pathname
         })
     }
-    clickNav(route) {
+    clickNav(route: any) {
         this.props.history.push(route.link);
         this.setState({
             path: route.link

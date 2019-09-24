@@ -1,18 +1,10 @@
 import React from 'react'
-import { ArticleMenu } from '../router/routerMap'
 import Pagination from '../components/pagination'
 import ArticleList from '../components/article'
 import '../style/article.scss'
-export default class Article extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-    componentDidMount() {
-
-    }
+export default class Article extends React.Component<any, any> {
+    state = {}
+    componentDidMount() { }
     render() {
         return (
             <div className='article-page'>

@@ -12,9 +12,8 @@ import Header from '../components/header';
 import { RouterMap } from './routerMap'
 import { IsPC } from "../utils/screen";
 
-interface ISProps { }
 interface IState {
-    loading: string
+    loading: boolean
 }
 
 const routes = (
@@ -42,7 +41,7 @@ const routes = (
     </HashRouter>
 )
 
-export default class Root extends React.Component<ISProps, IState> {
+export default class Root extends React.Component<any, IState> {
     state = {
         loading: true
     }
