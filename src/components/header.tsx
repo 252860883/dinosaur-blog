@@ -26,9 +26,8 @@ class Header extends React.Component<any, IsState> {
         })
     }
     componentDidMount() {
-        window.onresize = (e: any) => {
-            console.log(e)
-        }
+        this.judgeScreenWidth()
+        window.onresize = this.judgeScreenWidth.bind(this)
     }
     clickNav(route: any) {
         this.props.history.push(route.link);
@@ -40,6 +39,18 @@ class Header extends React.Component<any, IsState> {
         this.setState({
             showNav: !this.state.showNav
         });
+    }
+
+    judgeScreenWidth() {
+        if (window.innerWidth > 600 && this.state.isMobile) {
+            this.setState({
+                isMobile: false
+            })
+        } else if (window.innerWidth < 600 && !this.state.isMobile) {
+            this.setState({
+                isMobile: true
+            })
+        }
     }
 
     render() {
@@ -60,7 +71,7 @@ class Header extends React.Component<any, IsState> {
 
         if (this.state.isMobile) {
             header = (
-                <header className={headerSp ? 'header header-sp' : 'header'} onClick={this.clickTop.bind(this)}>
+                <header className={headerSp ? 'header-mobile header-sp' : 'header-mobile'} onClick={this.clickTop.bind(this)}>
                     <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
                         <img className="logo" alt="" src={require('../assets/logo.png')} />
                     </div>

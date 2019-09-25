@@ -26,25 +26,9 @@ export default class Template extends React.Component {
 
 <pre><code><span></span>
 <span>npm install -g create-react-app</span>
-<span></span>
-</code></pre>
-
-<ul>
-<li>创建</li>
-</ul>
-
-<pre><code><span></span>
 <span>create-react-app my-app</span>
 <span>cd my-app</span>
-<span></span>
-</code></pre>
-
-<ul>
-<li>运行</li>
-</ul>
-
-<pre><code><span></span>
-<span>npm start (默认3000端口)</span>
+<span>npm start</span>
 <span></span>
 </code></pre>
 

@@ -10,15 +10,9 @@ create-react-app是github上面开源点星最多的react脚手架,也是官方�
 - 安装 
 ```
 npm install -g create-react-app
-```
-- 创建
-```
 create-react-app my-app
 cd my-app
-```
-- 运行
-```
-npm start (默认3000端口)
+npm start
 ```
 - api开发请求代理
 开发环境时的域名重定向，只需要在package.json中加入 
