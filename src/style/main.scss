@@ -7,14 +7,14 @@
 .container {
     position: relative;
     width: 3.75rem;
-    margin: 0.2rem auto 0 auto;
+    margin: 0.5rem auto 0 auto;
     // overflow: hidden;
 
     .dinosaur {
         width: 100%;
         height: auto;
         display: block;
-        transform: scale(1.2);
+        transform: scale(1.2) translateX(0.2rem);
     }
 
     // .word-1 {

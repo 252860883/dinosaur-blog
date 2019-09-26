@@ -4,15 +4,15 @@ import '../style/article.scss'
 import { withRouter } from 'react-router-dom'
 
 interface IState {
-    topArticleMenu: Array<any>
-    normalArticleMenu: Array<any>
+    topArticleMenu: Array<any>,
+    normalArticleMenu: Array<any>,
     showArticleMenu: Array<any>,
     limit: number,
     page: number,
     total: number
 }
 
-class Article extends React.Component<any, any> {
+class Article extends React.Component<any, IState> {
     state = {
         topArticleMenu: [],
         normalArticleMenu: [],
@@ -25,7 +25,7 @@ class Article extends React.Component<any, any> {
         this.handleArticleLists()
     }
 
-    getShowArticleMenu(normalArticleMenu: any) {
+    getShowArticleMenu(normalArticleMenu?: any) {
         const limit = this.state.limit
         const page = this.state.page
         if (!normalArticleMenu) normalArticleMenu = this.state.normalArticleMenu
@@ -55,11 +55,11 @@ class Article extends React.Component<any, any> {
         this.props.history.push(item.link);
     }
 
-    pageCurrentChange(e: any) {
+    pageCurrentChange(e: any): void {
         this.setState({
             page: e
         }, () => {
-            this.getShowArticleMenu("");
+            this.getShowArticleMenu();
         })
     }
 

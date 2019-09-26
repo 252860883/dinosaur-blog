@@ -1,13 +1,13 @@
 ---
-title: React 学习笔记
-date: 2018-02-24 23:45:58
+title: React 笔记
+date: 2019-09-24 23:45:58
 tags: React
 ---
 
 ### 脚手架 create-react-app
-create-react-app是github上面开源点星最多的react脚手架,也是官方比较推荐的，所以打算用这个架子上手了。后续可以再学习用webpack去自己搭一套。
+create-react-app是github上面开源star最多的react脚手架,也是官方比较推荐的，所以打算用这个架子上手了。后续可以再学习用webpack自己去搭一套。
 
-- 安装 
+- 安装以及启动项目
 ```
 npm install -g create-react-app
 create-react-app my-app
@@ -15,12 +15,11 @@ cd my-app
 npm start
 ```
 - api开发请求代理
-开发环境时的域名重定向，只需要在package.json中加入 
+开发环境时的域名重定向，只需要在`package.json`中加入 
 ```
 “proxy”:”http://localhost:3031/”
 ```
-- 打包文件路径不对问题
-在package.json中加入  “homepage”：“.”
+- 打包文件路径不对问题,在`package.json`中加入`“homepage”：“.”`
 
 - 找到webpack配置文件
 默认情况下，为了便于开发，该脚手架直接隐藏掉了webpack配置文件，如果想要自己手动修改一些配置文件怎么办呢？直接：
@@ -28,27 +27,15 @@ npm start
 指令 npm run eject
 ```
 
-- 安装 sass/less
-```
-npm install sass-loader node-sass --save-dev
-```
-  安装后修改config -> webpack.config.dev.js 和 webpack.config.prod.js ，分别在css的loader配置里面修改两处：
-一是 test: /\.css$/ 增加scss和sass；
-二是use里面最后再加个loader，直接加 "sass-loader" 就可以了，也不用配置别的了。
-
-
 - 添加 ant-design
 ```
 npm install antd babel-plugin-import --save-dev
-```
-  配置，按需加载
-```
-  // 配置ant-design的按需加载
- plugins: [
+
+// 配置ant-design的按需加载
+plugins: [
       ['import', [{ libraryName: "antd", style: 'css' }]],
- ],
+],
 ```
-  bundle-loader 路由懒加载
 
 
 ### JSX

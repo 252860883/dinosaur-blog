@@ -15,13 +15,13 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"><h1 className="title">React 学习笔记</h1></div>
+<div className="title-content"><h1 className="title">React 笔记</h1></div>
 <h3 id='脚手架 create-react-app'>脚手架 create-react-app</h3>
 
-<p>create-react-app是github上面开源点星最多的react脚手架,也是官方比较推荐的，所以打算用这个架子上手了。后续可以再学习用webpack去自己搭一套。</p>
+<p>create-react-app是github上面开源star最多的react脚手架,也是官方比较推荐的，所以打算用这个架子上手了。后续可以再学习用webpack自己去搭一套。</p>
 
 <ul>
-<li>安装 </li>
+<li>安装以及启动项目</li>
 </ul>
 
 <pre><code><span></span>
@@ -34,7 +34,7 @@ export default class Template extends React.Component {
 
 <ul>
 <li>api开发请求代理
-开发环境时的域名重定向，只需要在package.json中加入 </li>
+开发环境时的域名重定向，只需要在<code>package.json</code>中加入 </li>
 </ul>
 
 <pre><code><span></span>
@@ -43,7 +43,7 @@ export default class Template extends React.Component {
 </code></pre>
 
 <ul>
-<li><p>打包文件路径不对问题<br></br>在package.json中加入  “homepage”：“.”</p></li>
+<li><p>打包文件路径不对问题,在<code>package.json</code>中加入<code>“homepage”：“.”</code></p></li>
 <li><p>找到webpack配置文件<br></br>默认情况下，为了便于开发，该脚手架直接隐藏掉了webpack配置文件，如果想要自己手动修改一些配置文件怎么办呢？直接：</p></li>
 </ul>
 
@@ -53,36 +53,18 @@ export default class Template extends React.Component {
 </code></pre>
 
 <ul>
-<li>安装 sass/less</li>
-</ul>
-
-<pre><code><span></span>
-<span>npm install sass-loader node-sass --save-dev</span>
-<span></span>
-</code></pre>
-
-<p>安装后修改config -> webpack.config.dev.js 和 webpack.config.prod.js ，分别在css的loader配置里面修改两处：<br></br>一是 test: /.css$/ 增加scss和sass；<br></br>二是use里面最后再加个loader，直接加 "sass-loader" 就可以了，也不用配置别的了。</p>
-
-<ul>
 <li>添加 ant-design</li>
 </ul>
 
 <pre><code><span></span>
 <span>npm install antd babel-plugin-import --save-dev</span>
 <span></span>
-</code></pre>
-
-<p>配置，按需加载</p>
-
-<pre><code><span></span>
-<span>  // 配置ant-design的按需加载</span>
-<span> plugins: [</span>
+<span>// 配置ant-design的按需加载</span>
+<span>plugins: [</span>
 <span>      ['import', [{'{'} libraryName: "antd", style: 'css' }]],</span>
-<span> ],</span>
+<span>],</span>
 <span></span>
 </code></pre>
-
-<p>bundle-loader 路由懒加载</p>
 
 <h3 id='JSX'>JSX</h3>
 

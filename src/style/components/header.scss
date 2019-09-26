@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     transition: all .3s;
+    font-family: Main;
 
     .logo {
         margin: 10px 10px 10px 0;
@@ -28,10 +29,10 @@
         transition: all .4s;
 
         span {
-            font-size: 14px;
-            line-height: 14px;
+            font-size: 15px;
+            line-height: 15px;
             display: block;
-            margin: 0 20px;
+            margin: 0 30px;
             // padding-bottom: 5px;
             font-style: normal;
             font-family: Main;
@@ -70,10 +71,9 @@
 .header-mobile {
     position: relative;
     z-index: 3;
-    margin-bottom: 0.5rem;
-
+    // margin-bottom: 0.6rem;
     .header-top {
-        height: 0.5rem;
+        height: 0.6rem;
         background: #222;
         position: relative;
         z-index: 5;
@@ -88,7 +88,7 @@
 
     nav {
         position: absolute;
-        top: 0.5rem;
+        top: 0.6rem;
         left: 0;
         width: 100%;
         span {
