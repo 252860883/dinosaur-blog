@@ -57,13 +57,19 @@ class Header extends React.Component<any, IsState> {
         let header = null;
         let nav = (<nav></nav>);
         let headerSp = this.state.path === '/about';
+        let currentRoute: string = "";
         nav = (
             <nav>
                 {RouterMenu.map(item => {
                     if (item.article) return ""
-                    else return (
-                        <span key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</span>
-                    )
+                    else {
+                        if (this.state.path === item.link) {
+                            currentRoute = item.key
+                        }
+                        return (
+                            <span key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</span>
+                        )
+                    }
                 })
                 }
             </nav>
@@ -74,6 +80,8 @@ class Header extends React.Component<any, IsState> {
                 <header className={headerSp ? 'header-mobile header-sp' : 'header-mobile'} onClick={this.clickTop.bind(this)}>
                     <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
                         <img className="logo" alt="" src={require('../assets/logo.png')} />
+                        <img className={this.state.showNav ? 'fire fire-show' : 'fire fire-hide'} alt="" src={require('../assets/fire.png')} />
+                        <span className="nav-title">{currentRoute}</span>
                     </div>
                     <CSSTransition
                         in={this.state.showNav}
