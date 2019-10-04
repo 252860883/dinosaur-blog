@@ -17,7 +17,7 @@ export default class Pagination extends React.Component<any, IState> {
         })
     }
 
-    clickButton(operation: any) {
+    clickButton(operation: string | void) {
         const current = operation === 'next' ? this.state.current + 1 : this.state.current - 1
         this.setState({
             current,

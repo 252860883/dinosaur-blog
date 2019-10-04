@@ -5,10 +5,15 @@ import ArticleList from '../components/article'
 import { IsPC } from "../utils/screen";
 import { withRouter } from 'react-router-dom'
 
+interface IBlockItem{
+    title: string,
+    icon: string,
+    link: string
+}
 interface IState {
     date: object,
     name: string,
-    blockLists: Array<any>
+    blockLists: Array<IBlockItem>
 }
 
 

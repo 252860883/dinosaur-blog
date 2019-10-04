@@ -3,7 +3,6 @@ import Pagination from '../components/pagination'
 import ArticleList from '../components/article'
 import '../style/article.scss'
 export default class Article extends React.Component<any, any> {
-    state = {}
     componentDidMount() { }
     render() {
         return (
