@@ -56,9 +56,10 @@ class Main extends React.Component<any, IState> {
                     }
 
                 </div>
-                <div className="article-page">
+                <div className="article">
                     <ArticleList hideNormal={true}></ArticleList>
                 </div>
+
             </div>
         )
     }
