@@ -29,7 +29,9 @@
         padding: 20px;
 
         .time {
+            width: 100px;
             margin-right: 10px;
+            display: inline-block;
         }
 
         &:hover {

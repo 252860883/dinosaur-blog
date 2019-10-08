@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"Array.prototype.forEach"},{"level":"h3","title":"Array.prototype.map"},{"level":"h3","title":"Array.prototype.Filter"},{"level":"h3","title":"Array.prototype.Sort"},{"level":"h3","title":"Array.prototype.Some"},{"level":"h3","title":"Array.prototype.Every"},{"level":"h3","title":"Array.prototype.FindIndex"},{"level":"h3","title":"Array.prototype.Find"},{"level":"h3","title":"Array.prototype.Reduce"},{"level":"h3","title":"Array.prototype.reduceRight"},{"level":"h3","title":"Array.prototype.includes(ES6新增)"},{"level":"h3","title":"Array.isArray(ES6新增)"},{"level":"h3","title":"Array.prototype.fill(ES6新增)"},{"level":"h3","title":"Array.prototype.entries/keys/values(ES6新增)"},{"level":"h3","title":"Array.of(ES6新增)"},{"level":"h3","title":"Array.from"}]
+            headerLink: [{"level":"h3","title":"Array.prototype.map"},{"level":"h3","title":"Array.prototype.forEach"},{"level":"h3","title":"Array.prototype.Filter"},{"level":"h3","title":"Array.prototype.Sort"},{"level":"h3","title":"Array.prototype.Some"},{"level":"h3","title":"Array.prototype.Every"},{"level":"h3","title":"Array.prototype.FindIndex"},{"level":"h3","title":"Array.prototype.Find"},{"level":"h3","title":"Array.prototype.Reduce"},{"level":"h3","title":"Array.prototype.reduceRight"},{"level":"h3","title":"Array.prototype.includes(ES6新增)"},{"level":"h3","title":"Array.isArray(ES6新增)"},{"level":"h3","title":"Array.prototype.fill(ES6新增)"},{"level":"h3","title":"Array.prototype.entries/keys/values(ES6新增)"},{"level":"h3","title":"Array.of(ES6新增)"},{"level":"h3","title":"Array.from"}]
         }
     }
     componentDidMount() {
@@ -16,63 +16,67 @@ export default class Template extends React.Component {
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">关于array的常用的几个API</h1></div>
-<h3 id='Array.prototype.forEach'>Array.prototype.forEach</h3>
-
-<ol>
-<li>可以改变数组自身，没有返回值；</li>
-<li>中途不能用常规操作跳出循环，可以用抛出异常（try/catch）的方式，但不推荐这样做</li>
-</ol>
-
 <h3 id='Array.prototype.map'>Array.prototype.map</h3>
 
-<ol>
+<ul>
 <li>新建一个数组，需要有承载对象,原始数组在调用它后不会发生变化</li>
-<li>该数组中的每个元素都调用一个提供的函数后返回结果,否则返回 undefined]</li>
-</ol>
+<li>该数组中的每个元素都调用一个提供的函数后返回结果,否则返回 undefined</li>
+</ul>
+
+<blockquote>
+  <p>不能在 callbackfn 内设置<code>break</code>来跳出循环的原因是，callbackfn 并不是循环体，forEach 等其他方法同理不能跳出循环</p>
+</blockquote>
+
+<h3 id='Array.prototype.forEach'>Array.prototype.forEach</h3>
+
+<ul>
+<li>可以改变数组自身，没有返回值；</li>
+<li>中途不能用常规操作跳出循环，可以用抛出异常（try/catch）的方式，但不推荐这样做</li>
+</ul>
 
 <h3 id='Array.prototype.Filter'>Array.prototype.Filter</h3>
 
-<ol>
+<ul>
 <li>和 map 很像，也是创建一个新数组，新数组中的元素是筛选出来的符合条件的所有对象。</li>
-</ol>
+</ul>
 
 <h3 id='Array.prototype.Sort'>Array.prototype.Sort</h3>
 
-<ol>
+<ul>
+<li>默认按照字母升序排列</li>
 <li>与其他方法不同，他直接改变原始数组</li>
 <li>sort()用于对数组的元素进行排序。排序顺序可以是字母或数字，并按升序或降序。</li>
-<li>默认按照字母升序排列</li>
 <li>如果想按照其他标准进行排序，就需提供比较函数compareFunction(a,b)</li>
-</ol>
+</ul>
 
 <h3 id='Array.prototype.Some'>Array.prototype.Some</h3>
 
-<ol>
+<ul>
 <li>用于检查数组中是否有某些符合条件</li>
 <li>只要有一个满足即返回true，之后的不再执行</li>
 <li>只是返回一个布尔类型的值</li>
-</ol>
+</ul>
 
 <h3 id='Array.prototype.Every'>Array.prototype.Every</h3>
 
-<ol>
+<ul>
 <li>和 some 类似，只返回布尔类型</li>
 <li>判断数组中所有的值是否都满足</li>
-</ol>
+</ul>
 
 <h3 id='Array.prototype.FindIndex'>Array.prototype.FindIndex</h3>
 
-<ol>
+<ul>
 <li>结构和map类似，获取到满足条件的索引值</li>
 <li>IE 11 及更早版本不支持findIndex() 方法，如果对浏览器兼容有要求，那就用Lodash的 _.findIndex()</li>
-</ol>
+</ul>
 
 <h3 id='Array.prototype.Find'>Array.prototype.Find</h3>
 
-<ol>
+<ul>
 <li>和some类似，有一个满足的元素就会返回</li>
 <li>IE 11 及更早版本不支持</li>
-</ol>
+</ul>
 
 <h3 id='Array.prototype.Reduce'>Array.prototype.Reduce</h3>
 
@@ -84,7 +88,7 @@ export default class Template extends React.Component {
 <span>const reducer = (accumulator, currentValue) =&gt; accumulator + currentValue;</span>
 <span></span>
 <span>// 1 + 2 + 3 + 4</span>
-<span>console.log(array1.reduce(reducer));</span>
+<span>console.log(array*reduce(reducer));</span>
 <span>// expected output: 10</span>
 <span></span>
 </code></pre>
