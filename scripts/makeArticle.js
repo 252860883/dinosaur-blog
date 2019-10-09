@@ -37,7 +37,6 @@
         let info = mdData.article
         // 添加标题
         let newDom = `<div className="title-content"><h1 className="title">${info.title}</h1></div>\n${text}`
-
         return `<div className="article">\n${newDom}\n</div>`
     }
 
@@ -45,7 +44,7 @@
     function _handleRouter(mdData, newName) {
         let info = mdData.article;
         info.title = info.title;
-        info.link = '/' + newName;
+        info.link = '/article-' + newName;
         info.article = true;
         return JSON.stringify(info).replace(/}$/g, '') + `},\n`
     }

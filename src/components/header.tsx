@@ -53,6 +53,16 @@ class Header extends React.Component<any, IsState> {
         }
     }
 
+    judgeRouteActive(path: string, link: string): boolean {
+        console.log(path,link)
+        // this.state.path === item.link
+        if (path === link || (path.match(/\/article\-/g) && link =='/article')) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     render() {
         let header = null;
         let nav = (<nav></nav>);
@@ -63,11 +73,11 @@ class Header extends React.Component<any, IsState> {
                 {RouterMenu.map(item => {
                     if (item.article) return ""
                     else {
-                        if (this.state.path === item.link) {
+                        if (this.judgeRouteActive(this.state.path, item.link)) {
                             currentRoute = item.key
                         }
                         return (
-                            <span key={item.key} className={this.state.path === item.link ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</span>
+                            <span key={item.key} className={this.judgeRouteActive(this.state.path, item.link) ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</span>
                         )
                     }
                 })

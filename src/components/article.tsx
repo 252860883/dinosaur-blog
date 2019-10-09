@@ -81,7 +81,6 @@ class Article extends React.Component<any, IState> {
                     })
                 }
                 {
-
                     !this.props.hideNormal && <img alt="" className="article-title" src={require('../assets/normal-title.jpg')} />
                 }
                 {
