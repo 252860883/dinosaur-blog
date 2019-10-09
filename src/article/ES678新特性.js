@@ -23,8 +23,8 @@ export default class Template extends React.Component {
 <h3 id='箭头函数'>箭头函数</h3>
 
 <ol>
-<li>匿名函数，不能作为构造函数，不能 new</li>
-<li>没有arguments,可以使用rest参数</li>
+<li>匿名函数，不能作为构造函数，不能<code>new</code>,也没有<code>prototype</code>属性</li>
+<li>没有<code>arguments</code>,可以使用<code>rest参数</code>作为替代方案</li>
 </ol>
 
 <pre><code><span></span>
@@ -36,7 +36,7 @@ export default class Template extends React.Component {
 </code></pre>
 
 <ol>
-<li>箭头函数不绑定this,会捕获上下文的this值</li>
+<li>箭头函数不会创建自己的<code>this</code>,它只会从自己的作用域链的上一层继承<code>this</code></li>
 </ol>
 
 <pre><code><span></span>
@@ -68,7 +68,8 @@ export default class Template extends React.Component {
 </code></pre>
 
 <ol>
-<li>箭头函数不能当做Generator函数,不能使用yield关键字</li>
+<li>箭头函数不能当做<code>Generator函数</code>,不能使用<code>yield</code>关键字</li>
+<li>通过<code>call()</code>、<code>apply()</code>调用箭头函数时，只能传递参数，第一个参数会被忽略</li>
 </ol>
 
 <hr />

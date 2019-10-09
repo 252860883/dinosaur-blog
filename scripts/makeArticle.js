@@ -17,7 +17,6 @@
         const newPath = outPath + '/' + newName + '.js'
         let mdData = MD.Markdown2HTML(mdText);
 
-
         let newAtricle = template.replace(/\<div\sclassName\=\"article\"\>\<\/div\>/g, function () {
             return _handleMDData(mdData);
         });
@@ -29,7 +28,7 @@
     })
 
     // 修改路由定向
-    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.tsx', 'utf8').replace(/ArticleMenu\s*\=\s*\[[\s\S]*\]\/\/end/, "ArticleMenu = [\n" + routers + ']//end')
+    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.tsx', 'utf8').replace(/\[\/{2}start\s*\=\s*\[[\s\S]*\]\/\/end/, "[//start\n" + routers + ']//end')
     fs.writeFileSync(routerPath + '/routerMap.tsx', newRouterConfig)
 
     //  处理标题等信息
