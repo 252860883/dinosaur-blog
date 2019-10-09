@@ -28,7 +28,7 @@
     })
 
     // 修改路由定向
-    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.tsx', 'utf8').replace(/\[\/{2}start\s*\=\s*\[[\s\S]*\]\/\/end/, "[//start\n" + routers + ']//end')
+    const newRouterConfig = fs.readFileSync(routerPath + '/routerMap.tsx', 'utf8').replace(/\[\/{2}start[\s\S]*\]\/{2}end/, "[//start\n" + routers + ']//end')
     fs.writeFileSync(routerPath + '/routerMap.tsx', newRouterConfig)
 
     //  处理标题等信息
