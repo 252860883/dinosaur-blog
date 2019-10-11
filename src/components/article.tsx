@@ -56,9 +56,7 @@ class Article extends React.Component<any, IState> {
     }
 
     pageCurrentChange(e: any): void {
-        this.setState({
-            page: e
-        }, () => {
+        this.setState({page: e}, () => {
             this.getShowArticleMenu();
         })
     }
