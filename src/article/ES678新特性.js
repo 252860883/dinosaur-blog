@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Set 和 WeakSet"},{"level":"h3","title":"Map 和 WeakMap"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
+            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"Symbol类型"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Set 和 WeakSet"},{"level":"h3","title":"Map 和 WeakMap"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
         }
     }
     componentDidMount() {
@@ -154,6 +154,43 @@ export default class Template extends React.Component {
 </code></pre>
 
 <hr />
+
+<h3 id='Symbol类型'>Symbol类型</h3>
+
+<p>数据类型<code>symbol</code>是 ES6 新增的一种原始数据类型，一个<code>symbol</code>实例可以被赋值到一个左值变量，还可以通过标识符检查类型，这就是它的全部特性。</p>
+
+<pre><code><span></span>
+<span>var  myPrivateMethod  = Symbol();</span>
+<span>this[myPrivateMethod] = function() {'{'}...};</span>
+<span></span>
+</code></pre>
+
+<p>下面来看看如何将<code>Symbol</code>应用于实际业务中：</p>
+
+<ol>
+<li>私有属性，由于<code>Symbol</code>类型的数据不可枚举，可以在类里模拟私有属性：</li>
+</ol>
+
+<pre><code><span></span>
+<span>var  myPrivateProp  = Symbol();</span>
+<span>class People{'{'}</span>
+<span>    constructor(){'{'}</span>
+<span>        this[myPrivateProp] = 'Secret' // 实例无法读取到该变量，仅可在类里使用</span>
+<span>    }</span>
+<span>    getValue() {'{'}</span>
+<span>        return this[myPrivateProp]</span>
+<span>    }</span>
+<span>    setValue(val) {'{'}</span>
+<span>        return this[myPrivateProp] = val</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<ol>
+<li><p><strong>避免属性污染</strong>，有时候我们进行 mixin 操作，或对某个对象进行属性添加等情况下，尤其是在协作开发时很有可能会出现属性命名相同而被覆盖的情况，所以将属性名定义为<code>Symbol</code>类型可以有效避免这些情况的发生</p></li>
+<li><p>防止<code>XSS</code>，原理是<code>JSON</code>中不能存储<code>Symbol</code>对象</p></li>
+</ol>
 
 <h3 id='数组拓展'>数组拓展</h3>
 
