@@ -52,7 +52,7 @@
 
     .word-group {
         position: absolute;
-        top: 50%;
+        top: 80%;
         width: 100%;
         transform: translateY(-50%);
         font-size: 0.1rem;
@@ -60,8 +60,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        color: #222;
-        text-shadow: 0 1px 1px #fff;
+        color: #fff;
+        // text-shadow: 0 1px 1px #222;
 
         span {
             &:last-child {
