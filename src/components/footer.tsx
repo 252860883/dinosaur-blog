@@ -14,7 +14,8 @@ export default class Footer extends React.Component<any, IState> {
     render() {
         return (
             <footer className='footer'>
-                <span>{this.state.content}</span>
+                {/* <span>{this.state.content}</span> */}
+                <img src={require('../assets/bottom-bg.png')} alt=""/>
             </footer>
         )
     }

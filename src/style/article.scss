@@ -5,9 +5,7 @@
     margin: 0 auto;
     padding: 0 0.1rem;
     box-sizing: border-box;
-}
 
-.article-lists {
     @for $i from 1 through 100 {
         .article-item:nth-child(#{$i}) {
             opacity: 0;
@@ -16,6 +14,10 @@
             animation-fill-mode: forwards;
         }
     }
+}
+
+.article-lists {
+
 
     .article-item,
     .article-item-top {
@@ -70,7 +72,7 @@
     font-family: PingFang SC, Microsoft Yehei, Hiragino Sans GB;
     color: #555;
     line-height: 1.8;
-    padding: 0 0.15rem;
+    padding: 0 0.075rem;
     box-sizing: border-box;
 
     // animation: slideLeft .5s ease-in-out;

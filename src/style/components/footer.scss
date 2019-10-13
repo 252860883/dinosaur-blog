@@ -1,15 +1,16 @@
 @import '../common.scss';
 
 .footer {
-    width: 100%;
-    margin: 1rem auto 0 auto;
+    width: 3.75rem;
+    height: auto;
+    margin: 0 auto;
     background-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #222;
     position: absolute;
-    left: 0;
+    left: 50%;
+    margin-left: -1.825rem;
     bottom: 0;
     span {
         text-align: center;
@@ -17,5 +18,9 @@
         line-height: 40px;
         color: $o;
         margin: 0 0.1rem;
+    }
+    img{
+        width: 100%;
+        margin-top: 1rem;
     }
 }

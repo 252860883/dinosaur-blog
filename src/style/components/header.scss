@@ -68,14 +68,14 @@
 
     // margin-bottom: 0.6rem;
     .header-top {
-        height: 0.6rem;
+        // height: 0.6rem;
         background: #222;
         position: relative;
         z-index: 5;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 0.15rem;
+        padding: 0.1rem;
 
         .logo,
         .fire {
@@ -115,7 +115,7 @@
 
     nav {
         position: absolute;
-        top: 0.6rem;
+        // top: 0.6rem;
         left: 0;
         width: 100%;
 
