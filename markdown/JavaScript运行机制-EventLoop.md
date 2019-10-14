@@ -88,23 +88,45 @@ console.log(4);
 5. check：执行setImmediate的回调。
 6. close callbacks：关闭所有的closing handles，例如socket.on('close'[,fn])、http.server.on('close, fn)等。
 
-与浏览器不同的是，nodejs环境下每个阶段结束后都会执行完所有的微任务，同时 `process.nextTick` 会优先于其他微任务执行。
+与浏览器不同的是，nodejs环境下每个阶段结束后都会执行完所有的微任务。
 
 #### process.nextTick 与 setImmediate
 与浏览器相比，Nodejs 拥有两个特殊的异步操作API `process.nextTick` 与 `setImmediate`。
-`process.nextTick` ,Nodejs执行完所有同步任务，接下来就会执行process.nextTick的任务队列，如果希望异步的任务尽快执行完毕，那就可以使用它:
+
+`process.nextTick` ,Nodejs执行完所有同步任务，接下来就会执行process.nextTick的任务队列，它会优先于其他微任务执行，如果希望异步的任务尽快执行完毕，那就可以使用它，但是我们也不能过度使用，如果使用不当可能会造成I/O饥饿。
 
 ```
- process.nextTick(() => console.log(3)); 
  Promise.resolve().then(() => console.log(4)); 
+ process.nextTick(() => console.log(3)); 
  //output: 3 4
 ```
 
+
+
 `setImmediate` 的回调函数是被放在check阶段执行，即相当于事件循环的最后阶段，它的执行顺序会比 `setTimeout` 晚。
 
-`process.nextTick` 的优势就在于可以插入到每个阶段之后，当该阶段执行完毕后就能立马执行，但是使用不当也可能会造成I/O饥饿。
+```
+setImmediate(()=>{console.log(4)});
+setTimeout(()=>{console.log(3)})
+//output: 3 4 
+```
+但是需要注意，如果在timers阶段执行时创建了setImmediate则会在此轮循环的check阶段执行，如果在timers阶段创建了setTimeout，由于timers已取出完毕，则会进入下轮循环，check阶段创建timers任务同理。
 
-我们举个例子看下
+```
+setTimeout(()=>{
+    setImmediate(() => { console.log(1) });
+    setTimeout(() => { console.log(2) });
+})
+//output: 1 2 
+ 
+setImmediate(()=>{
+    setImmediate(() => { console.log(1) });
+    setTimeout(() => { console.log(2) });
+})
+//output: 1 2 
+```
+
+我们讨论的也只是在理想情况下，`setTimeout(fn,0)`真正延迟不可能完全为0秒，所以有可能出现先创建的setTimeout(fn,0)而比setImmediate的回调后执行的情况。
 
 
 >参考:

@@ -92,24 +92,48 @@ export default class Template extends React.Component {
 <li>close callbacks：关闭所有的closing handles，例如socket.on('close'[,fn])、http.server.on('close, fn)等。</li>
 </ol>
 
-<p>与浏览器不同的是，nodejs环境下每个阶段结束后都会执行完所有的微任务，同时 <code>process.nextTick</code> 会优先于其他微任务执行。</p>
+<p>与浏览器不同的是，nodejs环境下每个阶段结束后都会执行完所有的微任务。</p>
 
 <h4 id='process.nextTick 与 setImmediate'>process.nextTick 与 setImmediate</h4>
 
-<p>与浏览器相比，Nodejs 拥有两个特殊的异步操作API <code>process.nextTick</code> 与 <code>setImmediate</code>。<br></br><code>process.nextTick</code> ,Nodejs执行完所有同步任务，接下来就会执行process.nextTick的任务队列，如果希望异步的任务尽快执行完毕，那就可以使用它:</p>
+<p>与浏览器相比，Nodejs 拥有两个特殊的异步操作API <code>process.nextTick</code> 与 <code>setImmediate</code>。</p>
+
+<p><code>process.nextTick</code> ,Nodejs执行完所有同步任务，接下来就会执行process.nextTick的任务队列，它会优先于其他微任务执行，如果希望异步的任务尽快执行完毕，那就可以使用它，但是我们也不能过度使用，如果使用不当可能会造成I/O饥饿。</p>
 
 <pre><code><span></span>
-<span> process.nextTick(() =&gt; console.log(3)); </span>
 <span> Promise.resolve().then(() =&gt; console.log(4)); </span>
+<span> process.nextTick(() =&gt; console.log(3)); </span>
 <span> //output: 3 4</span>
 <span></span>
 </code></pre>
 
 <p><code>setImmediate</code> 的回调函数是被放在check阶段执行，即相当于事件循环的最后阶段，它的执行顺序会比 <code>setTimeout</code> 晚。</p>
 
-<p><code>process.nextTick</code> 的优势就在于可以插入到每个阶段之后，当该阶段执行完毕后就能立马执行，但是使用不当也可能会造成I/O饥饿。</p>
+<pre><code><span></span>
+<span>setImmediate(()=&gt;{'{'}console.log(4)});</span>
+<span>setTimeout(()=&gt;{'{'}console.log(3)})</span>
+<span>//output: 3 4 </span>
+<span></span>
+</code></pre>
 
-<p>我们举个例子看下</p>
+<p>但是需要注意，如果在timers阶段执行时创建了setImmediate则会在此轮循环的check阶段执行，如果在timers阶段创建了setTimeout，由于timers已取出完毕，则会进入下轮循环，check阶段创建timers任务同理。</p>
+
+<pre><code><span></span>
+<span>setTimeout(()=&gt;{'{'}</span>
+<span>    setImmediate(() =&gt; {'{'} console.log(1) });</span>
+<span>    setTimeout(() =&gt; {'{'} console.log(2) });</span>
+<span>})</span>
+<span>//output: 1 2 </span>
+<span></span>
+<span>setImmediate(()=&gt;{'{'}</span>
+<span>    setImmediate(() =&gt; {'{'} console.log(1) });</span>
+<span>    setTimeout(() =&gt; {'{'} console.log(2) });</span>
+<span>})</span>
+<span>//output: 1 2 </span>
+<span></span>
+</code></pre>
+
+<p>我们讨论的也只是在理想情况下，<code>setTimeout(fn,0)</code>真正延迟不可能完全为0秒，所以有可能出现先创建的setTimeout(fn,0)而比setImmediate的回调后执行的情况。</p>
 
 <blockquote>
   <p>参考:<br></br><a target="_blank" href="https://juejin.im/post/59e85eebf265da430d571f89#comment">这一次，彻底弄懂 JavaScript 执行机制</a><br></br><a target="_blank" href="https://www.oecom.cn/understand-js-run-stack-and-world/">如何理解js的执行上下文与执行栈</a><br></br><a target="_blank" href="https://www.imooc.com/article/40020#">一次搞懂Event loop</a><br></br><a target="_blank" href="https://juejin.im/post/5aa5dcabf265da239c7afe1e">浏览器和Node不同的事件循环</a></p>
