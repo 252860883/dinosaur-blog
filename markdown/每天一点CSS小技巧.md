@@ -330,6 +330,28 @@ body {
 </div>
 ```
 
+### 12.💎消除transition闪屏
+
+```
+.moveItem {
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+}
+```
+
+### 13.💎 字体抗锯齿渲染
+>字体抗锯齿渲染可以让字体看起来更清晰舒服，但只有在 Webkit 和 Gecko 内核浏览器中支持该效果。
+
+```
+.font{
+  -webkit-font-smoothing: antialiased;  /*chrome、safari*/
+  -moz-osx-font-smoothing: grayscale; /*firefox*/
+}
+```
+
+
+
 ### 参考
 [你未必知道的49个CSS知识点](https://mp.weixin.qq.com/s/iD8rinWJ_PEI3UZu4-PcMg)
 
