@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"Symbol类型"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Set 和 WeakSet"},{"level":"h3","title":"Map 和 WeakMap"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
+            headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"Symbol类型"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Set 和 WeakSet"},{"level":"h3","title":"Map 和 WeakMap"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
         }
     }
     componentDidMount() {
@@ -104,6 +104,78 @@ export default class Template extends React.Component {
 <span></span>
 <span>const obj1 = {'{'} a: 1, b: 2, c: 3 };</span>
 <span>const obj2 = {'{'} ...obj1, d: 4 }; // {'{'} a: 1, b: 2, c: 3, d: 4 };</span>
+<span></span>
+</code></pre>
+
+<hr />
+
+<h3 id='对象属性简写'>对象属性简写</h3>
+
+<p>在ES6中允许我们在设置一个对象的属性的时候不指定属性名。</p>
+
+<pre><code><span></span>
+<span>const name='Ming',age='18',city='Shanghai';</span>
+<span>&lt;!-- 旧方法 --&gt;</span>
+<span>const student = {'{'}</span>
+<span>    name:name,</span>
+<span>    age:age,</span>
+<span>    city:city</span>
+<span>};</span>
+<span></span>
+<span>&lt;!-- ES6写法 --&gt;</span>
+<span>const student = {'{'}</span>
+<span>    name,</span>
+<span>    age,</span>
+<span>    city</span>
+<span>};</span>
+<span></span>
+<span></span>
+</code></pre>
+
+<hr />
+
+<h3 id='解构赋值'>解构赋值</h3>
+
+<p><strong>数组的解构赋值</strong></p>
+
+<pre><code><span></span>
+<span>let [b, c, d] = [1, 2, 3]</span>
+<span>console.log(b, c, d)  //1,2,3</span>
+<span></span>
+<span></span>
+</code></pre>
+
+<p><strong>对象的解构赋值</strong>，对象的解构赋值是根据key值进行匹配，如下代码所示，真正被创建的变量是<code>Name</code>和<code>Age</code></p>
+
+<pre><code><span></span>
+<span>let {'{'} name: Name,age: Age } = {'{'} name:'swr',age:28 }</span>
+<span>console.log(Name) // 'swr'</span>
+<span>console.log(Age) // 28</span>
+<span>console.log(name) // ReferenceError: name is not defined</span>
+<span>console.log(age) // ReferenceError: age is not defined</span>
+<span></span>
+</code></pre>
+
+<p>ES6以后，允许对对象属性简写，所以我们通常直接对变量和key值进行统一，而直接进行简写操作：</p>
+
+<pre><code><span></span>
+<span>let {'{'} name ,age } = {'{'} name:'swr',age:28 }</span>
+<span>console.log(name) // swr</span>
+<span>console.log(age) // 28</span>
+<span>&lt;!-- 等价于 --&gt;</span>
+<span>let {'{'} name: name ,age: age } = {'{'} name:'swr',age:28 }</span>
+<span></span>
+</code></pre>
+
+<p>结构赋值在函数中的应用：</p>
+
+<pre><code><span></span>
+<span>function body({'{'} eye, mouse } = {'{'} eye: 16, mouse: 20 }) {'{'}</span>
+<span>    console.log(eye, mouse);</span>
+<span>}</span>
+<span>body({'{'}eye:10,mouse:10}) //10 10</span>
+<span>body()  //16 20</span>
+<span>body({'{'}eye:10})  //10 undefined</span>
 <span></span>
 </code></pre>
 
@@ -237,30 +309,6 @@ export default class Template extends React.Component {
 <pre><code><span></span>
 <span>/hello.world/.test('hello\nworld');  // false</span>
 <span>/hello.world/s.test('hello\nworld'); // true</span>
-<span></span>
-</code></pre>
-
-<hr />
-
-<h3 id='解构赋值'>解构赋值</h3>
-
-<pre><code><span></span>
-<span>let [b, c, d] = [1, 2, 3]</span>
-<span>console.log(b, c, d)  //1,2,3</span>
-<span>let {'{'} b1, c1 } = {'{'} b1: 1, c1: 2 }</span>
-<span>console.log(b1, c1)   // 1,2</span>
-<span></span>
-</code></pre>
-
-<p>结构赋值在函数中的应用</p>
-
-<pre><code><span></span>
-<span>function body({'{'} eye, mouse } = {'{'} eye: 16, mouse: 20 }) {'{'}</span>
-<span>    console.log(eye, mouse);</span>
-<span>}</span>
-<span>body({'{'}eye:10,mouse:10}) //10 10</span>
-<span>body()  //16 20</span>
-<span>body({'{'}eye:10})  //10 undefined</span>
 <span></span>
 </code></pre>
 
@@ -631,29 +679,6 @@ export default class Template extends React.Component {
 <span>      return Reflect.get(target, propKey, receiver)</span>
 <span>  }</span>
 <span>}</span>
-<span></span>
-</code></pre>
-
-<h3 id='对象属性简写'>对象属性简写</h3>
-
-<p>在ES6中允许我们在设置一个对象的属性的时候不指定属性名。</p>
-
-<pre><code><span></span>
-<span>const name='Ming',age='18',city='Shanghai';</span>
-<span>&lt;!-- 旧方法 --&gt;</span>
-<span>const student = {'{'}</span>
-<span>    name:name,</span>
-<span>    age:age,</span>
-<span>    city:city</span>
-<span>};</span>
-<span></span>
-<span>&lt;!-- ES6写法 --&gt;</span>
-<span>const student = {'{'}</span>
-<span>    name,</span>
-<span>    age,</span>
-<span>    city</span>
-<span>};</span>
-<span></span>
 <span></span>
 </code></pre>
 
