@@ -51,12 +51,12 @@ class Article extends React.Component<any, IState> {
         this.getShowArticleMenu(normalArticleMenu)
     }
 
-    clickToArticle(item: any) {
+    clickToArticle = (item: any) => {
         this.props.history.push(item.link);
     }
 
     pageCurrentChange(e: any): void {
-        this.setState({page: e}, () => {
+        this.setState({ page: e }, () => {
             this.getShowArticleMenu();
         })
     }
@@ -71,7 +71,7 @@ class Article extends React.Component<any, IState> {
                     this.state.topArticleMenu.map((item: any) => {
                         if (this.state.page !== 1) return "";
                         return (
-                            <div key={item.link} className="article-item article-item-top" onClick={this.clickToArticle.bind(this, item)}>
+                            <div key={item.link} className="article-item article-item-top" onClick={() => this.clickToArticle(item)}>
                                 <span className='time'>{item.date.split(' ')[0]} </span>
                                 <span className='title'>{item.title}</span>
                             </div>
@@ -84,7 +84,7 @@ class Article extends React.Component<any, IState> {
                 {
                     !this.props.hideNormal && this.state.showArticleMenu.map((item: any) => {
                         return (
-                            <div key={item.link} className="article-item" onClick={this.clickToArticle.bind(this, item)}>
+                            <div key={item.link} className="article-item" onClick={() => this.clickToArticle(item)}>
                                 <span className='time'>{item.date.split(' ')[0]} </span>
                                 <span className='title'>{item.title}</span>
                             </div>

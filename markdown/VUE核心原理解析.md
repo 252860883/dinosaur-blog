@@ -1,5 +1,5 @@
 ---
-title: VUE核心原理解析（一）依赖收集与响应式绑定
+title: VUE核心原理解析
 date: 2018-09-22 16:50:05
 tags: [vue,javascript]
 top:

@@ -18,7 +18,6 @@
 
 .article-lists {
 
-
     .article-item,
     .article-item-top {
         cursor: pointer;
@@ -72,7 +71,7 @@
     font-family: PingFang SC, Microsoft Yehei, Hiragino Sans GB;
     color: #555;
     line-height: 1.8;
-    padding: 0 0.075rem;
+    padding: 0 0.175rem;
     box-sizing: border-box;
 
     // animation: slideLeft .5s ease-in-out;
@@ -122,7 +121,7 @@
     h1,
     h2,
     h3 {
-        margin: 0.50rem 0 0.2rem 0;
+        margin: 50px 0 20px 0;
         font-weight: bolder;
         transform-origin: left bottom;
         transform: scale(1.1);
@@ -139,19 +138,27 @@
     h4,
     h5,
     h6 {
-        color: #555;
-        margin-top: 0.3rem;
+        color: $dark;
+        margin-top: 30px;
+        font-size: 17px;
+
+        &::before {
+            content: "#";
+            padding-right: 0.02rem;
+            transform-origin: left;
+            transform: scale(1.2);
+        }
     }
 
     p,
     ul {
-        margin: 0.2rem auto;
+        margin: 20px auto;
         text-align: justify;
         line-height: 1.8;
     }
 
     strong {
-        color: #223333;
+        color: $dark;
     }
 
     img {
@@ -179,11 +186,11 @@
         display: inline-block;
         background: $light;
         color: $o;
-        padding: 0 0.04rem;
+        padding: 0 0.03rem;
         border-radius: 0.03rem;
         word-wrap: break-word;
         box-sizing: border-box;
-        margin: 0 0.01rem;
+        // margin: 0 0.01rem;
         font-size: 14px;
         font-family: Menlo, Monaco, Consolas, Courier New, monospace;
     }
@@ -212,7 +219,7 @@
 
         li {
             margin: 0.05rem auto;
-            margin-left: 0.2rem;
+            margin-left: 20px;
         }
     }
 
@@ -265,7 +272,7 @@
 
 @media screen and (max-width:600px) {
     .article-item .time {
-        display: none;
+        display: none !important;
     }
 }
 

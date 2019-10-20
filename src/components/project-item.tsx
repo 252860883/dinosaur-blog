@@ -4,18 +4,18 @@ import '../style/project-item.scss'
 interface IProp {
     item: any
 }
-export default class Pagination extends React.Component<any, IProp> {
+export default class Pagination extends React.Component<IProp, any> {
     componentWillMount() {
-        console.log(this.props)
+        // console.log(this.props)
     }
-    clickItem() {
+    clickItem = () => {
         setTimeout(() => {
             window.open(this.props.item.link, '_blank')
         }, 300)
     }
     render() {
         return (
-            <div className="project-item" onClick={this.clickItem.bind(this)}>
+            <div className="project-item" onClick={this.clickItem}>
                 <img src={this.props.item.img} alt=""></img>
                 <div className="content">
                     <div className="title">{this.props.item.title}</div>

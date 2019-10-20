@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"脚手架 create-react-app"},{"level":"h3","title":"JSX"},{"level":"h3","title":"渲染 DOM"},{"level":"h3","title":"组件"},{"level":"h3","title":"事件"},{"level":"h3","title":"总结"}]
+            headerLink: [{"level":"h3","title":"create-react-app"},{"level":"h3","title":"JSX"},{"level":"h3","title":"组件"},{"level":"h4","title":"组件生命周期钩子"},{"level":"h4","title":"setState"},{"level":"h3","title":"事件"},{"level":"h3","title":"总结"}]
         }
     }
     componentDidMount() {
@@ -16,7 +16,7 @@ export default class Template extends React.Component {
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">React 笔记</h1></div>
-<h3 id='脚手架 create-react-app'>脚手架 create-react-app</h3>
+<h3 id='create-react-app'>create-react-app</h3>
 
 <p>create-react-app是github上面开源star最多的react脚手架,也是官方比较推荐的，所以打算用这个架子上手了。后续可以再学习用webpack自己去搭一套。</p>
 
@@ -79,12 +79,19 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<h3 id='渲染 DOM'>渲染 DOM</h3>
+<p>JSX就相当于一个语法糖文件，Babel 会把 JSX 转译成一个名为 React.createElement() 函数调用，所以我们在每一个JSX文件中都需要<code>import React from 'react'</code>这样引入<code>React</code>。</p>
 
 <pre><code><span></span>
-<span>ReactDOM.render(</span>
-<span>  Element,</span>
-<span>  document.getElementById('root')</span>
+<span>const element = (</span>
+<span>  &lt;h1 className="greeting"&gt;</span>
+<span>    Hello, world!</span>
+<span>  &lt;/h1&gt;</span>
+<span>);</span>
+<span>&lt;!-- babel 转译如下 --&gt;</span>
+<span>const element = React.createElement(</span>
+<span>  'h1',</span>
+<span>  {'{'}className: 'greeting'},</span>
+<span>  'Hello, world!'</span>
 <span>);</span>
 <span></span>
 </code></pre>
@@ -125,45 +132,81 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
+<h4 id='组件生命周期钩子'>组件生命周期钩子</h4>
+
 <ul>
-<li>组件生命周期钩子
-componentDidMount()   组件插入到dom中的时候执行
-componentWillUnmount()    组件被移除的时候执行</li>
+<li><code>componentDidMount()</code> 组件插入到dom中的时候执行</li>
+<li><code>componentWillUnmount()</code>  组件被移除的时候执行</li>
 </ul>
+
+<h4 id='setState'>setState</h4>
+
+<p><strong>为什么要用setState进行赋值?</strong><br></br>在React中，修改state中的属性需要调用<code>setState</code>进行修改。如果习惯写vue的开发人员一上来肯定是不习惯的，为何我不能直接<code>this.state.xx=xxx</code>的方法来进行修改呢？这是因为<code>setState</code>操作不只是赋值这么简单，他还会触发React的更新机制，也就是进行<code>diff</code>和<code>patch</code>以及<code>更新dom</code>的操作。直接对<code>state</code>的属性进行赋值，虽然值能被修改但不会触发视图更新。vue之所以可以直接通过修改data中的值即可触发视图更新，是因为在实例创建的时候会进行响应式以及依赖的收集。</p>
+
+<p><strong>setState是同步还是异步操作?</strong><br></br>首先，代码是同步执行的。之所以有时候让我们产生异步的错觉，是合成事件和钩子函数的调用顺序有可能在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值。</p>
+
+<p><code>setState</code>操作只在合成事件和钩子函数中是“异步”的，在原生事件和<code>setTimeout</code>/<code>setInterval</code>等原生API中都是同步的。这是因为React出于性能的考虑，如果频繁的<code>setState</code>操作会造成频繁渲染dom，这个开销是非常大的。所以会把多个 setState() 调用合并成一个调用。为了解决这个问题,可以让<code>setState()</code>接收一个函数而不是一个对象：</p>
+
+<pre><code><span></span>
+<span>this.setState((state, props) =&gt; ({'{'}</span>
+<span>  counter: state.counter + props.increment</span>
+<span>}));</span>
+<span></span>
+</code></pre>
 
 <h3 id='事件'>事件</h3>
 
-<p>书写 驼峰式</p>
-
 <pre><code><span></span>
-<span> function handleClick(e) {'{'}</span>
-<span>    e.preventDefault();</span>
-<span>    console.log('The link was clicked.');</span>
-<span> }</span>
+<span>function handleClick(e) {'{'}</span>
+<span>  e.preventDefault();</span>
+<span>  console.log('The link was clicked.');</span>
+<span>}</span>
 <span></span>
-<span>  return (</span>
-<span>    &lt; a href=" " onClick={'{'}handleClick}&gt;</span>
-<span>      Click me</span>
-<span>    &lt;/ a&gt;</span>
-<span>  );</span>
+<span>return (</span>
+<span>  &lt;a href="" onClick={'{'}handleClick}&gt;</span>
+<span>    Click me</span>
+<span>  &lt;/a&gt;</span>
+<span>);</span>
 <span></span>
 </code></pre>
 
-<p>在组件中的时候需要添加 this.handleClick</p>
+<blockquote>
+  <p>注意：在组件中需要为事件处理函数绑定<code>this</code>,这是因为class的方法默认不会绑定<code>this</code>。因为 render 多次调用每次都要 bind 会影响性能，所以官方就没有进行处理，而要我们需要绑定的地方手动去绑定，以达到性能优化的目的。</p>
+</blockquote>
 
-<p>处理回调函数的 this：<br></br>方法1: 在constructor中添加 bind 绑定 this</p>
+<p>目前我们一般有四种方法去绑定this:</p>
+
+<ul>
+<li><strong>直接在事件里进行bind操作</strong>，这样写起来顺手，但是如果我们有多个事件绑定同一个事件函数的话，就会进行多次的bind操作，会对性能造成影响。</li>
+<li><strong>在constructor种手动bind</strong>，相比第一种方法，在构造函数中只进行一次绑定操作即可，节省多余开销</li>
+<li><strong>箭头函数</strong>，利用箭头函数不会创建this的特性，但是每次我们都要创建一个不同的回调函数</li>
+<li><strong>public class fields</strong>，需要安装babel插件来支持</li>
+</ul>
 
 <pre><code><span></span>
-<span>this.handleClick = this.handleClick.bind(this);</span>
-<span></span>
-</code></pre>
-
-<p>方法2: 使用属性初始化器(箭头函数)绑定回调函数</p>
-
-<pre><code><span></span>
-<span>handleClick = () =&gt; {'{'}</span>
-<span>    console.log('this is:', this);</span>
+<span>class Foo extends React.Component {'{'}</span>
+<span>  constuctor(props) {'{'}</span>
+<span>    super(props)</span>
+<span>    this.handleClick2 = this.handleClick.bind(this)</span>
 <span>  }</span>
+<span></span>
+<span>  handleClick () {'{'}</span>
+<span>    this.setState({'{'} xxx: aaa })</span>
+<span>  }</span>
+<span></span>
+<span>  render() {'{'}</span>
+<span>    return (</span>
+<span>      &lt;div&gt;</span>
+<span>        &lt;!-- 直接进行 bind this --&gt;</span>
+<span>        &lt;button onClick={'{'}this.handleClick.bind(this)}&gt;Click me&lt;/button&gt;</span>
+<span>        &lt;!-- 在 constructor 中手动绑定函数 --&gt;</span>
+<span>        &lt;button onClick={'{'}this.handleClick2}&gt;Click me&lt;/button&gt;</span>
+<span>        &lt;!-- 箭头函数形式 --&gt;</span>
+<span>        &lt;button onClick={'{'}(e) =&gt; this.handleClick(e)}&gt;Click me&lt;/button&gt;</span>
+<span>      &lt;/div&gt;</span>
+<span>    )</span>
+<span>  }</span>
+<span>}</span>
 <span></span>
 </code></pre>
 

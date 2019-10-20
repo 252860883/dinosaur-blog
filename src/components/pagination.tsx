@@ -17,7 +17,7 @@ export default class Pagination extends React.Component<any, IState> {
         })
     }
 
-    clickButton(operation: string | void) {
+    clickButton = (operation: string | void) => {
         const current = operation === 'next' ? this.state.current + 1 : this.state.current - 1
         this.setState({
             current,
@@ -42,8 +42,8 @@ export default class Pagination extends React.Component<any, IState> {
 
     render() {
         const current = this.state.current
-        const prevBtn = (current === 1 || !this.state.show) ? '' : <div className="pagination-btn  pagination-btn--left" onClick={this.clickButton.bind(this, 'prev')}></div>;
-        const nextBtn = (current === this.props.total || !this.state.show) ? '' : <div className="pagination-btn" onClick={this.clickButton.bind(this, 'next')}></div>;
+        const prevBtn = (current === 1 || !this.state.show) ? '' : <div className="pagination-btn  pagination-btn--left" onClick={() => this.clickButton('prev')}></div>;
+        const nextBtn = (current === this.props.total || !this.state.show) ? '' : <div className="pagination-btn" onClick={() => this.clickButton('next')}></div>;
         return (
             <div className="pagination">
                 {prevBtn}

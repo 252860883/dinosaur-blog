@@ -3,7 +3,7 @@ import "../style/components/headerLink.scss"
 export default class Main extends React.Component<any, any>{
     componentDidMount() { }
 
-    clickPosBtn(idName: string) {
+    clickPosBtn = (idName: string) => {
         const dom: any = document.getElementById(idName);
         window.scrollTo({
             top: dom.offsetTop - 10,
@@ -20,7 +20,7 @@ export default class Main extends React.Component<any, any>{
                         <div className='tag'>Reading Assistance ·</div>
                         {
                             this.props.headerLink.map((item: any, index: number) => {
-                                return <span className={'a' + item.level} key={index} onClick={this.clickPosBtn.bind(this, item.title)}>{item.title}</span>
+                                return <span className={'a' + item.level} key={index} onClick={() => this.clickPosBtn(item.title)}>{item.title}</span>
                             })
                         }
                     </div>

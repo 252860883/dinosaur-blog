@@ -15,7 +15,7 @@ export default class Template extends React.Component {
             <div>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
-<div className="title-content"><h1 className="title">VUE核心原理解析（一）依赖收集与响应式绑定</h1></div>
+<div className="title-content"><h1 className="title">VUE核心原理解析</h1></div>
 <blockquote>
   <p>众所周知，VUE 是目前一款很流行专注于视图层、用于构建用户交互界面的响应式渐进框架。在使用 VUE 框架大力缩减了开发成本的同时，是否有想过VUE是如何实现双向绑定的？计算属性、监听器等方法又是如何实现的？带着一系列的疑问，就开始这篇解析吧。</p>
 </blockquote>

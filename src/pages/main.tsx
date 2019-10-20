@@ -5,7 +5,7 @@ import ArticleList from '../components/article'
 import { IsPC } from "../utils/screen";
 import { withRouter } from 'react-router-dom'
 
-interface IBlockItem{
+interface IBlockItem {
     title: string,
     icon: string,
     link: string
@@ -36,7 +36,7 @@ class Main extends React.Component<any, IState> {
         },]
     };
 
-    clickBlockItem(link: string) {
+    clickBlockItem = (link: string) => {
         this.props.history.push(link);
     }
 
@@ -48,7 +48,7 @@ class Main extends React.Component<any, IState> {
                     {
                         this.state.blockLists.map(item => {
                             return (
-                                <div className="item" key={item.link} onClick={this.clickBlockItem.bind(this, item.link)}>
+                                <div className="item" key={item.link} onClick={() => this.clickBlockItem(item.link)}>
                                     <img className="item-icon" alt="" src={item.icon}></img>
                                 </div>
                             )

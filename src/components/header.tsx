@@ -27,7 +27,7 @@ class Header extends React.Component<any, IsState> {
     }
     componentDidMount() {
         this.judgeScreenWidth()
-        window.onresize = this.judgeScreenWidth.bind(this)
+        window.onresize = this.judgeScreenWidth
     }
     clickNav(route: any) {
         this.props.history.push(route.link);
@@ -35,13 +35,13 @@ class Header extends React.Component<any, IsState> {
             path: route.link
         });
     }
-    clickTop() {
+    clickTop = () => {
         this.setState({
             showNav: !this.state.showNav
         });
     }
 
-    judgeScreenWidth() {
+    judgeScreenWidth = () => {
         if (window.innerWidth > 600 && this.state.isMobile) {
             this.setState({
                 isMobile: false
@@ -54,9 +54,9 @@ class Header extends React.Component<any, IsState> {
     }
 
     judgeRouteActive(path: string, link: string): boolean {
-        console.log(path,link)
+        // console.log(path,link)
         // this.state.path === item.link
-        if (path === link || (path.match(/\/article\-/g) && link =='/article')) {
+        if (path === link || (path.match(/\/article\-/g) && link == '/article')) {
             return true
         } else {
             return false
@@ -77,7 +77,7 @@ class Header extends React.Component<any, IsState> {
                             currentRoute = item.key
                         }
                         return (
-                            <span key={item.key} className={this.judgeRouteActive(this.state.path, item.link) ? 'nav-active' : ''} onClick={this.clickNav.bind(this, item)}>{item.key}</span>
+                            <span key={item.key} className={this.judgeRouteActive(this.state.path, item.link) ? 'nav-active' : ''} onClick={() => this.clickNav(item)}>{item.key}</span>
                         )
                     }
                 })
@@ -87,7 +87,7 @@ class Header extends React.Component<any, IsState> {
 
         if (this.state.isMobile) {
             header = (
-                <header className={headerSp ? 'header-mobile header-sp' : 'header-mobile'} onClick={this.clickTop.bind(this)}>
+                <header className={headerSp ? 'header-mobile header-sp' : 'header-mobile'} onClick={this.clickTop}>
                     <div className={this.state.showNav ? 'header-top header-top-select' : 'header-top'}>
                         <img className="logo" alt="" src={require('../assets/logo.png')} />
                         <img className={this.state.showNav ? 'fire fire-show' : 'fire fire-hide'} alt="" src={require('../assets/fire.png')} />
