@@ -6,7 +6,7 @@ export default class Article extends React.Component {
         return (
             <div className="about">
                 <div className="qq-message">
-                    <img src={require('../assets/message.png')} alt=""/>
+                    {/* <img src={require('../assets/message.png')} alt=""/> */}
                 </div>
                 <p>代号恐龙，一开始瞎起的，这么多年就一直叫下来了。</p>
                 <p>你可以通过访问我的<a target="blank" href="https://github.com/252860883">github</a>了解更多，或者添加我的微信：dadada_Dinosauria，与我取得联系。</p>

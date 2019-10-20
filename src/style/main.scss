@@ -61,7 +61,6 @@
         justify-content: space-around;
         align-items: center;
         color: #fff;
-        // text-shadow: 0 1px 1px #222;
 
         span {
             &:last-child {
@@ -83,7 +82,9 @@
         transition: all .3s;
         box-sizing: border-box;
         filter: grayscale(90%);
-        background: #666;
+        box-shadow: 0 0.05rem 0.05rem rgba(#ddd,0.5),0 -0.03rem 0.05rem rgba(#ddd,0.5);
+        border-radius: 0.15rem;
+        overflow: hidden;
 
         &:hover {
             filter: grayscale(0%);
@@ -112,7 +113,7 @@
     padding: 0 0.075rem;
     box-sizing: border-box;
     .article-title {
-        background: #222;
+        background: $dark;
         color: #fff;
         margin: 10px 0;
         font-size: 16px;

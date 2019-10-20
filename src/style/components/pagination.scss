@@ -1,3 +1,4 @@
+@import './common.scss';
 .pagination {
     width: 100%;
     display: flex;
@@ -11,7 +12,7 @@
         height: 30px;
         margin: 20px 10px;
         position: relative;
-        background: #222222;
+        background: $dark;
         text-align: center;
         line-height: 40px;
         color: #ffffff;

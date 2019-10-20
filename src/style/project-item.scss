@@ -2,15 +2,25 @@
 
 .project-item {
     width: 3.75rem;
+    max-width: 400px;
     height: auto;
     box-sizing: border-box;
     padding: 0.2rem;
+    margin: 0.2rem;
     border: 0.01rem solid transparent;
     transition: all 0.3s;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // margin: 0.2rem auto;
+    box-shadow: 0 0.05rem 0.05rem rgba(#ddd, 0.5), 0 -0.03rem 0.05rem rgba(#ddd, 0.5);
+    border-radius: 0.1rem;
+    background: #fff;
+    cursor: pointer;
+    user-select: none;
+
+    &:active {
+        transform: scale(0.9);
+    }
 
     img {
         width: 100%;
@@ -42,9 +52,8 @@
             display: block;
             font-size: 14px;
             line-height: 18px;
-            color: #222;
+            color: $dark;
             font-weight: bold;
-            cursor: pointer;
             margin-top: 0.05rem;
         }
     }

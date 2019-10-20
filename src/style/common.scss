@@ -4,6 +4,7 @@ $o:#c09c00;
 // $o:#ec5128;
 $b:#0014b3;
 $light:#f8f8f8;
+$dark:#24292e;
 
 // 自定义字体
 @font-face {
@@ -33,7 +34,7 @@ body {
     min-height: 100%;
     position: relative;
     overflow: hidden;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.8rem;
     box-sizing: border-box;
 }
 
@@ -152,6 +153,7 @@ video {
     padding: 0;
     border: 0;
     vertical-align: baseline;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     // font-family: Text;
 }
 

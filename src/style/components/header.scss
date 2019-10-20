@@ -3,7 +3,7 @@
 .header {
     width: 700px;
     height: 100px;
-    color: #222;
+    color: $dark;
     text-align: center;
     margin: 0 auto;
     box-sizing: border-box;
@@ -19,6 +19,7 @@
         height: 30px;
         transition: all .3s;
         display: block;
+        user-select:none;
     }
 
     nav {
@@ -38,6 +39,7 @@
             position: relative;
             z-index: 2;
             cursor: pointer;
+            user-select:none;
         }
 
         .nav-active,
@@ -69,7 +71,7 @@
     // margin-bottom: 0.6rem;
     .header-top {
         // height: 0.6rem;
-        background: #222;
+        background: $dark;
         position: relative;
         z-index: 5;
         display: flex;
@@ -126,7 +128,7 @@
             text-align: center;
             font-style: normal;
             font-family: Main;
-            background: #222222;
+            background: ¥dark;
             color: #ffffff;
         }
 
