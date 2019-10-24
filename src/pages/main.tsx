@@ -43,6 +43,7 @@ class Main extends React.Component<any, IState> {
     render() {
         return (
             <div className="main">
+                <img src="https://wx-static.yangcong345.com/1570433094.png"></img>
                 <MainPic3D IsPC={IsPC()} />
                 <div className="mainBlock">
                     {

@@ -27,7 +27,7 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
-
+const commitFuncer = require('./commit');
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
@@ -66,7 +66,9 @@ checkBrowsers(paths.appPath, isInteractive)
   .then(previousFileSizes => {
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
-    fs.emptyDirSync(paths.appBuild);
+    // fs.emptyDirSync(paths.appBuild);
+    // 删除打包出来的文件
+    deleteBuildFloder();
     // Merge with the public folder
     copyPublicFolder();
     // Start the webpack build
@@ -111,8 +113,8 @@ checkBrowsers(paths.appPath, isInteractive)
         buildFolder,
         useYarn
       );
-      // 移动到外层目录
-      // moveDistFolder(buildFolder)
+      // git push origin
+      commitFuncer.commit();
     },
     err => {
       console.log(chalk.red('Failed to compile.\n'));
@@ -195,32 +197,27 @@ function copyPublicFolder() {
   });
 }
 
-function moveDistFolder(buildFolder) {
-  const folderMap = ['static','manifest.json','asset-manifest.json','precache-manifest','service-worker.js','index.html']
-  fs.readdirSync('../').forEach(floder=>{
-    // console.log(floder)
-    folderMap.forEach(item=>{
-      if(floder.includes(item)){
-        deleteFloder(path.resolve('../'+floder))
+function deleteBuildFloder() {
+  const folderMap = ['static', 'manifest.json', 'asset-manifest.json', 'precache-manifest', 'service-worker.js', 'index.html']
+  fs.readdirSync(paths.appBuild).forEach(floder => {
+    for (let item of folderMap) {
+      if (floder.includes(item)) {
+        deleteFloder(path.resolve(paths.appBuild + '/' + floder))
         return;
       }
-    })
-  })
-
-  fs.readdirSync('./build').forEach(val => {
-    fs.rename(path.resolve('./build',val),path.resolve('../'+val));
+    }
   })
 }
 
-function deleteFloder(curPath){
-  if(!fs.existsSync(curPath)) return;
-
-  if(fs.statSync(curPath).isDirectory()){
-    fs.readdirSync(curPath).forEach(floder=>{
-      deleteFloder(path.resolve(curPath,floder));
+function deleteFloder(curPath) {
+  console.log(curPath)
+  if (!fs.existsSync(curPath)) return;
+  if (fs.statSync(curPath).isDirectory()) {
+    fs.readdirSync(curPath).forEach(floder => {
+      deleteFloder(path.resolve(curPath, floder));
     })
     fs.rmdirSync(curPath);
-  }else {
+  } else {
     fs.unlinkSync(curPath);
   }
 }
