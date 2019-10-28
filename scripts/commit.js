@@ -1,29 +1,16 @@
 const exec = require('child_process').exec;
 const paths = require('../config/paths');
+const chalk = require('chalk');
 const options = { cwd: paths.appBuild };
 
 module.exports.commit = function () {
     runExec("git add .").then(() => {
         runExec("git commit -m 'update new files'").then(() => {
-            runExec("git push")
+            runExec("git push").then(() => {
+                console.log(chalk.green('all work is done!\n'))
+            })
         })
     })
-    // exec('', options, (error, stdout, stderr) => {
-    // console.log(error, stdout, stderr)
-    // exec("git commit -m 'update new files'", options, (error, stdout, stderr) => {
-    //     if (error) {
-    //         console.log(stdout);
-    //     } else {
-    //         exec("", options, (error, stdout, stderr) => {
-    //             if (error) {
-    //                 console.log(stdout);
-    //             } else {
-    //                 console.log('all work is done!')
-    //             }
-    //         });
-    //     }
-    // })
-    // })
 }
 
 function runExec(command) {
@@ -33,7 +20,7 @@ function runExec(command) {
                 reject(error)
                 console.log(chalk.red(error + '\n'))
             } else {
-                console.log('all work is done!')
+                resolve()
             }
         });
     })

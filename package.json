@@ -68,8 +68,7 @@
     "dev": "node scripts/start.js",
     "build": "node scripts/build.js",
     "dev-build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "assets": "node scripts/assets-control.js"
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app",
