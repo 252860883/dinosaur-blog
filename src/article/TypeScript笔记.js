@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"了解 TypeScript"},{"level":"h3","title":"对象类型"},{"level":"h4","title":"基础数据类型"},{"level":"h4","title":"任意类型"},{"level":"h4","title":"类型推论"},{"level":"h4","title":"联合类型"},{"level":"h4","title":"数组类型"},{"level":"h4","title":"函数类型"},{"level":"h4","title":"类型断言"},{"level":"h4","title":"泛型"},{"level":"h4","title":"内置对象"},{"level":"h3","title":"接口"},{"level":"h3","title":"类"},{"level":"h3","title":"类与接口的结合"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">TypeScript笔记</h1></div>
@@ -384,8 +383,7 @@ export default class Template extends React.Component {
   <p>学习整理自：<br></br><a target="_blank" href="https://ts.xcatliu.com/">https://ts.xcatliu.com/</a><br></br>https://www.tslang.cn/docs/home.html</p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

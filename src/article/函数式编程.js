@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"什么是函数式编程"},{"level":"h3","title":"声明式与命令式"},{"level":"h3","title":"纯函数"},{"level":"h3","title":"柯里化 与 高阶函数"},{"level":"h3","title":"部分应用"},{"level":"h3","title":"组合函数"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">函数式编程</h1></div>
@@ -236,8 +235,7 @@ export default class Template extends React.Component {
 <li>声明式就是使用这样的功能函数</li>
 </ol>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"1.浏览器主要组成与浏览器线程"},{"level":"h3","title":"1.1 浏览器组件"},{"level":"h3","title":"1.2 浏览器中的进程与线程"},{"level":"h4","title":"1.GUI 渲染线程"},{"level":"h4","title":"2.JavaScript引擎线程"},{"level":"h4","title":"3.定时触发器线程"},{"level":"h4","title":"4.事件触发线程"},{"level":"h4","title":"5.异步http请求线程"},{"level":"h2","title":"2. 渲染过程"},{"level":"h3","title":"2.1 渲染流程"},{"level":"h3","title":"2.2 渲染细节"},{"level":"h4","title":"1.生成DOM树"},{"level":"h4","title":"2.生成Render树"},{"level":"h4","title":"3.DOM树与Render树"},{"level":"h4","title":"4.布局与绘制"},{"level":"h4","title":"5.回流与重绘"},{"level":"h2","title":"3.关键渲染路径与阻塞渲染"},{"level":"h3","title":"3.1 CSS"},{"level":"h3","title":"3.2 JavaScript"},{"level":"h3","title":"3.3 改变脚本加载次序defer与async"},{"level":"h4","title":"defer"},{"level":"h3","title":"async"},{"level":"h3","title":"document.createElement"},{"level":"h2","title":"4. 优化渲染性能"},{"level":"h3","title":"4.1 优化JS的执行效率"},{"level":"h4","title":"1.动画实现使用requestAnimationFrame"},{"level":"h4","title":"2.长耗时的JS代码放到Web Workers中执行"},{"level":"h4","title":"3.拆分操作DOM元素的任务，分别在多个frame完成"},{"level":"h4","title":"4.使用Chrome DevTools的Timeline来分析JavaScript的性能"},{"level":"h3","title":"4.2降低样式计算的范围和复杂度"},{"level":"h4","title":"1.降低样式选择器的复杂度"},{"level":"h4","title":"2.减少需要执行样式计算的元素个数"},{"level":"h3","title":"4.3避免大规模、复杂的布局"},{"level":"h4","title":"1.尽可能避免触发布局"},{"level":"h4","title":"2.使用flexbox替代老的布局模型"},{"level":"h4","title":"3.避免强制同步布局事件的发生"},{"level":"h4","title":"4. 避免连续的强制同步布局发生"},{"level":"h3","title":"4.4简化绘制的复杂度、减少绘制区域"},{"level":"h4","title":"1.提升移动或渐变元素的绘制层"},{"level":"h4","title":"2.减少绘制区域，简化绘制的复杂度"},{"level":"h4","title":"3.通过Chrome DevTools来分析绘制复杂度和时间消耗，尽可能降低这些指标"},{"level":"h3","title":"4.5优先使用渲染层合并属性、控制层数量"},{"level":"h4","title":"1.使用transform/opacity实现动画效果"},{"level":"h4","title":"2.提升动画效果中的元素"},{"level":"h4","title":"3.管理渲染层、避免过多数量的层"},{"level":"h4","title":"4.使用Chrome DevTools来了解页面的渲染层情况"},{"level":"h3","title":"4.6对用户输入事件的处理函数去抖动（移动设备）"},{"level":"h4","title":"1. 避免使用运行时间过长的输入事件处理函数"},{"level":"h4","title":"2. 避免在输入事件处理函数中修改样式属性"},{"level":"h4","title":"3. 对滚动事件处理函数去抖动"},{"level":"h3","title":"说明"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">浏览器渲染原理</h1></div>
@@ -509,8 +508,7 @@ export default class Template extends React.Component {
   <p>转载自 <a target="_blank" href="https://mp.weixin.qq.com/s/njwpsI-5T2mewPYjNef0jA">https://mp.weixin.qq.com/s/njwpsI-5T2mewPYjNef0jA</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

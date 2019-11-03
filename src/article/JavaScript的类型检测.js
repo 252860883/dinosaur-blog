@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"类型"},{"level":"h3","title":"typeof"},{"level":"h3","title":"instanceof"},{"level":"h3","title":"isPrototypeOf()"},{"level":"h3","title":"==="},{"level":"h3","title":"constructor"},{"level":"h3","title":"Object.prototype.toString.call()"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">JavaScript的类型检测</h1></div>
@@ -193,8 +192,7 @@ export default class Template extends React.Component {
 
 <table><tbody><tr><th> 方法 </th><th> 可判断类型 </th><th> 缺点 </th></tr><tr><td> typeof </td><td> 基本数据类型（null除外）、Object </td><td> 不能判断 null、array、date、RegExp等类型 </td></tr><tr><td> instanceof </td><td>  Array、Date、RegExp等类型 </td><td> 1.只要是在实例上的构造函数就会判断为真 2.基本数据类型必须通过实例创建方式才能被检测 3.不能检测 null 和 undefined </td></tr><tr><td> === </td><td> Null 和 Undefined</td><td> 只能检测 null 和 undefined</td></tr><tr><td> constructor</td><td> 基本数据类型、Array、Date、RegExp等</td><td> 1.不能判断 null 和 undefined 2.如果对类的原型进行重写时很有可能把 constructor给覆盖</td></tr><tr><td>Object.prototype.toString.call()</td><td>全都可以</td><td>如果非要找缺点，那就是需要多打几个字母？</td></tr></tbody></table>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

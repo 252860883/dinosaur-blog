@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h3","title":"Array.prototype.map"},{"level":"h3","title":"Array.prototype.forEach"},{"level":"h3","title":"Array.prototype.Filter"},{"level":"h3","title":"Array.prototype.Sort"},{"level":"h3","title":"Array.prototype.Some"},{"level":"h3","title":"Array.prototype.Every"},{"level":"h3","title":"Array.prototype.FindIndex"},{"level":"h3","title":"Array.prototype.Find"},{"level":"h3","title":"Array.prototype.Reduce"},{"level":"h3","title":"Array.prototype.reduceRight"},{"level":"h3","title":"Array.prototype.includes(ES6新增)"},{"level":"h3","title":"Array.isArray(ES6新增)"},{"level":"h3","title":"Array.prototype.fill(ES6新增)"},{"level":"h3","title":"Array.prototype.entries/keys/values(ES6新增)"},{"level":"h3","title":"Array.of(ES6新增)"},{"level":"h3","title":"Array.from"}]
+            headerLink: [{"level":"h3","title":"Array.prototype.map"},{"level":"h3","title":"Array.prototype.forEach"},{"level":"h3","title":"Array.prototype.Filter"},{"level":"h3","title":"Array.prototype.Sort"},{"level":"h3","title":"Array.prototype.Some"},{"level":"h3","title":"Array.prototype.Every"},{"level":"h3","title":"Array.prototype.FindIndex"},{"level":"h3","title":"Array.prototype.Find"},{"level":"h3","title":"Array.prototype.Reduce"},{"level":"h3","title":"Array.prototype.reduceRight"},{"level":"h3","title":"Array.prototype.includes(ES6新增)"},{"level":"h3","title":"Array.isArray(ES6新增)"},{"level":"h3","title":"Array.prototype.fill(ES6新增)"},{"level":"h3","title":"Array.prototype.entries/keys/values(ES6新增)"},{"level":"h3","title":"Array.of(ES6新增)"},{"level":"h3","title":"Array.from"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">关于array的常用的几个API</h1></div>
@@ -23,9 +22,44 @@ export default class Template extends React.Component {
 <li>该数组中的每个元素都调用一个提供的函数后返回结果,否则返回 undefined</li>
 </ul>
 
-<blockquote>
-  <p>不能在 callbackfn 内设置<code>break</code>来跳出循环的原因是，callbackfn 并不是循环体，forEach 等其他方法同理不能跳出循环</p>
-</blockquote>
+<p>对于map函数的底层实现，源码核心主要是利用<code>while</code>循环执行<code>callback</code>函数，将函数返回值放入数组即可。大概实现如下：</p>
+
+<pre><code><span></span>
+<span>Array.prototype.map = function (callbackfn, thisArg) {'{'}</span>
+<span>    // 异常处理</span>
+<span>    if (this == null) {'{'}</span>
+<span>        throw new TypeError("Cannot read property 'map' of null or undefined");</span>
+<span>    }</span>
+<span>    // callbackfn 不是函数时抛出异常</span>
+<span>    if (typeof callbackfn !== 'function') {'{'}</span>
+<span>        throw new TypeError(callbackfn + ' is not a function')</span>
+<span>    }</span>
+<span>    // 调用 map 方法的原数组，以键值对形式</span>
+<span>    let O = Object(this) </span>
+<span>    let len = O.length</span>
+<span>    // 执行 callback 时的this</span>
+<span>    let T = thisArg </span>
+<span>    // 要返回的数组</span>
+<span>    let A = new Array(len) </span>
+<span>    // 计数器</span>
+<span>    let k = 0 </span>
+<span>    while (k &lt; len) {'{'}</span>
+<span>        let kValue = O[k]</span>
+<span>        // 传入 this, 当前元素 element, 索引 index, 原数组对象 O</span>
+<span>        let mappedValue = callbackfn.call(T, kValue, k, O)</span>
+<span>        // 返回结果赋值给新生成数组</span>
+<span>        A[k] = mappedValue</span>
+<span>        k++</span>
+<span>    }</span>
+<span>    // 返回新数组</span>
+<span>    return A</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<p>通过源码我们可以发现，循环体并不是在<code>callbackfn</code>内，所以不能在<code>callbackfn</code>内设置<code>break</code>、<code>continue</code>和<code>return</code>来跳出循环。同时<code>callbackfn</code>也不能写成<code>async fuction</code>的形式，后果是会立刻执行循环而不是等待每次函数的<code>await</code>结束以后再执行下一次循环。</p>
+
+<p>对于其他API的源码实现，下面就不一一列举了，大致上和<code>map</code>的实现很类似，只不过是在循环体里面需要做各自不同的逻辑。</p>
 
 <h3 id='Array.prototype.forEach'>Array.prototype.forEach</h3>
 
@@ -74,13 +108,13 @@ export default class Template extends React.Component {
 <h3 id='Array.prototype.Find'>Array.prototype.Find</h3>
 
 <ul>
-<li>和some类似，有一个满足的元素就会返回</li>
+<li>和some类似，有一个满足的元素就会返回该元素，而不是布尔值</li>
 <li>IE 11 及更早版本不支持</li>
 </ul>
 
 <h3 id='Array.prototype.Reduce'>Array.prototype.Reduce</h3>
 
-<p>该方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。reducer函数对应四个传参，依次是：<code>accumulator 累计器</code>, <code>currentValue 当前值</code>, <code>currentIndex 当前索引</code>, <code>array 数组</code>.</p>
+<p>该方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。reducer函数对应四个传参，依次是：<code>accumulator 累计器</code>, <code>currentValue 当前值</code>, <code>currentIndex 当前索引</code>, <code>array 数组</code>。同时注意</p>
 
 <pre><code><span></span>
 <span></span>
@@ -93,7 +127,30 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<p>⚠️需要注意，第一次循环时 accumulator 为数组第一个值，currentValue 为数组第二个值。</p>
+<p>需要注意，reduce 可选传入第二个参数，作为第一次调用 callback函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。</p>
+
+<pre><code><span></span>
+<span>const arr = [1, 2, 3, 4, 5]</span>
+<span>const reducer = (accumulator, currentValue, index) =&gt; {'{'}</span>
+<span>    console.log(accumulator, currentValue, index)</span>
+<span>    return accumulator + currentValue</span>
+<span>}</span>
+<span>&lt;!-- 没有传初始参数值 --&gt;</span>
+<span>arr.reduce(reducer)</span>
+<span>// 1 2 1</span>
+<span>// 3 3 2</span>
+<span>// 6 4 3</span>
+<span>// 10 5 4</span>
+<span></span>
+<span>&lt;!-- 传入初始参数值 --&gt;</span>
+<span>arr.reduce(reducer)</span>
+<span>// -1 1 0</span>
+<span>// 0 2 1</span>
+<span>// 2 3 2</span>
+<span>// 5 4 3</span>
+<span>// 9 5 4</span>
+<span></span>
+</code></pre>
 
 <h3 id='Array.prototype.reduceRight'>Array.prototype.reduceRight</h3>
 
@@ -185,9 +242,12 @@ export default class Template extends React.Component {
 <span></span>
 <span></span>
 </code></pre>
-</div>
-            </div>
 
+<h3 id='参考'>参考</h3>
+
+<p><a target="_blank" href="https://juejin.im/post/5d76f08ef265da03970be192">Array 原型方法源码实现大揭秘</a></p>
+</div>
+            </Fragment>
         )
     }
 }

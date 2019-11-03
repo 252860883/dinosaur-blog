@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"前言"},{"level":"h2","title":"Shell脚本 实现"},{"level":"h2","title":"nodejs环境 实现"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">实现一个自动生成小程序文件模版的脚本</h1></div>
@@ -320,8 +319,7 @@ export default class Template extends React.Component {
   <p>源码：<br></br><a target="_blank" href="https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js">https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.js</a><br></br>https://github.com/MagicalDinosaur/smallProgramDemo/blob/master/cli/clone.sh</p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

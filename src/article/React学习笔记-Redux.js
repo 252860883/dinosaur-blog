@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"Action"},{"level":"h3","title":"Reducer"},{"level":"h3","title":"Store"},{"level":"h3","title":"数据流"},{"level":"h3","title":"React 中使用 Redux"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">React学习笔记之Redux</h1></div>
@@ -101,8 +100,7 @@ export default class Template extends React.Component {
 
 <h3 id='React 中使用 Redux'>React 中使用 Redux</h3>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

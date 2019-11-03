@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"v1.0上线版 2017/10/13-2017/11/2"},{"level":"h2","title":"1.默认电话号码字段点击会触发系统拨号"},{"level":"h2","title":"2.safari浏览器移动端兼容问题"},{"level":"h4","title":"safari浏览器对于input标签设定有默认的事件"},{"level":"h4","title":"safari 默认点击 a，button，input时会有一层灰色的遮罩"},{"level":"h2","title":"3.移动端click点击事件会有延迟"},{"level":"h2","title":"4. vue 异步请求之 axios"},{"level":"h4","title":"axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征:"},{"level":"h4","title":"axios的配置"},{"level":"h2","title":"5.移动端ios下触发input再点击其他区域无法失去焦点"},{"level":"h2","title":"6.移动端 ios下绑定企业微信开发接口无效"},{"level":"h2","title":"7.子组件和父组件"},{"level":"h2","title":"8.弹框模糊以及出现莫名其妙的黑线"},{"level":"h2","title":"9.实现文本双行超出显示省略号"},{"level":"h2","title":"10.工资表详情页面双击跳到放大页面再返回不强制刷新"},{"level":"h2","title":"11.路由跳转时设置过渡效果，以及过渡时间的设置"},{"level":"h2","title":"12.路由绑定query的值时只能接受基本数据类型 Number、String、Boolean等"},{"level":"h2","title":"13.input在IE下回车会默认执行提交事件"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">[项目总结]大牛工资条</h1></div>
@@ -281,8 +280,7 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

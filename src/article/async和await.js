@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"Async/Await 的出现"},{"level":"h3","title":"Iterator"},{"level":"h3","title":"Generator"},{"level":"h3","title":"Async/Await"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">由 Async/Await 引发出来的一系列问题</h1></div>
@@ -243,8 +242,7 @@ export default class Template extends React.Component {
   <p><a target="_blank" href="https://muyiy.vip/question/async/9.html">Async/Await 如何通过同步的方式实现异步</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

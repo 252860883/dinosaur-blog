@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"基础框架"},{"level":"h4","title":"sence（场景）"},{"level":"h4","title":"camera（相机）"},{"level":"h4","title":"renderer（渲染器）"},{"level":"h4","title":"三者关系"},{"level":"h3","title":"让物体动起来"},{"level":"h4","title":"stats 性能监听"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">threejs 开启web的3D大门</h1></div>
@@ -132,8 +131,7 @@ export default class Template extends React.Component {
 
 <p>虽然这个办法可以让物体动起来，但是对于复杂的动画效果还是不适用，这里推荐一个动画引擎 <code>Tween.js</code>来实现不规则的动画。</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

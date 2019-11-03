@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"单线程"},{"level":"h3","title":"执行栈"},{"level":"h3","title":"任务队列"},{"level":"h3","title":"Event Loop"},{"level":"h3","title":"Nodejs环境的 Event Loop"},{"level":"h4","title":"事件循环六个阶段"},{"level":"h4","title":"process.nextTick 与 setImmediate"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">JavaScript运行机制之EventLoop</h1></div>
@@ -139,8 +138,7 @@ export default class Template extends React.Component {
   <p>参考:<br></br><a target="_blank" href="https://juejin.im/post/59e85eebf265da430d571f89#comment">这一次，彻底弄懂 JavaScript 执行机制</a><br></br><a target="_blank" href="https://www.oecom.cn/understand-js-run-stack-and-world/">如何理解js的执行上下文与执行栈</a><br></br><a target="_blank" href="https://www.imooc.com/article/40020#">一次搞懂Event loop</a><br></br><a target="_blank" href="https://juejin.im/post/5aa5dcabf265da239c7afe1e">浏览器和Node不同的事件循环</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

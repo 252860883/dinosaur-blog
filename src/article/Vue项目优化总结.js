@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"代码优化"},{"level":"h4","title":"v-for相关"},{"level":"h4","title":"冻结不会变化的对象"},{"level":"h4","title":"避免内存泄漏"},{"level":"h4","title":"图片懒加载"},{"level":"h4","title":"路由懒加载"},{"level":"h4","title":"第三方插件按需引入"},{"level":"h4","title":"服务器渲染 SSR"},{"level":"h4","title":"设置预渲染"},{"level":"h3","title":"Web基础优化"},{"level":"h3","title":"Webpack优化"},{"level":"h3","title":"Webpack构建优化"},{"level":"h4","title":"减少冗余代码"},{"level":"h4","title":"优化 Loader 配置"},{"level":"h4","title":"优化 resolve.noParse 配置"},{"level":"h4","title":"HappyPack 多子进程构建"},{"level":"h4","title":"ParallelUglifyPlugin 可以开启多个进程，并行使用 UglifyJS 压缩代码文件"},{"level":"h4","title":"调节自动刷新时间"},{"level":"h4","title":"模块热更新"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">Vue项目优化总结</h1></div>
@@ -159,8 +158,7 @@ export default class Template extends React.Component {
   <p><a target="_blank" href="https://juejin.im/post/5d548b83f265da03ab42471d">Vue 项目性能优化</a><br></br><a target="_blank" href="https://juejin.im/post/5c1fa158f265da613c09cb36">Vue项目Webpack优化实践</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

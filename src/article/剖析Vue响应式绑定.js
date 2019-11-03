@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"如何实现数据双向绑定"},{"level":"h3","title":"如何对数组和对象进行数据劫持"},{"level":"h3","title":"Vue.set 原理"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">剖析Vue响应式绑定</h1></div>
@@ -231,8 +230,7 @@ export default class Template extends React.Component {
   <p><a target="_blank" href="https://juejin.im/post/5d421bcf6fb9a06af23853f1">0 到 1 掌握：Vue 核心之数据双向绑定</a><br></br><a target="_blank" href="https://juejin.im/post/5a04231af265da431f4a84be">Vue响应式----数组变异方法</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

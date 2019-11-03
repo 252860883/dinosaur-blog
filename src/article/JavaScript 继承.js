@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"原型链继承"},{"level":"h3","title":"借用构造函数继承"},{"level":"h3","title":"组合继承"},{"level":"h3","title":"原型式继承"},{"level":"h3","title":"寄生式继承"},{"level":"h3","title":"寄生组合继承"},{"level":"h3","title":"ES6 Class extends"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">JavaScript 继承的几种方式</h1></div>
@@ -254,8 +253,7 @@ export default class Template extends React.Component {
   <p><a target="_blank" href="https://segmentfault.com/a/1190000015727237">一篇文章理解JS继承</a><br></br><a target="_blank" href="https://segmentfault.com/a/1190000014476341">JS中的继承(上)</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"概念"},{"level":"h3","title":"实现"},{"level":"h3","title":"发布订阅模式"},{"level":"h3","title":"优点"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">JavaScript设计模式（一）观察者模式</h1></div>
@@ -121,8 +120,7 @@ export default class Template extends React.Component {
 <li>利于代码的松散耦合</li>
 </ol>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

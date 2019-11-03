@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"keep-alive简单介绍"},{"level":"h3","title":"this.$route.query报错"},{"level":"h3","title":"事件的处理"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">刨下VUE中keep-alive的一些坑</h1></div>
@@ -55,8 +54,7 @@ export default class Template extends React.Component {
 
 <p>解决办法：在mounted中绑定事件，因为这个只执行一次，并且DOM已准备好。如果插件绑定后还要再执行一下事件的handler函数的话，那就提取出来，放在activated中执行。比如：根据输入内容自动增长textarea的高度，这部分需要监听textarea的input和change事件，并且页面进入后还要再次执行一次handler函数，更新textarea高度（避免上次输入的影响）。</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

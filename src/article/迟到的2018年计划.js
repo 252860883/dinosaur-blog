@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"<strong>看至少一场livehouse/音乐节</strong>"},{"level":"h3","title":"<strong>看至少十本书（技术/非技术）</strong>"},{"level":"h3","title":"<strong>完成Art-QRCode组件开源</strong>"},{"level":"h3","title":"<strong>再写一个比较好的开源的项目</strong>"},{"level":"h3","title":"<strong>健身，总体重瘦到130斤，嗯，这个很重要</strong>"},{"level":"h3","title":"<strong>培养一个新的兴趣爱好</strong>"},{"level":"h3","title":"<strong>周末坚持不睡懒觉，特殊情况特殊对待，哈哈</strong>"},{"level":"h3","title":"<strong>6月份毕业之后尽量保持一个月回家一次</strong>"},{"level":"h3","title":"<strong>继续深造厨艺，过年承包年夜饭～</strong>"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">迟到的2018年计划</h1></div>
@@ -70,8 +69,7 @@ export default class Template extends React.Component {
 
 <hr />
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"OOCSS"},{"level":"h3","title":"SMACSS"},{"level":"h4","title":"Base"},{"level":"h4","title":"Layout"},{"level":"h4","title":"Module"},{"level":"h4","title":"State"},{"level":"h4","title":"Theme"},{"level":"h3","title":"BEM命名法"},{"level":"h3","title":"总结"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">聊聊CSS设计模式</h1></div>
@@ -204,8 +203,7 @@ export default class Template extends React.Component {
   <p><a target="_blank" href="https://segmentfault.com/a/1190000000389838">CSS设计模式：OOCSS 和 SMACSS</a><br></br><a target="_blank" href="https://segmentfault.com/a/1190000000388784">编写可维护的CSS</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

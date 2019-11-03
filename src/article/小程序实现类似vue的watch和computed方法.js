@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"探底VUE"},{"level":"h3","title":"分析"},{"level":"h3","title":"watch实现"},{"level":"h3","title":"computed实现"},{"level":"h3","title":"后续问题"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">小程序实现vue的watch和computed方法</h1></div>
@@ -230,8 +229,7 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

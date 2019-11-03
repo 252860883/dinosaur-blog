@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: []
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">vue的key属性加还是不加？</h1></div>
@@ -112,8 +111,7 @@ export default class Template extends React.Component {
 
 <p><strong>小总结</strong>：<br></br>1. key在dom算法中作为辨识字段排列元素，加快更新的效率<br></br>2. 父元素下相同的子元素都需要加key以作区分，子组件同样适用<br></br>3. key值被修改会造成元素重绘，具有两面性，需要依据此特征采取合适的方案定key值<br></br>4. 说了这么多，那标题的疑问，加还是不加呢？</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

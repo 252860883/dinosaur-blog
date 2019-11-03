@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h4","title":"什么是 MongoDB ？有何特点？"},{"level":"h4","title":"Mongoose"},{"level":"h4","title":"启动 MongoDB"},{"level":"h5","title":"常用的查询指令"},{"level":"h4","title":"更新"},{"level":"h4","title":"删除"},{"level":"h4","title":"钩子函数"},{"level":"h4","title":"查询后处理"},{"level":"h4","title":"文档验证"},{"level":"h4","title":"MongoDB实现分页查询"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">MongoDB 和 MongooseODM 入门</h1></div>
@@ -79,8 +78,7 @@ export default class Template extends React.Component {
   <p>db.col.find({'{'}},{'{'}"num":1,_id:0}).limit(40).skip(20)</p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

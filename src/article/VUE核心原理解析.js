@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"运行机制"},{"level":"h2","title":"响应式绑定"},{"level":"h4","title":"Object.defineProperty"},{"level":"h3","title":"依赖收集"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">VUE核心原理解析</h1></div>
@@ -216,8 +215,7 @@ export default class Template extends React.Component {
 
 <p>只要依赖别的响应式的对象，就会生成一个 watcher，来统计这个 watcher 依赖了哪些响应式对象，在这个 watcher 求值前把当前 watcher 设置到全局 Dep.target，并在自己依赖的响应式对象发生改变的时候及时 update。</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

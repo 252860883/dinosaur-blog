@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"Error"},{"level":"h3","title":"SyntaxError（语法错误）"},{"level":"h3","title":"TypeError（类型错误）"},{"level":"h3","title":"ReferenceError（引用错误）"},{"level":"h3","title":"RangeError（范围超出错误）"},{"level":"h3","title":"URIError（地址处理错误）"},{"level":"h3","title":"自定义错误类型"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">细数js的错误类型</h1></div>
@@ -100,8 +99,7 @@ export default class Template extends React.Component {
 
 <p><a target="_blank" href="https://segmentfault.com/a/1190000011353194">javascript错误处理类型</a></p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

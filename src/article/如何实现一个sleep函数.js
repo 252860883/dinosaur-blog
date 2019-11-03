@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"方法一：利用死循环阻塞线程"},{"level":"h3","title":"方法二：Async/Await"},{"level":"h3","title":"方法三：Generator"},{"level":"h3","title":"最后"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">如何用js实现一个sleep函数</h1></div>
@@ -80,8 +79,7 @@ export default class Template extends React.Component {
 
 <p><a target="_blank" href="https://www.cnblogs.com/mfryf/p/3142681.html">js中实现sleep函数</a><br></br><a target="_blank" href="https://juejin.im/post/5cc7ddaf6fb9a032106bda07">简短优雅地利用js实现 sleep 函数</a></p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

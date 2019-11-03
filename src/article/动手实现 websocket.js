@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"服务器推送技术"},{"level":"h3","title":"WebSocket 通信过程"},{"level":"h3","title":"实践"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">动手实现前后端 websocket 通信</h1></div>
@@ -135,8 +134,7 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

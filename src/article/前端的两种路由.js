@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"Hash模式"},{"level":"h2","title":"History模式"},{"level":"h3","title":"两种模式比较"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">前端两种路由的实现原理</h1></div>
@@ -145,8 +144,7 @@ export default class Template extends React.Component {
 <li>需要后端配置配合，否则刷新页面会出现404，因为服务器会认为路由部分是文件路径</li>
 </ol>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"1.canvas如何转换为 img格式进行保存"},{"level":"h3","title":"2.所有素材图片需要加载完成再进行二维码绘制"},{"level":"h3","title":"3.在ios和chrome浏览器下设置 transition过渡会有闪烁bug"},{"level":"h3","title":"4.canvas绘制出来的图像不清晰"},{"level":"h3","title":"5.如何通过js下载canvas生成的图片到本地"},{"level":"h3","title":"6. IE下不兼容vue2.0以及vuex"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">【项目总结】艺术二维码生成器</h1></div>
@@ -114,8 +113,7 @@ module.exports = {'{'}
 }
 </pre>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

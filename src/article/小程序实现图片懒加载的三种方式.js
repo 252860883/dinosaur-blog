@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"传统懒加载方案"},{"level":"h3","title":"方案一：image组件的lazy-load属性"},{"level":"h3","title":"方案二：利用WXML节点信息API实现"},{"level":"h3","title":"方案三：利用WXML节点布局相交状态实现"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">小程序实现图片懒加载的三种方式</h1></div>
@@ -184,8 +183,7 @@ export default class Template extends React.Component {
 
 <p>优点：<br></br>-方便配置，几行代码即可<br></br>-无版本限制<br></br>-图片载入时可以自定义回调，配置一些自定义的操作</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

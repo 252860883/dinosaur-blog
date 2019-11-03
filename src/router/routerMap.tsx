@@ -38,7 +38,6 @@ let ArticleMenu: Array<any> = [//start
 	{"title":"剖析JavaScript的内存机制","date":"2018-06-12 00:12:17","tags":"javascript","link":"/article-剖析JavaScript的内存机制","article":true},
 	{"title":"剖析Vue响应式绑定","date":"2019-8-18 11:23:03","tags":"['javascript']","top:":"","link":"/article-剖析Vue响应式绑定","article":true},
 	{"title":"动手实现前后端 websocket 通信","date":"2019-04-09 15:24:20","tags":"[html5,nodejs]","link":"/article-动手实现 websocket","article":true},
-	{"title":"小程序实现vue的watch和computed方法","date":"2018-04-10 12:39:33","tags":"[小程序,VUE]","link":"/article-原生js实现小程序中类似vue的watch和computed方法","article":true},
 	{"title":"你不知道的Chrome调试工具技巧","date":"2019-03-07 11:16:44","tags:":"","top:":"","link":"/article-合理利用chrome调试工具","article":true},
 	{"title":"[项目总结]大牛工资条","tags":"项目总结","date":"2017-09-19 14:17:13","link":"/article-大牛工资条","article":true},
 	{"title":"如何用js实现一个sleep函数","date":"2019-09-10 17:13:52","tags":"javascript","top:":"","link":"/article-如何实现一个sleep函数","article":true},
@@ -46,7 +45,7 @@ let ArticleMenu: Array<any> = [//start
 	{"title":"小程序优化总结","date":"2018-08-10 11:47:57","tags":"[小程序,VUE,javascript]","top":"","link":"/article-小程序优化总结","article":true},
 	{"title":"小程序实现仿KeepApp的滑动图表","date":"2018-05-10 15:11:28","tags":"小程序","link":"/article-小程序实现仿KeepApp的滑动图表","article":true},
 	{"title":"小程序实现图片懒加载的三种方式","date":"2018-09-11 14:22:11","tags":"小程序","top":"","link":"/article-小程序实现图片懒加载的三种方式","article":true},
-	{"title":"小程序封装异步请求接口","date":"2018-05-10 15:04:47","tags":"[小程序,VUE,javascript]","link":"/article-小程序封装异步请求接口","article":true},
+	{"title":"小程序实现vue的watch和computed方法","date":"2018-04-10 12:39:33","tags":"[小程序,VUE]","link":"/article-小程序实现类似vue的watch和computed方法","article":true},
 	{"title":"每天一点CSS小技巧","date":"2019-02-21 16:10:30","tags":"CSS","top":"true","link":"/article-每天一点CSS小技巧","article":true},
 	{"title":"浏览器渲染原理","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/article-浏览器渲染原理","article":true},
 	{"title":"浏览器缓存机制","date":"2019-07-12 15:04:47","tags":"[javascript,http]","link":"/article-浏览器缓存机制","article":true},
@@ -73,7 +72,7 @@ class RouterMaps extends React.Component<any, any> {
 	changeThemeColor(location: any) {
 		const _html = document.getElementsByTagName('html')[0];
 		const isSp: boolean = location.pathname === '/about';
-		_html.style.backgroundColor = isSp ? '#000' : '#ffffff';
+		_html.style.backgroundColor = isSp ? '#000' : '#f5f6fa';
 	}
 
 	render() {

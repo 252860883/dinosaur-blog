@@ -1,9 +1,4 @@
 @import './common.scss';
-
-.app {
-    // height: auto;
-}
-
 .container {
     position: relative;
     width: 3.75rem;
@@ -83,7 +78,8 @@
         box-sizing: border-box;
         overflow: hidden;
         filter: grayscale(90%);
-
+        border-radius: 0.15rem;
+        box-shadow: 0 0.05rem 0.05rem #d8d8d8, 0 -0.03rem 0.05rem rgba(#d8d8d8,.5);
         &:hover {
             filter: grayscale(0%);
             transform: scale(1.01);
@@ -105,7 +101,6 @@
             display: block;
             border-radius: 0.15rem;
             overflow: hidden;
-            box-shadow: 0 0.05rem 0.05rem rgba(#ddd, 0.5), 0 -0.03rem 0.05rem rgba(#ddd, 0.5);
         }
     }
 }

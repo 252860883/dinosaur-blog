@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"Web Workers"},{"level":"h4","title":"兼容性"},{"level":"h4","title":"限制"},{"level":"h3","title":"实践"},{"level":"h3","title":"webpack环境下使用"},{"level":"h3","title":"使用场景"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">WebWorkers 实践</h1></div>
@@ -160,8 +159,7 @@ export default class Template extends React.Component {
   <p><a target="_blank" href="https://juejin.im/post/5acf348151882579ef4f5a77">怎么在 ES6+Webpack 下使用 Web Worker</a><br></br><a target="_blank" href="https://mp.weixin.qq.com/s/i1xBLUtVRPhWnl_1EuJVkA">前端 Web Workers 到底是什么？</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

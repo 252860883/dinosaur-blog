@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,21 +8,18 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"缓存位置"},{"level":"h3","title":"Service Worker"},{"level":"h3","title":"Memory Cache"},{"level":"h3","title":"Disk Cache"},{"level":"h3","title":"Push Cache"},{"level":"h2","title":"缓存过程"},{"level":"h2","title":"缓存策略"},{"level":"h3","title":"强缓存"},{"level":"h4","title":"Cache-Control"},{"level":"h4","title":"Expires"},{"level":"h4","title":"两者对比"},{"level":"h3","title":"协商缓存"},{"level":"h4","title":"Last-Modified"},{"level":"h4","title":"ETag"},{"level":"h4","title":"两者对比"},{"level":"h3","title":"缓存机制"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">浏览器缓存机制</h1></div>
 <h2 id='缓存位置'>缓存位置</h2>
 
 <blockquote>
-  <p>从缓存位置上来说分为四种，并且各自有优先级，当依次查找缓存且都没有命中的时候，才会去请求网络。</p>
+  <p>从缓存位置上来说分为四种，Service Worker / Memory Cache / Disk Cache / Push Cache，各自有优先级，当依次查找缓存且都没有命中的时候，才会去请求网络。</p>
 </blockquote>
-
-<p>Service Worker / Memory Cache / Disk Cache / Push Cache</p>
 
 <h3 id='Service Worker'>Service Worker</h3>
 
@@ -30,7 +27,13 @@ export default class Template extends React.Component {
 
 <p>当 Service Worker 没有命中缓存的时候，我们需要去调用 fetch 函数获取数据。也就是说，如果我们没有在 Service Worker 命中缓存的话，会根据缓存查找优先级去查找数据。但是不管我们是从 Memory Cache 中还是从网络请求中获取的数据，<strong>浏览器都会显示我们是从 Service Worker 中获取的内容</strong>。</p>
 
-<p>Service Worker 实现缓存一般分为三步：<br></br>首先注册 Service Worker；<br></br>监听到 install 事件后缓存需要的文件；<br></br>用户下次请求的时候查询是否存在缓存，存在直接读取缓存文件，否则就去请求数据。</p>
+<p>Service Worker 实现缓存一般分为三步：</p>
+
+<ul>
+<li>首先注册 Service Worker；</li>
+<li>监听到 install 事件后缓存需要的文件；</li>
+<li>用户下次请求的时候查询是否存在缓存，存在直接读取缓存文件，否则就去请求数据。</li>
+</ul>
 
 <h3 id='Memory Cache'>Memory Cache</h3>
 
@@ -44,11 +47,26 @@ export default class Template extends React.Component {
 
 <p>硬盘中的缓存。相比内存缓存读取速度更慢，但是没有任何限制，容量和生命周期都更好。它会根据 HTTP Herder 中的字段判断哪些资源需要缓存，哪些资源可以不请求直接使用，哪些资源已经过期需要重新请求。</p>
 
-<p>浏览器对 memory Cache 和 disk cache 存储优先级：<br></br>* 对于大文件来说，大概率是不存储在内存中的，反之优先<br></br>* 当前系统内存使用率高的话，文件优先存储进硬盘</p>
+<p>浏览器对 memory Cache 和 disk cache 存储优先级：</p>
+
+<ul>
+<li>对于大文件来说，大概率是不存储在内存中的，反之优先</li>
+<li>当前系统内存使用率高的话，文件优先存储进硬盘</li>
+</ul>
 
 <h3 id='Push Cache'>Push Cache</h3>
 
-<p>推送缓存是Http2.0才有的，当以上的缓存没有命中才会被使用。他只会在 Session 中存在，一旦会话结束就被释放，缓存时间也很短暂。在Chrome浏览器中只有5分钟左右，同时它也并非严格执行HTTP头中的缓存指令。<br></br>关于推送缓存的一特性：<br></br>* 所有的资源都能被推送，并且能够被缓存,但是 Edge 和 Safari 浏览器支持相对比较差<br></br>* 可以推送 no-cache 和 no-store 的资源<br></br>* 一旦连接被关闭，Push Cache 就被释放<br></br>* 多个页面可以使用同一个HTTP/2的连接，也就可以使用同一个Push Cache。这主要还是依赖浏览器的实现而定，出于对性能的考虑，有的浏览器会对相同域名但不同的tab标签使用同一个HTTP连接。<br></br>* Push Cache 中的缓存只能被使用一次<br></br>* 浏览器可以拒绝接受已经存在的资源推送<br></br>* 你可以给其他域名推送资源</p>
+<p>推送缓存是Http2.0才有的，当以上的缓存没有命中才会被使用。他只会在 Session 中存在，一旦会话结束就被释放，缓存时间也很短暂。在Chrome浏览器中只有5分钟左右，同时它也并非严格执行HTTP头中的缓存指令。<br></br>关于推送缓存的一特性：</p>
+
+<ul>
+<li>所有的资源都能被推送，并且能够被缓存,但是 Edge 和 Safari 浏览器支持相对比较差</li>
+<li>可以推送 no-cache 和 no-store 的资源</li>
+<li>一旦连接被关闭，Push Cache 就被释放</li>
+<li>多个页面可以使用同一个HTTP/2的连接，也就可以使用同一个Push Cache。这主要还是依赖浏览器的实现而定，出于对性能的考虑，有的浏览器会对相同域名但不同的tab标签使用同一个HTTP连接。</li>
+<li>Push Cache 中的缓存只能被使用一次</li>
+<li>浏览器可以拒绝接受已经存在的资源推送</li>
+<li>你可以给其他域名推送资源</li>
+</ul>
 
 <h2 id='缓存过程'>缓存过程</h2>
 
@@ -70,14 +88,14 @@ export default class Template extends React.Component {
   <p>可以通过 <code>Cache-Ccontrol</code> 控制缓存的工作机制。</p>
 </blockquote>
 
-<table><tbody><tr><th>  --指令-- </th><th>说明</th></tr><tr><td>public</td><td>所有内容都将被缓存</td></tr><tr><td>private</td><td>所有内容只有客户端会被缓存，中间节点不允许缓存</td></tr><tr><td>no-cache</td><td>客户端缓存内容，使用缓存则需要经过协商缓存来验证决定</td></tr><tr><td>no-store</td><td>所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</td></tr><tr><td>max-age</td><td>max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效</td></tr><tr><td>s-maxage</td><td>同max-age作用一样，只在代理服务器中生效（比如CDN缓存），如果存在s-maxage，则会覆盖掉max-age和Expires header</td></tr><tr><td>max-stale</td><td>能容忍的最大过期时间，如果没有指定，那么说明浏览器愿意接收任何age的响应</td></tr><tr><td>min-fresh</td><td>能够容忍的最小新鲜度，min-fresh标示了客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。</td></tr></tbody></table>
+<table><tbody><tr><th>指令</th><th>说明</th></tr><tr><td>public</td><td>所有内容都将被缓存</td></tr><tr><td>private</td><td>所有内容只有客户端会被缓存，中间节点不允许缓存</td></tr><tr><td>no-cache</td><td>客户端缓存内容，使用缓存则需要经过协商缓存来验证决定</td></tr><tr><td>no-store</td><td>所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</td></tr><tr><td>max-age</td><td>max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效</td></tr><tr><td>s-maxage</td><td>同max-age作用一样，只在代理服务器中生效（比如CDN缓存），如果存在s-maxage，则会覆盖掉max-age和Expires header</td></tr><tr><td>max-stale</td><td>能容忍的最大过期时间，如果没有指定，那么说明浏览器愿意接收任何age的响应</td></tr><tr><td>min-fresh</td><td>能够容忍的最小新鲜度，min-fresh标示了客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。</td></tr></tbody></table>
 
 <p>可以结合多个指令，实现不同的缓存功能：<br></br><img src="http://wx1.sinaimg.cn/large/a73bc6a1ly1g4zao7elnxj216x0u0dk2.jpg" alt="image" title="" /></p>
 
 <h4 id='Expires'>Expires</h4>
 
 <blockquote>
-  <p>指定缓存资源的过期时间()，<code>Expires</code> 是服务器响应实体首部字段。如果在 <code>Cache-Control</code> 响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 <code>Expires</code> 头会被忽略。同时注意，如果修改本地时间打过 <code>Expires</code> 的时间会造成缓存失效。</p>
+  <p>指定缓存资源的过期时间，<code>Expires</code> 是服务器响应实体首部字段。如果在 <code>Cache-Control</code> 响应头设置了 "max-age" 或者 "s-max-age" 指令，那么 <code>Expires</code> 头会被忽略。同时注意，如果修改本地时间打过 <code>Expires</code> 的时间会造成缓存失效。</p>
 </blockquote>
 
 <p>示例：</p>
@@ -151,8 +169,7 @@ export default class Template extends React.Component {
   <p>参考<br></br><a target="_blank" href="https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA">https://mp.weixin.qq.com/s/QeR5UWZLrRHtk9pD4c3MrA</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

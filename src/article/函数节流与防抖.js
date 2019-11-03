@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"节流函数（Throttle）"},{"level":"h3","title":"防抖函数（Debounce）"},{"level":"h3","title":"利用 Throttle 优化 Debounce"},{"level":"h3","title":"requestAnimationFrame"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">事件节流（throttle）与防抖（debounce）</h1></div>
@@ -112,8 +111,7 @@ export default class Template extends React.Component {
 
 <p>频繁触发事件时，函数防抖只会在最后一次触发事件只会才会执行回调内容，其他情况下会重新计算延迟事件，而函数节流便会很有规律的每隔一定时间执行一次回调函数。节流和防抖是我们业务场景下进行性能优化非常重要的技能了，具体使用哪种方法实现还是要结合实际业务场景来区分哦。</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

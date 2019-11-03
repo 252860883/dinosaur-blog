@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"回顾MVC"},{"level":"h3","title":"前端开发中的痛点"},{"level":"h3","title":"MVVM"},{"level":"h4","title":"Modal 层"},{"level":"h4","title":"View 层"},{"level":"h4","title":"ViewModal 层"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">对MVVM的一些理解</h1></div>
@@ -107,8 +106,7 @@ export default class Template extends React.Component {
   <p><a target="_blank" href="https://www.liaoxuefeng.com/wiki/1022910821149312/1108898947791072">MVVM</a><br></br><a target="_blank" href="https://www.amazon.cn/dp/B00K745SMO/ref=sr_1_3?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&amp;keywords=js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F&amp;qid=1566472810&amp;s=gateway&amp;sr=8-3">JavaScript设计模式</a><br></br><a target="_blank" href="https://juejin.im/post/5d59f2a451882549be53b170#heading-20">30 道 Vue 面试题</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

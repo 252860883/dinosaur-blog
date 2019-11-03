@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"长连接与短连接"},{"level":"h4","title":"短连接"},{"level":"h4","title":"长连接"},{"level":"h3","title":"TCP连接"},{"level":"h3","title":"优缺点比较"},{"level":"h3","title":"适用场景"},{"level":"h3","title":"HTTP2.0 多路复用"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">HTTP的长连接与短连接</h1></div>
@@ -79,8 +78,7 @@ export default class Template extends React.Component {
 
 <p>HTTP2.0的<strong>多路复用</strong>就是解决了以上的问题。在 HTTP2.0 中，有两个非常重要的概念，分别是帧（frame）和流（stream）。 帧代表着最小的数据单位，每个帧会标识出该帧属于哪个流，流也就是多个帧组成的数据流。 多路复用，就是在一个 TCP 连接中可以存在多条流。 简单的说就是，在一个连接里，客户端和浏览器都可以同时发送多个请求或回应（通过帧中的标识知道属于哪个请求），而且不用按照顺序一一对应。</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

@@ -40,7 +40,6 @@ class Header extends React.Component<any, IsState> {
             showNav: !this.state.showNav
         });
     }
-
     judgeScreenWidth = () => {
         if (window.innerWidth > 600 && this.state.isMobile) {
             this.setState({
@@ -111,7 +110,6 @@ class Header extends React.Component<any, IsState> {
                 </header>
             )
         }
-
         return (<Fragment>{header}</Fragment>)
     }
 }

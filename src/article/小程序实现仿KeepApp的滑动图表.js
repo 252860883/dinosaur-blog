@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"第一次尝试，利用echarts实现"},{"level":"h3","title":"第二次尝试，原生view标签实现"},{"level":"h3","title":"第三次尝试，小程序组件 scroll-view"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">小程序实现仿KeepApp的滑动图表</h1></div>
@@ -90,8 +89,7 @@ export default class Template extends React.Component {
 
 <p>代码地址：https://github.com/252860883/wechat-slideBarChart</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

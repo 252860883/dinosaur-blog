@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"create-react-app"},{"level":"h3","title":"JSX"},{"level":"h3","title":"组件"},{"level":"h4","title":"组件生命周期钩子"},{"level":"h4","title":"setState"},{"level":"h3","title":"事件"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">React 笔记</h1></div>
@@ -214,8 +213,7 @@ export default class Template extends React.Component {
 
 <p>作为目前最流行的MVVM框架React和vue有很多异同点，那就在这来总结一下吧，来更深刻的对两个框架理解，并有能力知道在何种场景适合使用vue或者react来进行快速开发。</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

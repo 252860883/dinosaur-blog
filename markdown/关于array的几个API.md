@@ -9,8 +9,43 @@ top:
 * 新建一个数组，需要有承载对象,原始数组在调用它后不会发生变化
 * 该数组中的每个元素都调用一个提供的函数后返回结果,否则返回 undefined
 
->不能在 callbackfn 内设置`break`来跳出循环的原因是，callbackfn 并不是循环体，forEach 等其他方法同理不能跳出循环
+对于map函数的底层实现，源码核心主要是利用`while`循环执行`callback`函数，将函数返回值放入数组即可。大概实现如下：
 
+```
+Array.prototype.map = function (callbackfn, thisArg) {
+    // 异常处理
+    if (this == null) {
+        throw new TypeError("Cannot read property 'map' of null or undefined");
+    }
+    // callbackfn 不是函数时抛出异常
+    if (typeof callbackfn !== 'function') {
+        throw new TypeError(callbackfn + ' is not a function')
+    }
+    // 调用 map 方法的原数组，以键值对形式
+    let O = Object(this) 
+    let len = O.length
+    // 执行 callback 时的this
+    let T = thisArg 
+    // 要返回的数组
+    let A = new Array(len) 
+    // 计数器
+    let k = 0 
+    while (k < len) {
+        let kValue = O[k]
+        // 传入 this, 当前元素 element, 索引 index, 原数组对象 O
+        let mappedValue = callbackfn.call(T, kValue, k, O)
+        // 返回结果赋值给新生成数组
+        A[k] = mappedValue
+        k++
+    }
+    // 返回新数组
+    return A
+}
+```
+
+通过源码我们可以发现，循环体并不是在`callbackfn`内，所以不能在`callbackfn`内设置`break`、`continue`和`return`来跳出循环。同时`callbackfn`也不能写成`async fuction`的形式，后果是会立刻执行循环而不是等待每次函数的`await`结束以后再执行下一次循环。
+
+对于其他API的源码实现，下面就不一一列举了，大致上和`map`的实现很类似，只不过是在循环体里面需要做各自不同的逻辑。
 ### Array.prototype.forEach 
 * 可以改变数组自身，没有返回值；
 * 中途不能用常规操作跳出循环，可以用抛出异常（try/catch）的方式，但不推荐这样做
@@ -39,12 +74,12 @@ top:
 * IE 11 及更早版本不支持findIndex() 方法，如果对浏览器兼容有要求，那就用Lodash的 _.findIndex()
 
 ### Array.prototype.Find
-* 和some类似，有一个满足的元素就会返回
+* 和some类似，有一个满足的元素就会返回该元素，而不是布尔值
 * IE 11 及更早版本不支持
 
 
 ### Array.prototype.Reduce
-该方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。reducer函数对应四个传参，依次是：`accumulator 累计器`, `currentValue 当前值`, `currentIndex 当前索引`, `array 数组`.
+该方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。reducer函数对应四个传参，依次是：`accumulator 累计器`, `currentValue 当前值`, `currentIndex 当前索引`, `array 数组`。同时注意
 
 ```
 
@@ -55,7 +90,30 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 console.log(array*reduce(reducer));
 // expected output: 10
 ```
-⚠️需要注意，第一次循环时 accumulator 为数组第一个值，currentValue 为数组第二个值。
+
+需要注意，reduce 可选传入第二个参数，作为第一次调用 callback函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。
+
+```
+const arr = [1, 2, 3, 4, 5]
+const reducer = (accumulator, currentValue, index) => {
+    console.log(accumulator, currentValue, index)
+    return accumulator + currentValue
+}
+<!-- 没有传初始参数值 -->
+arr.reduce(reducer)
+// 1 2 1
+// 3 3 2
+// 6 4 3
+// 10 5 4
+
+<!-- 传入初始参数值 -->
+arr.reduce(reducer)
+// -1 1 0
+// 0 2 1
+// 2 3 2
+// 5 4 3
+// 9 5 4
+```
 
 
 ### Array.prototype.reduceRight
@@ -134,3 +192,5 @@ Array.from({length: 10}, (_, i) => i)
 
 ```
 
+### 参考
+[Array 原型方法源码实现大揭秘](https://juejin.im/post/5d76f08ef265da03970be192)

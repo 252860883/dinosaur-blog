@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"数据类型"},{"level":"h3","title":"堆与栈存储"},{"level":"h3","title":"堆与栈的区别"},{"level":"h3","title":"深拷贝与浅拷贝"},{"level":"h3","title":"内存的生命周期"},{"level":"h3","title":"垃圾回收机制"},{"level":"h3","title":"内存泄漏"},{"level":"h3","title":"WeakMap"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">剖析JavaScript的内存机制</h1></div>
@@ -171,8 +170,7 @@ export default class Template extends React.Component {
 
 <p>1.基本数据类型都是直接在栈存储，其他数据类型只是一个指针，实体存放在堆中<br></br>2.由于非基本数据类型的数据结构造成浅拷贝和深拷贝的问题，可通过遍历或者 JSON的api方法实现深拷贝</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

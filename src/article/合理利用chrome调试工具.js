@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"console 中使用 $"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">你不知道的Chrome调试工具技巧</h1></div>
@@ -31,8 +30,7 @@ export default class Template extends React.Component {
 
 <p><img src="http://wx1.sinaimg.cn/mw690/a73bc6a1ly1g0ui6lq27cj21hc0u0jzc.jpg" alt="image" title="" /></p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

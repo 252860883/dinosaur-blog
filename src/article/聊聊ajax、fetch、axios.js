@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"AJAX"},{"level":"h3","title":"$.ajax()"},{"level":"h3","title":"Axios"},{"level":"h3","title":"Fetch"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">聊聊ajax、fetch、axios</h1></div>
@@ -178,8 +177,7 @@ export default class Template extends React.Component {
   <p>参考:<br></br><a target="_blank" href="https://www.jianshu.com/p/8bc48f8fde75">ajax和axios、fetch的区别</a><br></br><a target="_blank" href="https://mp.weixin.qq.com/s/qM_tvb2-A__hdjjgnS1y6w">认识 Fetch API</a></p>
 </blockquote>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

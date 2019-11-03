@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"二进制运算"},{"level":"h4","title":"二进制转十进制"},{"level":"h4","title":"整数转二进制运算"},{"level":"h4","title":"小数转二进制运算"},{"level":"h3","title":"IEEE754标准"},{"level":"h3","title":"找到元凶"},{"level":"h3","title":"避免精度缺失"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">聊聊JavaScript精度缺失这点事</h1></div>
@@ -95,8 +94,7 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

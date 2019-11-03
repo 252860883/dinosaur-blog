@@ -10,7 +10,6 @@ import Foot from '../components/footer';
 import Header from '../components/header';
 
 import { RouterMap } from './routerMap'
-import { IsPC } from "../utils/screen";
 
 interface IState {
     loading: boolean
@@ -22,19 +21,18 @@ const routes = (
             render={({ location }) => (
                 <Fragment>
                     <Header key={location.pathname} />
-                    <TransitionGroup>
+                    <TransitionGroup className="app">
                         <CSSTransition
                             key={location.pathname}
                             classNames="fade"
                             timeout={800}
                         >
-                            <div className={IsPC() ? 'app' : 'app mobile-app'}>
-                                {/* 公共组件写在这里 */}
+                            <div className="app">
                                 <RouterMap />
+                                <Foot />
                             </div>
                         </CSSTransition>
                     </TransitionGroup>
-                    <Foot />
                 </Fragment>
             )}
         />

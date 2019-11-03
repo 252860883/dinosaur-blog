@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"Bind方法"},{"level":"h4","title":"bind() 允许我们非常简单的在函数或者方法被调用时绑定 this 到指定对象上"},{"level":"h4","title":"模拟实现柯里化"},{"level":"h3","title":"Apply 和 Call方法"},{"level":"h4","title":"apply 和 call 两者只是在传参形式上不一样"},{"level":"h4","title":"配合 argument 场景"},{"level":"h4","title":"参数可变场景"},{"level":"h2","title":"总结"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">说了多少遍的Bind、Call、Apply</h1></div>
@@ -114,8 +113,7 @@ export default class Template extends React.Component {
 <li>箭头函数中，call和apply失效</li>
 </ol>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }

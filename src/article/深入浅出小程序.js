@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../style/main.scss'
 import HeaderLink from "../components/headerLink"
 export default class Template extends React.Component {
@@ -8,11 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"小程序的由来"},{"level":"h3","title":"小程序和传统web的区别"},{"level":"h3","title":"小程序运行环境"},{"level":"h3","title":"小程序的JavaScript"},{"level":"h3","title":"宿主环境"},{"level":"h3","title":"微信登陆"},{"level":"h3","title":"微信缓存"},{"level":"h3","title":"底层分析"},{"level":"h3","title":"优化"}]
         }
     }
-    componentDidMount() {
-    }
+    componentDidMount() {}
     render() {
         return (
-            <div>
+            <Fragment>
                 <HeaderLink headerLink={this.state.headerLink}></HeaderLink>
                 <div className="article">
 <div className="title-content"><h1 className="title">深入浅出小程序原理</h1></div>
@@ -79,8 +78,7 @@ export default class Template extends React.Component {
 
 <p><strong>适用场景</strong><br></br>数据更新频率大的页面不建议写缓存，数据较少更新的适合写入缓存优化页面加载。</p>
 </div>
-            </div>
-
+            </Fragment>
         )
     }
 }
