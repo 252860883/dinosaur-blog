@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h2","title":"了解 TypeScript"},{"level":"h3","title":"对象类型"},{"level":"h4","title":"基础数据类型"},{"level":"h4","title":"任意类型"},{"level":"h4","title":"类型推论"},{"level":"h4","title":"联合类型"},{"level":"h4","title":"数组类型"},{"level":"h4","title":"函数类型"},{"level":"h4","title":"类型断言"},{"level":"h4","title":"泛型"},{"level":"h4","title":"内置对象"},{"level":"h3","title":"接口"},{"level":"h3","title":"类"},{"level":"h3","title":"类与接口的结合"}]
+            headerLink: [{"level":"h2","title":"了解 TypeScript"},{"level":"h3","title":"对象类型"},{"level":"h4","title":"基础数据类型"},{"level":"h4","title":"任意类型"},{"level":"h4","title":"类型推论"},{"level":"h4","title":"联合类型"},{"level":"h4","title":"数组类型"},{"level":"h4","title":"函数类型"},{"level":"h4","title":"类型断言"},{"level":"h4","title":"类型别名"},{"level":"h4","title":"泛型"},{"level":"h4","title":"内置对象"},{"level":"h3","title":"接口"},{"level":"h3","title":"类"},{"level":"h3","title":"类与接口的结合"},{"level":"h3","title":"参考"}]
         }
     }
     componentDidMount() {}
@@ -79,7 +79,10 @@ export default class Template extends React.Component {
 <span>// enum类型是对JavaScript标准数据类型的一个补充。 </span>
 <span>// 使用枚举类型可以为一组数值赋予友好的名字。默认情况下，从0开始为元素编号。 你也可以手动的指定成员的数值。</span>
 <span>enum Color {'{'}Red,Green,Blue}</span>
-<span>let c:Color =Color.Green;</span>
+<span>let c:Color = Color.Green;</span>
+<span>enum Days {'{'}Sun, Mon, Tue, Wed, Thu, Fri, Sat}</span>
+<span>console.log(Days["Sun"]) // 0</span>
+<span>console.log(Days[0]); // 'Sun'</span>
 <span></span>
 </code></pre>
 
@@ -216,6 +219,24 @@ export default class Template extends React.Component {
 <span>        return (&lt;string&gt;something).length;</span>
 <span>    } else {'{'}</span>
 <span>        return something.toString().length;</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<h4 id='类型别名'>类型别名</h4>
+
+<p>使用type来创建类型别名，类型别名常用于联合类型。</p>
+
+<pre><code><span></span>
+<span>type StringType = string;</span>
+<span>type FunctionType = () =&gt; string;</span>
+<span>type NameOrResolver = StringType | FunctionType;</span>
+<span>function getName(n: NameOrResolver): StringType {'{'}</span>
+<span>    if (typeof n === 'string') {'{'}</span>
+<span>        return n;</span>
+<span>    } else {'{'}</span>
+<span>        return n();</span>
 <span>    }</span>
 <span>}</span>
 <span></span>
@@ -379,9 +400,9 @@ export default class Template extends React.Component {
 
 <p>></p>
 
-<blockquote>
-  <p>学习整理自：<br></br><a target="_blank" href="https://ts.xcatliu.com/">https://ts.xcatliu.com/</a><br></br>https://www.tslang.cn/docs/home.html</p>
-</blockquote>
+<h3 id='参考'>参考</h3>
+
+<p><a target="_blank" href="https://ts.xcatliu.com/">TypeScript入门教程</a> <br></br><a target="_blank" href="https://www.tslang.cn/docs/home.html">TypeScript文档</a><br></br><a target="_blank" href="https://mp.weixin.qq.com/s/JYHme1lZHFro9S1Qd_7pGQ">一篇朴实的文章带捋完TypeScript基础</a></p>
 </div>
             </Fragment>
         )

@@ -62,7 +62,10 @@ let null_c: null = null  // null 类型只能赋值 null
 // enum类型是对JavaScript标准数据类型的一个补充。 
 // 使用枚举类型可以为一组数值赋予友好的名字。默认情况下，从0开始为元素编号。 你也可以手动的指定成员的数值。
 enum Color {Red,Green,Blue}
-let c:Color =Color.Green;
+let c:Color = Color.Green;
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat}
+console.log(Days["Sun"]) // 0
+console.log(Days[0]); // 'Sun'
 ```
 
 #### 任意类型
@@ -169,6 +172,22 @@ function getLength(something: string | number): number {
         return (<string>something).length;
     } else {
         return something.toString().length;
+    }
+}
+```
+
+#### 类型别名
+使用type来创建类型别名，类型别名常用于联合类型。
+
+```
+type StringType = string;
+type FunctionType = () => string;
+type NameOrResolver = StringType | FunctionType;
+function getName(n: NameOrResolver): StringType {
+    if (typeof n === 'string') {
+        return n;
+    } else {
+        return n();
     }
 }
 ```
@@ -319,8 +338,8 @@ employee.fullName = 'admin' // NewName is Invalid
 
 
 
-> 学习整理自：
-https://ts.xcatliu.com/
-https://www.tslang.cn/docs/home.html
-
+### 参考
+[TypeScript入门教程](https://ts.xcatliu.com/) 
+[TypeScript文档](https://www.tslang.cn/docs/home.html)
+[一篇朴实的文章带捋完TypeScript基础](https://mp.weixin.qq.com/s/JYHme1lZHFro9S1Qd_7pGQ)
 
