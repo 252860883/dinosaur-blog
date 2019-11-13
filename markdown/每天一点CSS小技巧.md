@@ -350,6 +350,11 @@ body {
 }
 ```
 
+### 14.💎 first-child和first-of-type
+
+`p:first-child`与`p:first-of-type`两者都是选择**p元素是其父元素的第一个p元素**，但是区别在于`p:first-child`必须是其父元素下的第一个子元素，而后者只需要是父元素下第一个p元素即可，在其前面不管插入多少个其他类型的子元素都能被正常的匹配。
+
+`p:last-child`与`p:last-of-type`与之同理。
 
 
 ### 参考

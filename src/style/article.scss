@@ -26,9 +26,9 @@
         margin: 10px 0;
         font-size: 16px;
         line-height: 20px;
-        background: #fff;
+        background: rgba($color: #ffffff, $alpha: 0.5) ;
         padding: 20px;
-        border-radius: 0.1rem;
+        border-radius: 0.05rem;
         // box-shadow: 0 0.05rem 0.05rem rgba(#e8eaf6,.5), 0 -0.03rem 0.05rem rgba(#e8eaf6,.3);
 
         .time {
@@ -78,6 +78,7 @@
     box-sizing: border-box;
     // animation: fadeIn .5s ease-in-out;
     position: relative;
+
     .title-content {
         width: 100%;
         height: auto;
@@ -187,7 +188,7 @@
 
     code {
         display: inline-block;
-        background: $light;
+        background: rgba(#fff, .6);
         color: $o;
         padding: 0 0.03rem;
         border-radius: 0.03rem;

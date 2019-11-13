@@ -40,6 +40,22 @@
 
 }
 
+@media screen and (min-width:600px) {
+    .project{
+        .project-item:nth-child(2n+1){
+            margin-right: 0;
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .project{
+        .project-item:first-child{
+            margin-top: 0.26rem;
+        }
+    }
+}
+
 @keyframes itemSlideUp {
     0% {
         opacity: 0;

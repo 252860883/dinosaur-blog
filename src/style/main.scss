@@ -1,4 +1,5 @@
 @import './common.scss';
+
 .container {
     position: relative;
     width: 3.75rem;
@@ -12,27 +13,29 @@
         transform: scale(1.2) translateX(0.2rem) translateY(0.1rem);
     }
 
-    // .word-1 {
-    //     position: absolute;
-    //     right: 10%;
-    //     top: 30%;
-    //     width: 4rem;
-    //     height: 1.5rem;
-    //     background: url('../assets/word-1.png') no-repeat;
-    //     background-size: 100% auto;
-    //     z-index: 2;
-    // }
+    .word-1 {
+        position: absolute;
+        right: 0%;
+        top: 45%;
+        width: 2.5rem;
+        height: 1.5rem;
+        background: url('../assets/word-1.png') no-repeat;
+        background-size: 100% auto;
+        z-index: 2;
+        opacity: 0.9;
+    }
 
-    // .word-2 {
-    //     position: absolute;
-    //     right: 10%;
-    //     top: 40%;
-    //     width: 3rem;
-    //     height: 1.5rem;
-    //     background: url('../assets/word-2.png') no-repeat;
-    //     background-size: 100% auto;
-    //     z-index: 2;
-    // }
+    .word-2 {
+        position: absolute;
+        right: 20%;
+        top: 65%;
+        width: 1.4rem;
+        height: 1.5rem;
+        background: url('../assets/word-2.png') no-repeat;
+        background-size: 100% auto;
+        z-index: 2;
+        opacity: 0.9;
+    }
 
     .circle {
         position: absolute;
@@ -40,7 +43,7 @@
         bottom: 0.1rem;
         width: 1.5rem;
         height: 1.5rem;
-        background: linear-gradient(rgba($o, 0.7), transparent);
+        background: linear-gradient(rgba($b, 0.6), transparent);
         border-radius: 50%;
         z-index: 1;
     }
@@ -79,7 +82,8 @@
         overflow: hidden;
         filter: grayscale(90%);
         border-radius: 0.15rem;
-        box-shadow: 0 0.05rem 0.05rem #d8d8d8, 0 -0.03rem 0.05rem rgba(#d8d8d8,.5);
+        box-shadow: 0 0.05rem 0.05rem #d8d8d8, 0 -0.03rem 0.05rem rgba(#d8d8d8, .5);
+
         &:hover {
             filter: grayscale(0%);
             transform: scale(1.01);
@@ -108,7 +112,7 @@
 .main-article {
     width: 3.75rem;
     margin: 0 auto;
-    padding: 0.125rem;
+    padding: 15px;
     box-sizing: border-box;
     // box-shadow: 0 0.03rem 0.03rem rgba(#ddd, 0.5), 0 -0.01rem 0.03rem rgba(#ddd, 0.5);
     border-radius: 0.15rem;
@@ -122,13 +126,13 @@
         line-height: 20px;
         padding: 20px;
         font-weight: bold;
-        border-radius: 0.1rem;
+        border-radius: 10px;
 
     }
 
     .article-lists {
         .article-item {
-            margin-top: 0.125rem;
+            margin-top: 15px;
             margin-bottom: 0;
         }
     }

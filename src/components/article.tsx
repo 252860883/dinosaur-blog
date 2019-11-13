@@ -65,7 +65,7 @@ class Article extends React.Component<any, IState> {
         return (
             <div className="article-lists">
                 {
-                    this.state.page === 1 && !this.props.hideNormal && <img alt="" className="article-title" src={require('../assets/sticky-title.jpg')} ></img>
+                    this.state.page === 1 && !this.props.hideNormal && <img alt="" className="article-title" src={require('../assets/sticky-title.png')} ></img>
                 }
                 {
                     this.state.topArticleMenu.map((item: any) => {
@@ -79,7 +79,7 @@ class Article extends React.Component<any, IState> {
                     })
                 }
                 {
-                    !this.props.hideNormal && <img alt="" className="article-title" src={require('../assets/normal-title.jpg')} />
+                    !this.props.hideNormal && <img alt="" className="article-title" src={require('../assets/normal-title.png')} />
                 }
                 {
                     !this.props.hideNormal && this.state.showArticleMenu.map((item: any) => {

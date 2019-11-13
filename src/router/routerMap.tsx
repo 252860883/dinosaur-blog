@@ -42,6 +42,7 @@ let ArticleMenu: Array<any> = [//start
 	{"title":"[项目总结]大牛工资条","tags":"项目总结","date":"2017-09-19 14:17:13","link":"/article-大牛工资条","article":true},
 	{"title":"如何用js实现一个sleep函数","date":"2019-09-10 17:13:52","tags":"javascript","top:":"","link":"/article-如何实现一个sleep函数","article":true},
 	{"title":"对MVVM的一些理解","date":"2019-07-24 12:23:14","tags":"javascript","link":"/article-对MVVM的一些理解","article":true},
+	{"title":"实现小程序webview通信封装","date":"2019-01-25 16:35:43","tags:":"","top":"","link":"/article-小程序webview通信封装","article":true},
 	{"title":"小程序优化总结","date":"2018-08-10 11:47:57","tags":"[小程序,VUE,javascript]","top":"","link":"/article-小程序优化总结","article":true},
 	{"title":"小程序实现仿KeepApp的滑动图表","date":"2018-05-10 15:11:28","tags":"小程序","link":"/article-小程序实现仿KeepApp的滑动图表","article":true},
 	{"title":"小程序实现图片懒加载的三种方式","date":"2018-09-11 14:22:11","tags":"小程序","top":"","link":"/article-小程序实现图片懒加载的三种方式","article":true},
