@@ -21,18 +21,37 @@ export default class Template extends React.Component {
   <p><strong>固定间隔时间内只执行一次</strong></p>
 </blockquote>
 
-<p>当我们触发 <code>scroll</code> 、 <code>mousemove</code> 等连续不断的事件时，如果有非常耗时耗内存的业务需要处理，那肯定会对页面的性能产生影响。所以节流函数的意义就是不管你触发多少次我只会在固定的间隔时间内执行一次。 <br></br>节流函数的实现原理很简单，利用闭包的缓存原理，将 lastTime （即上次执行任务的时间）缓存，每次执行时生成最新时间 nowTime 去和 lastTime 进行比对，如果时间大于设置的间隔时间则执行任务并将 lastTime 更新为最新时间。</p>
+<p>当我们触发 <code>scroll</code> 、 <code>mousemove</code> 等连续不断的事件时，如果有非常耗时耗内存的业务需要处理，那肯定会对页面的性能产生影响。所以节流函数的意义就是不管你触发多少次我只会在固定的间隔时间内执行一次。 </p>
+
+<p><strong>第一种实现：利用时间戳（首次必触发，最后一次不会触发）</strong><br></br>这种实现原理很简单，利用闭包的缓存原理，将 lastTime （即上次执行任务的时间）缓存，每次执行时生成最新时间 nowTime 去和 lastTime 进行比对，如果时间大于设置的间隔时间则执行任务并将 lastTime 更新为最新时间。</p>
 
 <pre><code><span></span>
-<span>function throttle(fn, interval, delay) {'{'}</span>
+<span>function throttle(fn, delay) {'{'}</span>
 <span>    let lastTime = 0, timer;</span>
-<span>    return function () {'{'}</span>
+<span>    return function (...args) {'{'}</span>
 <span>        let nowTime = new Date().getTime();</span>
-<span>        let that = this, args = arguments;</span>
-<span>        if (nowTime - lastTime &gt; 500) {'{'}</span>
-<span>            fn.call(that, ...args);</span>
+<span>        if (nowTime - lastTime &gt; delay) {'{'}</span>
+<span>            fn.apply(this, args);</span>
 <span>            lastTime = nowTime</span>
 <span>        }</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<p><strong>第二种实现：利用setTimeout(第一次不会触发，最后一次会触发)</strong></p>
+
+<pre><code><span></span>
+<span>function throttle(fn, time) {'{'}</span>
+<span>    let timer = null;</span>
+<span>    return function (...args) {'{'}</span>
+<span>    // 当定时器被清除，可以执行</span>
+<span>    if (!timer) {'{'}</span>
+<span>        timer = setTimeout(() =&gt; {'{'}</span>
+<span>        timer = null; // 清除定时器</span>
+<span>        fn.apply(this, args);</span>
+<span>        }, time);</span>
+<span>    }</span>
 <span>    }</span>
 <span>}</span>
 <span></span>

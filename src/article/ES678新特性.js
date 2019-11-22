@@ -236,10 +236,20 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
+<p>如果用<code>Symbor.for</code>创建了一个<code>symbol</code>, 下次再用相同的参数来访问，是返回相同的<code>symbol</code>。<code>Symbol.keyFor(sym)</code>方法用来获取<code>symbol</code>注册表中与某个<code>symbol</code>关联的键：</p>
+
+<pre><code><span></span>
+<span>let s1 = Symbol.for("111");</span>
+<span>Symbol.keyFor(s1); // "111"</span>
+<span>let s2 = Symbol("222");</span>
+<span>Symbol.keyFor(s2); // undefined</span>
+<span></span>
+</code></pre>
+
 <p>下面来看看如何将<code>Symbol</code>应用于实际业务中：</p>
 
 <ol>
-<li>私有属性，由于<code>Symbol</code>类型的数据不可枚举，可以在类里模拟私有属性：</li>
+<li><strong>私有属性</strong>，由于<code>Symbol</code>类型的数据不可枚举，可以在类里模拟私有属性：</li>
 </ol>
 
 <pre><code><span></span>
@@ -260,7 +270,7 @@ export default class Template extends React.Component {
 
 <ol>
 <li><p><strong>避免属性污染</strong>，有时候我们进行 mixin 操作，或对某个对象进行属性添加等情况下，尤其是在协作开发时很有可能会出现属性命名相同而被覆盖的情况，所以将属性名定义为<code>Symbol</code>类型可以有效避免这些情况的发生</p></li>
-<li><p>防止<code>XSS</code>，原理是<code>JSON</code>中不能存储<code>Symbol</code>对象</p></li>
+<li><p><strong>防止<code>XSS</code></strong>，原理是<code>JSON</code>中不能存储<code>Symbol</code>对象</p></li>
 </ol>
 
 <h3 id='数组拓展'>数组拓展</h3>
@@ -483,11 +493,31 @@ export default class Template extends React.Component {
 
 <h3 id='for...in 与 for...of'>for...in 与 for...of</h3>
 
-<p>无论是 <code>for...in</code> 还是 <code>for...of</code> 语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式:<br></br>1. <code>for...in</code> 语句以原始插入顺序迭代对象的可枚举属性，注意它也会遍历原型链的可枚举属性，如果只想遍历对象本身需要配合 <code>hasOwnProperty</code> 使用<br></br>2. <code>for...of</code> 遍历可迭代对象定义要迭代的数据</p>
+<p>无论是 <code>for...in</code> 还是 <code>for...of</code> 语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式:</p>
 
-<p>看例子：</p>
+<ul>
+<li><code>for...in</code> 语句以原始插入顺序迭代对象的可枚举属性，注意它也会遍历原型链的可枚举属性，如果只想遍历对象本身需要配合 <code>hasOwnProperty</code> 使用</li>
+<li><code>for...of</code> 遍历可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments 对象等等）定义要迭代的数据，如果其他类型数据想变成可迭代对象需要在其自身或原型链上定义<code>Symbol.iterator</code>属性</li>
+</ul>
 
 <pre><code><span></span>
+<span>let obj = {'{'}</span>
+<span>    name: 'Dinosaur',</span>
+<span>    age: 23</span>
+<span>}</span>
+<span>// 将 obj 变成可迭代对象</span>
+<span>obj[Symbol.iterator] = function () {'{'}</span>
+<span>    let keys = Object.keys(this);</span>
+<span>    let index = 0;</span>
+<span>    return {'{'}</span>
+<span>        next: () =&gt; {'{'}</span>
+<span>            return {'{'} value: this[keys[index++]], done: index &gt; keys.length };</span>
+<span>        }</span>
+<span>    }</span>
+<span>}</span>
+<span>for (let value of obj) {'{'}</span>
+<span>    console.log(value) // Dinosaur 23</span>
+<span>}</span>
 <span></span>
 </code></pre>
 
