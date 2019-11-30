@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"数据类型"},{"level":"h3","title":"堆与栈存储"},{"level":"h3","title":"堆与栈的区别"},{"level":"h3","title":"深拷贝与浅拷贝"},{"level":"h3","title":"内存的生命周期"},{"level":"h3","title":"垃圾回收机制"},{"level":"h3","title":"内存泄漏"},{"level":"h3","title":"WeakMap"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>
@@ -160,7 +163,15 @@ export default class Template extends React.Component {
   <p>对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。 不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）。</p>
 </blockquote>
 
-<p>常见内存泄漏原因：<br></br>1. setTimeout的第一个参数使用字符串而非函数的话，会引发内存泄漏。<br></br>2. 闭包<br></br>3. 在传递给 console.log的对象是不能被垃圾回收，因为在代码运行之后需要在开发工具能查看对象信息。<br></br>4. 循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）<br></br>5. 超出DOM引用（在某些情况下，开发人员会在数据结构中存储DOM节点，例如你想快速更新表格中的几行内容的情况。如果在字典或数组中存储对每个DOM行的引用，则会有两个对同一个DOM元素的引用）</p>
+<p>常见内存泄漏原因：</p>
+
+<ol>
+<li>setTimeout的第一个参数使用字符串而非函数的话，会引发内存泄漏。</li>
+<li>闭包</li>
+<li>在传递给 console.log的对象是不能被垃圾回收，因为在代码运行之后需要在开发工具能查看对象信息。</li>
+<li>循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）</li>
+<li>超出DOM引用（在某些情况下，开发人员会在数据结构中存储DOM节点，例如你想快速更新表格中的几行内容的情况。如果在字典或数组中存储对每个DOM行的引用，则会有两个对同一个DOM元素的引用）</li>
+</ol>
 
 <h3 id='WeakMap'>WeakMap</h3>
 

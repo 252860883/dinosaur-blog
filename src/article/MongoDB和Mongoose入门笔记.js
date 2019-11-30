@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h4","title":"什么是 MongoDB ？有何特点？"},{"level":"h4","title":"Mongoose"},{"level":"h4","title":"启动 MongoDB"},{"level":"h5","title":"常用的查询指令"},{"level":"h4","title":"更新"},{"level":"h4","title":"删除"},{"level":"h4","title":"钩子函数"},{"level":"h4","title":"查询后处理"},{"level":"h4","title":"文档验证"},{"level":"h4","title":"MongoDB实现分页查询"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

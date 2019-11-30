@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"<strong>看十本书（技术/非技术）</strong>"},{"level":"h3","title":"** 瘦到130斤 **"},{"level":"h3","title":"<strong>提升英语阅读水平</strong>"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

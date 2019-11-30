@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"传统懒加载方案"},{"level":"h3","title":"方案一：image组件的lazy-load属性"},{"level":"h3","title":"方案二：利用WXML节点信息API实现"},{"level":"h3","title":"方案三：利用WXML节点布局相交状态实现"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

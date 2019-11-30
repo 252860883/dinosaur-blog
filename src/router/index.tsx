@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { HashRouter, withRouter } from 'react-router-dom'
-import { downloadAllIMG } from '../utils/util'
 import { Route } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import picArr from '../assets/assets'
@@ -12,7 +11,6 @@ import Header from '../components/header';
 import { RouterMap } from './routerMap'
 
 interface IState {
-    loading: boolean
 }
 
 const routes = (
@@ -41,16 +39,8 @@ const routes = (
 
 export default class Root extends React.Component<any, IState> {
     state = {
-        loading: true
     }
-    componentWillMount() {
-        let ImgFolder: Array<any> = picArr.map(item => require('../assets/' + item))
-        downloadAllIMG(ImgFolder).then(() => {
-            this.setState({
-                loading: false
-            })
-        })
-    }
+    componentWillMount() {}
     render() {
         return routes;
     }

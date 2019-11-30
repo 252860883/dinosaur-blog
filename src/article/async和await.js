@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"Async/Await 的出现"},{"level":"h3","title":"Iterator"},{"level":"h3","title":"Generator"},{"level":"h3","title":"Async/Await"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

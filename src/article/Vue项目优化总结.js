@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"代码优化"},{"level":"h4","title":"v-for相关"},{"level":"h4","title":"冻结不会变化的对象"},{"level":"h4","title":"避免内存泄漏"},{"level":"h4","title":"图片懒加载"},{"level":"h4","title":"路由懒加载"},{"level":"h4","title":"第三方插件按需引入"},{"level":"h4","title":"服务器渲染 SSR"},{"level":"h4","title":"设置预渲染"},{"level":"h3","title":"Web基础优化"},{"level":"h3","title":"Webpack优化"},{"level":"h3","title":"Webpack构建优化"},{"level":"h4","title":"减少冗余代码"},{"level":"h4","title":"优化 Loader 配置"},{"level":"h4","title":"优化 resolve.noParse 配置"},{"level":"h4","title":"HappyPack 多子进程构建"},{"level":"h4","title":"ParallelUglifyPlugin 可以开启多个进程，并行使用 UglifyJS 压缩代码文件"},{"level":"h4","title":"调节自动刷新时间"},{"level":"h4","title":"模块热更新"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

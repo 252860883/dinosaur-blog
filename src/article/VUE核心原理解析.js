@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"运行机制"},{"level":"h2","title":"响应式绑定"},{"level":"h4","title":"Object.defineProperty"},{"level":"h3","title":"依赖收集"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

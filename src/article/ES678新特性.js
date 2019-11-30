@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"箭头函数"},{"level":"h3","title":"rest参数和拓展运算符"},{"level":"h3","title":"对象属性简写"},{"level":"h3","title":"解构赋值"},{"level":"h3","title":"字符串拓展"},{"level":"h3","title":"Symbol类型"},{"level":"h3","title":"数组拓展"},{"level":"h3","title":"正则拓展"},{"level":"h3","title":"函数默认值"},{"level":"h3","title":"Set 和 WeakSet"},{"level":"h3","title":"Map 和 WeakMap"},{"level":"h3","title":"Promise函数"},{"level":"h3","title":"Generators生成器"},{"level":"h3","title":"Iterator遍历器"},{"level":"h3","title":"for...in 与 for...of"},{"level":"h3","title":"Async Await"},{"level":"h3","title":"Class 类"},{"level":"h3","title":"模块"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"Reflect"},{"level":"h3","title":"数学运算符"},{"level":"h3","title":"Object相关API"},{"level":"h4","title":"Objec.values()"},{"level":"h4","title":"Objec.entries()"},{"level":"h4","title":"Objec.getOwnPropertyDescriptors()"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

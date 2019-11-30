@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"Action"},{"level":"h3","title":"Reducer"},{"level":"h3","title":"Store"},{"level":"h3","title":"数据流"},{"level":"h3","title":"React 中使用 Redux"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"单线程"},{"level":"h3","title":"执行栈"},{"level":"h3","title":"任务队列"},{"level":"h3","title":"Event Loop"},{"level":"h3","title":"Nodejs环境的 Event Loop"},{"level":"h4","title":"事件循环六个阶段"},{"level":"h4","title":"process.nextTick 与 setImmediate"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

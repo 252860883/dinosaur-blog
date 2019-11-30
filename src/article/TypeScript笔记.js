@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"了解 TypeScript"},{"level":"h3","title":"对象类型"},{"level":"h4","title":"基础数据类型"},{"level":"h4","title":"任意类型"},{"level":"h4","title":"类型推论"},{"level":"h4","title":"联合类型"},{"level":"h4","title":"数组类型"},{"level":"h4","title":"函数类型"},{"level":"h4","title":"类型断言"},{"level":"h4","title":"类型别名"},{"level":"h4","title":"泛型"},{"level":"h4","title":"内置对象"},{"level":"h3","title":"接口"},{"level":"h3","title":"类"},{"level":"h3","title":"类与接口的结合"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

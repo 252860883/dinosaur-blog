@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"方法一：利用死循环阻塞线程"},{"level":"h3","title":"方法二：Async/Await"},{"level":"h3","title":"方法三：Generator"},{"level":"h3","title":"最后"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

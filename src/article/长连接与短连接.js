@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"长连接与短连接"},{"level":"h4","title":"短连接"},{"level":"h4","title":"长连接"},{"level":"h3","title":"TCP连接"},{"level":"h3","title":"优缺点比较"},{"level":"h3","title":"适用场景"},{"level":"h3","title":"HTTP2.0 多路复用"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

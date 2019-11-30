@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"AJAX"},{"level":"h3","title":"$.ajax()"},{"level":"h3","title":"Axios"},{"level":"h3","title":"Fetch"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

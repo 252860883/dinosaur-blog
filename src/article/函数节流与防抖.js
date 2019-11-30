@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"节流函数（Throttle）"},{"level":"h3","title":"防抖函数（Debounce）"},{"level":"h3","title":"利用 Throttle 优化 Debounce"},{"level":"h3","title":"requestAnimationFrame"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

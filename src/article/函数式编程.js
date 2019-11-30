@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"什么是函数式编程"},{"level":"h3","title":"声明式与命令式"},{"level":"h3","title":"纯函数"},{"level":"h3","title":"柯里化 与 高阶函数"},{"level":"h3","title":"部分应用"},{"level":"h3","title":"组合函数"},{"level":"h3","title":"总结"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

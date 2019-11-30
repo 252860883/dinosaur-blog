@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"如何实现数据双向绑定"},{"level":"h3","title":"如何对数组和对象进行数据劫持"},{"level":"h3","title":"Vue.set 原理"},{"level":"h3","title":"Proxy"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"1.启动加载性能"},{"level":"h4","title":"控制代码包大小"},{"level":"h4","title":"分包加载"},{"level":"h4","title":"首屏加载优化"},{"level":"h2","title":"2.渲染性能优化"},{"level":"h4","title":"避免不当使用 setData"},{"level":"h4","title":"避免不当使用 onPageScroll"},{"level":"h4","title":"建议使用自定义组件"},{"level":"h4","title":"WXS响应事件"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

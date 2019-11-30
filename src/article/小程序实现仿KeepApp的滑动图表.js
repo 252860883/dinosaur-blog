@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"第一次尝试，利用echarts实现"},{"level":"h3","title":"第二次尝试，原生view标签实现"},{"level":"h3","title":"第三次尝试，小程序组件 scroll-view"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

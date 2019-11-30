@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"1.💎易混淆的组合选择器"},{"level":"h4","title":"后代选择器： 空格符 与 >"},{"level":"h4","title":"兄弟选择器： + 与 ～"},{"level":"h4","title":"总结"},{"level":"h3","title":"2.💎CSS函数"},{"level":"h4","title":"attr()"},{"level":"h4","title":"calc()"},{"level":"h4","title":"自定义变量 var()"},{"level":"h3","title":"3.💎实现条纹效果"},{"level":"h3","title":"4.💎配合 outline 实现双层描边"},{"level":"h3","title":"5.💎单行文本与多行文本超出部分省略"},{"level":"h3","title":"6.💎object-fit 设置图片何种比例显示"},{"level":"h3","title":"7.💎隐藏元素三种方法比较"},{"level":"h3","title":"8.💎1px问题"},{"level":"h3","title":"9.💎单侧投影"},{"level":"h3","title":"10.💎清除input默认样式"},{"level":"h3","title":"11.💎CSS计数器"},{"level":"h3","title":"12.💎消除transition闪屏"},{"level":"h3","title":"13.💎 字体抗锯齿渲染"},{"level":"h3","title":"14.💎 first-child和first-of-type"},{"level":"h3","title":"参考"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

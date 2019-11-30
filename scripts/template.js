@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: []
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

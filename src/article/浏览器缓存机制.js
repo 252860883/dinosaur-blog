@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"缓存位置"},{"level":"h3","title":"Service Worker"},{"level":"h3","title":"Memory Cache"},{"level":"h3","title":"Disk Cache"},{"level":"h3","title":"Push Cache"},{"level":"h2","title":"缓存过程"},{"level":"h2","title":"缓存策略"},{"level":"h3","title":"强缓存"},{"level":"h4","title":"Cache-Control"},{"level":"h4","title":"Expires"},{"level":"h4","title":"两者对比"},{"level":"h3","title":"协商缓存"},{"level":"h4","title":"Last-Modified"},{"level":"h4","title":"ETag"},{"level":"h4","title":"两者对比"},{"level":"h3","title":"缓存机制"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

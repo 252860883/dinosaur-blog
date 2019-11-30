@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h2","title":"第一篇章 配置"},{"level":"h3","title":"1. 为什么用webpack？"},{"level":"h3","title":"2. 安装"},{"level":"h3","title":"3. 入口与输出"},{"level":"h3","title":"4. Loader"},{"level":"h3","title":"5. Plugin"},{"level":"h3","title":"6. Resolve"},{"level":"h3","title":"总结"},{"level":"h2","title":"第二篇章 本地服务"},{"level":"h3","title":"webpack-dev-server "},{"level":"h3","title":"webpack-dev-middleware"},{"level":"h3","title":"开发环境和生产环境的构建"},{"level":"h4","title":"webpack 3.x配置"},{"level":"h4","title":"webpack 4.0配置"},{"level":"h2","title":"第三篇章 优化"},{"level":"h3","title":"image-webpack-loader 图片压缩"},{"level":"h3","title":"使用 url-loader 将文件转为 DataURL"},{"level":"h3","title":"分离代码文件"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>

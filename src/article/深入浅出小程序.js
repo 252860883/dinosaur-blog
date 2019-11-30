@@ -8,7 +8,10 @@ export default class Template extends React.Component {
             headerLink: [{"level":"h3","title":"小程序的由来"},{"level":"h3","title":"小程序和传统web的区别"},{"level":"h3","title":"小程序运行环境"},{"level":"h3","title":"小程序的JavaScript"},{"level":"h3","title":"宿主环境"},{"level":"h3","title":"微信登陆"},{"level":"h3","title":"微信缓存"},{"level":"h3","title":"底层分析"},{"level":"h3","title":"优化"}]
         }
     }
-    componentDidMount() {}
+    componentWillMount(){
+    }
+    componentDidMount() {
+    }
     render() {
         return (
             <Fragment>
