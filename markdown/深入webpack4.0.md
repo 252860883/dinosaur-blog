@@ -47,7 +47,7 @@ module.exports = {
 ```
 
 ### 4. Loader
-Loader 可以看作是 webpack 的转换器或者“翻译员”，把代码转换成 webpack 可以打包的模块，在 module.rules 下配置。格式如下：
+Loader 可以看作是 webpack 的转换器或者“翻译员”，能够加载资源文件，并对这些文件进行一些处理，诸如编译、压缩等，最终一起打包到指定的文件中，在`module.rules`下配置。格式如下：
 
 ```
 module.exports = {
@@ -68,6 +68,7 @@ module.exports = {
 }...
 ```
 **匹配规则**（字符串、正则、函数、数组、对象）：
+
 * { test: ... } 匹配特定条件 
 * { include: ... } 匹配特定路径 
 * { exclude: ... } 排除特定路径 
@@ -76,16 +77,45 @@ module.exports = {
 * { not: [...] } 排除匹配数组中所有条件
 
 **执行顺序**
-执行顺序是从最后配置的 loader 开始，一步步往前执行。
-rule.enforce 可以设置 loader 种类，默认为普通，可以设置 “pre”（前置）、post（后置），还有一个额外的种类"行内 loader"，被应用在 import/require 行内。
-种类的执行优先级：前置>行内>普通>后置
+执行顺序是从最后配置的 loader 开始，一步步往前执行。第一个执行的loader接收源文件内容作为参数，其他loader接收前一个执行的loader的返回值作为参数。最后执行的loader会返回此模块的js源码。
 
 **noPrase**
 不需要解析依赖的第三方类库可以配置在 noParse 中，但是需注意使用 noParse 进行忽略的模块文件中不能使用 import、require、define 等导入机制。
 
+**自定义Loader**
+例如下面实现一个翻转字符串的`reverse-loader.js`：
+
+```
+module.exports = function (src) {
+  if (src) {
+    src = src.split('').reverse().join('')
+  }
+  return src;
+}
+```
+
+然后在`module.rules`中进行loader配置：
+
+```
+module: {
+  rules: [
+    ...,
+    {
+      test: /\.txt$/,
+      use: [
+        './reverse-loader.js'
+      ]
+    }
+  ]
+}
+
+```
+
 
 ### 5. Plugin
-Plugin 是用来扩展 Webpack 功能的，处理其他的构建任务，模块转换的工作给 loader 做，剩下的工作由 plugin 完成。，通过在构建流程里注入钩子实现，它给 Webpack 带来了很大的灵活性。plugin安装后需要手动引入。下面以配置sass示例,注意其中用到了插件`extract-text-webpack-plugin`在webpack 4.x中没有做支持，所以需要这样引入：`npm install extract-text-webpack-plugin@next -D`
+Plugin 是用来扩展 Webpack 功能的，处理其他的构建任务，模块转换的工作给 loader 做，剩下的工作由 plugin 完成。Webpack 在运行周期中会进行事件广播，Plugin 可以监听这些事件，并在特定时机通过 Webpack 提供的 API 改变输出结果。
+
+下面以配置sass示例,注意其中用到了插件`extract-text-webpack-plugin`在webpack 4.x中没有做支持，所以需要这样引入：`npm install extract-text-webpack-plugin@next -D`
 
 ```
 const ExtractTextPlugin = require('extract-text-webpack-plugin') //手动引入
@@ -113,6 +143,41 @@ module.exports = {
 }
 
 ```
+
+#### 实现一个Plugin插件
+
+先来看一个简单的插件实现：
+
+```
+class MyPlugin {
+  // 构造方法
+  constructor (options) {
+    console.log('MyPlugin constructor:', options)
+  }
+  // 应用函数
+  apply (compiler) {
+    // 绑定钩子事件
+    compiler.plugin('compilation', compilation => {
+      console.log('MyPlugin')
+    ))
+  }
+}
+
+module.exports = MyPlugin
+```
+
+- Webpack 启动后会先执行 `new MyPlugin(options)`,初始化得到一个实例
+- 当初始化 compiler 对象后，调用`myPlugin.apply(compiler)`给插件传入 compiler 对象
+- 插件实例在获取到 compiler 对象后，就可以通过`compiler.plugin(事件名称, 回调函数)` 监听 Webpack 广播出来的事件，通过`compiler.apply(事件名称,传递参数)`触发事件。这是一个典型的观察者模式。
+- 同事可以通过 compiler 操作 webpack
+
+> `Compiler` 对象包含了 Webpack 环境的配置信息，包含 options，loaders，plugins 这些信息，这个对象在 Webpack 启动时候被实例化。
+> `Compilation` 对象包含了当前的模块资源、编译生成资源、变化的文件等。当 Webpack 以开发模式运行时，每当检测到一个文件变化，一次新的 Compilation 将被创建。Compilation 对象也提供了很多事件回调供插件做扩展。通过 Compilation 也能读取到 Compiler 对象。
+
+
+
+
+
 
 ### 6. Resolve
 Webpack 在启动后会从配置的入口模块出发找出所有依赖的模块，Resolve 配置 Webpack 如何寻找模块所对应的文件。 Webpack 内置 JavaScript 模块化语法解析功能，默认会采用模块化标准里约定好的规则去寻找，但你也可以根据自己的需要修改默认的规则。
@@ -366,4 +431,7 @@ optimization: {
     },
 },
 ```
+
+### 参考
+[webpack loader和plugin编写](https://juejin.im/post/5bbf190de51d450ea52fffd3)
 

@@ -5,7 +5,7 @@ export default class Template extends React.Component {
     constructor() {
         super();
         this.state = {
-            headerLink: [{"level":"h2","title":"第一篇章 配置"},{"level":"h3","title":"1. 为什么用webpack？"},{"level":"h3","title":"2. 安装"},{"level":"h3","title":"3. 入口与输出"},{"level":"h3","title":"4. Loader"},{"level":"h3","title":"5. Plugin"},{"level":"h3","title":"6. Resolve"},{"level":"h3","title":"总结"},{"level":"h2","title":"第二篇章 本地服务"},{"level":"h3","title":"webpack-dev-server "},{"level":"h3","title":"webpack-dev-middleware"},{"level":"h3","title":"开发环境和生产环境的构建"},{"level":"h4","title":"webpack 3.x配置"},{"level":"h4","title":"webpack 4.0配置"},{"level":"h2","title":"第三篇章 优化"},{"level":"h3","title":"image-webpack-loader 图片压缩"},{"level":"h3","title":"使用 url-loader 将文件转为 DataURL"},{"level":"h3","title":"分离代码文件"}]
+            headerLink: [{"level":"h2","title":"第一篇章 配置"},{"level":"h3","title":"1. 为什么用webpack？"},{"level":"h3","title":"2. 安装"},{"level":"h3","title":"3. 入口与输出"},{"level":"h3","title":"4. Loader"},{"level":"h3","title":"5. Plugin"},{"level":"h4","title":"实现一个Plugin插件"},{"level":"h3","title":"6. Resolve"},{"level":"h3","title":"总结"},{"level":"h2","title":"第二篇章 本地服务"},{"level":"h3","title":"webpack-dev-server "},{"level":"h3","title":"webpack-dev-middleware"},{"level":"h3","title":"开发环境和生产环境的构建"},{"level":"h4","title":"webpack 3.x配置"},{"level":"h4","title":"webpack 4.0配置"},{"level":"h2","title":"第三篇章 优化"},{"level":"h3","title":"image-webpack-loader 图片压缩"},{"level":"h3","title":"使用 url-loader 将文件转为 DataURL"},{"level":"h3","title":"分离代码文件"},{"level":"h3","title":"参考"}]
         }
     }
     componentWillMount(){
@@ -65,7 +65,7 @@ export default class Template extends React.Component {
 
 <h3 id='4. Loader'>4. Loader</h3>
 
-<p>Loader 可以看作是 webpack 的转换器或者“翻译员”，把代码转换成 webpack 可以打包的模块，在 module.rules 下配置。格式如下：</p>
+<p>Loader 可以看作是 webpack 的转换器或者“翻译员”，能够加载资源文件，并对这些文件进行一些处理，诸如编译、压缩等，最终一起打包到指定的文件中，在<code>module.rules</code>下配置。格式如下：</p>
 
 <pre><code><span></span>
 <span>module.exports = {'{'}</span>
@@ -87,15 +87,56 @@ export default class Template extends React.Component {
 <span></span>
 </code></pre>
 
-<p><strong>匹配规则</strong>（字符串、正则、函数、数组、对象）：<br></br>* {'{'} test: ... } 匹配特定条件 <br></br>* {'{'} include: ... } 匹配特定路径 <br></br>* {'{'} exclude: ... } 排除特定路径 <br></br>* {'{'} and: [...] }必须匹配数组中所有条件 <br></br>* {'{'} or: [...] } 匹配数组中任意一个条件 <br></br>* {'{'} not: [...] } 排除匹配数组中所有条件</p>
+<p><strong>匹配规则</strong>（字符串、正则、函数、数组、对象）：</p>
 
-<p><strong>执行顺序</strong><br></br>执行顺序是从最后配置的 loader 开始，一步步往前执行。<br></br>rule.enforce 可以设置 loader 种类，默认为普通，可以设置 “pre”（前置）、post（后置），还有一个额外的种类"行内 loader"，被应用在 import/require 行内。<br></br>种类的执行优先级：前置>行内>普通>后置</p>
+<ul>
+<li>{'{'} test: ... } 匹配特定条件 </li>
+<li>{'{'} include: ... } 匹配特定路径 </li>
+<li>{'{'} exclude: ... } 排除特定路径 </li>
+<li>{'{'} and: [...] }必须匹配数组中所有条件 </li>
+<li>{'{'} or: [...] } 匹配数组中任意一个条件 </li>
+<li>{'{'} not: [...] } 排除匹配数组中所有条件</li>
+</ul>
+
+<p><strong>执行顺序</strong><br></br>执行顺序是从最后配置的 loader 开始，一步步往前执行。第一个执行的loader接收源文件内容作为参数，其他loader接收前一个执行的loader的返回值作为参数。最后执行的loader会返回此模块的js源码。</p>
 
 <p><strong>noPrase</strong><br></br>不需要解析依赖的第三方类库可以配置在 noParse 中，但是需注意使用 noParse 进行忽略的模块文件中不能使用 import、require、define 等导入机制。</p>
 
+<p><strong>自定义Loader</strong><br></br>例如下面实现一个翻转字符串的<code>reverse-loader.js</code>：</p>
+
+<pre><code><span></span>
+<span>module.exports = function (src) {'{'}</span>
+<span>  if (src) {'{'}</span>
+<span>    src = src.split('').reverse().join('')</span>
+<span>  }</span>
+<span>  return src;</span>
+<span>}</span>
+<span></span>
+</code></pre>
+
+<p>然后在<code>module.rules</code>中进行loader配置：</p>
+
+<pre><code><span></span>
+<span>module: {'{'}</span>
+<span>  rules: [</span>
+<span>    ...,</span>
+<span>    {'{'}</span>
+<span>      test: /\.txt$/,</span>
+<span>      use: [</span>
+<span>        './reverse-loader.js'</span>
+<span>      ]</span>
+<span>    }</span>
+<span>  ]</span>
+<span>}</span>
+<span></span>
+<span></span>
+</code></pre>
+
 <h3 id='5. Plugin'>5. Plugin</h3>
 
-<p>Plugin 是用来扩展 Webpack 功能的，处理其他的构建任务，模块转换的工作给 loader 做，剩下的工作由 plugin 完成。，通过在构建流程里注入钩子实现，它给 Webpack 带来了很大的灵活性。plugin安装后需要手动引入。下面以配置sass示例,注意其中用到了插件<code>extract-text-webpack-plugin</code>在webpack 4.x中没有做支持，所以需要这样引入：<code>npm install extract-text-webpack-plugin@next -D</code></p>
+<p>Plugin 是用来扩展 Webpack 功能的，处理其他的构建任务，模块转换的工作给 loader 做，剩下的工作由 plugin 完成。Webpack 在运行周期中会进行事件广播，Plugin 可以监听这些事件，并在特定时机通过 Webpack 提供的 API 改变输出结果。</p>
+
+<p>下面以配置sass示例,注意其中用到了插件<code>extract-text-webpack-plugin</code>在webpack 4.x中没有做支持，所以需要这样引入：<code>npm install extract-text-webpack-plugin@next -D</code></p>
 
 <pre><code><span></span>
 <span>const ExtractTextPlugin = require('extract-text-webpack-plugin') //手动引入</span>
@@ -124,6 +165,40 @@ export default class Template extends React.Component {
 <span></span>
 <span></span>
 </code></pre>
+
+<h4 id='实现一个Plugin插件'>实现一个Plugin插件</h4>
+
+<p>先来看一个简单的插件实现：</p>
+
+<pre><code><span></span>
+<span>class MyPlugin {'{'}</span>
+<span>  // 构造方法</span>
+<span>  constructor (options) {'{'}</span>
+<span>    console.log('MyPlugin constructor:', options)</span>
+<span>  }</span>
+<span>  // 应用函数</span>
+<span>  apply (compiler) {'{'}</span>
+<span>    // 绑定钩子事件</span>
+<span>    compiler.plugin('compilation', compilation =&gt; {'{'}</span>
+<span>      console.log('MyPlugin')</span>
+<span>    ))</span>
+<span>  }</span>
+<span>}</span>
+<span></span>
+<span>module.exports = MyPlugin</span>
+<span></span>
+</code></pre>
+
+<ul>
+<li>Webpack 启动后会先执行 <code>new MyPlugin(options)</code>,初始化得到一个实例</li>
+<li>当初始化 compiler 对象后，调用<code>myPlugin.apply(compiler)</code>给插件传入 compiler 对象</li>
+<li>插件实例在获取到 compiler 对象后，就可以通过<code>compiler.plugin(事件名称, 回调函数)</code> 监听 Webpack 广播出来的事件，通过<code>compiler.apply(事件名称,传递参数)</code>触发事件。这是一个典型的观察者模式。</li>
+<li>同事可以通过 compiler 操作 webpack</li>
+</ul>
+
+<blockquote>
+  <p><code>Compiler</code> 对象包含了 Webpack 环境的配置信息，包含 options，loaders，plugins 这些信息，这个对象在 Webpack 启动时候被实例化。<br></br><code>Compilation</code> 对象包含了当前的模块资源、编译生成资源、变化的文件等。当 Webpack 以开发模式运行时，每当检测到一个文件变化，一次新的 Compilation 将被创建。Compilation 对象也提供了很多事件回调供插件做扩展。通过 Compilation 也能读取到 Compiler 对象。</p>
+</blockquote>
 
 <h3 id='6. Resolve'>6. Resolve</h3>
 
@@ -404,6 +479,10 @@ export default class Template extends React.Component {
 <span>},</span>
 <span></span>
 </code></pre>
+
+<h3 id='参考'>参考</h3>
+
+<p><a target="_blank" href="https://juejin.im/post/5bbf190de51d450ea52fffd3">webpack loader和plugin编写</a></p>
 </div>
             </Fragment>
         )
