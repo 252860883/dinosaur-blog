@@ -10,6 +10,7 @@ let RouterOrigin: Array<any> = [
 ]
 let RouterMenu: any[] = []
 let ArticleMenu: Array<any> = [//start
+	{"title":"BFC、IFC、FFC、GFC","date":"2020-01-25 16:35:43","tags":"'css'","top":"","link":"/article-CSS之BFC IFC","article":true},
 	{"title":"ES6+ 新特性大汇总","date":"2018-06-29 12:22:07","tags":"['javascript','ES6']","top":"true","link":"/article-ES678新特性","article":true},
 	{"title":"JavaScript 继承的几种方式","date":"2019-07-23 10:30:12","tags":"javascript","top:":"","link":"/article-JavaScript 继承","article":true},
 	{"title":"JavaScript的类型检测","date":"2019-01-24 10:30:12","tags":"javascript","top:":"","link":"/article-JavaScript的类型检测","article":true},
@@ -39,6 +40,7 @@ let ArticleMenu: Array<any> = [//start
 	{"title":"剖析Vue响应式绑定","date":"2019-8-18 11:23:03","tags":"['javascript']","top:":"","link":"/article-剖析Vue响应式绑定","article":true},
 	{"title":"动手实现前后端 websocket 通信","date":"2019-04-09 15:24:20","tags":"[html5,nodejs]","link":"/article-动手实现 websocket","article":true},
 	{"title":"你不知道的Chrome调试工具技巧","date":"2019-03-07 11:16:44","tags:":"","top:":"","link":"/article-合理利用chrome调试工具","article":true},
+	{"title":"JavaScript垃圾回收机制","date":"2019-12-28 16:35:43","tags:":"","top":"","link":"/article-垃圾回收算法","article":true},
 	{"title":"[项目总结]大牛工资条","tags":"项目总结","date":"2017-09-19 14:17:13","link":"/article-大牛工资条","article":true},
 	{"title":"如何用js实现一个sleep函数","date":"2019-09-10 17:13:52","tags":"javascript","top:":"","link":"/article-如何实现一个sleep函数","article":true},
 	{"title":"对MVVM的一些理解","date":"2019-07-24 12:23:14","tags":"javascript","link":"/article-对MVVM的一些理解","article":true},

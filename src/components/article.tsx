@@ -85,7 +85,7 @@ class Article extends React.Component<any, IState> {
                     !this.props.hideNormal && this.state.showArticleMenu.map((item: any) => {
                         return (
                             <div key={item.link} className="article-item" onClick={() => this.clickToArticle(item)}>
-                                <span className='time'>{item.date.split(' ')[0]} </span>
+                                <span className='time'>{item.date && item.date.split(' ')[0]} </span>
                                 <span className='title'>{item.title}</span>
                             </div>
                         )
