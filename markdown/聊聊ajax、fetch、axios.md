@@ -10,9 +10,10 @@ top:
 ### AJAX
 在前几年的时候，AJAX 可谓是前端一大考点啊，各路关于前端招聘的简介里，怎么也得让 AJAX 拥有姓名。AJAX（Asynchronous JavaScript and XML）异步的 Javascript 和 XML，核心就是使用 XMLHttpRequest 对象（对于旧版本浏览器例如 IE5、IE6则使用 ActiveXObject 对象）。
 AJAX进行后端数据请求主要分一下几步：
-1.创建 XMLHttpRequest 对象
-2.进行 get 请求
-3.利用 readyState 对象的 onreadystatechange 事件进行后续DOM或其他操作
+
+1. 创建 XMLHttpRequest 对象
+2. 进行 get 请求
+3. 利用 readyState 对象的 onreadystatechange 事件进行后续DOM或其他操作
 
 具体实现见以下代码：
 ```
@@ -61,14 +62,15 @@ $.ajax({
 
 ### Axios
 自从尤大开始停止维护 vue-resource 并推荐大家使用 axios 之后，axios 逐渐被大家所认识。axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，其实本质上底层也是通过 XHR 来实现的。尤大推荐自然有他的原因，axios 使用 Promise 封装，满足了现在的 ES6 的规范，同时还增加了很多的方法和功能，具体如下：
-1.拦截请求和响应
-2.转换请求和响应数据
-3.支持 Promise API
-4.提供了一些并发操作的方法
-5.自动转换JSON数据
-6.客户端支持防范XSRF
-7.支持取消请求
-8.从node.js发出http请求
+
+1. 拦截请求和响应
+2. 转换请求和响应数据
+3. 支持 Promise API
+4. 提供了一些并发操作的方法
+5. 自动转换JSON数据
+6. 客户端支持防范XSRF
+7. 支持取消请求
+8. 从node.js发出http请求
 
 ```
 <!-- 基础示例 -->
